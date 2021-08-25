@@ -1,0 +1,966 @@
+\chapter*{Exercises C5}
+
+\begin{enumerate}
+	\item At least $ 2 $ out of $ 4 $ components need to work. Let $ X $ be the total number of working components. X is a Bernoulli RV with $ n = 4, p = 0.6 $\\
+	
+	\begin{subequations}
+		\begin{align}
+			P \left\{X \geq 2 \right\} &= 1 - P \left\{X < 2 \right\} \\
+			%
+			&= 1 - \left[\binom{4}{0} (0.6)^0 (0.4)^4 + \binom{4}{1} (0.6)^1 (0.4)^3\right] \nonumber \\
+			%
+			&= 0.8208 \nonumber
+		\end{align}\\
+	\end{subequations}
+
+	\item Assume all 5 bits are independent.  At least 3 out of 5 bits have to be incorrectly received. Using Bernoulli RV with $ n = 5, p = 0.2 $, \\
+	
+	\begin{subequations}
+		\begin{align}
+			P \left\{X \geq 3 \right\} &= 1 - P \left\{X < 3 \right\} \\
+			%
+			&= 1 - \sum\limits_{0}^{2} \binom{5}{i}\ (0.2)^i\ (0.8)^{5-i} \nonumber \\
+			%
+			&= 0.0579 \nonumber
+		\end{align}\\
+	\end{subequations}
+
+	\item Assume all 10 voters are independent.  Exactly 7 out of 10 voters have to be agree. Using Bernoulli RV with $ n = 10, p = 0.7 $, \\
+	
+	\begin{subequations}
+		\begin{align}
+			P \left\{X = 7 \right\} &= \binom{10}{7}\ (0.7)^7\ (0.3)^{10-7}  \\
+			%
+			&= 0.2668 \nonumber
+		\end{align}\\
+	\end{subequations} 
+
+	\item Assume all 4 children are independent. Exactly 3 out of 4 children have to be dominant phenotype. Using Bernoulli RV with $ n = 4, p = 0.75 $, \\
+	
+	\begin{subequations}
+		\begin{align}
+			P \left\{X = 3 \right\} &= \binom{4}{3}\ (0.75)^3\ (0.25)^{4-3}  \\
+			%
+			&= 27/64 \nonumber
+		\end{align}\\
+	\end{subequations} 
+
+	\item All engines are independent. At least half the engines have to function. Using Bernoulli RV $ X, Y $ with $ n = 4, n = 2 $, \\
+	
+	\begin{subequations}
+		\begin{align}
+			P \left\{X \geq 2 \right\} &= 1 - P \left\{X \leq 1 \right\} \\
+			%
+			&= \sum\limits_{2}^{4} \binom{4}{i}\ (p)^i\ (1-p)^{4-i} \nonumber \\
+			%
+			&= 3p^4 - 8p^3 + 6p^2 \\
+			%
+			P \left\{Y \geq 1 \right\} &= 1 - P \left\{X = 0 \right\} \\
+			%
+			&= 1 - \left[\binom{2}{0}\ (p)^0\ (1-p)^{2}\right] \nonumber \\
+			%
+			&= 1 - (1-p)^2 \nonumber \\
+			%
+			&= -p^2 + 2p \\
+			%
+			P \left\{X \geq 2 \right\} &> P \left\{Y \geq 1 \right\} \\
+			%
+			p\ (p-1)^2\ (3p-2) &> 0 \nonumber \\
+			%
+			p &> 2/3
+		\end{align}\\
+	\end{subequations} 
+	
+	\item Bernoulli RV $ X $ with $ \mathbb{E}[X] = 7, \mathrm{Var}(X) = 2.1 $, \\
+	
+	\begin{subequations}
+		\begin{enumerate}
+			\item \begin{align}
+				np &= 7 \qquad \text{and} \qquad np\ (1-p) = 2.1 \nonumber \\
+				%
+				n &= 10  \qquad \text{and} \qquad p = 0.7 \nonumber \\
+				%
+				P \left\{X = 4\right\} &= \binom{10}{4} \ 0.7^4 \ 0.3^6 \nonumber \\
+				%
+				&= 0.03677 \\
+			\end{align}
+		
+			\item \begin{align}
+				P \left\{X > 12\right\} &= 0
+			\end{align}
+		\end{enumerate}
+	\end{subequations}
+
+	\item $ X, Y $ have parameters $ (n,p)$ and $ (n, 1-p) $. Let $ q = 1-p $. \\
+	\begin{subequations}
+		\begin{enumerate}
+			\item \begin{align}
+				P \left\{X \leq i \right\} &= \sum\limits_{k=0}^{i} \binom{n}{k} \ p^k \ (1-p)^{n-k} \nonumber \\
+				%
+				&= \sum\limits_{k=0}^{i} \binom{n}{k} \ (1-q)^k \ (q)^{n-k}  \\
+				%
+				P \left\{Y \geq n-i \right\}&= \sum\limits_{k=n-i]}^{n} \binom{n}{k} \ (q)^k \ (1-q)^{n-k} \nonumber \\
+				%
+				&= \sum\limits_{k=i}^{0} \binom{n}{n-k} \ (1-q)^{n-k} \ (q)^{k} 
+			\end{align}\\
+			
+			\item \begin{align}
+				P \left\{X  = k\right\} &= \binom{n}{k} \ p^k \ (1-p)^{n-k} \nonumber \\
+				%
+				&= \binom{n}{n-k} \ (1-q)^k \ (q)^{n-k} \nonumber \\
+				%
+				&= P \left\{Y  = n-k\right\}
+			\end{align}
+		\end{enumerate}
+	\end{subequations}
+
+	\item Relation between $ P \left\{X  = k\right\} $ and $ P \left\{X  = k+1\right\} $\\
+	\begin{subequations}
+		\begin{enumerate}
+			\item \begin{align}
+				P \left\{X = k+1 \right\} &= \binom{n}{k+1} \ p^{k+1} \ (1-p)^{n-k-1} \\
+				%
+				&= \frac{n-k}{k+1}\ \binom{n}{k}\ \frac{p}{1-p} \ p^{k} \ (1-p)^{n-k} \nonumber \\
+				%
+				&= \frac{n-k}{k+1}\ \frac{p}{1-p}\ P \left\{X = k \right\}
+			\end{align}\\
+	
+			\item Condition for the next term to be larger than the current term \\
+			\begin{align}
+				P \left\{X = k+1 \right\} &> P \left\{X = k \right\} \nonumber \\
+				%
+				np - kp &> k - kp + 1 - p \nonumber \\
+				%
+				k &< np + p - 1
+			\end{align}\\
+		
+			The first term to violate this is when $ k = (n+1)\ p $, which is when the next term will be smaller than the current term, and thus the maximum is reached.\\
+			
+		\end{enumerate}
+	\end{subequations} 
+	
+	\item $ n $ independent experiments each with $ r $ possible outcomes.\\
+	\begin{subequations}
+		\begin{enumerate}
+			\item $ N_1 $ is binomial with parameters $ n, p_1 $
+			\begin{align}
+				P \left\{N_1 = k\right\} &= \binom{n}{k}\ p_1^k\ (1-p_1)^{n-k}
+			\end{align}\\
+			
+			\item $ N_1 $ increasing causes $ N_2 $ to decrease. They are not independent. \\
+			
+			\item $ N_1 + N_2 $ is the sum of two binomial RVs with the same $ n $ but different $ p $. Either event 1 or 2 needs to happen.\\
+			\begin{align}
+				P \left\{N_1 + N_2 = k \right\} &= \binom{n}{k}\ (p_1 + p_2)^k\ (1-p_1 - p_2)^{n-k} 
+			\end{align}\\
+		
+			\item $ \sum N_i $ is the sum of $ k $ binomial RVs with the same $ n $ but different $ p $. One of the $ k $ events needs to happen.\\
+			\begin{align}
+				P \left\{\sum N_i = m \right\} &= \binom{n}{m}\ \left(\sum p_i\right)^k\ \left(1-\sum p_i\right)^{n-k} 
+			\end{align}\\
+			
+		\end{enumerate}
+	\end{subequations} 
+
+	\item Using a computer to tabulate the approximations\\
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}rrrrr@{}}
+			\toprule
+			n &    p &  X &   Poisson &  Binomial \\
+			\midrule
+			10 &  0.1 &  2 &  0.1839 &    0.1937 \\
+			10 &  0.1 &  0 &  0.3679 &    0.3487 \\
+			9 &  0.2 &  4 &  0.0723 &    0.0661 \\
+		\end{tabular}
+	\end{table}
+
+	\item $ p = 0.01 $ for $ 50 $ independent lotteries. Using Poisson approximation with $ \lambda = np = 0.5 $\\
+	\begin{subequations}
+		\begin{enumerate}
+			\item 
+			\begin{align}
+				P \left\{X \geq 1\right\} &= 1 - P \left\{X = 0\right\} \nonumber \\
+				%
+				&= 1 - \left[e^{-0.5} \ \dfrac{0.5^0}{0!}\right] = 0.3935
+			\end{align}\\
+			
+			\item 
+			\begin{align}
+				P \left\{X = 1\right\} &= e^{-0.5} \ \dfrac{0.5^1}{1!} \nonumber \\
+				%
+				&= 0.3032
+			\end{align}\\
+		
+			\item 
+			\begin{align}
+				P \left\{X \geq 2\right\} &= 1 - P \left\{X \leq 1\right\} \nonumber \\
+				%
+				&= 1 - \left[e^{-0.5} \ \dfrac{0.5^0}{0!} + e^{-0.5} \ \dfrac{0.5^1}{1!}\right] \nonumber \\
+				%
+				&= 0.0902
+			\end{align}\\
+			
+		\end{enumerate}
+	\end{subequations} 
+	
+	\item Two possible values of $ \lambda $, 
+	\begin{subequations}
+		\begin{align}
+			P \left\{D\ |\ C = 0 \right\} &= \frac{P\left\{C = 0 \cap D\right\}}{P\left\{C = 0\right\}} \\
+			%
+			&= \frac{P \left\{C = 0\ |\ D \right\}\ P(D)}{P \left\{C = 0\ |\ D \right\}\ P(D) + P \left\{C = 0\ |\ D^\complement \right\}\ P(D^\complement)} \nonumber \\
+			%
+			P \left\{C = 0\ |\ D \right\} &= \texttt{Poisson.pmf(0, 2)} = 0.1353 \nonumber \\
+			%
+			P \left\{C = 0\ |\ D^\complement \right\} &= \texttt{Poisson.pmf(0, 3)} = 0.0498 \nonumber \\
+			%
+			P \left\{D\ |\ C = 0 \right\} &= 0.8908
+		\end{align}\\
+	\end{subequations} 
+
+	\item Let the deaths be a Poisson RV with $ \lambda = 121.95 $.
+	\begin{subequations}
+		\begin{enumerate}
+			\item 
+			\begin{align}
+				P \left\{X \geq 130\right\} &= 1 - F(129) \nonumber \\
+				%
+				&= 1 - \texttt{Poisson.cdf(129, 121.5)} = 0.2318
+			\end{align}\\
+			
+			\item 
+			\begin{align}
+				P \left\{X \leq 100\right\} &= \texttt{F(100)} \nonumber \\
+				%
+				&= 0.0256
+			\end{align}\\
+			
+		\end{enumerate}
+	\end{subequations} 
+
+	\item Let all people have independent birthday distributions as uniform RVs. Let $ p = 1/365 , n = 80000$
+	\begin{subequations}
+		\begin{enumerate}
+			\item 
+			\begin{align}
+				P \left\{X \geq 1\right\} &= 1 - P\left\{X = 0\right\} \nonumber \\
+				%
+				&= 1 - (1-p^2)^n = 0.4514 \\
+			\end{align}\\
+			
+			\item Since the binomial exact expression is difficult to compute, switch to Poisson approximation with $ \lambda = p $\\
+			\begin{align}
+				P \left\{Y \geq 1\right\} &= 1 - (e^{-p})^n \nonumber \\
+				%
+				&= 1 \qquad \text{within computation errors}
+			\end{align}\\
+			
+		\end{enumerate}
+	\end{subequations} 
+
+	\item Each card has a probability $ p = 1/13 $ to be shuffled into its correct place, causing a game loss. $ n = 52 $ independent experiments each with a probability $ p $ of causing loss. Let $ X $ be number of loss conditions \\
+	\begin{subequations}
+		\begin{align}
+			P \left\{X = 0 \right\} &= 1 - [1 - \texttt{Poisson.pmf(0, 52/13)}] \nonumber \\
+			%
+			&= e^{-4} = 0.01831
+		\end{align}\\
+	\end{subequations} 
+
+	\item Each bit is independent. Error has $ p = 10^{-3} $, total number of bits $ n = 10^3 $. Poisson approximation will be very close. \\
+	\begin{subequations}
+		\begin{align}
+			P \left\{X > 3 \right\} &= 1 - P \left\{X \leq 3 \right\} \nonumber \\
+			%
+			&= 1 - \left[\sum\limits_{i = 0}^{3} \binom{n}{i} p^i (1-p)^{n-i}\right] \nonumber \\
+			%
+			&= 0.18927 \\
+			%
+			\text{Poisson approx} &\to \lambda = 1 \\
+			%
+			P \left\{X > 3 \right\} &= 	1 - e^{-1}\left[1 + 1 + 1/2 + 1/6 \right] \nonumber \\
+			%
+			&= 0.18988
+		\end{align}\\
+	\end{subequations} 
+
+	\item Relating the $ (k+1)^{th} $ term in the Poisson PMF to the $ k^{th} $ term. \\
+	\begin{subequations}
+		\begin{align}
+			P \left\{X = k+1 \right\} &= e^{-\lambda}\ \frac{\lambda^{k+1}}{(k+1)!} \nonumber \\
+			%
+			&= e^{-\lambda}\ \frac{\lambda^{k}}{(k)!}\ \frac{\lambda}{(k+1)} \\
+			%
+			&= \frac{\lambda}{(k+1)}\ P \left\{X = k \right\} \nonumber \\
+			%
+			P \left\{X = k+1 \right\} &> P \left\{X = k \right\} \nonumber \\
+			%
+			&\to (k+1) < \lambda
+		\end{align}\\
+	\end{subequations} 
+	For $ k = \lambda + 1 $, the increasing trend reverses, and thus the maximum is reached at \\ $ k_{max} = \lfloor \lambda \rfloor $\\
+	
+	\item Hyper-geometric RV $ X $ with defective being the target object $ N = 20, M = 80, n = 10 $\\
+	\begin{subequations}
+		\begin{align}
+			P \left\{X \leq 1 \right\} &= \sum\limits_{i = 0}^{1} \frac{\binom{N}{i}\ \binom{M}{n-i}}{\binom{N+M}{n}}\nonumber \\
+			%
+			&= 0.3630
+		\end{align}\\
+	\end{subequations} 
+	
+	\item Deriving a recursion expression,\\
+	\begin{subequations}
+		\begin{enumerate}
+			\item \begin{align}
+				P \left\{X = i\right\} &= \frac{\binom{N}{i}\ \binom{M}{k-i}}{\binom{N+M}{k}} \nonumber \\
+				%
+				&= \frac{\binom{N}{i-1}\ \binom{M}{k+1-i}}{\binom{N+M}{k}}\ \frac{N-i+1}{i}\ \frac{k-i+1}{M-k+i} \nonumber \\
+				%
+				&= P \left\{X = i-1\right\}\ \frac{N-i+1}{i}\ \frac{k-i+1}{M-k+i}  \\
+			\end{align}\\
+			
+			\item $ N = M = 10, k = 5 $. Now, $ P \left\{X = 0 \right\} $ is computed manually as $ 21/1292 $. The results of the recursion are tabulated here. \\
+			\begin{table}[H]
+				\centering				
+				\begin{tabular}{@{}rr@{}}
+					\toprule
+					$ i $  &       $  P(i) $ \\
+					\midrule
+					0.0 & 0.016254 \\
+					1.0 & 0.135449 \\
+					2.0 & 0.348297 \\
+					3.0 & 0.348297 \\
+					4.0 & 0.135449 \\
+					5.0 & 0.016254 \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		
+			\item Using a similar recursion and finding the CDF by summing the relevant terms,\\ $ P\left\{X \leq 10\right\} = 0.9642$\\
+			
+		\end{enumerate}
+	\end{subequations} 
+
+	\item For a geometric random variable $ X $,\\
+	\begin{subequations}
+		\begin{enumerate}
+			\item \begin{align}
+				P \left\{X = k\right\} &= (1-p)^{k-1}\ p 
+			\end{align}\\
+			
+			\item This is an arithmetico-geometric progression with $ a = 1, b = 1, d = 1, r = (1-p) $. The infinite series sum is found using recursion.\\
+			
+			\begin{align}
+				S_n &= ab + (a+d)\ br + (a+2d)\ br^2 + \dots \nonumber \\
+				%
+				r\ S_n &= abr + (a+d)\ br^2 + (a+2d)\ br^3 + \dots \nonumber \\
+				%
+				S_n\ (1-r) &= ab + dbr + +dbr^2 + dbr^3 + \dots \nonumber \\
+				%
+				S_n\ (1-r) &= ab + \frac{dbr}{1-r} \nonumber \\
+				%
+				S_n &= \frac{ab}{1-r} + \frac{dbr}{(1-r)^2}
+			\end{align}\\
+		
+			Applying the above result to the expected value calculation, \\
+			
+			\begin{align}
+				\mathbb{E}[X] &= \sum\limits_{k = 1}^{\infty} k \ (1-p)^{k-1}\ p \nonumber \\
+				%
+				&= p\ \left[1 + 2(1-p) + 3(1-p)^2 + 4(1-p)^3 + \dots\right]		\nonumber \\
+				%
+				&= p \left[\frac{1}{p} + \frac{1-p}{p^2}\right]	= \frac{1}{p} \\
+			\end{align}\\
+				
+			\item $ Y $ is a negative binomial RV. Only $ r-1 $ out of the first $ k-1 $ trials can be success. \\
+			\begin{align}
+				P \left\{Y = k\right\} &= \binom{k-1}{r-1}\ p^{r-1}\ (1-p)^{k-r}\ p \\
+				%
+			\end{align}
+		
+			\item Consider $ Y = \sum Y_i $ where the $ Y_i $ are the inter-success intervals. Each of the $ Y_i $ is a geometric RV. Thus,\\
+			\begin{align}
+				\mathbb{E}[Y] &= \mathbb{E}\left[\sum\limits_{i = 1}^{r} Y_i\right] \nonumber \\
+				%
+				&= \sum\limits_{i = 1}^{r} \mathbb{E}[Y_i] = \frac{r}{p}
+			\end{align}
+			
+		\end{enumerate}
+	\end{subequations}
+	
+	
+	\item Transforming a uniform RV using its CDF, gives\\
+	\begin{subequations}
+		\begin{align}
+			P \left\{U \leq k \right\} &= F_U(k) = k \nonumber \\
+			%
+			P \left\{a + (b-a)U \leq a + (b-a)k \right\} &= F_V (a + (b-a)k) = k \nonumber \\
+			%
+			F_V(k) &= \frac{k-a}{b-a}
+		\end{align}\\
+	
+	This shows that V is a uniform RV on the interval $ [a, b] $\\
+	\end{subequations} 
+
+	\item Wait longer than 10 minutes has $ p = 2/3 $. \\
+	If Bus has not yet arrived by $ 10:15 $, there is a $ p = 1/3 $ chance that the wait is longer than 10 minutes. \\
+	
+	\item Independent normal RV with $ \mu = 10 $ and same variance $ \sigma^2 $,\\
+	$ X_1 + X_2 $ is also normal RV with mean = 20 and variance = $ 2 \sigma^2 $
+	\begin{subequations}
+		\begin{enumerate}
+			\item Second quantity is larger
+			\begin{align}
+				P \left\{X_1 > 15\right\} &= 1 - P \left\{X_1 \leq 15\right\} = 1 - \Phi\left(\frac{15 - 10}{\sigma}\right) \nonumber \\
+				%
+				P \left\{X_1 + X_2 > 25\right\} &= 1 - P \left\{X_1 + X_2 \leq 25\right\} = 1 - \Phi\left(\frac{25  -  20}{\sqrt{2}\ \sigma}\right) 
+			\end{align}\\
+			
+			
+			\item First quantity is larger.
+			 \begin{align}
+				P \left\{X_1 > 15\right\} &= 1 - P \left\{X_1 \leq 15\right\} = 1 - \Phi\left(\frac{15 - 10}{\sigma}\right) \nonumber \\
+				%
+				P \left\{X_1 + X_2 > 30\right\} &= 1 - P \left\{X_1 + X_2 \leq 30\right\} = 1 - \Phi\left(\frac{30  -  20}{\sqrt{2}\ \sigma}\right) 
+			\end{align}\\
+			
+			
+			\item Equating the two CDFs, \\
+			\begin{align}
+				P \left\{X_1 > 15\right\} &= 1 - P \left\{X_1 \leq 15\right\} = 1 - \Phi\left(\frac{15 - 10}{\sigma}\right) \nonumber \\
+				%
+				P \left\{X_1 + X_2 > x\right\} &= 1 - P \left\{X_1 + X_2 \leq x\right\} = 1 - \Phi\left(\frac{x  -  20}{\sqrt{2}\ \sigma}\right) \nonumber \\
+				%
+				x &= 5\sqrt{2} + 20
+			\end{align}\\	
+		\end{enumerate}
+	\end{subequations}
+
+	\item Independent normal RV with $ \mu = 500 $ and same variance $ \sigma = 100 $,\\
+	\begin{subequations}
+		\begin{enumerate}
+			\item all 5 students score less than 600.\\
+			\begin{align}
+				P \left\{X_1 < 600\right\} &= \Phi\left(\frac{600 - 500}{100}\right) \nonumber \\
+				%
+				&= 0.84 \nonumber \\
+				%
+				P\left\{\text{required}\right\} &= (0.84)^5 = 0.4216
+			\end{align}\\
+			
+			
+			\item Exactly 3 out of 5 score above 640.
+			\begin{align}
+				P \left\{X_1 > 640\right\} &= 1 - \Phi\left(\frac{640 - 500}{100}\right) \nonumber \\
+				%
+				&= 0.0807 \nonumber \\
+				%
+				P\left\{\text{required}\right\} &= \binom{5}{3}\ (0.0807)^3\ (1- 0.0807)^2 \nonumber \\
+				%
+				&= 0.0045
+			\end{align}\\
+	
+		\end{enumerate}
+	\end{subequations}
+
+	\item Independent normal RV with $ \mu = 40 $ and same variance $ \sigma = 4 $,\\
+	\begin{subequations}
+			2 of the next 4 years have rainfall more than 50.\\
+			\begin{align}
+				P \left\{X_1 > 50\right\} &= 1 - \Phi\left(\frac{50 - 40}{4}\right) \nonumber \\
+				%
+				&= 0.0062 \nonumber \\
+				%
+				P\left\{\text{required}\right\} &= \binom{4}{2}\ (0.0062)^2\ (1- 0.0062)^2 \nonumber \\
+				%
+				&= 0.00023
+			\end{align}\\
+	\end{subequations}
+
+	\item Independent normal RV with $ \mu = 1000 $ and same standard deviation $ \sigma = 200 $,\\
+	$ X_1 + X_2 $ is also normal RV with mean = 2000 and standard deviation $ \sigma = 200\ \sqrt{2} $
+	\begin{subequations}
+		\begin{enumerate}
+			\item \begin{align}
+				P \left\{X_1 < 1100\right\} &= \Phi\left(\frac{1100 - 1000}{200}\right) \nonumber \\
+				%
+				&= 0.6915 \\
+				%
+				P\left\{\text{required}\right\} &= (0.6915)^2 = 0.4781
+			\end{align}\\
+			
+			
+			\item \begin{align}
+				P \left\{X_1 + X_2 > 2200\right\} &= 1 - P \left\{X_1 + X_2 \leq 2200\right\} \nonumber \\
+				%
+				& = 1 - \Phi\left(\frac{2200 - 2000}{200\ \sqrt{2}}\right) = 0.2397
+			\end{align}\\
+		\end{enumerate}
+	\end{subequations}
+
+	\item \begin{subequations}
+	First case is $ P \left\{X > 10\right\} $ with $ \mu < 10 $. The argument of $ \Phi $ has a positive numerator. Thus, as $ \sigma $ increases, the argument decreases and the LHS increases.\\
+	
+		\begin{align}
+			P \left\{X > 10\right\} &= 1 - \Phi\left(\frac{10 - \mu}{\sigma}\right)\nonumber \\
+		\end{align}\\
+	
+	Second case is $ P \left\{X > 10\right\} $ with $ \mu > 10 $. The argument of $ \Phi $ has a positive numerator after rearranging. Thus, as $ \sigma $ increases, the argument decreases and the LHS also decreases.\\
+	
+	\begin{align}
+		P \left\{X > 10\right\} &= 1 - \Phi\left(\frac{10 - \mu}{\sigma}\right)\nonumber = \Phi\left(\frac{\mu - 10}{\sigma}\right)\nonumber \\
+	\end{align}\\
+	\end{subequations}
+
+	\item 
+	\begin{subequations}
+		$ \mu = 1.2$ and $\sigma = 0.005$. Using symmetry of the normal distribution, the required percentage is $ 4.55\%$\\
+		
+		\begin{align}
+			P \left\{X > 1.21\right\} &= 1 - \Phi\left(\frac{1.21 - 1.20}{0.005}\right) = 0.0227 \nonumber \\
+			%
+			P \left\{X > 1.21\right\} &= P \left\{X < 1.19\right\}
+		\end{align}\\
+
+	\end{subequations}
+
+	\item 
+	\begin{subequations}		
+		\begin{enumerate}
+			\item \begin{align}
+				I &= \int\limits_{-\infty}^{\infty} \exp(-x^2/2) \ \mathrm{d}x \nonumber \\
+				%
+				1 &= \frac{1}{\sqrt{2\pi\sigma^2}}\ \int\limits_{-\infty}^{\infty} \exp\left(\frac{-(x-\mu)^2}{2 \sigma^2}\right) \ \mathrm{d}x \nonumber \\
+				%
+				\text{substitute } y &= \frac{x-\mu}{\sigma} \qquad \text{then} \qquad \mathrm{d}y = \frac{1}{\sigma} \ \mathrm{d}x \nonumber \\
+				%
+				1 &= \frac{1}{\sqrt{2\pi}}\ \int\limits_{-\infty}^{\infty} \exp\left(\frac{-y^2}{2}\right) \ \mathrm{d}y \nonumber \\
+				%
+				\sqrt{2\pi} &= I
+			\end{align}\\
+	
+			\item \begin{align}
+				I^2 &= \int\limits_{-\infty}^{\infty} \exp(-x^2/2) \ \mathrm{d}x \int\limits_{-\infty}^{\infty} \exp(-y^2/2) \ \mathrm{d}y \nonumber \\
+				%
+				&= \iint \exp(-(x^2+y^2)/2) \ \mathrm{d}x \ \mathrm{d}y \nonumber \\
+				%
+				\text{substitute }\ x &= r\cos(\theta) \qquad \text{and} \qquad y = r\sin(\theta) \\
+				%
+				\mathrm{d}x \ \mathrm{d}y &= r\ \mathrm{d}r\ \mathrm{d}\theta \nonumber \\
+				%
+				I^2 &=  \int\limits_{0}^{\infty}  \int\limits_{0}^{2\pi} \exp(-r^2/2)\ r\ \mathrm{d}r\ \mathrm{d}\theta \nonumber \\
+				%
+				I^2 &= \int\limits_{0}^{2\pi}\ \exp(-r^2/2)\Big|_{\infty}^0\ \mathrm{d}\theta = 2\pi \\
+			\end{align}
+		\end{enumerate}
+	\end{subequations}
+	
+	\item 
+	\begin{subequations}
+		$ \mu = \mathbb{E}[\log X]$ and $\sigma = \mathrm{Var}(\log X)$. $ \log X $ is a normal RV.\\
+		\begin{align}
+			P \left\{\log X \leq x\right\} &= \Phi\left(\frac{x - \mu}{\sigma}\right) \nonumber \\
+			%
+			P \left\{X \leq e^x\right\} &= \Phi\left(\frac{x - \mu}{\sigma}\right) \nonumber \\
+			%
+			\text{substitute}\ y &= e^x \\
+			%
+			P \left\{X \leq y\right\} &= \Phi\left(\frac{\log y - \mu}{\sigma}\right)
+		\end{align}\\
+	\end{subequations}
+
+	\item Using the z-score and corresponding $ \alpha $ values,
+	\begin{subequations}
+		\begin{align}
+			P \left\{\log X \leq 180000\right\} &= \Phi\left(\frac{180000 - \mu}{\sigma}\right) = 0.25 \nonumber \\
+			%
+			P \left\{\log X \geq 320000\right\} &= 1 - \Phi\left(\frac{320000 - \mu}{\sigma}\right) = 0.25 \nonumber \\
+			%
+			z_{0.75} &= - z_{0.25} \\
+			%
+			\frac{180000 - \mu}{\sigma} &= - \left(\frac{320000 - \mu}{\sigma}\right) \\
+			%
+			\mu &= 250000 \qquad \sigma = 103782 \nonumber \\
+			%  
+		\end{align}\\
+	
+		\begin{enumerate}
+			\item \begin{align}
+				P \left\{\log X \leq 250000\right\} &= \Phi(0) = 0.5
+			\end{align}\\
+			
+			\item \begin{align}
+				P \left\{\log 260000 \leq X \leq 300000\right\} &= \Phi(50000 / \sigma) - \Phi(10000/ \sigma) \nonumber \\
+				%
+				&= 0.1466 
+			\end{align}
+		\end{enumerate}
+	\end{subequations}
+
+	\item Let normal RVs $ X, Y $ be the economics and statistics scores respectively. The percentile scores are higher for $ Y $.\\
+	\begin{subequations}		
+		\begin{align}
+			p_X &= \Phi \left(\frac{70-60}{20}\right) = 69.15\% \nonumber \\
+			%
+			p_Y &= \Phi \left(\frac{62-55}{10}\right) = 75.8\% \nonumber \\
+		\end{align}\\
+	\end{subequations}
+
+	\item Let $ X $ be the gain as a normal RV with $ \mu = 10, \sigma = 7 $.\\
+	\begin{subequations}		
+		\begin{enumerate}
+			\item \begin{align}
+				P \left\{X \leq -v\right\} &= 1 - \Phi \left(\frac{v + 10}{7}\right) = 0.01 \nonumber \\
+				%
+				\left(\frac{v + 10}{7}\right) &= \texttt{norm.ppf(0.99)} = 2.3263 \nonumber \\
+				%
+				v &= 6.28
+			\end{align}\\
+			
+			\item \begin{align}
+				\mathrm{VAR} &= \sigma \times 2.33263 - \mu \nonumber \\
+				%
+				\text{minimizing VAR } &\to \text{minimizing } \sigma \times 2.33263 - \mu \nonumber \\
+				%
+				&\to \text{maximizing }  \mu - \sigma \times 2.33263
+			\end{align}
+		\end{enumerate}
+	\end{subequations}
+
+	\item Let $ X $ be a normal RV with $ \mu = 40.14, \sigma = 8.7 $.\\
+	\begin{subequations}		
+		\begin{enumerate}
+			\item \begin{align}
+				P \left\{X > 42\right\} &= 1 - \Phi \left(\frac{42 - 40.14}{8.7}\right) \nonumber \\
+				%
+				 &= 0.4153
+			\end{align}\\
+			
+			\item \begin{align}
+				P \left\{X_1 + X_2 > 84\right\} &= 1 - \Phi \left(\frac{84 - 2 \times 40.14}{\sqrt{2} \times 8.7}\right) \nonumber \\
+				%
+				&= 0.3812
+			\end{align}\\
+		
+			\item \begin{align}
+				P \left\{X_1 + X_2 +X_3 > 126\right\} &= 1 - \Phi \left(\frac{126 - 3 \times 40.14}{\sqrt{3} \times 8.7}\right) \nonumber \\
+				%
+				&= 0.3555
+			\end{align}\\
+		
+			\item The rainfall in each year is an independent normal RV.
+		\end{enumerate}
+	\end{subequations}
+
+	\item Let $ X $ be a normal RV with $ \mu = 64.5, \sigma = 2.4 $.\\
+	\begin{subequations}		
+		\begin{enumerate}
+			\item \begin{align}
+				P \left\{X < 63\right\} &= \Phi \left(\frac{63 - 64.5}{2.4}\right) \nonumber \\
+				%
+				&= 0.266
+			\end{align}\\
+			
+			\item \begin{align}
+				P \left\{X < 70\right\} &= \Phi \left(\frac{70 - 64.5}{2.4}\right) \nonumber \\
+				%
+				&= 0.9890
+			\end{align}\\
+			
+			\item \begin{align}
+				P \left\{63 < X < 70\right\} &= \Phi \left(\frac{70 - 64.5}{2.4}\right) - \Phi \left(\frac{63 - 64.5}{2.4}\right) \nonumber \\
+				%
+				&= 0.7230
+			\end{align}\\
+		
+			\item \begin{align}
+				P \left\{ < 72\right\} &= \Phi \left(\frac{72 - 64.5}{2.4}\right) \nonumber \\
+				%
+				&= 99.91\%
+			\end{align}\\
+			
+			\item \begin{align}
+				P \left\{X_1 + X_2 > 2 \times 66\right\} &= 1 - \Phi \left(\frac{2 \times 66 - 2 \times 64.5}{\sqrt{2} \times 2.4}\right) \nonumber \\
+				%
+				&= 0.1884
+			\end{align}\\
+			
+			\item \begin{align}
+				P \left\{\left(\sum_{1}^{4} X_i\right) > 4 \times 66\right\} &= 1 - \Phi \left(\frac{4 \times 66 - 4 \times 64.5}{\sqrt{4} \times 2.4}\right) \nonumber \\
+				%
+				&= 0.1056
+			\end{align}\\
+		\end{enumerate}
+	\end{subequations}
+
+	\item Let $ X $ be a normal RV with $ \mu = 100 $ and $ \sigma = 14.2 $.\\
+	\begin{subequations}		
+		\begin{align}
+			\Phi\left(\frac{x - \mu}{\sigma}\right) &= 0.99 \nonumber \\
+			%
+			\left(\frac{x - \mu}{\sigma}\right) &= z_{0.01} = 2.5758 \nonumber \\
+			%
+			x &= 136.57 \qquad \text{top scores are in the range} \ [136.57, \infty)
+		\end{align}\\
+	\end{subequations}
+
+	\item Let $ X $ be an exponential RV with $ \lambda = 1 $.\\
+	\begin{subequations}		
+		\begin{enumerate}
+			\item \begin{align}
+				P \left\{X > 2\right\} &= 1 - P \left\{X \leq 2\right\} \nonumber \\
+				%
+				&= 1 - (1 - e^{-2}) = 0.1353
+			\end{align}\\
+			
+			\item Using the memoryless property,
+			\begin{align}
+				P \left\{X > 3\ |\ X > 2\right\} &= P \left\{X > 1 \right\} \nonumber \\
+				%
+				&= 1 - (1 - e^{-1}) = 0.3678
+			\end{align}\\
+
+		\end{enumerate}
+	\end{subequations}
+	
+	\item Let $ X $ be an exponential RV with $ \lambda = 1/8 $.\\
+	\begin{subequations}		
+		\begin{align}
+			P \left\{X > 10\right\} &= 1 - P \left\{X \leq 10 \right\} \nonumber \\
+			%
+			&= 1 - (1 - e^{-10/8}) = 0.2865
+		\end{align}\\
+	\end{subequations}
+
+	\item Let $ X $ be an exponential RV with $ \lambda = 1/20 $.\\
+	\begin{subequations}		
+		\begin{align}
+			P \left\{X > 20\right\} &= 1 - P \left\{X \leq 20 \right\} \nonumber \\
+			%
+			&= 1 - (1 - e^{-20/20}) = 0.3679
+		\end{align}\\
+	
+		However, if the RV is uniform over $ [0, 40] $\\
+		
+		\begin{align}
+			P \left\{X > 30\ |\ X > 10\right\} &= \frac{P \left\{X > 30 \ \cap\  X > 10\right\}}{P \left\{X > 10\right\}} \nonumber \\
+			%
+			&= \frac{1/4}{3/4} = \frac{1}{3}
+		\end{align}\\
+	\end{subequations}
+
+	\item 
+	\begin{subequations}		
+		\begin{enumerate}
+			\item $ S_n $ is the time taken for $ n $ events to occur
+			\begin{align}
+				S_n &= \sum\limits_{i=1}^{n} X_i
+			\end{align}\\
+			
+			\item $ S_n \leq t $ means that at least $ n $ events occur before time $ t $. \\
+			$ N(t) \geq n $ means that at least $ n $ events occur before time $ t $. Thus they are equivalent.\\
+			
+			\item 
+			\begin{align}
+				\left\{S_n \leq t\right\} &= 1 - P \left\{N(t) \leq n-1\right\} \nonumber \\
+				%
+				&= 1 - \sum\limits_{k=0}^{n-1} e^{-\lambda t}\ \dfrac{(\lambda t)^k}{k!}
+			\end{align}\\
+		
+			\item Using the CDF to obtain the PDF,\\
+			\begin{align}
+				F(t) &=  1 - \sum\limits_{k=0}^{n-1} e^{-\lambda t}\ \dfrac{(\lambda t)^k}{k!} \nonumber \\
+				%
+				&=  1 - e^{-\lambda t}\ \left[1 + \lambda t + \dfrac{(\lambda t)^2}{2!} + \dfrac{(\lambda t)^3}{3!} + \dots\right] \nonumber \\
+				%
+				\frac{\mathrm{d}}{\mathrm{d}t}\ F(t) &= f(t) \nonumber \\
+				%
+				&= \lambda e^{-\lambda t}\ \left[1 + \lambda t + \dfrac{(\lambda t)^2}{2!} + \dfrac{(\lambda t)^3}{3!} + \dots\right] \nonumber \\
+				%
+				&- \lambda\ e^{-\lambda t}\ \left[1 + \lambda t + \dfrac{(\lambda t)^2}{2!} + \dfrac{(\lambda t)^3}{3!} + \dots\right] \\
+				%
+				&= \lambda e^{-\lambda t}\ \dfrac{(\lambda t)^{n-1}}{\Gamma (n)}
+			\end{align}\\
+			This is clearly a Gamma distribution with parameters $ n, \lambda $.\\
+		\end{enumerate}
+	\end{subequations}
+
+	\item Poisson process with $ \lambda = 5 $
+	\begin{subequations}		
+		\begin{enumerate}
+			\item
+			\begin{align}
+				P \left\{N(t = 0.5) \geq 2\right\} &= 1 - \sum\limits_{k=0}^{1} e^{-\lambda t}\ \dfrac{(\lambda t)^k}{k!} \nonumber \\
+				%
+				&= 1 - e^{-2.5} \left[1 + 2.5\right]= 0.7127
+			\end{align}\\
+		
+			\item
+			\begin{align}
+				P \left\{N(t = 0.75) = 0\right\} &= e^{-\lambda t}\ \dfrac{(\lambda t)^0}{0!} \nonumber \\
+				%
+				&= e^{-3.75} \left[1\right]= 0.0235
+			\end{align}\\
+		
+			\item
+			\begin{align}
+				P \left\{N(0.75) \geq 4\ |\ N(0.5) \geq 2\right\} &= \frac{P \left\{N(0.75) \geq 4\ \cap\ N(0.5) \geq 2\right\}}{P \left\{N(0.5) \geq 2\right\}} \nonumber \\
+				%
+				\text{numerator}&= P \left\{N(0.25) \geq 2\ \cap\ N(0.5) = 2\right\} \nonumber \\
+				%
+				&+ P \left\{N(0.25) \geq 1\ \cap\ N(0.5) = 3\right\} \nonumber \\ 
+				%
+				&+ P\left\{N(0.25) \geq 0\ \cap\ N(0.5) \geq 4\right\} \\
+				%
+				&= \left[1 - e^{-5/4}(1 + 5/4)\right] \left[e^{-2.5}\ \frac{2.5^2}{2}\right]  \nonumber \\
+				%
+				&+ \left[1 - e^{-5/4}(1)\right] \left[e^{-2.5}\ \frac{2.5^3}{6}\right] \nonumber \\
+				%
+				&+ \left[1\right] \left[1 - e^{-2.5}\left(1 + 2.5 + \frac{2.5^2}{2} + \frac{2.5^3}{6}\right)\right] \\
+				%
+				&= 0.4861
+			\end{align}\\
+
+		\end{enumerate}
+	\end{subequations}
+
+	\item Let $ X, Y $ be horizontal and vertical errors, both independent normal RV with  $ \mu = 0 $ and $ \sigma = 2 $. Now, $ D^2 = X^2 + Y^2 $, and  $D^2 / 4 \sim \chi_2^2 $.\\
+	\begin{subequations}		
+		\begin{align}
+			\mathbb{E}[D^2 / 4] &= n = 2 \nonumber
+		\end{align}\\
+		The distance $ D/2 $ is a chi-distribution with expected value given by \\
+		
+		\begin{align}
+			\mathbb{E}[D/2] &= \sqrt{2} \ \frac{\Gamma\left(\frac{n+1}{2}\right)}{\Gamma(n/2)} = \frac{\sqrt{2 \pi}}{2} \nonumber \\
+			%
+			\mathbb{E}[D] &= \sqrt{2 \pi}
+		\end{align}
+	\end{subequations}
+
+	\item Chi square RV with 6 DOF. This is the same as a gamma RV with parameters (3, 1/2).  Using a chi-squared lookup table to find the CDF\\
+	\begin{subequations}		
+		\begin{enumerate}
+			\item
+			\begin{align}
+				P \left\{X \leq 6\right\} &= 0.5768
+			\end{align}\\
+			
+			\item
+			\begin{align}
+				P \left\{3 \leq X \leq 9\right\} &= 0.6353
+			\end{align}\\
+			
+		\end{enumerate}
+	\end{subequations}
+
+	\item Let $ X + Y $ is a chi-squared distribution with 9 DOF.\\
+	\begin{subequations}		
+		\begin{align}
+			P \left\{X + Y > 10\right\} &= 1 - P \left\{X + Y \leq 10\right\} = 0.3505
+		\end{align}\\
+	\end{subequations}
+
+	\item Let $ X + Y $ is a chi-squared distribution with 9 DOF. Using the result from problem 29,\\
+	\begin{subequations}		
+		\begin{align}
+			\Gamma(1/2) &= \int\limits_{0}^{\infty} e^{-y}\ y^{-1/2}\ \mathrm{d}y \\
+			%
+			\text{substitute }y &= x^2 / 2 \qquad \mathrm{d}y = x\ \mathrm{d}x \nonumber \\
+			% 
+			\Gamma(1/2) &= \int\limits_{0}^{\infty} e^{-x^2/2}\ \frac{\sqrt{2}}{x}\ x\ \mathrm{d}x \nonumber \\
+			%
+			&= \frac{\sqrt{2}}{2} \int\limits_{-\infty}^{\infty} e^{-x^2/2}\ \mathrm{d}x = \sqrt{\pi}
+		\end{align}\\
+	\end{subequations}
+
+	\item t distribution with 8 DOF.\\
+	\begin{subequations}		
+		\begin{enumerate}
+			\item \begin{align}
+				P \left\{ T \geq 1 \right\} &= 0.1733
+			\end{align}\\
+			
+			\item \begin{align}
+				P \left\{ T \leq 2 \right\} &= 0.9597
+			\end{align}\\
+		
+			\item \begin{align}
+				P \left\{-1 \leq T \leq 1 \right\} &= 0.6534
+			\end{align}\\
+			
+		\end{enumerate}
+	\end{subequations}
+	
+	\item Let $ X + Y $ is a chi-squared distribution with 9 DOF. Using the result from problem 29,\\
+	\begin{subequations}		
+		\begin{align}
+			T^2_n &= \frac{Z^2}{\chi_n^{2} / n} = \frac{\chi_1^{2} / 1}{\chi_n^{2} / n} = F_{1, n}
+		\end{align}\\
+	\end{subequations}
+
+	\item Let $ Y $ be a normal RV with mean $ \mu $ and variance $ \sigma^2 $.\\
+	\begin{subequations}		
+		\begin{align}
+			P\left\{X \leq x\right\} &= \Phi\left(\frac{x-a}{b}\right) \nonumber \\
+			%
+			P\left\{Y \leq y\right\} &= \Phi\left(\frac{y-\mu}{\sigma}\right) 
+		\end{align}\\
+	Thus, $ X $ is a normal RV with mean $ a $ and variance $ b^2 $.\\
+	\end{subequations}
+
+	\item Let $ Y $ be a Pareto RV with minimum $ \alpha $ and index $ \lambda $.\\
+	\begin{subequations}		
+		\begin{enumerate}
+			\item To find the expectation value	\\
+			\begin{align}
+				f_Y(y) &= \frac{\lambda}{y}\ \left(\frac{\alpha}{y}\right)^\lambda  \nonumber \\
+				%
+				\mathbb{E}[Y] &= \int\limits_{\alpha}^{\infty} y\ f_Y(y)\ \mathrm{d}y \nonumber \\
+				%
+				&= \lambda\ \alpha^\lambda \int\limits_{\alpha}^{\infty} y^{-\lambda} \ \mathrm{d}y \nonumber \\
+				%
+				&= \frac{\lambda}{1 - \lambda}\ \alpha^\lambda \ y^{1-\lambda}\Big|_\alpha^\infty \nonumber \\
+				%
+				\mathbb{E}[Y] &= \frac{\alpha \ \lambda}{\lambda - 1} \qquad \text{if } \ \lambda > 1 \\
+				%
+				\mathbb{E}[Y] &= \infty \qquad \text{as the integral is not finite for }\ \lambda \leq 1 \\
+			\end{align}\\
+		
+			\item to find the variance, when $ \lambda > 2 $\\		
+			\begin{align}
+				\mathbb{E}[Y^2] &= \int\limits_{\alpha}^{\infty} y^2\ f_Y(y)\ \mathrm{d}y \nonumber \\
+				%
+				&= \lambda\ \alpha^\lambda \int\limits_{\alpha}^{\infty} y^{1-\lambda} \ \mathrm{d}y \nonumber \\
+				%
+				&= \frac{\lambda}{2 - \lambda}\ \alpha^\lambda \ y^{2-\lambda}\Big|_\alpha^\infty \nonumber \\
+				%
+				&= \frac{\alpha^2 \ \lambda}{\lambda - 2} \qquad \text{if } \ \lambda > 2 \\
+				%
+				\mathrm{Var}[Y] &= \frac{\alpha^2 \ \lambda}{\lambda - 2} - \left(\frac{\alpha \ \lambda}{\lambda - 1}\right)^2 \\
+				%
+				&= \alpha^2\ \frac{\lambda}{(\lambda - 2)(\lambda - 1)(\lambda - 1)}
+			\end{align}\\
+		\end{enumerate}
+	\end{subequations}
+
+	\item Let $ Y = \alpha\ \exp(X) $ , with $ X $ being an exponential RV with rate$ \lambda $. \\
+	\begin{subequations}		
+		\begin{align}
+			Y &> y_0 > \alpha \nonumber \\
+			%
+			x &> \log(y_0/\alpha) \qquad \text{where} \qquad x > 0 \\
+			%
+			P\left\{X > x +  \log(y_0/\alpha)\ |\ X > \log(y_0/\alpha)\right\} &= P \left\{X > x\right\} \\
+			%
+			P(Y\ |Y > y_0) &= \texttt{Pareto($ y_0 $, $ \lambda $)}
+		\end{align}\\
+		Thus, $ X $ is a normal RV with mean $ a $ and variance $ b^2 $.\\
+		
+		
+	\end{subequations}
+
+\end{enumerate}

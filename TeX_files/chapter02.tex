@@ -5,69 +5,147 @@
 	\textit{``I will skim through these topics since you've already covered them in school."} \\
 \end{flushright}
 
-\textbf{Descriptive Statistics} : gather and describe data using summary measures. Covered by school-level classes. \\
+\textbf{Descriptive Statistics} : learn how to summarize and concisely represent a dataset. Explore the features of a probability distribution after it is generated from a dataset. \\
 
-\textbf{Inferential Statistics} : drawing conclusions from statistics using statistical models. Is the observed trend mere chance or is it a significant result worthy of more scrutiny. The right set of assumptions making up a \textit{probability model}, are not always apparent given the dataset. \\
+\textbf{Frequency table} : represents a catergorical dataset with a small number of categories using a table listing the categories and the number of corresponding occurrences. Most commpnly visualized as a bar graph. \\
 
-\textbf{Popluation} : the set of all possible elements that can be scrutinized. In real-world examples, the population is usually too large to be analyzed in full. \\
+\textit{Frequency Polygon} is a bar graph with invisible bars and the data points themselves connected using straight line segments.\\
 
-\textbf{Sample} : a small subsection of the population that is supposedly a good representation of the properties of the population itself. Random sampling is crucial for the inferred population statistics to be useful. \\
+\textit{Relative frequency} : Commonly seen as a percentage pie-chart. \\ 
+	\begin{align}
+	x_{i} = \frac{\text{current frequency}}{\text{sum of all frequencies}} = \dfrac{f_{i}}{ \sum_{i} f_{i}} 
+	\end{align}
 
-\textbf{Applications throughout history} : Surveying populations in order to calculate men available for military enlistment, taxable populations, and insurance contracts. Astronomy, physics, anthropology, demography, sociology and many other contemporary fields of study depend on the advancements in statistics over the $ 18^{th} $ and $19^{th}$ centuries. \\
+\textbf{Grouped frequencies} : A frequency table can have categories that are intervals instead of discrete categories. Visualized using histograms and related plots. Histograms are bar plots with the categories being \textit{class intervals}, which use the left-end inclusive convention $[a, b)$. How many class intervals to choose is a delicate balance between not revealing trends in the data (too few CI) vs. not enough frequency for each entry (too many CI). \\
 
-\textbf{Relation to probability theory} : probability theory was largely divorced from statistics until the late $ 19^{th} $ century. The study of probability was necessary to develop inferential statistics and begin to apply statistics to business, medicine, and politics. \\
+\textbf{Ogive} : A histogram using cumulative instead of absolute frequency for each datapoint. Useful to know the fraction of all entries that are smaller than some threshold. \\
+
+\textbf{Stem and Leaf plot} : Every data point is grouped into categories (stems) based on some common factor, such as the higher digits with entries within each group (leaves) representing the lower digits. Ex : group numbers using common tens digit and use ones digit as leaf entries. \\
+
+\textbf{Summary statistics} : Operating on the data to obtain summary measures in an attempt to understand the dataset, especially when it is very large. \\
+
+\textit{Mean} : the arithmetic average of a dataset.
+\begin{align}
+	\bar{x} = \frac{\text{sum of entries}}{\text{number of entries}} = \dfrac{1}{n} \sum\limits_{i = 1}^{n} x_{i} \\
+\end{align}
+
+If $ y = ax + b $ for some constants $ a $ and $ b $, then the variable transformation implies 
+\begin{align}
+	\bar{y} = a \bar{x} + b
+\end{align}
+
+For a frequency table of data with categories $ \{v_k\} $ each having frequency $ \{f_k\} $, the overall mean is a weighted average of the categories. 
+
+\begin{align}
+	\bar{x} = \frac{f_{1}}{n} v_{1} + \frac{f_{2}}{n} v_{2} + \frac{f_{3}}{n} v_{3} + ... = \frac{1}{n} \sum\limits_{i = 1}^{n} f_{i}v_{i}
+\end{align} \\
+
+\textit{Median} : When a data set is arranged in ascending order, the middle value (for an odd number of entries) or the average of the two middle values (for an even number of entries) is called the median. This is a special case of percentile (50th percentile with half of all entries greater and the other half lesser than itself). \\
+
+\textit{Mode} : The entry occurring with the highest frequency. If many such entries exist they are jointly called modal values.\\
+
+\textit{Variance} : Tries to indicate how far spread the data points are by comparing their distance from the sample mean. The denominator is $ (n - 1) $ because of convention.
+
+\begin{align}
+	s^2 = \frac{1}{(n-1)}\sum\limits_{i = 1}^{n}(x_{i} - \bar{x})^2
+\end{align}\\
+
+A useful identity to calculate variance using the definition of the mean
+
+\begin{align}
+	\sum\limits_{i = 1}^{n}(x_{i} - \bar{x})^2 = \sum\limits_{i = 1}^{n} x_{i}^2 - n \bar{x}^2
+\end{align} \\
+
+If $ y = ax + b $ for some constants $ a $ and $ b $, then $ \bar{y} = a + b \bar{x} $ and the variance is transformed using
+\begin{align}
+	s_{y}^{2} = b^{2} s_{x}^{2}
+\end{align} \\
+
+\textit{Standard Deviation} : square root of the variance, measured in the same units as the data points themselves. \\
+
+\textit{Percentiles} : $ p $ fraction of the data set being smaller and $ (1 - p) $ fraction being greater than a data point makes it the $ 100 \times p $ percentile. $ p = 0.5 $ reproduces the definition of the sample median. Quartiles correspond to $ p = $ 0.25, 0.5 and 0.75. If multiple data points satisfy such a condition, their average is declared the percentile value. \\
+
+ A box plot is used to visualize the three quartiles by first drawing a line segment from the smallest to the largest data points, and overlaying a box stretching from the first to third quartile and finally overlaying a marker for the median. \\
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			y=2in,
+			]
+			\addplot+ [
+			boxplot prepared={
+				lower whisker=5,
+				lower quartile=7,
+				median=8.5,
+				upper quartile=9.5,
+				upper whisker=10,
+			},
+			]
+			table [row sep=\\,y index=0] {
+				data\\ 1\\ 3\\
+			};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Sample box plot, with outliers shown as scatters. The upper and lower whiskers show the data range, and the box shows the interquartile range.}
+\end{figure}
+
+\textbf{Chebyshev's inequality} : An inequality that measures the fraction of all data points that are a certain distance away from the sample mean. Given a dataset $ \{x_k\} $ with sample mean $ \bar{x} $ and standard deviation $ s $, the inequality gives a lower limit for the fraction of all data that is within $ [ \bar{x} - ks, \bar{x} + ks ] $ for $ k \geq 1$ and $ s > 0 $. \\
+
+\begin{align}
+	\frac{|S_{k}|}{n} \ \geq \ 1 - \frac{1}{k^{2}} 
+\end{align}\\
+
+For example, with $k = 2$, at least 75 \% of the data is within 2 standard deviations of the mean. The inequality is universal and this fraction may be much larger for tightly grouped datasets.\\
+
+\textit{One-sided Chebyshev's inequality} : A stronger result can be used to find the fraction of data lying outside the interval  $ [ \bar{x} - ks, \bar{x} + ks ] $ with the above constraints on $ k, s $.
+
+\begin{align}
+	\frac{|N_{k}|}{n} \ \leq \ \frac{1}{1 + k^{2}} 
+\end{align}\\
+
+\textbf{Normally distributed datasets} : Most real-life datasets happen to be normally distributed. This is one of the most studied and extensively analysed probability distributions as a result. A normal distribution has approximately equal mean and median, and is not skewed left or right of its center.\\
+
+For data obeying an approximately normal distribution, the fraction of all data points that lie within $ 1,\ 2 $ or $ 3 $ standard deviations from the mean is equal to 68\%, 95\%, and 99.7\% respectively. \\
+
+Data sampled from a population that consists of subgroups that are not necessarily normally distributed ends up also not being normally distributed. Such data may be \textit{bimodal}, or \textit{multi-modal}, corresponding to two or more normal distributions being superposed to form a summed distribution. \\
+
+\textbf{Correlation coefficient} : Two or higher dimensional datasets can be represented by an ordered set of data points $ \{x_i, y_i, ...\} $. The relationship between the individual dimensions is understood through the correlation $ r $. Commonly visualized using scatter plots. \\
+
+Let a two dimensional data set have $ n $ data points $ \{x_i, y_i\} $. The mean and standard deviation for each dimension are $ \bar{x},\ \bar{y},\ s_x,\ s_y $ respectively. The sample correlation coefficient is defined as 
+
+\begin{align}
+	r \ =\ \frac{\sum\limits_{i = 1}^{n} (x_i - \bar{x}) (y_i - \bar{y})}{(n - 1) s_x s_y}
+\end{align} \\
+
+Some useful properties of $ r $ : 
+\begin{align}
+	-1 \leq r \leq 1
+\end{align}\\
+ 
+The extreme values are reached when the dimensions $ x $ and $ y $ are related by a straight-line equation $ y = a + bx $ depending on the sign of $ b $. \\
+
+The value of $ r $ does not depend on the scale of the dimensions $ x $ or $ y $. This means that transforming $ \{x_i , y_i\} $ to $ \{a + b x_i , c + d y_i\} $ with $ bd > 0 $ will not change $ r $. This is equivalent to displacing or stretching the scatter plot along either of the axes. \\
+
+The magnitude and sign or $ r $ respectively show the strength and the direction (positive or negative) of the correlation between the dimensions $ x $ and $ y $. Correlation does not imply causation. An underlying hidden variable is usually the cause for an observed correlation in all but the simplest of systems. \\
+
+\textbf{Lorenz Curve} : This curve is meant to compare the contribution of the sum of the bottom $ j $ terms of a series to the sum of all terms of the series. Consider an ascending-sorted series of n entries $ \{x_i\} $. Using $ L(0) = 0 $ as a convention,  \\
+
+\begin{align}
+	L(j/n) = \frac{\text{sum of first $ j $ terms}}{\text{sum of all terms}}
+\end{align} \\
+
+\textbf{Gini Index} : Using the effect on the sample mean upon adding an additional large entry to a dataset, 
+
+\begin{align}
+	L(j/n) \leq j / n
+\end{align}
+
+A lorenz curve always lies to the bottom of the straight line with slope 1, unless all the entries in the dataset are equal. The deviation from this ideal condition is measured by relating the area under the Lorenz curve ($ B $), to the area under the reference line (1/2). The Gini Index ($ G $) is defined as
+
+ \begin{align}
+ 	G = 1 - 2B
+ \end{align}
 
 \newpage
 
-\section*{Exercises}
-
-\begin{enumerate}[leftmargin = \labelsep, label=\textbf{\arabic*.}]
-	\item Sample A is biased in favor of young people. \\ Sample B is biased in favor of wealthy people.  \\ Sample C is likely to be representative. \\ Sample D is biased in favor of people watching the particular channel. \\ Sample E involves the user choosing names and is therefore bad.
-	
-	\item The proportion of voters in 1936 owning automobiles or telephones would have been extremely biased in favor of the wealthy. This sampling bias led to the incorrect prediction.
-	
-	The prevalence of phone and automobile ownership is much closer to $ 100 \% $ today, making this a much better sampling mechanism. 
-	
-	\item No, because obituaries are typically not inclusive of child mortalitiy. The obituary sample will be biased in favor of old people.
-	
-	\item The age bias is likely to be lowest at the shopping mall. This makes it the best polling location.
-	
-	\item No. It would be an overestimate. Unemployed graduates might be more likely not to return a filled questionnaire out of a sense of shame. 
-	
-	\item How likely is a person to be out on the streets at night as a function of clothing color? 
-	
-	\item Graunt surveys only certain neighborhoods in the city. Possible wealth bias in his sampling. All of England is not the same demographics as London.
-	
-	\item Let $ x $ be the total population \\
-	
-	\begin{subequations}
-		\begin{align}
-			0.02 \times x &= 12246 \\
-			x &= 612300
-		\end{align}
-	\end{subequations}
-	
-	\item Find the remaining lifetime of each person based on their current age. Charge some additional percentage as the annuity down-payment to earn a profit.
-	
-	\item Simple probability calculations \\
-	
-	\begin{subequations}
-		\begin{enumerate}
-			\item \begin{align}
-				\frac{\text{died after age 6}}{\text{total number dead}} = \frac{24+15+9+6+4+3+2+1}{36+24+15+9+6+4+3+2+1} = 64 \%
-			\end{align}
-			
-			\item \begin{align}
-				\frac{\text{died after age 46}}{\text{total number dead}} = 
-				\frac{4+3+2+1}{36+24+15+9+6+4+3+2+1} = 10 \%
-			\end{align}
-			
-			\item \begin{align}
-				\frac{\text{died at age 6-36}}{\text{total number dead}} = 
-				\frac{24+15+9}{36+24+15+9+6+4+3+2+1} = 48 \%
-			\end{align}
-			
-		\end{enumerate}
-	\end{subequations}
-	
-\end{enumerate}

@@ -2,26 +2,60 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{fullpage}
-\usepackage [autostyle, english = american]{csquotes}
+\usepackage[autostyle, english = american]{csquotes}
 \usepackage{enumitem}
 \usepackage{amssymb,amsmath}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{pgfplots}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{pgf-pie}
+\usepackage{float}
+%\pgfplotsset{width=6in}
+\usepgfplotslibrary{statistics}
+\usepgfplotslibrary{fillbetween}
+\addtolength{\jot}{1ex}
 
+\usepackage{sectsty}
+\chapterfont{\sffamily \color{BrickRed}}
 
-\setlist[enumerate]{after={\bigskip}}
+\setlist[enumerate, 1]{after={\bigskip}, leftmargin = \labelsep, label={\color{olive}\textbf{\arabic*.}}}
 \setlist[itemize]{after={\bigskip}}
+
+\usepackage{mathtools}
+
+\newcommand\Myperm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\Mycomb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+
 
 \begin{document}
 
 \author{Anirudh Krishnan}
-\title{Sheldon M Ross - Statistics \\ Notes and Exercises}
+\title{Introduction to Probability and Statistics \\ for Engineers and Scientists \\ \textit{\textcolor{blue}{Sheldon M Ross}} \\ Notes and Exercises}
 \date{\today}
 
 \maketitle
 \tableofcontents
 
-\include{./TeX_files/chapter01}
-\include{./TeX_files/chapter02}
-
+%\include{./TeX_files/chapter01}
+%\include{./TeX_files/exercise01}
+%\include{./TeX_files/chapter02}
+%\include{./TeX_files/exercise02}
+%\include{./TeX_files/chapter03}
+%\include{./TeX_files/exercise03}
+%\include{./TeX_files/chapter04}
+%\include{./TeX_files/exercise04}
+%\include{./TeX_files/chapter05}
+%\include{./TeX_files/exercise05}
+%\include{./TeX_files/chapter06}
+%\include{./TeX_files/exercise06}
+\include{./TeX_files/chapter07}
+%\include{./TeX_files/exercise07}
+\include{./TeX_files/chapter08}
 % bibliography, glossary and index would go here.
 
 \end{document}

@@ -1,0 +1,126 @@
+\chapter{Hypothesis Testing}
+
+
+\begin{flushright}
+	\textit{``Ch8 quote here"} \\
+\end{flushright}
+
+In addition to the problem of estimating the unknown parameters of an underlying distribution from which samples are drawn, it is also useful to test some assertions about the sample itself. \\
+
+\textbf{Hypothesis} : A statement about the parameters of the underlying distribution from which a sample has been drawn. Direct information about these parameters is most often unavailable. A hypothesis is \textit{accepted} if a random sample from the population is consistent with the assertion made. \\
+
+Statistical tests to \textit{accept} a hypothesis do not conclude that it is true. They merely conclude that the sample used to test it is consistent with the hypothesis. In other words, a hypothesis, if true, might have reasonably led to the sample having the observed values.\\
+
+
+\textbf{Significance levels} : Consider a distribution $ F_\theta $ where $ \theta $ is an unknown parameter. In order to test some hypothesis about $ \theta $, it is useful to define a \textit{null hypothesis} $ H_0 $. A null hypothesis is \textit{simple} or \textit{composite}, depending on whether or not it completely specifies the probability distribution when true.\\
+
+\textit{Critical region} : When a sample $ \{X_i\} $ of size $ n $ is drawn to test a null hypothesis, the condition for rejecting it is for the sample to lie in some region of $ n -$dimensional space $ C \in \mathbb{R}^n $, called the critical region.\\
+
+\textit{Errors in testing a hypothesis} : The two possible types of errors when testing a hypothesis are the false rejection (\textit{Type I}) and the false acceptance (\textit{Type II}). Depending on the real-world application, one of these types of errors might be considered a much bigger issue than the other.\\
+
+\textit{Level of significance} : Define a scalar $ \alpha $, such that whenever $ H_0 $ is true, the probability of being rejected is never greater than $ \alpha $. This is called the significance level of the test. Conventional values of $ \alpha = 0.1, 0.05, 0.005 $ are common in science literature.\\
+
+\begin{align}
+	P  \left\{\text{Type I error}\right\} \leq \alpha 
+\end{align} \\
+
+The general procedure to develop a null hypothesis is as follows \\
+
+\begin{itemize}
+	\item Determine a point estimator $ d(\textbf{X}) $ of the parameter $ \theta $.
+	\item Find the probability distribution of $ d(\textbf{X}) $ provided $ H_0 $ is true.
+	\item Determine the critical region correspoding to the required level of significance $ \alpha $.
+	\item For a null hypothesis which asserts that the parameter $ \theta $ lies in some region $ w $, \\
+	 $ H_0 : \theta \in w $ is rejected if $ d(\textbf{X}) $ lies in the critical region $ C $ or equivalently is 'far away' from $ w $.
+\end{itemize}
+
+
+\textbf{Tests - Mean of a normal RV} : A normal RV is extremely common in many real-world applications which makes the problem of testing hypotheses about its mean value very important, with strategies differing based on knowledge of its variance. \\
+
+\textit{Known Variance} : Using the usual sample notation, consider the null hypothesis $ H_0 : \mu = \mu_0 $ proposed against the alternative hypothesis $ H_1 : \mu \neq \mu_0 $. Here $ \mu_0 $ is some assumed constant.\\
+
+Rearranging the sample mean $ \overline{X} $, which is the point estimator of $ \mu $, to yield a standard normal distribution gives the critical region and thus the hypothesis rejection condition.
+\begin{align}
+	P_{\mu_0} \left\{ \Big|\overline{X} - \mu_0\Big|  > c\right\} &= \alpha \\
+	%
+	\frac{\overline{X} - \mu_0}{\sigma / \sqrt{n}} &\sim Z \nonumber \\
+	%
+	P \left\{Z > z_{\alpha/2}\right\} &= \alpha/2 \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\ \Big| \overline{X} - \mu_0 \Big| > z_{\alpha/2} \\
+	%
+	\text{accept $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\ \Big| \overline{X} - \mu_0 \Big| \leq z_{\alpha/2}
+\end{align} \\
+
+The above notation $ P_{\mu_0} $ denotes the probability given that $ \mu = \mu_0 $. \\
+
+\textit{p-value} : The probability that a standard normal in absolute value $ |Z| $ will exceed the quantity above on the LHS, is called the p-value of a test. \\
+\begin{align}
+	P \left\{ |Z| > \frac{\sqrt{n}}{\sigma} \Big| \overline{X} - \mu_0 \Big| \right\} &= p \\
+	%
+	\text{reject $ H_0 $ if } \qquad & p \leq \alpha \\
+	%
+	\text{accept $ H_0 $ if } \qquad & p > \alpha	
+\end{align} \\
+
+\textit{Power function of a test} : In order to measure the probability of a type-II error, define the \textit{Operating Characteristic} (OC) curve $ \beta(\mu) $ as,\\
+
+\begin{align}
+	\beta(\mu) &= P_{\mu} \left\{\text{acceptance of $ H_0 $}\right\} \\
+	%
+	&= P_{\mu} \left\{ Z \in \frac{\mu_0 - \mu}{\sigma/\sqrt{n}} \pm z_{\alpha/2} \right\} \nonumber \\
+	%
+	&= \Phi\left(\frac{\mu_0 - \mu}{\sigma/\sqrt{n}} + z_{\alpha/2}\right) - \Phi\left( \frac{\mu_0 - \mu}{\sigma/\sqrt{n}} - z_{\alpha/2} \right)
+\end{align}\\
+
+The probability of rejection when $ \mu $ is the true value is $ 1 - \beta(\mu) $. This is called the power-function of the test. \\
+
+Using the power-function, the probability of hypothesis acceptance when the true mean is $ \mu_1 $ is expressed as $ \beta(\mu_1) \approx \beta $. The sample size $ n $ needed to ensure this is calculated as\\
+
+\begin{align}
+	\beta &= \Phi\left(\frac{\mu_0 - \mu_1}{\sigma/\sqrt{n}} + z_{\alpha/2}\right) - \Phi\left( \frac{\mu_0 - \mu_1}{\sigma/\sqrt{n}} - z_{\alpha/2} \right) \nonumber \\
+	%
+	&\approx \Phi\left(\frac{\mu_0 - \mu_1}{\sigma/\sqrt{n}} + z_{\alpha/2}\right) = P\left\{Z > z_\beta\right\}\nonumber
+\end{align}\\
+
+The second term above is considered so small as to be close to zero and thus ignored.\\
+
+\begin{align}
+	\Phi(-z_\beta) &= \Phi\left(\frac{\mu_0 - \mu_1}{\sigma/\sqrt{n}} + z_{\alpha/2}\right) \nonumber \\
+	%
+	n &\approx \frac{\sigma^2\ (z_{\alpha/2} + z_\beta)^2}{(\mu_1 - \mu_0)^2}
+\end{align}\\
+
+\textit{One-sided tests} : Using the same reasoning as the two-sided tests above, the two possible kinds of one-sided testing problem are defined as\\
+
+\begin{align}
+	H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu > \mu_0 \\
+	%
+	H_0 : \mu \leq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu > \mu_0 \\
+	%	
+	\text{reject $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\ (\overline{X} - \mu_0)  > z_{\alpha} \\
+	%
+	\text{accept $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\  (\overline{X} - \mu_0)  \leq z_{\alpha}
+\end{align} \\
+
+This leads to the corresponding power function and OC curve being a decreasing function of $ \mu $. In the above one-sided tests, a reversal of the inequalities reverses the sign of $ z_\alpha $\\
+
+\begin{align}
+	\beta(\mu) &= \Phi\left(\frac{\mu_0 - \mu}{\sigma/\sqrt{n}} + z_{\alpha}\right) \\
+	%
+	\beta(\mu_0) &= 1 - \alpha
+\end{align}
+
+\begin{align}
+	H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \\
+	%
+	H_0 : \mu \geq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \\
+	%	
+	\text{reject $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\ (\overline{X} - \mu_0)  < -z_{\alpha} \\
+	%
+	\text{accept $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\  (\overline{X} - \mu_0)  \geq -z_{\alpha}
+\end{align} \\
+
+
+\newpage
+

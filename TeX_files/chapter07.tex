@@ -1,0 +1,326 @@
+\chapter{Parameter Estimation}
+
+
+\begin{flushright}
+	\textit{``Please explain in detail your reasons for choosing this prior distribution"} \\
+\end{flushright}
+
+Consider a distribution $ F_\theta $ from which a random sample $ \left\{X_i\right\} $ is drawn. It is an extremely common problem to estimate the vector of parameters $ \theta $ of the underlying distribution using only the information from the sample.\\
+
+Estimates of these parameters can either be provided as a \textit{point} or an \textit{interval}, alongside a \textit{confidence} value associated with these estimates. \\
+
+An important class of such problems is \textit{Bayesian estimation}, which involves estimating an unknown parameter only partial information about it is known. \\
+
+\textbf{Maximum Likelihood Estimator} : An estimator of an unknown parameter $ \theta $ is any sample-derived statistic used to estimate its value. The observed value of an estimator is called the \textit{estimate}. \\
+
+As an example consider $ n $ random samples drawn from an underlying exponential distribution whose mean is the unknown parameter $ \theta $. The joint PDF of the RVs $ \left\{X_i\right\} $, which would then be used to estimate $ \theta $ is given by \\
+
+\begin{align}
+	f(x_1, x_2, \dots, x_n) &= f_{x_1} (X_1)\ f_{X_2} (2_1)\ \dots\  f_{X_n} (x_n) \nonumber \\
+	%
+	&= \frac{1}{\theta} e^{-x_1/\theta} \ \frac{1}{\theta} e^{-x_2/\theta} \dots \ \frac{1}{\theta} e^{-x_n/\theta} \qquad x_i > 0 \nonumber \\
+	%
+	&= \frac{1}{\theta^n}\ \exp \left\{ \sum_{i=1}^{n} \frac{-x_i}{\theta} \right\}
+\end{align} \\
+
+\textit{Likelihood function} : Define $ f(x_1, x_2,\dots,x_n\ |\ \theta) $ as the joint PDF or PMF of the $ n $ random samples from an underlying distribution with unknown parameter $ \theta $. This term is the likelihood that the values $ \left\{ x_i \right\} $ will actually be observed when $ \theta $ is the true value of the parameter. \\
+
+The \textit{maximum likelihood estimate} $ \widehat{\theta} $ is that value of the parameter $ \theta $ which maximizes the likelihood function. A useful computational convenience is that log likelihood also has its maximum at the same point as likelihood itself. \\
+
+The algorithm usually involves identifying the likelihood function after incorporating the unknown parameter $ \theta $, taking logarithm wherever convenient, and then differentiating with respect to $ \theta $ in order to maximize the likelihood. \\
+
+A sample of size $ n $ from an underlying Bernoulli distribution whose unknown mean $ p $ is to be estimated. The above procedure yields the maximum likelihood estimator of $ p $ to be the sample mean $ \sum X_i / n$.\\
+
+The above problem when the underlying distribution is Poisson with rate $ \lambda $ yields the MLE as $ \widehat{\lambda} =  \sum X_i / n$.\\
+
+However, for a uniform distribution on $ [0, \theta] $, the parameter is estimated by $ \widehat{\theta} = \max(\left\{X_i\right\}) $ and not by the sample mean.\\
+
+The more relevant problem is with an underlying normal distribution with unknown $ \mu $ and $ \sigma $, to be estimated using a sample of size $ n $. \\
+
+\begin{align}
+	\widehat{\mu} = \frac{1}{n}\ \sum\limits_{i=1}^{n} x_i = \overline{X} \qquad \text{and} \qquad \widehat{\sigma} = \left[\frac{1}{n}\  \sum\limits_{i=1}^{n} (X_i - \overline{X})^2 \right] ^{1/2} \\
+\end{align} \\
+
+Note that $ \widehat{\sigma} $ differs from the sample standard deviation $ S $, in the denominator being $ n $ instead of $ (n-1) $.\\
+
+\textit{Failure and survival rate} : Defining failure rate $ \lambda_i $ and survival rate $ s_i = 1 - \lambda_i $ for an underlying discrete distribution taking values $ i \geq 1 $, \\
+
+\begin{align}
+	\lambda_i &= P \left\{X = i\ |\ X > i-1\right\} = \frac{P \left\{X = i\right\}}{P\left\{X > i-1\right\}} \\
+	%
+	s_i &= 1 - \lambda_i = \frac{P \left\{X > i\right\}}{P\left\{X > i-1\right\}}
+\end{align} \\
+
+For illustration, let $ X $ denote a human's age at death. Now, failure rate is a measure of the fraction of all people surviving at least $ i-1 $ years who will die at age $ i $. \\
+
+Using the relations, \\
+
+\begin{align}
+	P \left\{X > i\right\} &= s_1\ s_2\ \dots\ s_i \nonumber \\
+	%
+	P\left\{X = n\right\} &= \lambda_n\ P \left\{X > n-1\right\} = s_1\ s_2\ \dots\ s_{n-1}\ (1 - s_n) 
+\end{align}\\
+
+Using the above PMF for $ X $ requires estimating the survival rates $ \widehat{s_i} $. This is a simple task of looking at what fraction of the sample who reached age $ i $ one year ago are alive today.\\
+
+\textbf{Interval estimates} : It is often useful to provide an interval for the estimate of a parameter along with an associated confidence value instead of just a point value. This involves looking at the probability distribution of the estimator itself. \\
+
+As an example, consider the MLE of the mean of a normal RV from which a sample of size $ n $ is drawn. The MLE $ \overline{X} $ is known to have a normal distribution with mean $ \mu $ and variance $ \sigma^2 / n $. \\
+
+Rearranging the sample mean to form a standard normal RV $ Z $, and using its CDF to find a $ 95\% $ confidence interval gives, \\
+
+\begin{align}
+	\frac{\overline{X} - \mu}{\sigma / \sqrt{n}} &\sim Z \nonumber \\
+	%
+	P \left\{ | \overline{X} - \mu | \leq \frac{1.96\ \sigma}{\sqrt{n}} \right\} &= 0.95 \nonumber \\
+	%
+	\text{with 95 \% confidence, } \mu &\in \left[ \overline{x} - \frac{1.96\ \sigma}{\sqrt{n}}, \ \overline{x} + \frac{1.96\ \sigma}{\sqrt{n}} \right]
+\end{align}\\
+
+The above relation states that if the sample mean $ \overline{X} = \overline{x} $, then the population mean $ \mu $ lies within this interval with $ 95\% $ confidence.\\
+
+In addition to the \textit{two-sided} confidence interval for $ \mu $ above, the \textit{one-sided upper} and \textit{one-sided lower} $ 95\% $ confidence intervals for $ \mu $ are, \\
+
+\begin{align}
+	\mu \in \left[ \overline{x} - \frac{1.645\ \sigma}{\sqrt{n}}\ ,\  \infty \right) \qquad \text{and} \qquad \mu \in \left( -\infty\ ,\  \overline{x} + \frac{1.645\ \sigma}{\sqrt{n}} \right]
+\end{align}\\
+
+The factors of $ 1.96 $ and $ 1.645 $ used above were obatined using the inverse CDF of the normal distribution for $ p = 0.975 $ and $ p = 0.95 $ respectively. A different confidence interval would involve recalculating the inverse CDF and replacing the pre-factors used above.\\
+
+\textit{Confidence interval for a normal mean with unknown variance} : Consider a normal RV with unknown $ \mu $ and $ \sigma $, from which a sample of size $ n $ is drawn. Since the above procedure can no longer be used to construct confidence intervals, the sample variance $ S $ is now of interest. \\
+
+Using the fact that $ \sqrt{n}(\overline{X} - \mu) / S \sim t_{n-1}$, and the symmetry of the t-distribution, for some observed value of sample mean and variance $ \overline{x}, s^2 $\\
+
+
+\begin{align}
+	1 - \alpha &= P \left\{ | \overline{X} - \mu | \leq \frac{t_{\alpha/2, n-1}\ S}{\sqrt{n}} \right\}  \nonumber \\
+	%
+	\mu &\in \left[ \overline{x} - \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}}, \ \overline{x} + \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}} \right]
+\end{align} \\
+
+This becomes the $ 100(1-\alpha) \% $ confidence interval for $ \mu $. As $ n \to \infty $, the t-distribution reduces to the standard normal and the the new confidence interval expression reduces to the old one. It is common, but not necessary that the confidence interval when $ \sigma $ is unknown is larger than when it is known, by virtue of the t-distribution being wider than the standard normal distribution, and the general trend of $ S^2 > \sigma^2 $. \\
+
+The above methods have assumed an underlying normal distribution. However, for a large enough sample size, they may be used even when the underlying PDF is not a normal RV because of the Central Limit theorem. \\
+
+
+\textit{Monte-Carlo simulation} : The process of randomly sampling from a uniform distribution to estimate difficult integrals using the power of the central limit theorem acting on a large sample consisting of \texttt{i.i.d.} RVs. \\
+
+For example, consider a set of $ n $ uniform RVs $ \left\{U_i\right\} $ in the domain $ [a,b] $ \\
+
+\begin{align}
+	\theta = \int\limits_{a}^{b}\ g(x)\ \mathrm{d}x = \mathbb{E}[g(x)]
+\end{align}
+
+A new set of RVs $ \left\{X_i\right\}  = g(\left\{U_i\right\})$, which are random samples drawn from the PDF $ g(x) $, would now have sample mean and variance $ \overline{x} $ and $ s^2 $. A confidence interval for $ \mathbb{E}[g(x)] $ is now constructed using the t-distribution method described above.\\ 
+
+\textit{Prediction Interval} : The problem of predicting a confidence interval for the next sample $ X_{n+1} $ drawn from a normal distribution with parameters $ \mu, \sigma $ given a set of $ n $ samples already available, is similar to the above procedure. \\
+
+Let $ S_n^2 $ and $ \overline{X}_n $ be the sample variance and mean using the first $ n $ samples. Since $ \overline{X}_n $ is a normal RV with mean $ \mu $ and variance $ \sigma^2 / n $, whereas $ X_{n+1} $ is also a normal RV independent of $ \overline{X}_n $ , \\
+
+
+\begin{align}
+	\frac{X_{n+1} - \overline{X}_n}{\sigma \sqrt{1 + 1/n}} &\sim Z \nonumber \\
+	%
+	\frac{X_{n+1} - \overline{X}_n}{S_n \sqrt{1 + 1/n}} &\sim t_{n-1} \nonumber \\
+\end{align} \\
+
+Once again, this leads to the confidence intervals using the t-distribution defined above.\\
+
+\textit{Confidence interval for a normal variance with unknown mean} : Using the fact that $ (n-1) S^2 / \sigma^2 \sim \chi^2_{n-1} $, the $ 100(1-\alpha) \% $ confidence interval for a sample of size $ n $ with sample variance $ S^2 = s^2 $ is calculated as, \\
+
+\begin{align}
+	\sigma^2 &\in \left[\ddfrac{(n-1)s^2}{\chi^2_{\alpha/2, n-1}}\ ,\ \frac{(n-1)s^2}{\chi^2_{1 - \alpha/2, n-1}}\right]
+\end{align}\\
+
+Note the use of $ \chi^2_{\alpha/2, n-1} $ as well as $ \chi^2_{1 - \alpha/2, n-1} $ arising from the fact that the $ \chi_n^2 $ distribution is not symmetric about its mean. \\
+
+\textbf{Difference in means of two normal populations} : The problem is to estimate $ \mu_1 - \mu_2 $, where two normal RVs $ X, Y $ with means $ \mu_1, \mu_2 $ and variances $ \sigma_1^2, \sigma_2^2 $ respectively are used to generate two sets of samples $ \left\{X_1, \dots, X_n\right\} $ and $ \left\{Y_1, \dots, Y_m\right\} $. \\
+
+Additionally, the sample sets $ \left\{X_i\right\}, \left\{Y_j\right\} $ are independent.\\
+
+The point estimator of $ \mu_1 - \mu_2 $ is simply $ \overline{X} - \overline{Y} $, using the previous section. For an interval estimate, the distribution of $ \overline{X} - \overline{Y} $ is needed. \\
+
+\begin{align}
+	\overline{X} - \overline{Y} &\sim \mathcal{N}\left(\mu_1 - \mu_2\ ,\ \frac{\sigma_1^2}{n} + \frac{\sigma_2^2}{m}\right) \nonumber \\
+	%
+	Z &\sim \ddfrac{\overline{X} - \overline{Y} - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n} + \frac{\sigma_2^2}{m}}} 
+\end{align}\\
+
+When the variances $ \sigma_1^2, \sigma_2^2 $ are known, the $ 100(1-\alpha)\% $ confidence interval is, \\
+
+\begin{align}
+	\mu_1 - \mu_2 &\in \left[ \overline{x} - \overline{y} - z_{\alpha / 2} \sqrt{\frac{\sigma_1^2}{n} + \frac{\sigma_2^2}{m}}\ ,\ \overline{x} - \overline{y} + z_{\alpha / 2} \sqrt{\frac{\sigma_1^2}{n} + \frac{\sigma_2^2}{m}} \right] 
+\end{align}\\
+
+
+Next, consider the special case where $ \sigma_1, \sigma_2 $ are unknown but happen to be equal. Now, using the sample variances $ S_1^2, S_2^2 $, and the additive property of chi-squared distributions, the \textit{pooled estimator} $ S_P^2 $ of this common variance is\\
+
+\begin{align}
+	S_P^2 = \frac{(n-1)\ S_1^2 + (m-1)\ S_2^2}{(n+m-2)} \nonumber
+\end{align}\\
+
+Rearranging the sample statistics into a t-distribution after replacing $ \sigma $ with $ S_P $, \\
+
+\begin{align}
+	Z &\sim \frac{\overline{X} - \overline{Y} - (\mu_1 - \mu_2)}{\sqrt{\sigma^2(1/n + 1/m)}} \nonumber \\
+	%
+	\chi^2_{n+m-2} &\sim (n+m-2)\ \frac{S_P^2}{\sigma^2} \nonumber \\
+	%
+	t_{n+m-2} &\sim \frac{\overline{X} - \overline{Y} - (\mu_1 - \mu_2)}{\sqrt{S_P^2(1/n + 1/m)}}
+\end{align} \\
+
+Now, the confidence interval is defined using this t-distribution as \\
+
+
+\begin{align}
+	\mu_1 - \mu_2 &\in \left[ \overline{x} - \overline{y} - t_{\alpha / 2, n+m-2}\ s_p\ \sqrt{\frac{1}{n} + \frac{1}{m}}\ ,\ \overline{x} - \overline{y} + t_{\alpha / 2, n+m-2}\ s_p\ \sqrt{\frac{1}{n} + \frac{1}{m}} \right] 
+\end{align}\\
+
+\textbf{Mean of a Bernoulli RV - confidence interval} : Consider a sample of size $ n $ drawn from a Bernoulli RV with parameter $ p $. The point estimate for $ p $ is simply $ \widehat{p} = \sum X_i / n $. \\
+
+For an interval estimate, assume $ X = \sum X_i $ has the observed value $ x $, and define the confidence interval for $ p $ as, \\
+
+\begin{align}
+	Z &\sim \frac{X - np}{\sqrt{n \widehat{p} (1 - \widehat{p})}} \nonumber \\
+	%
+	p &\in \left[ \widehat{p} - z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}\ ,\ \widehat{p} + z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}  \right]
+\end{align}\\
+
+For a given interval of width $ b $ in the above relation, the number of samples required $ n $ is given by \\
+
+\begin{align}
+	b &= 2 z_{\alpha/2}\ \sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}} \qquad \text{and} \qquad n = (2z_{\alpha/2})^2\  \frac{\widehat{p}(1-\widehat{p})}{b^2}
+\end{align}\\
+
+To guarantee a confidence interval of size $ b $ or smaller, the minimum number of samples needed is $ n^* = (Z_{\alpha/2} / b)^2 $ \\
+
+\textbf{Mean of exponential distribution - confidence interval} : Consider a set of samples $ \left\{X_1, \dots, X_n\right\} $ drawn from an exponential RV with unknown mean $ \theta $. The point estimate for $ \theta $ is just the sample mean $ \overline{X} $. \\
+
+For an interval estimate, consider the following RV transformations, \\
+
+\begin{align}
+	\sum X_i &\sim \Gamma(n, 1/\theta) \nonumber \\
+	%
+	\frac{2}{\theta}\ \sum X_i &\sim \Gamma(n, 1/2) \sim \chi^2_{2n}
+\end{align} \\
+
+Using the above chi-squared distribution, the confidence interval for $ \theta $ is given by, \\
+
+\begin{align}
+	\theta \in \left[\ddfrac{2 \sum X_i}{\chi^2_{\alpha/2, 2n}}\ ,\ \ddfrac{2 \sum X_i}{\chi^2_{1 - \alpha/2, 2n}}\right]
+\end{align} \\
+
+\textbf{Evaluating point estimators} : The question of how good a proposed point estimator $ d(\textbf{X}) $ for a parameter $ \theta $ drawn from a sample $ \textbf{X} = \left\{X_1, \dots, X_n\right\} $ is often answered by looking at the mean squared error $ r(d, \theta) $ \\
+
+\begin{align}
+	r(d, \theta) = \mathbb{E}[(d(X) - \theta)^2] 
+\end{align}\\
+
+Generally, there is no universal value of $ d $ that minimizes the error above for all values of $ \theta $. \\
+
+
+\textit{Bias of an estimator} : For the definitions used above, the bias $ b_{\theta}(d) $ is expressed as, \\
+
+\begin{align}
+	b_\theta (d) = \mathbb{E}[d(\textbf{X})] - \theta
+\end{align}\\
+
+If an estimator has $ 0 $ bias for all values of $ \theta $, then it is called an \textit{unbiased} estimator of $ \theta $. For example, a weighted sum of the random samples from an unknown distribution with mean $ \theta $ is always an unbiased estimator. \\
+
+\begin{align}
+	\mathbb{E}\left[ \sum \lambda_i X_i \right] &= \sum \mathbb{E}[X_i]\ \lambda_i \nonumber \\
+	%
+	&= \theta\ \sum \lambda_i = \theta \nonumber \\
+	%
+	\text{if } \sum \lambda_i &= 1
+\end{align} \\
+
+The mean squared error of an unbiased estimator is equal to its variance. \\
+
+\begin{align}
+	r(d, \theta) &= \mathbb{E}[(d(\textbf{X} - \theta)^2)] = \mathbb{E}[(d(\textbf{X}) - \mathbb{E}[d(\textbf{X})])^2] \nonumber \\
+	%
+	&= \mathrm{Var}(d(\textbf{X}))
+\end{align} \\
+
+For a given parameter $ \theta $, a linear interpolant between two independent unbiased estimators $ d_1, d_2 $ is also unbiased. If $ \sigma_1^2, \sigma_2^2 $ are the respective known variances of these estimators, then this new estimator has the form \\
+
+\begin{align}
+	d &= \lambda d_1 + (1-\lambda)d_2 \nonumber \\
+	%
+	r(d, \theta) &= \mathrm{Var}(d) = \lambda^2 \sigma_1^2 + (1-\lambda)^2 \sigma_2^2 \nonumber \\
+	%
+	\widehat{\lambda} &= \frac{\sigma_2^2}{\sigma_1^2 + \sigma_2^2} \qquad \text{to minimize } \qquad r(d, \theta)
+\end{align} \\
+
+as a generalization of the above, consider a composite estimator $ d $ made up of many independent unbiased estimators $ d_i $ each with the same mean $ \theta $ and separate variances $ \sigma^2_i $. The best construction of $ d $ would then be,\\
+
+\begin{align}
+	d &= \ddfrac{\sum d_i / \sigma_i^2}{\sum 1/ \sigma_i^2} \\
+	%
+	r(d, \theta) &= \mathrm{Var}(d) = \ddfrac{1}{\sum (1/ \sigma_i^2)}
+\end{align}\\
+
+For a general estimator with some nonzero bias, its mean-squared error is given by \\
+
+\begin{align}
+	r(d, \theta) = \mathrm{Var}(d) + b_\theta^2 (d)
+\end{align}\\
+
+\textbf{Bayes estimator} : Consider the special case when some information about a parameter $ \theta $ is available even before the observations $ \left\{X_i\right\} $ are obtained. This is called the \textit{prior distribution} of $ \theta $. \\
+
+However, once the set of $ n $ random variables $ \left\{X_i = x_i\right\} $ have been observed, it is possible to update the prior PDF $ p(\theta) $ using this new information to yield the \textit{posterior distribution} $ f(\theta\ |\ x_1, \dots, x_n) $. \\
+
+The update procedure uses the \textit{likelihood} $ f(x\ |\ \theta) $ and Bayes' theorem to calcuate the posterior distribution.\\
+
+\begin{align}
+	f(\theta\ |\ x_1, \dots, x_n) &= \frac{f(\theta, x_1, \dots, x_n)}{f(x_1, \dots, x_n)} \nonumber \\
+	%
+	&= \ddfrac{f(x_1, \dots, x_n\ |\ \theta)\ p(\theta)}{\int\limits f(x_1, \dots, x_n\ |\ \theta)\ p(\theta)\  \mathrm{d}\theta}
+\end{align} \\
+
+The Bayes estimator is simply the mean of the posterior distribution $ \mathbb{E}[\theta\ |\ X_1, \dots, X_n] $, as it minimizes the expected square error in estimating $ \theta $. If the set of RVs take on the values $ \left\{X_i = x_i\right\} $, \\
+
+\begin{align}
+	\mathbb{E}[\theta\ |\ X_1, \dots, X_n] &= \int\limits \theta\ f(\theta\ |\ x_1, \dots, x_n)\ \mathrm{d}\theta
+\end{align} \\
+
+As an example, consider a set of independent normal RVs $ \left\{X_i\right\} $ each with unknown mean $ \theta $ and known variance $ \sigma_0^2 $. Now, suppose the prior distribution of $ \theta $ is itself normal with known parameters $ (\mu, \sigma^2) $. The Bayes estimator of $ \theta $ happens to be a normal RV with \\
+
+\begin{align}
+	\mathbb{E}[\theta\ |\ X_1, \dots, X_n] &= \left(\frac{n\sigma^2}{n\sigma^2 + \sigma_0^2}\right)\ \overline{X} + \left(\frac{\sigma_0^2}{n\sigma^2 + \sigma_0^2}\right)\ \mu \\
+	%
+	\mathrm{Var}(\theta\ |\ X_1, \dots, X_n) &= \frac{\sigma^2 \sigma_0^2}{n\sigma^2 + \sigma_0^2}
+\end{align} \\
+
+Choosing a normal RV for the prior distribution is justifiable if \\
+
+
+\begin{itemize}
+	\item The parameter $ \theta $ is likely to be close to a value $ \mu $.
+	
+	\item $ \theta $ is just as likely to be a certain distance away from $ \mu $ whether larger or smaller. This justifies a symmetric distribution about $ \mu $.
+	
+	\item There exists some number $ \sigma $ such that \\
+	\begin{align}
+		P\left\{|\theta - \mu| \leq z_{\alpha/2}\right\} = 1- \alpha \nonumber
+ 	\end{align}\\
+ 	for some conventional choice of $ \alpha $ such as $ 0.05 $. 
+\end{itemize}
+
+
+For an interval estimate of $ \theta $, say in the interval $ [a,b] $, with probability $ 1-\alpha $ use \\
+
+\begin{align}
+	\int\limits_a^b \ f(\theta\ |\ x_1, \dots, x_n)\ \mathrm{d}\theta = 1 - \alpha
+\end{align}
+
+
+
+
+
+
+
+
+\newpage
+
