@@ -1,0 +1,904 @@
+\chapter{Hypothesis Testing}
+
+\begin{enumerate}
+	
+	\item 	\begin{enumerate}
+		\item The null hypothesis should be innocence.\\
+		
+		\item The significance level should be 1\% or smaller, in the spirit of \\
+		``innocent until proven guilty beyond a reasonable doubt.''
+	\end{enumerate}
+	
+	\item $ \overline{X} = 30.4 ,\ \sigma = 4,\ \mu_0 = 32,\ \alpha = 0.05,\ n = 25$. Performing the z-test gives,\\
+	
+		\begin{align}
+			H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu \neq \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{\sigma}\ |\overline{X} - \mu_0| = 2 \nonumber \\
+			%
+			p &= P_{H_0}\left\{|Z| > |T|\right\} = 4.55\% 
+		\end{align}\\
+		Since $ p < \alpha $, the null hypothesis $ H_0 $ is rejected at 5\% significance.\\
+	
+	
+	\item $ \sigma = 20,\ \mu_0 = 50,\ \alpha = 0.05,\ n = 64$. $ \overline{X} $ changes, with changing $ p $-value,\\
+	
+		\begin{align}
+			H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu \neq \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{\sigma}\ |\overline{X} - \mu_0| \nonumber \\
+			%
+			\overline{X} = 52.5 \to p &= P_{H_0}\left\{|Z| > |T|\right\} = 31.73\% \nonumber \\
+			%
+			\overline{X} = 55.0 \to p &= P_{H_0}\left\{|Z| > |T|\right\} = 4.55\% \nonumber \\
+			%
+			\overline{X} = 57.5 \to p &= P_{H_0}\left\{|Z| > |T|\right\} = 0.27\% 
+		\end{align}\\
+	
+	
+	\item $ \sigma = 0.02,\ \mu_0 = 8.2,\ \alpha = (0.05, 0.1),\ n = 10$. Performing the z-test gives,\\
+	
+		\begin{align}
+			H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu \neq \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{\sigma}\ |\overline{X} - \mu_0| = 3.32 \nonumber \\
+			%
+			p &= P_{H_0}\left\{|Z| > |T|\right\} = 0.1\% 
+		\end{align}\\
+		Since $ p < \alpha $,  for both values of $ \alpha = 10\%, 5\% $ the null hypothesis $ H_0 $ is rejected.\\
+	
+	
+	\item $ \sigma = 5,\ \mu_0 = 200,\ \alpha = (0.05, 0.1),\ n = 8$. Performing the z-test gives,\\
+	
+		\begin{align}
+			H_0 : \mu \geq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{\sigma}\ |\overline{X} - \mu_0| = -0.5020 \nonumber \\
+			%
+			p &= P_{H_0}\left\{Z \leq T\right\} = 30.78\% 
+		\end{align}\\
+		Since $ p > \alpha $,  for both values of $ \alpha = 10\%, 5\% $ the null hypothesis $ H_0 $ is accepted.\\
+	
+	
+	\item $ \sigma = 3,\ \mu_0 = 70,\ \alpha = 0.05,\ n = 20$. Performing the z-test gives $ \overline{X} = 72.015 $,\\
+	
+		\begin{align}
+			H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu \neq \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{\sigma}\ |\overline{X} - \mu_0| = 3.004 \nonumber \\
+			%
+			p &= P_{H_0}\left\{Z \leq T\right\} = 0.26\% 
+		\end{align}\\
+		Since $ p < 1\% $, the null hypothesis $ H_0 $ is safely rejected. Assuming each person's height is i.i.d as a normal RV.\\
+	
+	
+	\item $ \sigma = 0.02,\ \mu_0 = 8.2,\ \alpha = 0.05$. Performing the z-test gives,\\
+	
+		\begin{enumerate}
+			\item The test used has to satisfy these conditions,\\
+			\begin{align}
+				H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu \neq \mu_0 \nonumber \\
+				%
+				T &= \frac{\sqrt{n}}{\sigma}\ |\overline{X} - \mu_0| \nonumber \\
+				%
+				\text{reject $ H_0 $ if } \qquad & T > \texttt{stats.norm.ppf}(1-\alpha/2) \nonumber \\
+				%
+				&\to T > 1.96
+			\end{align}\\
+			
+			\item Using the formula for approximate sample size, with $ \alpha = 0.05,$ \\
+			$ \beta = 0.05,\ |\mu_1 - \mu_0| = 0.03 = 1.5\sigma $\\
+			\begin{align}
+				n &\approx \frac{\sigma^2\ (z_{\alpha/2} + z_\beta)^2}{(\mu_1 - \mu_0)^2} = \frac{4}{9}\ (1.96 + 1.65)^2 = 5.77
+			\end{align}
+			The smallest sample size needed to guarantee the two stated conditions is n = 6.\\
+			
+			\item $ \overline{X} = 8.31 $, then\\
+			\begin{align}
+				T &= \frac{\sqrt{6}}{\sigma}\ |\overline{X} - \mu_0| = 13.47 \nonumber \\
+			\end{align}
+			
+			This is clearly a rejection of $ H_0 $\\
+			
+			\item $ \overline{X} = 8.32 $, then\\
+			\begin{align}
+				T &= \frac{\sqrt{6}}{\sigma}\ |\overline{X} - \mu_0| = 13.47 \nonumber \\
+			\end{align}
+			
+			This is clearly a rejection of $ H_0 $\\
+			
+			\item The probability of rejection when the true mean is $ \mu_1 $ is,\\
+			
+			\begin{align}
+				1 - \beta &= 1 - \Phi\left(\frac{\mu_0 - \mu_1}{\sigma/\sqrt{n}} + z_{\alpha/2}\right) \nonumber \\
+				%
+				&= 1 - \Phi(-12.74) \approxeq 1
+			\end{align}
+		\end{enumerate}
+	
+	\item Proving the relation for sample size when true mean is less than the hypothesis claim. $ \mu_1 < \mu_0 $\\
+	
+		\begin{align}
+			\beta &= \Phi\left(\frac{\mu_0 - \mu_1}{\sigma/\sqrt{n}} + z_{\alpha/2}\right) - \Phi\left( \frac{\mu_0 - \mu_1}{\sigma/\sqrt{n}} - z_{\alpha/2} \right)  \\
+			%
+			&\approx 1 - \Phi\left(\frac{\mu_0 - \mu_1}{\sigma/\sqrt{n}} - z_{\alpha/2}\right) = P\left\{Z > z_\beta\right\} \nonumber \\
+			%
+			\Phi(z_\beta) &= \Phi\left(\frac{\mu_0 - \mu_1}{\sigma/\sqrt{n}} - z_{\alpha/2}\right) \nonumber \\
+			%
+			n &\approx \frac{\sigma^2\ (z_{\alpha/2} + z_\beta)^2}{(\mu_1 - \mu_0)^2}
+		\end{align}\\
+	
+	
+	\item If time taken to enter bloodstream is $ t $ \\
+	$ H_0 : t \geq 10 $ while $ H_1 : t < 10 $ \\
+	
+	\item $ \sigma = 1.2,\ \mu_0 = 7.6,\ \alpha = (0.05, 0.01),\ n = 16,\ \overline{X} = 7.2$. Performing the z-test gives,\\
+	
+		\begin{align}
+			H_0 : \mu \geq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{\sigma}\ |\overline{X} - \mu_0| = -1.33 \nonumber \\
+			%
+			p &= P_{H_0}\left\{Z \leq T\right\} = 9.12\% 
+		\end{align}\\
+		Since $ p > \alpha $,  for both values of $ \alpha = 5\%, 1\% $ the null hypothesis $ H_0 $ is accepted.\\
+	
+	
+	\item $ \overline{X} = 105,\ \mu_0 = 100,\ n = 20$. $ \overline{X} $ changes, with changing $ \sigma $-value,\\
+	
+		\begin{align}
+			H_0 : \mu \leq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu > \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{\sigma}\ (\overline{X} - \mu_0) \nonumber \\
+			%
+			\sigma = 5 \to p &= P_{H_0}\left\{Z > T\right\} \approx 0\% \nonumber \\
+			%
+			\sigma = 10 \to p &= P_{H_0}\left\{Z > T\right\} = 1.26\% \nonumber \\
+			%
+			\sigma = 15 \to p &= P_{H_0}\left\{Z > T\right\} = 6.8\% 
+		\end{align}\\
+	
+	
+	\item $ \sigma = 1,\ \mu_0 = 3,\ \alpha = 0.05,\ n = 2500$. Performing the z-test gives $ \overline{X} = 2.95 $,\\
+	
+		\begin{align}
+			H_0 : \mu \geq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{\sigma}\ |\overline{X} - \mu_0| = -2.5 \nonumber \\
+			%
+			p &= P_{H_0}\left\{Z \leq T\right\} = 0.62\% 
+		\end{align}\\
+		Since $ p < 5\% $, the null hypothesis $ H_0 $ is safely rejected and the toothpaste works.\\
+		Unfortunately, the reduction in cavities is significant but very slight and thus not very convincing to potential customers.\\
+	
+	
+	\item $ S = 1.3,\ \mu_0 = 20,\ \alpha = 0.05,\ n = 25$. Performing the t-test gives $ \overline{X} = 19.7 $,\\
+	
+		\begin{align}
+			H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu \neq \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{S}\ |\overline{X} - \mu_0| = 1.15 \nonumber \\
+			%
+			p &= P_{H_0}\left\{t \geq |T|\right\} = 26\% 
+		\end{align}\\
+		Since $ p > 5\% $, the null hypothesis $ H_0 $ is accepted, and the manufacturer's claim cannot be rejected using this data.\\
+	
+	
+	\item $ S = 3.1,\ \mu_0 = 24,\ \alpha = 0.05,\ n = 36$. Performing the t-test gives $ \overline{X} = 22.5 $,\\
+	
+		\begin{align}
+			H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu \neq \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{S}\ |\overline{X} - \mu_0| = 2.9 \nonumber \\
+			%
+			p &= P_{H_0}\left\{t \geq T\right\} = 0.63\% 
+		\end{align}\\
+		Since $ p < 5\% $, the null hypothesis $ H_0 $ is rejected and the mean is no longer equal to $ \mu_0 $.\\
+	
+	
+	\item $ S = 0.3,\ \mu_0 = 0.8,\ \alpha = 0.05,\ n = 28$. Performing the t-test gives $ \overline{X} = 1 $,\\
+	
+		\begin{align}
+			H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu \neq \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{S}\ |\overline{X} - \mu_0| = 3.53 \nonumber \\
+			%
+			p &= P_{H_0}\left\{t \geq T\right\} = 0.15\% 
+		\end{align}\\
+		Since $ p < 5\% $, the null hypothesis $ H_0 $ is rejected and the alcohol does affect the response time\\
+	
+	
+	\item Where data?\\
+	
+	\item $ S = 1.1,\ \mu_0 = 98.6,\ \alpha = (0.05, 0.01),\ n = 100$. Performing the t-test gives $ \overline{X} = 98.74 $,\\
+	
+		\begin{align}
+			H_0 : \mu \leq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu > \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{S}\ (\overline{X} - \mu_0) = 1.27 \nonumber \\
+			%
+			p &= P_{H_0}\left\{t \geq T\right\} = 10.3\% 
+		\end{align}\\
+		Since $ p > 5\%, 1\% $, the null hypothesis $ H_0 $ is not rejected the average temperature is not greater than $ \mu_0 $\\
+	
+	
+	\item Where data? \\
+	
+	\item Where data? \\
+	
+	\item Assume experiments are independent.\\
+		$ S = 3.5,\ \mu_0 = 30,\ \alpha = 0.01,\ n = 10$. Performing the t-test gives $ \overline{X} = 26.4 $,\\
+		\begin{align}
+			H_0 : \mu \geq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \nonumber \\
+			%
+			T &= \frac{\sqrt{n}}{S}\ (\overline{X} - \mu_0) = -3.25 \nonumber \\
+			%
+			p &= P_{H_0}\left\{t \geq T\right\} = 0.5\% 
+		\end{align}\\
+		Since $ p < 1\% $, the null hypothesis $ H_0 $ is rejected and the average mileage is lesser than $ \mu_0 $.\\
+		
+	\item $ S = 11.28,\ \mu_0 = 240,\ \alpha = 0.05,\ n = 18$. Performing the t-test gives $ \overline{X} = 237.05 $,\\
+	\begin{align}
+		H_0 : \mu \geq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \nonumber \\
+		%
+		T &= \frac{\sqrt{n}}{S}\ (\overline{X} - \mu_0) = -1.11 \nonumber \\
+		%
+		p &= P_{H_0}\left\{t \geq T\right\} = 14.17\% 
+	\end{align}\\
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ is accepted and the average battery life is not lesser than $ \mu_0 $.\\
+	
+	\item $ S = 17.8,\ \mu_0 = 80,\ \alpha = 0.05,\ n = 36$. Performing the t-test gives $ \overline{X} = 90.67 $,\\
+	\begin{align}
+		H_0 : \mu \leq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu > \mu_0 \nonumber \\
+		%
+		T &= \frac{\sqrt{n}}{S}\ (\overline{X} - \mu_0) = 3.59 \nonumber \\
+		%
+		p &= P_{H_0}\left\{t \geq T\right\} = 0.05\% 
+	\end{align}\\
+	Since $ p < 5\% $, the null hypothesis $ H_0 $ is rejected and the noise level is greater than $ \mu_0 $.\\
+	
+	\item $ S = 0.04,\ \mu_0 = 0.15,\ \alpha = 0.05,\ n = 40$. Performing the t-test gives $ \overline{X} = 0.162 $,\\
+	\begin{align}
+		H_0 : \mu \leq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu > \mu_0 \nonumber \\
+		%
+		T &= \frac{\sqrt{n}}{S}\ (\overline{X} - \mu_0) = 1.89 \nonumber \\
+		%
+		p &= P_{H_0}\left\{t \geq T\right\} = 3.26\% 
+	\end{align}\\
+	Since $ p < 5\% $, the null hypothesis $ H_0 $ is rejected and the sulfur level is greater than $ \mu_0 $.\\
+	
+	\item $ S = 3.79,\ \mu_0 = 30,\ \alpha = 0.05,\ n = 16$. Performing the t-test gives $ \overline{X} = 28.25 $,\\
+	\begin{align}
+		H_0 : \mu \geq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \nonumber \\
+		%
+		T &= \frac{\sqrt{n}}{S}\ (\overline{X} - \mu_0) = -1.85 \nonumber \\
+		%
+		p &= P_{H_0}\left\{t \geq T\right\} = 4.23\% 
+	\end{align}\\
+	Since $ p < 5\% $, the null hypothesis $ H_0 $ is rejected and the stress resistance is lesser than $ \mu_0 $.\\
+	
+	\item $ S = 35,\ \mu_0 = 210,\ \alpha = 0.05$. Performing the t-test gives $ \overline{X} = 200 $,\\
+	\begin{align}
+		H_0 : \mu \geq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \nonumber \\
+		%
+		T &= \frac{\sqrt{n}}{S}\ (\overline{X} - \mu_0) \nonumber \\
+		%
+		n = 25 \to p &= P_{H_0}\left\{t > T\right\} = 8.3\% \nonumber \\
+		%
+		n = 64 \to p &= P_{H_0}\left\{t > T\right\} = 1.28\% 
+	\end{align}\\
+	Since $ p > 5\% $ for $ n = 25 $, the null hypothesis $ H_0 $ is accepted. Rejected for $ n = 64 $.\\
+	
+	\item $ S = 6.63,\ \mu_0 = 100,\ \alpha = 0.05,\ n = 12$. Performing the t-test gives $ \overline{X} = 101.41 $,\\
+	\begin{align}
+		H_0 : \mu \geq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \nonumber \\
+		%
+		T &= \frac{\sqrt{n}}{S}\ (\overline{X} - \mu_0) = 0.74 \nonumber \\
+		%
+		p &= P_{H_0}\left\{t \geq T\right\} = 76.3\% 
+	\end{align}\\
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ is not rejected. Note that the alternate hypothesis cannot be rejected either as its p-value is $ q = 23.7\% $. The claim is neither proved nor disproved.\\
+	
+	\item $ \sigma_x = 0.3,\ \sigma_y = 0.4,\ \alpha = 0.05,\ n = 10,\ m = 8$.\\
+	Performing the z-test gives $ \overline{X} - \overline{Y} = -0.817 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+		%
+		T &= \ddfrac{| \overline{X} - \overline{Y} |}{\sqrt{\sigma_x^2/n + \sigma_y^2/m}} = 4.8 \nonumber \\
+		%
+		p &= P_{H_0}\left\{|Z| \geq T\right\} \approx 0 \% 
+	\end{align}\\
+	Since $ p < 1\% $, the null hypothesis $ H_0 $ is safely rejected.\\
+	
+	\item $ \sigma_x = 0.05,\ \sigma_y = 0.05,\ \alpha = 0.05,\ n = 10,\ m = 10$.\\
+	Performing the z-test gives $ \overline{X} - \overline{Y} = -0.018 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+		%
+		T &= \ddfrac{| \overline{X} - \overline{Y} |}{\sqrt{\sigma_x^2/n + \sigma_y^2/m}} = 0.805 \nonumber \\
+		%
+		p &= P_{H_0}\left\{|Z| \geq T\right\} \approx 42 \% 
+	\end{align}\\
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected.\\
+	
+	\item $ \sigma_x = 10,\ \alpha = 0.05,\ n = 9,\ m = 9$, with changing $ \sigma_y $\\
+	Performing the z-test gives $ \overline{X} - \overline{Y} = -0.018 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x \leq \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x > \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{\sqrt{\sigma_x^2/n + \sigma_y^2/m}} \nonumber \\
+		%
+		\sigma_y = 5 \to p &= P_{H_0}\left\{Z \geq T\right\} = 0.40 \nonumber \\ 
+		%
+		\sigma_y = 10 \to p &= P_{H_0}\left\{Z \geq T\right\} = 1.79 \nonumber \\
+		%
+		\sigma_y = 20 \to p &= P_{H_0}\left\{Z \geq T\right\} = 9.22 
+	\end{align}\\
+	
+	\item $\alpha = 0.05,\ n = 8,\ m = 7$, with unknown but equal variances\\
+	Performing the z-test gives $ \overline{X} - \overline{Y} = -0.34 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{\sqrt{S_P^2/n + S_P^2/m}} = 1.75\nonumber \\
+		%
+		p &= P_{H_0}\left\{|Z| \geq T\right\} = 10.35\% 
+	\end{align}\\
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected.\\
+	
+	\item $\alpha = 0.05,\ n = 6,\ m = 7$, with unknown but equal variances\\
+	Performing the z-test gives $ \overline{X} - \overline{Y} = -0.34 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{\sqrt{S_P^2/n + S_P^2/m}} = 0.437\nonumber \\
+		%
+		p &= P_{H_0}\left\{|Z| \geq T\right\} = 67\% 
+	\end{align}\\
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected.\\
+	
+	\item $\alpha = 0.1,\ n = 6,\ m = 6$, with unknown but equal variances. Assuming the resistance does not change systematically between different measurements due to heating etc.\\
+	Performing the t-test gives $ \overline{X} - \overline{Y} = 0.00217 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x \leq \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x > \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{\sqrt{S_P^2/n + S_P^2/m}} = 1.37\nonumber \\
+		%
+		p &= P_{H_0}\left\{t \geq T\right\} = 10\% 
+	\end{align}\\
+	Since $ p > 10\% $, the null hypothesis $ H_0 $ can just be rejected.\\
+	
+	\item $\alpha = 0.01,\ n = 11,\ m = 14$, with unknown but equal variances\\
+	Performing the t-test gives $ \overline{X} - \overline{Y} = 5.82 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{\sqrt{S_P^2/n + S_P^2/m}} = 2.52 \nonumber \\
+		%
+		p &= P_{H_0}\left\{|t| \geq T\right\} = 1.89\% 
+	\end{align}\\
+	Since $ p < 5\% $, the null hypothesis $ H_0 $ can be rejected and the smokers have a higher blood pressure.\\
+	
+	\item $\alpha = 0.01,\ n = 5,\ m = 5$, with unknown but equal variances\\
+	Performing the t-test gives $ \overline{X} - \overline{Y} = 249.6 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x \leq \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x > \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{\sqrt{S_P^2/n + S_P^2/m}} = 3.544 \nonumber \\
+		%
+		p &= P_{H_0}\left\{t \geq T\right\} = 0.38\% 
+	\end{align}\\
+	Since $ p < 1\% $, the null hypothesis $ H_0 $ can be rejected and the higher dosage is more effective.\\
+	
+	\item $\alpha = 0.05,\ n = 16,\ m = 16,\ \overline{X} = 72700,\ S_x = 2400,\ \overline{Y} = 71400,\ S_y = 2200$, with unknown but equal variances\\
+	Performing the t-test gives $ \overline{X} - \overline{Y} = 249.6 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x \leq \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x > \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{\sqrt{S_P^2/n + S_P^2/m}} = 1.59 \nonumber \\
+		%
+		p &= P_{H_0}\left\{t \geq T\right\} = 6\% 
+	\end{align}\\
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected.\\
+	
+	\item $\alpha = 0.01,\ n = 7,\ m = 7$, with unknown but equal variances\\
+	Performing the t-test gives $ \overline{X} - \overline{Y} = -1.21 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x \geq \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x < \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{\sqrt{S_P^2/n + S_P^2/m}} = -1.22 \nonumber \\
+		%
+		p &= P_{H_0}\left\{t \geq T\right\} = 12\% 
+	\end{align}\\
+	Since $ p > 1\% $, the null hypothesis $ H_0 $ cannot be rejected and process B is not necessarily better than process A.\\
+	
+	\item $\alpha = 0.05, 0.01,\ n = 12,\ m = 12$, with unknown but equal variances\\
+	Performing the t-test gives $ \overline{X} - \overline{Y} = -4.3 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{\sqrt{S_P^2/n + S_P^2/m}} = 2.39 \nonumber \\
+		%
+		p &= P_{H_0}\left\{|t| \geq T\right\} = 2.56\% 
+	\end{align}\\
+	Since $ p < 5\%, p > 1\% $, the null hypothesis $ H_0 $ can only be rejected at $ \alpha = 0.05 $.\\
+	
+	
+	\item $\alpha = 0.05,\ n = 12,\ m = 10,\ \overline{X} = 180,\ S_x = 92,\ \overline{Y} = 136,\ S_y = 86$, with unknown but equal variances\\
+	Performing the t-test gives $ \overline{X} - \overline{Y} = 44 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{\sqrt{S_P^2/n + S_P^2/m}} = 1.15 \nonumber \\
+		%
+		p &= P_{H_0}\left\{|t| \geq |T|\right\} = 26.36\% 
+	\end{align}\\
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected.\\
+	
+	\item $\alpha = 0.01,\ n = 30,\ m = 100,\ \overline{X} = 48.5,\ S_x = 14.5,\ \overline{Y} = 26.6,\ S_y = 12.3$, with unknown but equal variances\\
+	Performing the t-test gives $ \overline{X} - \overline{Y} = 249.6 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x \leq \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x > \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{\sqrt{S_P^2/n + S_P^2/m}} = 8.2 \nonumber \\
+		%
+		p &= P_{H_0}\left\{t \geq T\right\} \approx 0\% 
+	\end{align}\\
+	Since $ p \approx 0\% $, the null hypothesis $ H_0 $ can be safely rejected and lead content is lower in the present than the past.\\
+	
+	\item $\alpha = 0.05,\ n = 53,\ m = 44,\ \overline{X} = 6.8,\ S_x^2 = 5.2,\ \overline{Y} = 7.2,\ S_y^2 = 4.9$, with unknown but equal variances\\
+	Performing the t-test gives $ \overline{X} - \overline{Y} = 44 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{\sqrt{S_P^2/n + S_P^2/m}} = 0.8715 \nonumber \\
+		%
+		p &= P_{H_0}\left\{|t| \geq |T|\right\} = 38.5\% 
+	\end{align}\\
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected.\\
+	
+	\item $\alpha = 0.05,\ n = 33,\ \overline{X} = 0.015,\ \overline{Y} = 0.006,\ S_x^2 = 0.004,\ S_y^2 = 0.006$, with unknown but equal variances\\
+	Performing the paired t-test gives $ \overline{X} - \overline{Y} = 0.009 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{S_w/\sqrt{n}} = 7.17 \nonumber \\
+		%
+		p &= P_{H_0}\left\{|t| \geq |T|\right\} \approx 0\% 
+	\end{align}\\
+	Since $ p < 1\% $, the null hypothesis $ H_0 $ can be rejected, and the lead does affect the children.\\
+	
+	\item $\alpha = 0.05,\ n = 10$, with unknown but equal variances\\
+	Performing the paired t-test gives $ \overline{X} - \overline{Y} = -3.1 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{S_w/\sqrt{n}} = 2.33 \nonumber \\
+		%
+		p &= P_{H_0}\left\{|t| \geq |T|\right\} = 4.45\% 
+	\end{align}\\
+	Since $ p < 5\% $, the null hypothesis $ H_0 $ can be rejected, and the drug does change blood pressure.\\
+	
+	\item $\alpha = 0.05,\ n = 8$, with unknown but equal variances\\
+	Performing the paired t-test gives $ \overline{X} - \overline{Y} = 2.75 $,\\
+	
+	\begin{align}
+		H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+		%
+		T &= \ddfrac{ \overline{X} - \overline{Y} }{S_w/\sqrt{n}} = 1.26 \nonumber \\
+		%
+		p &= P_{H_0}\left\{|t| \geq |T|\right\} = 24.7\% 
+	\end{align}\\
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected, and jogging does not affect pulse.\\
+	
+	\item Mean and variance are unknown. To devise a significance test for the variance given some positive value $ \sigma^2_0 $, \\
+	
+	\begin{align}
+		H_0 : \sigma^2 \leq \sigma_0^2 \qquad &\text{vs.} \qquad H_1 : \sigma^2 > \sigma_0^2 \nonumber \\
+		%
+		(n-1)\ \frac{S^2}{\sigma_0^2} &\sim \chi^2_{n-1} \nonumber \\
+		%
+		\text{reject $ H_0 $ if } \qquad & (n-1)\ \frac{S^2}{\sigma_0^2} > \chi^2_{\alpha, n-1} \\
+		%
+		\text{accept $ H_0 $} \qquad & \text{otherwise}
+	\end{align} \\
+
+	\item If the population mean $ \mu $ is known in advance, the population variance $ S^2 $ can be replaced with the sum of squared differences from the mean $ Y^2 = \sum (X_i - \mu)^2 $.\\
+	 
+	\begin{align}
+		H_0 : \sigma^2 \leq \sigma_0^2 \qquad &\text{vs.} \qquad H_1 : \sigma^2 > \sigma_0^2 \nonumber \\
+		%
+		\frac{Y^2}{\sigma_0^2} &\sim \chi^2_{n} \nonumber \\
+		%
+		\text{reject $ H_0 $ if } \qquad & \frac{Y^2}{\sigma_0^2} > \chi^2_{\alpha, n} \\
+		%
+		\text{accept $ H_0 $} \qquad & \text{otherwise}
+	\end{align} \\
+
+	\item Mean and variance are unknown. Using the chi2-significance test for the variance with $ \sigma_0 = 0.1,\ n = 50,\ S = 0.08,\ \alpha = 0.1 $, \\
+	
+	\begin{align}
+		H_0 : \sigma^2 \geq \sigma_0^2 \qquad &\text{vs.} \qquad H_1 : \sigma^2 < \sigma_0^2 \nonumber \\
+		%
+		T &= (n-1)\ \frac{S^2}{\sigma_0^2} = 31.36 \nonumber \\
+		%
+		p &= P_{H_0}\left\{\chi^2_{n-1} \leq T\right\} = 2.35\% 
+	\end{align} \\
+	Since $ p < 5\% $, the null hypothesis $ H_0 $ can be rejected, and the equipment is safe for use.\\
+	
+	\item Mean and variance are unknown. Using the chi2-significance test for the variance with $ \sigma_0 = 0.4,\ n = 10,\ \alpha = 0.0001 $, \\
+	
+	\begin{align}
+		H_0 : \sigma^2 \geq \sigma_0^2 \qquad &\text{vs.} \qquad H_1 : \sigma^2 < \sigma_0^2 \nonumber \\
+		%
+		T &= (n-1)\ \frac{S^2}{\sigma_0^2} = 9.25\times 10^{-4}\nonumber \\
+		%
+		p &\approx 0\% 
+	\end{align} \\
+	Since $ p < 0.01\% $, the null hypothesis $ H_0 $ can be strongly rejected, and the neq process can be used.\\
+
+	\item $\alpha = 0.10,\ n = 8$, with unknown but equal variances. Performing the f-test gives\\
+	
+	\begin{align}
+		H_0 : \sigma^2_x = \sigma^2_y \qquad &\text{vs.} \qquad H_1 : \sigma^2_x \neq \sigma^2_y \nonumber \\
+		%
+		T &= \ddfrac{ S^2_x }{S^2_y} = 0.532 \nonumber \\
+		%
+		p &= 42.67\% 
+	\end{align}\\
+	Since $ p > 10\% $, the null hypothesis $ H_0 $ cannot be rejected, and the variances are not different.\\
+	
+	\item $\alpha = 0.05,\ n = 6,\ m = 7$, with unknown but equal variances. Performing the f-test gives\\
+	
+	\begin{align}
+		H_0 : \sigma^2_x = \sigma^2_y \qquad &\text{vs.} \qquad H_1 : \sigma^2_x \neq \sigma^2_y \nonumber \\
+		%
+		T &= \ddfrac{ S^2_x }{S^2_y} = 14.05 \nonumber \\
+		%
+		p &= 0.58\% 
+	\end{align}\\
+	Since $ p < 5\% $, the null hypothesis $ H_0 $ can be rejected, and the variances are different.\\
+	
+	\item Mean and variance are unknown. To devise a significance test for comparing the variances of two samples from different normal populations with variance $ \sigma^2_x,\ \sigma^2_y $, \\
+	
+	\begin{align}
+		\frac{S^2_x}{S^2_y} &\sim F_{n-1, m-1} \nonumber \\
+		%
+		H_0 : \sigma_x^2 \leq \sigma_y^2 \qquad &\text{vs.} \qquad H_1 : \sigma_x^2 > \sigma_y^2 \nonumber \\
+		%
+		\text{reject $ H_0 $ if } \qquad & \frac{S^2_x}{S^2_y} >  F_{\alpha, n-1, m-1} \nonumber \\
+		%
+		\text{accept $ H_0 $} \qquad & \text{otherwise}
+	\end{align}\\
+
+	\item $\alpha = 0.05,\ n = 75,\ m = 75$, with unknown variances. Performing the f-test gives\\
+	
+	\begin{align}
+		H_0 : \sigma_x^2 \geq \sigma_y^2 \qquad &\text{vs.} \qquad H_1 : \sigma_x^2 < \sigma_y^2 \nonumber \\
+		%
+		S^2 = \frac{\sum (x_i - \mu)^2}{n-1} &= \ddfrac{\left(\sum x_i^2\right) - n\mu^2}{n-1} \nonumber \\
+		%
+		T &= \ddfrac{ S^2_x }{S^2_y} = 0.471 \nonumber \\
+		%
+		p &= 0.07\% 
+	\end{align}\\
+	
+	Since $ p < 5\% $, the null hypothesis $ H_0 $ can be rejected, and the inner side has a greater variance than the outer side.\\
+	
+	\item $\alpha = 0.05,\ n = 11000,\ m = 11000,\ X = 104,\ Y = 189$, with unknown variances. Performing the Fisher-Irwin test gives\\
+	
+	\begin{align}
+		H_0 : p  = q \qquad &\text{vs.} \qquad H_1 : p  \neq q \nonumber \\
+		%
+		\text{reject $ H_0 $ if } \qquad & P\{X \geq x_1\} \leq \alpha/2  \nonumber \\
+		%
+		\text{or }& P\{X \leq x_1\} \leq \alpha/2 \nonumber \\
+		%
+		\text{accept $ H_0 $} \qquad & \text{otherwise} \nonumber \\
+		%
+		T = P_{H_0}(X = i\ |\ X+Y = k) &= \ddfrac{\binom{n}{i}\ \binom{m}{k-i}}{\binom{n+m}{k}} = 1.53 \times 10^{-7} \nonumber \\[1ex]
+		%
+		p &= 6.58 \times 10^{-5}\% \approx 0\%
+	\end{align}\\
+	
+	Since $ p < 0.1\% $, the null hypothesis $ H_0 $ can safely be rejected, and the aspirin does affect the chances of a heart attack.\\
+	
+	
+	\item $\alpha = 0.05,\ n = 11000,\ m = 11000,\ X = 119,\ Y = 98$, with unknown variances. Performing the Fisher-Irwin test gives\\
+	
+	\begin{align}
+		H_0 : p  = q \qquad &\text{vs.} \qquad H_1 : p  \neq q \nonumber \\
+		%
+		T = P_{H_0}(X = i\ |\ X+Y = k) &= \ddfrac{\binom{n}{i}\ \binom{m}{k-i}}{\binom{n+m}{k}} = 0.019 \nonumber \\[1ex]
+		%
+		p &= 17.22\%
+	\end{align}\\
+	
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected, and the aspirin does not affect the chances of a stroke.\\
+	
+	\item $\alpha = 0.05,\ n = 50,\ p_0 = 0.72,\ Y = 42$. Performing the Binomial test gives\\
+	
+	\begin{align}
+		H_0 : p  \leq p_0 \qquad &\text{vs.} \qquad H_1 : p > p_0 \nonumber \\
+		%
+		T &= \binom{n}{Y}\ p_0^Y\ (1-p_0)^{n-Y}  = 0.021 \nonumber \\
+		%
+		p &= \sum\limits_{k = Y}^{n} P_{H_0}(X = k) = 3.64\%
+	\end{align}\\
+	
+	Since $ p < 5\% $, the null hypothesis $ H_0 $ can be rejected, and the new drug is more effective.\\
+	
+	\item $\alpha = 0.05,\ p_0 = 0.5 $. Performing the Binomial test on different values of $ n, Y $ gives\\
+	
+	\begin{align}
+		H_0 : p  \leq p_0 \qquad &\text{vs.} \qquad H_1 : p > p_0 \nonumber \\
+		%
+		T &= \binom{n}{Y}\ p_0^Y\ (1-p_0)^{n-Y} \nonumber \\
+		%
+		n = 100, Y = 56 \to p &= \sum\limits_{k = Y}^{n} P_{H_0}(X = k) = 13.56\% \nonumber \\
+		%
+		n = 120, Y = 68 \to p &= \sum\limits_{k = Y}^{n} P_{H_0}(X = k) = 8.53\% \nonumber \\
+		%
+		n = 110, Y = 62 \to p &= \sum\limits_{k = Y}^{n} P_{H_0}(X = k) = 10.75\% \nonumber \\
+		%
+		n = 330, Y = 186 \to p &= \sum\limits_{k = Y}^{n} P_{H_0}(X = k) = 1.19\% 
+	\end{align}\\
+	
+	Since $ p < 5\% $ only for channel 4, the null hypothesis $ H_0 $ can be rejected only by the this poll.\\
+	
+	\item $\alpha = 0.05,\ n = 1000,\ p_0 = 1.32\%$.\\
+	
+	\begin{enumerate}
+		
+		\item To find the maximum $ Y < np_0$ corresponding to the given parameters in order to reject the null hypothesis (minimum $ Y $ compatible with rejection is $ 0 $)
+		\begin{align}
+			H_0 : p = p_0 \qquad &\text{vs.} \qquad H_1 : p < p_0 \nonumber \\
+			%
+			T &= \binom{n}{Y}\ p_0^Y\ (1-p_0)^{n-Y}  \nonumber \\
+			%
+			p &= \sum\limits_{k = 0}^{Y} P_{H_0}(X = k)
+		\end{align}\\
+	
+		Since $ p < 5\%\ \forall\ Y \leq 7 $, the null hypothesis $ H_0 $ can be rejected at 7 or less twins observed.\\
+		
+		\item Using brute force to find the values $ Y_1, Y_2 $ such that \\
+		$ P\{X \geq Y_1\} \approx 2.5\% $ and $ P\{X \leq Y_2\} \approx 2.5\% $, gives $ Y_1 = 21, Y_2 = 6 $\\
+		
+		Since $ P\{Y_2 \leq X \leq Y_1\} \approx 95\%$, the complement of the CDF using the new Binomial RV with parameters $ (1000, 0.018) $ in this domain gives the probability of rejection $ 26.88\% $.
+		
+		
+	\end{enumerate}
+	
+	
+	\item $\alpha = 0.05, 0.01,\ n = 200,\ p_0 = 0.45,\ Y = 70$. Performing the Binomial test gives\\
+	
+	\begin{align}
+		H_0 : p  \geq p_0 \qquad &\text{vs.} \qquad H_1 : p < p_0 \nonumber \\
+		%
+		T &= \binom{n}{Y}\ p_0^Y\ (1-p_0)^{n-Y}  = 0.001 \nonumber \\
+		%
+		p &= \sum\limits_{k = Y}^{n} P_{H_0}(X = k) = 0.26\%
+	\end{align}\\
+	
+	Since $ p < 1\% $, the null hypothesis $ H_0 $ can be rejected at both significance levels.\\
+	
+	\item $\alpha = 0.05\ n = 50,\ p_0 = 0.75,\ Y = 42$. Performing the Binomial test gives\\
+	
+	\begin{align}
+		H_0 : p = p_0 \qquad &\text{vs.} \qquad H_1 : p \neq p_0 \nonumber \\
+		%
+		T &= \binom{n}{Y}\ p_0^Y\ (1-p_0)^{n-Y}  = 0.0046 \nonumber \\
+		%
+		p &= \sum\limits_{k = Y}^{n} P_{H_0}(X = k) = 19\%
+	\end{align}\\
+	
+	Since $ p > 1\% $, the null hypothesis $ H_0 $ cannot be rejected and the effectiveness is equal.\\
+	
+	\item $ \sigma^2 = np_0(1-p_0) = 9.375,\ \mu_0 = 37.5,\ \alpha = 0.05,\ n = 50,\ \overline{X} = 42$. Performing the z-test gives $ \overline{X} = 2.95 $,\\
+	
+	\begin{align}
+		H_0 : \mu \geq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \nonumber \\
+		%
+		T &= \frac{1}{\sigma}\ |\overline{X} - \mu_0| = 1.30 \nonumber \\
+		%
+		p &= P_{H_0}\left\{Z \leq T\right\} = 19\% 
+	\end{align}\\
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected. Same p-value without approximating to a normal RV, which shows how good the approximation is.\\
+	
+	\item $\alpha = 0.05,\ n = 72,\ m = 84,\ X = 39,\ Y = 44$, with unknown variances. Performing the Fisher-Irwin test gives\\
+	
+	\begin{enumerate}
+		\item 
+		\begin{align}
+			H_0 : p  = q \qquad &\text{vs.} \qquad H_1 : p  \neq q \nonumber \\
+			%
+			T = P_{H_0}(X = i\ |\ X+Y = k) &= \ddfrac{\binom{n}{i}\ \binom{m}{k-i}}{\binom{n+m}{k}} = 0.125 \nonumber \\[1ex]
+			%
+			p &= 87.28\%
+		\end{align}\\
+		
+		Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected, and the two treatments are equally effective.\\
+		
+	
+		\item $\alpha = 0.05\ n = 156,\ p_0 = 0.5,\ Y = 72$. Performing the Binomial test gives\\
+		
+		\begin{align}
+			H_0 : p = p_0 \qquad &\text{vs.} \qquad H_1 : p \neq p_0 \nonumber \\
+			%
+			T &= \binom{n}{Y}\ p_0^Y\ (1-p_0)^{n-Y}  = 0.04 \nonumber \\
+			%
+			p &= \sum\limits_{k = Y}^{n} P_{H_0}(X = k) = 37.85\%
+		\end{align}\\
+	
+		Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected, and the two treatments were allotted to each patient with equal probability.\\
+	\end{enumerate}
+
+	\item To develop a one-sided analogue of the Fisher-Irwin test, for two binomial RVs $ U, V $ with parameters $ (n, p) , (m, q)$.\\
+	\begin{align}
+		H_0 : p \leq q \qquad &\text{vs.} \qquad H_1 : p > q \nonumber \\
+		%
+		T = P_{H_0}(X = i\ |\ X+Y = k) &= \ddfrac{\binom{n}{i}\ \binom{m}{k-i}}{\binom{n+m}{k}} \nonumber \\[1ex]
+		%
+		p &= \sum\limits_{j = U}^{\min(n, k)} P_{H_0}(X = j) \nonumber \\
+		%
+		\text{reject $ H_0 $ if } \qquad & p \leq \alpha  \nonumber \\
+		%
+		\text{accept $ H_0 $} \qquad & \text{otherwise} \nonumber \\
+	\end{align}\\
+	
+	The one-sided left-tailed test would involve merely changing the summation limits to $ \sum\limits_{j = 0}^{U} $.
+	
+	\item To verify the expression given,\\
+	\begin{align}
+		P\{X = i\ |\ X+Y = k\} &= \ddfrac{\binom{n}{i}\ \binom{m}{k-i}}{\binom{n+m}{k}}  \\[1ex]
+		%
+		P\{X = i+1\ |\ X+Y = k\} &= \ddfrac{\binom{n}{i+1}\ \binom{m}{k-i-1}}{\binom{n+m}{k}} \nonumber \\[1ex]
+		%
+		\texttt{RHS} &= \frac{(n-i)}{(i+1)} \ \frac{(k-i)}{(m-k+i+1)} = \texttt{LHS}
+	\end{align}\\
+
+	\item When $ n_1, n_2 $ are large, the two binomial RVs transform into approximate normal RVs with \\
+	\begin{align}
+		X_1 &\sim \mathcal{N}(n_1 p_1,\ n_1 p_1 (1-p_1)) \nonumber \\
+		%
+		X_1 / n_1 &\sim \mathcal{N}(p_1,\ p_1 (1-p_1) / n_1) \nonumber \\
+		%
+		\frac{X_1}{n_1} - \frac{X_2}{n_2} &\sim \mathcal{N}\left( p_1 - p_2,\ \frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2} \right) \\
+		%
+		Z &\sim \ddfrac{\frac{X_1}{n_1} - \frac{X_2}{n_2} - (p_1 - p_2)}{\sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}}
+	\end{align}\\
+
+	In order to set up a z-test using this new standard normal RV, the pooled estimate $ \widehat{p} $ is needed under the null hypothesis, \\
+	
+	\begin{align}
+		H_0 : p_1 = p_2 \qquad &\text{vs.} \qquad H_1 : p_1  \neq p_2 \nonumber \\
+		%
+		P \left\{Z > z_{\alpha/2}\right\} &= \alpha/2 \nonumber \\
+		%
+		\widehat{p} = \frac{\text{total successes}}{\text{total samples}} &= \frac{X_1 + X_2}{n_1 + n_2} \\[1ex]
+		%
+		\text{reject $ H_0 $ if } \qquad & \ddfrac{\Big|\frac{X_1}{n_1} - \frac{X_2}{n_2}\Big|}{\sqrt{\widehat{p}\ (1 - \widehat{p})\ \left(\frac{1}{n_1} + \frac{1}{n_2}\right)}} > z_{\alpha/2} \nonumber \\
+		%
+		\text{accept $ H_0 $ otherwise } 
+	\end{align}
+
+	\item Using the approximation in Problem 63 with the data from Problem 60, \\
+	\begin{align}
+		T &= \ddfrac{\Big|\frac{X_1}{n_1} - \frac{X_2}{n_2}\Big|}{\sqrt{\widehat{p}\ (1 - \widehat{p})\ \left(\frac{1}{n_1} + \frac{1}{n_2}\right)}} = 1.35 \\
+		%
+		p &= 82\%
+	\end{align}\\
+	
+	The approximation yields a p-value close to the exact value of $ 87\% $.\\
+	
+	\item $\alpha = 0.05,\ n = 100,\ m = 100,\ X = 24,\ Y = 12$, with unknown variances. Performing the Fisher-Irwin test gives\\
+	
+	\begin{align}
+		H_0 : p  = q \qquad &\text{vs.} \qquad H_1 : p  \neq q \nonumber \\
+		%
+		T = P_{H_0}(X = i\ |\ X+Y = k) &= \ddfrac{\binom{n}{i}\ \binom{m}{k-i}}{\binom{n+m}{k}} = 0.013 \nonumber \\[1ex]
+		%
+		p &= 4.19\%
+	\end{align}\\
+		
+	Since $ p < 5\% $, the null hypothesis $ H_0 $ can be rejected, and the two methods of conveying mortality are different.\\
+	
+	\item $HH = 251,\ HM = 34,\ MH = 48,\ MM = 5$, with unknown variances.\\
+	
+	\begin{enumerate}
+		
+		\item $\alpha = 0.05,\ n = 338,\ m = 338,\ X = 251+34,\ Y = 251+48$\\
+		Here the probability of making the first and second shot respectively is $ p, q $.\\
+		\begin{align}
+			H_0 : p = q \qquad &\text{vs.} \qquad H_1 : p  \neq q \nonumber \\
+			%
+			T = P_{H_0}(X = i\ |\ X+Y = k) &= \ddfrac{\binom{n}{i}\ \binom{m}{k-i}}{\binom{n+m}{k}} = 0.026 \nonumber \\[1ex]
+			%
+			p &= 14.4\%
+		\end{align}\\
+		
+		Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected. The first and second shot are equally probable.\\
+
+
+		\item $\alpha = 0.05,\ n = 338,\ m = 338,\ X = 251,\ Y = 48$\\
+		Here the probability of making the first and second shot respectively is $ p, q $.\\
+		\begin{align}
+			H_0 : p = q \qquad &\text{vs.} \qquad H_1 : p  \neq q \nonumber \\
+			%
+			T = P_{H_0}(X = i\ |\ X+Y = k) &= \ddfrac{\binom{n}{i}\ \binom{m}{k-i}}{\binom{n+m}{k}} \approx 0 \nonumber \\[1ex]
+			%
+			p &\approx 0\%
+		\end{align}\\
+		
+		Since $ p < 0.1\% $, the null hypothesis $ H_0 $ can be rejected. The second shot is not equally probable depending on the first shot hitting or missing.\\	
+	
+	\end{enumerate}
+	
+	\item $\alpha = 0.05,\ n = 286,\ m = 310,\ X = 252,\ Y = 270$\\
+	Here the probability of making the first and second shot respectively is $ p, q $.\\
+	\begin{align}
+		H_0 : p = q \qquad &\text{vs.} \qquad H_1 : p  \neq q \nonumber \\
+		%
+		T = P_{H_0}(X = i\ |\ X+Y = k) &= \ddfrac{\binom{n}{i}\ \binom{m}{k-i}}{\binom{n+m}{k}} = 0.09 \nonumber \\[1ex]
+		%
+		p &= 80.38\%
+	\end{align}\\
+	
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected. The survival chances are equal for both treatments.\\
+	
+	\item $\alpha = 0.05,\ \lambda_0 = 52$\\
+	\begin{align}
+		H_0 : \lambda = \lambda_0 \qquad &\text{vs.} \qquad H_1 : \lambda \neq \lambda_0 \nonumber \\
+		%
+		T = P_{H_0}(X = i) &= 0.052 \nonumber \\[1ex]
+		%
+		p &= 81.8\%
+	\end{align}\\
+	
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected. The number of earthquakes is a Poisson RV with the assumed mean.\\
+	
+	\item $\alpha = 0.0001,\ \lambda_0 = 6.7$\\
+	\begin{align}
+		H_0 : \lambda \leq \lambda_0 \qquad &\text{vs.} \qquad H_1 : \lambda > \lambda_0 \nonumber \\
+		%
+		T = P_{H_0}(X = i) &= 2.27 \times 10^{-9} \nonumber \\[1ex]
+		%
+		p &= 1.41 \times 10^{-7}\%
+	\end{align}\\
+	
+	Since $ p < 0.001\% $, the null hypothesis $ H_0 $ can be strongly rejected. The quark does exist.\\
+	
+	
+	\item $\alpha = 0.05,\ c = 1,\ n = 8,\ m = 3$. Using the conditional test which gives a binomial distribution\\
+	Since the sum each dataset is a single Poisson RV with parameters summed, the two RVs under consideration have means $ n\lambda, m\lambda $,\\  
+	\begin{align}
+		H_0 : \lambda_1 = c\lambda_2 \qquad &\text{vs.} \qquad H_1 : \lambda_1 \neq c\lambda_2 \nonumber \\
+		%
+		T &= \texttt{binom.pmf}\left(n, n+m, \frac{n/m}{c + n/m}\right) = 0.262 \nonumber \\[1ex]
+		%
+		p &= 52.4\%
+	\end{align}\\
+	
+	Since $ p > 5\% $, the null hypothesis $ H_0 $ cannot be rejected. The two Poisson parameters are equal.\\
+	
+	\item Age is a confounding variable when investigating the relationship between smoking and heart-attacks. This problem can be removed by age-matching when picking random samples for the smoker and control groups. \\
+	
+	\item No since survivorship bias comes into play. The stocks that have survived for 20 years are inherently the better performing subset of the all the stocks that would have existed in the past.\\
+	
+\end{enumerate}

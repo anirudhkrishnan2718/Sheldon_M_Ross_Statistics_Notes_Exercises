@@ -1,0 +1,59 @@
+\documentclass[letterpaper,12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage[autostyle, english = american]{csquotes}
+\usepackage{enumitem}
+\usepackage{amssymb,amsmath}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{pgfplots}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{pgf-pie}
+\usepackage{float}
+%\pgfplotsset{width=6in}
+\usepgfplotslibrary{statistics}
+\usepgfplotslibrary{fillbetween}
+\addtolength{\jot}{1ex}
+
+\usepackage{sectsty}
+\chapterfont{\sffamily \color{MidnightBlue}}
+
+\setlist[enumerate, 1]{after={\bigskip}, leftmargin = \labelsep, label={\color{MidnightBlue}\textbf{\arabic*}}}
+\setlist[itemize]{after={\bigskip}}
+
+\usepackage{mathtools}
+
+\newcommand\Myperm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\Mycomb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+
+\numberwithin{equation}{enumi}
+
+\begin{document}
+	
+	\author{Anirudh Krishnan}
+	\title{Introduction to Probability and Statistics \\ for Engineers and Scientists \\ \textit{\textcolor{blue}{Sheldon M Ross}} \\ Solutions}
+	\date{\today}
+	
+	\maketitle
+	\tableofcontents
+	
+
+%	\include{./TeX_files/exercise01_new}
+%	\include{./TeX_files/exercise02_new}
+%	\include{./TeX_files/exercise03_new}
+%	\include{./TeX_files/exercise04_new}
+%	\include{./TeX_files/exercise05_new}
+%	\include{./TeX_files/exercise06_new}
+%	\include{./TeX_files/exercise07_new}
+%	\include{./TeX_files/chapter08}
+%	\include{./TeX_files/exercise08_new}
+	\include{./TeX_files/chapter09}
+	\include{./TeX_files/exercise09_new}
+	% bibliography, glossary and index would go here.
+	
+\end{document}

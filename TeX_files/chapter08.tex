@@ -2,7 +2,7 @@
 
 
 \begin{flushright}
-	\textit{``Ch8 quote here"} \\
+	\textit{``\dots beyond a reasonable doubt."} \\
 \end{flushright}
 
 In addition to the problem of estimating the unknown parameters of an underlying distribution from which samples are drawn, it is also useful to test some assertions about the sample itself. \\
@@ -47,7 +47,7 @@ Rearranging the sample mean $ \overline{X} $, which is the point estimator of $ 
 	%
 	P \left\{Z > z_{\alpha/2}\right\} &= \alpha/2 \nonumber \\
 	%
-	\text{reject $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\ \Big| \overline{X} - \mu_0 \Big| > z_{\alpha/2} \\
+	\text{reject $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\ \Big| \overline{X} - \mu_0 \Big| > z_{\alpha/2} \nonumber \\
 	%
 	\text{accept $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\ \Big| \overline{X} - \mu_0 \Big| \leq z_{\alpha/2}
 \end{align} \\
@@ -56,9 +56,9 @@ The above notation $ P_{\mu_0} $ denotes the probability given that $ \mu = \mu_
 
 \textit{p-value} : The probability that a standard normal in absolute value $ |Z| $ will exceed the quantity above on the LHS, is called the p-value of a test. \\
 \begin{align}
-	P \left\{ |Z| > \frac{\sqrt{n}}{\sigma} \Big| \overline{X} - \mu_0 \Big| \right\} &= p \\
+	P \left\{ |Z| > \frac{\sqrt{n}}{\sigma} \Big| \overline{X} - \mu_0 \Big| \right\} &= p \nonumber \\
 	%
-	\text{reject $ H_0 $ if } \qquad & p \leq \alpha \\
+	\text{reject $ H_0 $ if } \qquad & p \leq \alpha \nonumber \\
 	%
 	\text{accept $ H_0 $ if } \qquad & p > \alpha	
 \end{align} \\
@@ -94,11 +94,11 @@ The second term above is considered so small as to be close to zero and thus ign
 \textit{One-sided tests} : Using the same reasoning as the two-sided tests above, the two possible kinds of one-sided testing problem are defined as\\
 
 \begin{align}
-	H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu > \mu_0 \\
+	H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu > \mu_0 \nonumber \\
 	%
-	H_0 : \mu \leq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu > \mu_0 \\
+	H_0 : \mu \leq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu > \mu_0 \nonumber \\
 	%	
-	\text{reject $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\ (\overline{X} - \mu_0)  > z_{\alpha} \\
+	\text{reject $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\ (\overline{X} - \mu_0)  > z_{\alpha} \nonumber \\
 	%
 	\text{accept $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\  (\overline{X} - \mu_0)  \leq z_{\alpha}
 \end{align} \\
@@ -112,15 +112,227 @@ This leads to the corresponding power function and OC curve being a decreasing f
 \end{align}
 
 \begin{align}
-	H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \\
+	H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \nonumber \\
 	%
-	H_0 : \mu \geq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0 \\
+	H_0 : \mu \geq \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu < \mu_0  \nonumber \\
 	%	
-	\text{reject $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\ (\overline{X} - \mu_0)  < -z_{\alpha} \\
+	\text{reject $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\ (\overline{X} - \mu_0)  < -z_{\alpha} \nonumber \\
 	%
 	\text{accept $ H_0 $ if } \qquad & \frac{\sqrt{n}}{\sigma}\  (\overline{X} - \mu_0)  \geq -z_{\alpha}
 \end{align} \\
 
+A test is robust if it functions well even when the underlying assumptions enabling the test are violated. The Central Limit theorem is often the root cause of such robustness.\\
 
+Notice the direct similarity between the calculation of $ 100(1-\alpha)\% $ confidence intervals and the $ \alpha $-level significance test. The probability distributions used to justify both of these procedures are the exact same. \\
+
+\textit{Unknown Variance (the t-test) } : The much more common real-world case of a normal distribution with both mean and variance unknown requires the t-distribution to enable significance tests. Using the sample variance $ S^2 $ to estimate the population variance $ \sigma^2 $,\\
+
+\begin{align}
+	\frac{\overline{X} - \mu_0}{S / \sqrt{n}} &\sim t_{n-1} \nonumber \\
+	%
+	P \left\{ -t_{\alpha/2, n-1} \leq \frac{\overline{X} - \mu_0}{S / \sqrt{n}} \leq t_{\alpha/2, n-1} \right\} &= 1- \alpha \nonumber \\
+	%
+	H_0 : \mu = \mu_0 \qquad &\text{vs.} \qquad H_1 : \mu \neq \mu_0 \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & \frac{\sqrt{n}}{S}\ \Big| \overline{X} - \mu_0 \Big| > t_{\alpha/2, n-1} \nonumber \\
+	%
+	\text{accept $ H_0 $ if } \qquad & \frac{\sqrt{n}}{S}\ \Big| \overline{X} - \mu_0 \Big| \leq t_{\alpha/2, n-1}
+\end{align} \\
+
+The corresponding one-sided t-tests also resemble the one-sided z-tests outlined above, with the only changes being the replacement of $ \sigma $ with $ S $ and the distribution changing from $ z_\alpha $ to $ t_{\alpha, n-1} $.\\
+
+\textbf{Equality of means of two normal populations} : To test if the means $ \mu_x $ and $ \mu_y $ of two normal RVs with variances $ \sigma_x^2 $ and $ \sigma_y^2 $ which may or may not be known, samples of size $ n, m $ are drawn and the difference of sample means $ \overline{X} - \overline{Y} $ is rearranged to create standard probability distributions.\\
+
+The real-world problem requiring this procedure is the testing of whether or not two different approaches to solving the same problem yield similar-enough results.\\
+
+\textit{Known variances} : Following the earlier z-test defined above, \\
+
+\begin{align}
+	\overline{X} - \overline{Y} &\sim \mathcal{N}\left( \mu_x - \mu_y, \frac{\sigma_x^2}{n} + \frac{\sigma_y^2}{m} \right) \nonumber \\
+	%
+	H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & \ddfrac{| \overline{X} - \overline{Y} |}{\sqrt{\sigma_x^2/n + \sigma_y^2/m}} > z_{\alpha/2}  \nonumber \\
+	%
+	\text{accept $ H_0 $ if } \qquad & \ddfrac{| \overline{X} - \overline{Y} |}{\sqrt{\sigma_x^2/n + \sigma_y^2/m}} \leq z_{\alpha/2}
+\end{align}\\
+
+The one-sided test results are not repeated here as they are similar to earlier results above. \\
+
+\textit{Unknown but equal variances} : Using the sample variances $ S_x^2, S_y^2 $ to calculate the pooled estimator $ S_P^2 $, the difference between the sample means can be reanrranged into a t-RV with $ n+m-2 $ DOF.\\
+
+Assuming the unknown variances are equal, $ \sigma_x^2 = \sigma_y^2 = \sigma^2$, \\
+
+\begin{align}
+	S_P^2 &= \frac{(n-1)\ S_1^2 + (m-1)\ S_2^2}{(n+m-2)} \nonumber \\
+	%
+	\ddfrac{\overline{X} - \overline{Y} - (\mu_x - \mu_y)}{\sqrt{S_P^2(1/n + 1/m)}} &\sim t_{n+m-2} \nonumber \\
+	%	
+	H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y  \nonumber\\
+	%
+	\text{reject $ H_0 $ if } \qquad & \ddfrac{| \overline{X} - \overline{Y} |}{\sqrt{S_P^2(1/n + 1/m)}} > t_{\alpha/2, n+m-2}  \nonumber \\
+	%
+	\text{accept $ H_0 $ if } \qquad & \ddfrac{| \overline{X} - \overline{Y} |}{\sqrt{S_P^2(1/n + 1/m)}} \leq t_{\alpha/2, n+m-2}
+\end{align}\\
+
+The one-sided tests are not stated here as they are similar to the earlier one-sided t-tests above.\\
+
+\textit{Unknown and unequal variances} : The exact formulation of an $ \alpha $-level significance test when the variances are unknown and unequal is not a solved problem. However, under the assumption of very large sample sizes $ n, m $, an approximately standard normal test can be constructed as\\
+
+\begin{align}
+	\overline{X} - \overline{Y} &\approx \mathcal{N}\left( \mu_x - \mu_y, \frac{S_x^2}{n} + \frac{S_y^2}{m} \right) \nonumber \\
+	%
+	H_0 : \mu_x = \mu_y \qquad &\text{vs.} \qquad H_1 : \mu_x \neq \mu_y \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & \ddfrac{| \overline{X} - \overline{Y} |}{\sqrt{S_x^2/n + S_y^2/m}} > z_{\alpha/2} \nonumber \\
+	%
+	\text{accept $ H_0 $ if } \qquad & \ddfrac{| \overline{X} - \overline{Y} |}{\sqrt{S_x^2/n + S_y^2/m}} \leq z_{\alpha/2}
+\end{align}\\
+
+\textit{paired t-test} : Consider the real-world case where each of the $ n $ items are not independent. The problem of measuring the change in each element of the set after some action cannot be done using the above procedures because of the lack of independence.\\
+
+If $ \{X_n\} $ and $ \{Y_n\} $ are the set of observations for each of the $ n $ objects before and after an experiment, then a new variable $ W_i = X_i - Y_i $ can still be used to perform significance tests on the effects of this experiment. \\
+
+\begin{align}
+	\frac{\overline{W} - \mu_w}{S_w / \sqrt{n}} &\sim t_{n-1} \nonumber \\
+	%
+	H_0 : \mu_w = 0 \qquad &\text{vs.} \qquad H_1 : \mu_w \neq 0 \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & \frac{\sqrt{n}}{S_w}\ \Big| \overline{W} \Big| > t_{\alpha/2, n-1} \nonumber \\
+	%
+	\text{accept $ H_0 $ if } \qquad & \frac{\sqrt{n}}{S_w}\ \Big| \overline{W} \Big| \leq t_{\alpha/2, n-1}
+\end{align} \\
+
+The paired t-test is powerful in terms of not requiring independence of the $ n $ samples or knowledge of the variances $ \sigma_x^2, \sigma_y^2 $. A similar one-sided test can be constructed imitating earlier t-tests and is not stated here.\\
+
+\textbf{Tests - Variance of a normal RV} : Given an underlying normal RV with unknown parameters $ (\mu, \sigma^2) $, hypothesis testing on the variance exploits the fact that for some specific value $ \sigma_0 $, \\
+
+\begin{align}
+	(n-1)\ \frac{S^2}{\sigma_0^2} &\sim \chi^2_{n-1} \nonumber \\
+	%
+	H_0 : \sigma^2 = \sigma_0^2 \qquad &\text{vs.} \qquad H_1 : \sigma^2 \neq \sigma_0^2 \\
+	%
+	\text{accept $ H_0 $ if } \qquad & (n-1)\ \frac{S^2}{\sigma_0^2} \in \left[ \chi^2_{1 - \alpha/2, n-1}\ ,\ \chi^2_{\alpha/2, n-1} \right] \\
+	%
+	\text{reject $ H_0 $} \qquad & \text{otherwise}
+\end{align}\\
+
+\textbf{Equality of variances of two normal populations} : Using the sample variances $ S_x^2, S_y^2 $ for two samples with $ n, m $ elements and rearranging them into an F-distribution, \\
+
+\begin{align}
+	\frac{S^2_x}{S^2_y} &\sim F_{n-1, m-1} \nonumber \\
+	%
+	H_0 : \sigma_x^2 = \sigma_y^2 \qquad &\text{vs.} \qquad H_1 : \sigma_x^2 \neq \sigma_y^2 \nonumber \\
+	%
+	\text{accept $ H_0 $ if } \qquad & \frac{S^2_x}{S^2_y} \in \left[ F_{1 - \alpha/2, n-1, m-1}\ ,\ F_{\alpha/2, n-1, m-1} \right] \nonumber \\
+	%
+	\text{reject $ H_0 $} \qquad & \text{otherwise}
+\end{align}\\
+
+\textbf{Tests - Bernoulli populations} : Since the Bernoulli RV is a discrete RV, it is treated differently from the continuous RV approaches above. For a Bernoulli RV with parameters $ (n, p) $, a one-sided significance test is constructed for a specific value $ p_0 $ as follows,\\
+
+\begin{align}
+	H_0 : p  \leq p_0 \qquad &\text{vs.} \qquad H_1 : p  > p_0 \\
+	%
+	P \{X \geq k\} &\leq \sum\limits_{i=k}^{n} \binom{n}{i}\ p_0^i\ (1-p_0)^{n-i}
+\end{align}\\
+
+The above relation holds true when $ H_0 $ is true and $ p \leq p_0 $. Now, the null hypothesis will be rejected when the number of samples possessing the property of interest $ X $, is larger than some threshold $ k^* $\\
+
+\begin{align}
+	\text{reject $ H_0 $ if } \qquad & X \geq k^*  \nonumber \\
+	%
+	k^* &= \min \left\{k\ :\ \sum\limits_{i=k}^{n} \binom{n}{i}\ p_0^i\ (1-p_0)^{n-i} \leq \alpha \right\} \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise}
+\end{align}\\
+
+The normal approximation to the Bernoulli RV when $ n $ is large and $ p $ is small also enables the use of the z-test on the transformed variable as outlined above.\\
+
+\begin{align}
+	\frac{X - np_0}{\sqrt{np_0(1-p_0)}} &\sim Z \nonumber
+\end{align}\\
+
+The corresponding two sided significance test involves rejection of the null hypothesis if $ X $ is either much larger or much smaller than the expected value of the Binomial RV with $ p = p_0 $, and observed value of the RV $ X = x $,\\
+
+\begin{align}
+	H_0 : p  = p_0 \qquad &\text{vs.} \qquad H_1 : p  \neq p_0 \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & P\{\texttt{binom}(n, p_0) \geq x\} \leq \alpha/2  \nonumber \\
+	%
+	\text{or }& P\{\texttt{binom}(n, p_0) \leq x\} \leq \alpha/2 \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise}
+\end{align}\\
+
+\textbf{Equality of parameters in two Bernoulli RVs} : Consider two samples of size $ n, m $ each with elements that independently have a probability $ p, q $ of having a desired property.\\
+
+Let $ X, Y $ be binomial RVs measuring the number of desirable elements from each population. They have Bernoulli parameters $ (n,p) $ and $ (m, q) $ respectively. Let $ k = X + Y $ be the total number of desirable elements from the combined sample pool $ n+m $.\\
+
+\begin{align}
+	H_0 : p  = q \qquad &\text{vs.} \qquad H_1 : p  \neq q \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & P\{X \geq x_1\} \leq \alpha/2  \nonumber \\
+	%
+	\text{or }& P\{X \leq x_1\} \leq \alpha/2 \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise}
+\end{align}\\
+
+Under the assumption that the null hypothesis is true, the number of desirable elements contributed by the first sample is a hyper-geometric RV with parameters $ (n, m, k) $\\
+
+The p-value is simply the sum of the all PMF values lesser than or equal to the test statistic.\\
+
+\begin{align}
+	T &= P_{H_0}(X = i\ |\ X+Y = k) = \ddfrac{\binom{n}{i}\ \binom{m}{k-i}}{\binom{n+m}{k}} \qquad \forall \ i \in \{0, k\} \nonumber \\[1ex]
+	%
+	p &= \sum\limits_{j} P_{H_0}(X = j)\  \qquad \forall \qquad \ P_{H_0}(X = j)\leq P_{H_0}(X = i)
+\end{align}\\
+
+This test is called the \textit{Fisher-Irwin} test with associated p-value given by the smaller of the two rejection conditions.\\
+
+\textit{Observational Study} : When it is not possible to perform an experiment on one half of a testing group in order to measure its effects using a double-blind system, studies that involve identifying and observing pre-existing examples of such an experiment are useful.\\
+
+The two groups, called the \textit{test} and \textit{control} group consist of two sample sets, one of which does and the other does not show the effects of the desired experiment already.\\
+
+\textbf{Tests - Mean of a Poisson RV} : This follows the above test for a Bernoulli RV very closely. Let the mean of a Poisson RV be an unknown $ \lambda $. Under the assumption that the null hypothesis is true,\\
+
+\begin{align}
+	H_0 : \lambda  = \lambda_0 \qquad &\text{vs.} \qquad H_1 : \lambda  \neq \lambda_0 \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & P_{\lambda_0}\{X \geq x\} \leq \alpha/2  \nonumber \\
+	%
+	\text{or }& P_{\lambda_0}\{X \leq x\} \leq \alpha/2 \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise} \\
+	%
+	p &= 2\ \min(P\{X \geq x_1\}, P\{X \leq x_1\})
+\end{align}\\
+
+\textbf{Tests - relation between two Poisson RV means} : If $ X, Y $ are two Poisson RVs with means $ \lambda_1, \lambda_2 $, then the test to check if one of the means is a scalar multiple of the other is designed using a conditional distribution as follows,\\
+
+\begin{align}
+	P \{X = k\ |\ X+Y = n\} &= \frac{P\{X = k\ \cap X+Y = n\}}{P \{X+Y = n\}} \nonumber \\
+	%
+	&= \frac{P\{X = k\}\ P\{Y = n-k\}}{P \{X+Y = n\}} \nonumber \\
+	%
+	&= \binom{n}{k}\ \left(\frac{\lambda_1}{\lambda_1+ \lambda_2}\right)^k\ \left(\frac{\lambda_2}{\lambda_1+ \lambda_2}\right)^{1-k} \nonumber \\
+	%
+	&\sim \texttt{Binom}(n, 1/(1+c))
+\end{align}\\
+
+Using the above relation, the test can be designed resembling the above test for Bernoulli parameter comparisons.\\
+
+\begin{align}
+	H_0 : \lambda_1  = c\lambda_0 \qquad &\text{vs.} \qquad H_1 : \lambda_1  \neq c\lambda_0 \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & P\{X \geq x_1\} \leq \alpha/2  \nonumber \\
+	%
+	\text{or }& P\{X \leq x_1\} \leq \alpha/2 \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise} \\
+	%
+	p &= 2\ \min(P\{X \geq x_1\}, P\{X \leq x_1\})
+\end{align}\\
 \newpage
 
