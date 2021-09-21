@@ -21,6 +21,8 @@
 
 \usepackage{sectsty}
 \chapterfont{\sffamily \color{BrickRed}}
+\sectionfont{\sffamily \color{BrickRed}}
+
 
 \setlist[enumerate, 1]{after={\bigskip}, leftmargin = \labelsep, label={\color{olive}\textbf{\arabic*.}}}
 \setlist[itemize]{after={\bigskip}}
@@ -32,6 +34,10 @@
 \newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
 \pagenumbering{gobble}
 
+\includeonly{./TeX_files/chapter11.tex, ./TeX_files/chapter10.tex}
+
+
+
 \begin{document}
 
 \author{Anirudh Krishnan}
@@ -41,16 +47,17 @@
 \maketitle
 \tableofcontents
 
-%\include{./TeX_files/chapter01}
-%\include{./TeX_files/chapter02}
-%\include{./TeX_files/chapter03}
-%\include{./TeX_files/chapter04}
-%\include{./TeX_files/chapter05}
-%\include{./TeX_files/chapter06}
-%\include{./TeX_files/chapter07}
-%\include{./TeX_files/chapter08}
+\include{./TeX_files/chapter01}
+\include{./TeX_files/chapter02}
+\include{./TeX_files/chapter03}
+\include{./TeX_files/chapter04}
+\include{./TeX_files/chapter05}
+\include{./TeX_files/chapter06}
+\include{./TeX_files/chapter07}
+\include{./TeX_files/chapter08}
 \include{./TeX_files/chapter09}
 \include{./TeX_files/chapter10}
+\include{./TeX_files/chapter11}
 % bibliography, glossary and index would go here.
 
 \end{document}

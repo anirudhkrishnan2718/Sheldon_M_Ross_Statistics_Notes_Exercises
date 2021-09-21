@@ -1,0 +1,248 @@
+\chapter{Goodness of Fit Tests and Categorical Data Analysis}
+
+
+\begin{flushright}
+	\textit{``Ch11 Quote Here"} \\
+\end{flushright}
+
+\section{Introduction}
+
+The \textit{a priori} assumption of a probability model governing an observed phenomenon is central to the analysis of samples from an underlying population. The measure appropriateness for this assumed probability model is done through \textit{goodness-of-fit} tests.\\
+
+The null hypothesis to be tested is that a sample has the specified probability distribution. The parameters of this probability distribution may not be fully specified, leading to a more complex problem. \\
+
+\section{Goodness of fit tests with all parameters specified}
+
+Consider a set of $ n $ independent random variables $ \{Y_j\} $ each of which can take on discrete values in the integer set $ \{1, \dots , k\} $. The null hypothesis to test is that they all have the same underlying PMF, specified as\\
+
+\begin{align}
+	H_0 &: P\{Y = i\} = p_i \qquad \forall \ i \in \{1, \dots , k\} \\
+	%
+	H_1 &: P\{Y = i\} \neq p_i \qquad \text{for some}\  i \in \{1, \dots , k\} \nonumber
+\end{align}\\
+
+Defining the set $ \{X_i\} $ as the number of RVs $ \{Y_j\} $ which have the value $ i $, it follows that the set $ \{X_i\} $ are independent binomial RVs with parameters $ \{(n, p_i)\} $ under $ H_0 $\\
+
+\begin{align}
+	X_i &\sim \texttt{Binom} (n,\ p_i) \\
+	%
+	\mathbb{E}[X_i] &= np_i
+\end{align}\\
+
+A method of judging how close $ p_i $ is to the actual probability $ P\{Y = i\} $, is to look at a standardized sum of squared errors, and use it to define a test statistic.\\
+
+Using a significance threshold $ \alpha $, and the fact that $ T $ approaches a $ \chi^2 $ RV with $ (k-1) $ DOF as $ n \to \infty $,\\
+
+
+\begin{align}
+	T &= \sum\limits_{i=1}^{k} \frac{(X_i - np_i)^2}{np_i}  \\
+	%
+	\lim\limits_{n \to \infty} T &\to \chi^2_{k-1} \\[1ex]
+	%
+	\text{reject $ H_0 $ if } \qquad & T > \chi^2_{\alpha, k-1}  \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise}
+\end{align}\\
+
+A rule of thumb for sample sizes in the test above is to ensure that in the set $ \{np_i\} $, all values exceed 1 and most exceed 5.\\
+
+A simpler expression for $ T $ exploits the fact that $ \sum X_i = n $ and $ \sum p_i = 1 $. This constraint on the $ {X_i} $ is also responsible for the $ \chi^2 $ RV having $ (k-1) $ DOF.\\
+
+\begin{align}
+	T = \sum\limits_{i=1}^{k} \frac{(X_i - np_i)^2}{np_i} = \sum\limits_{i=1}^{k} \frac{X_i^2}{np_i}\ -\ n
+\end{align}\\
+
+\textit{Simulation-based methods of determining critical region} : Until the modern computer age led to computing power being cheap and widely available, the above $ \chi^2 $ approximation was the only method of defining critical regions for the goodness-of-fit test.\\
+
+Consider a set of randomly generated variables $ \{Y_1^{(1)}, \dots, Y_n^{(1)}\} $, each having the PMF $ P\{Y_j^{(1)} = i\} = p_i $ for $ i \in \{1, \dots, k\} $.\\
+
+Defining the set $ \{X_i^{(1)}\} $ and test statistic $ T^{(1)} $ as above, \\
+
+\begin{align}
+	X_i^{(1)} &= \text{number of} \ j : Y_j^{(1)} = i \\
+	%
+	T^{(1)} &= \sum\limits_{i=1}^{k} \frac{(X_i^{(1)} - np_i)^2}{np_i}
+\end{align}\\
+
+Using the above procedure to generate a large number of test statistics $ \{T^{(1)}, \dots, T^{(r)}\} $ by repetition of the above procedure yields an approximation to the probability distribution of $ T $.\\
+
+\begin{align}
+	P_{H_0} (T \geq t) &\approxeq \frac{\text{number of}\ l : T^{(l)} \geq t}{r}
+\end{align}\\
+
+The above approximation becomes very accurate for large $ r $ and can also be used then to calculate a p-value for the test. The generation of a random set $ \{Y^{(r)}\} $ exploits the Monte-Carlo system of using a standard uniform RV transformed using the set of probabilities $ \{p_i\} $ to output the discrete value of $ Y^{(r)}_j $.\\
+
+\section{Goodness of fit tests with some parameters unspecified}
+
+When the underlying probability distribution is not fully specified, a general strategy is to divide the possible continuous set of outcomes into a few discrete regions. Using the observed set of data points to calculate an estimate for the unspecified parameters, an estimated test statistic can then be calculated.\\
+
+\begin{align}
+	P\{Y_j = i\} &= p_i \qquad \text{where} \qquad \widehat{p_i} \approx p_i \\
+	%
+	T &= \sum\limits_{i=1}^{k} \frac{(X_i - n\widehat{p_i})^2}{n\widehat{p_i}} \\
+	%
+	\lim\limits_{n \to \infty} & T \to \chi^2_{k-1-m} \\[1ex]
+	%
+	\text{reject $ H_0 $ if } \qquad & T > \chi^2_{\alpha, k-1-m}  \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise}
+\end{align}\\
+
+In the calculation of $ \widehat{p_i} $ above, the CDF of the underlying probability distribution assumed by $ H_0 $, with estimated parameters $ \{\widehat{\lambda}\} $ is used along with the user-defined discrete outcomes. The $ \chi^2 $ RV has $ (k-1-m) $ DOF if there are $ m $ unspecified parameters to be estimated. \\
+
+For example, a set of observed data with a null hypothesis of the underlying distribution being Poisson, would involve estimating the unspecified mean of the Poisson distribution $ \widehat{\lambda} $ using the observations and then calculating the test statistic and p-value.\\
+
+\section{Tests of independence in contingency tables}
+
+Consider a population whose members are governed by two characteristics ($ X, Y $) each of which can take $ (r, s) $ possible values. The marginal probabilities can then be calculated as,\\
+
+\begin{align}
+	P_{ij} &= P\{X = i, Y = j\} \qquad i \in \{1, \dots, r\} \qquad j \in \{1, \dots, s\} \\[1ex]
+	%
+	p_i &= P\{X = i\} = \sum_j\ P_{ij} \qquad i \in \{1, \dots, r\} \\
+	%
+	q_j &= P\{Y = j\} = \sum_i\ P_{ij} \qquad j \in \{1, \dots, s\}
+\end{align}\\
+
+The null hypothesis of interest here is to test the independence of the $ X $ and $ Y $ characteristics.\\
+
+\begin{align}
+	H_0 &: P_{ij} = p_i q_j \qquad \forall \ \text{possible pairs $ (i, j) $}\\
+	%
+	H_1 &: P_{ij} \neq p_i q_j \qquad \text{for some pair $ (i, j) $}
+\end{align}\\
+
+Let the set of $ n $ observations be arranged into a  \textit{contingency table} where each element $ N_{ij} $ represents the number of observations with $ X=i, Y=j $. The marginal probabilities can be estimated from the data set as\\
+
+\begin{align}
+	N_i &= \sum_j N_{ij} & \widehat{p_i} &= \frac{N_i}{n} \\
+	%
+	M_j &= \sum_i N_{ij} & \widehat{q_j} &= \frac{M_j}{n}
+\end{align}\\
+
+When $ H_0 $ is true, a test statistic can be set up as,\\
+
+\begin{align}
+	\mathbb{E}[N_{ij}] &= nP_{ij} = p_i q_j \qquad \text{assuming $ H_0 $ true} \\
+	%
+	T &= \sum\limits_{i=1}^{r} \sum\limits_{j=1}^{s} \ddfrac{(N_{ij} - n\widehat{p}_i \widehat{q}_j)^2}{n\widehat{p}_i \widehat{q}_j} \nonumber \\
+	%
+	&= \sum\limits_{i=1}^{r} \sum\limits_{j=1}^{s} \ddfrac{N_{ij}^2}{n\widehat{p}_i \widehat{q}_j}\ -\ n
+\end{align}\\
+
+The reduction in DOF is $ (1 + (r-1) + (s-1)) $. This leads to $ T \sim \chi^2_{(r-1)(s-1)} $ since there are a total of $ r \times s $ possible categories into which each observation can belong.\\
+
+\begin{align}
+	\lim\limits_{n \to \infty} & T \to \chi^2_{(r-1)(s-1)} \\[1ex]
+	%
+	\text{reject $ H_0 $ if } \qquad & T > \chi^2_{\alpha, (r-1)(s-1)}  \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise}
+\end{align}\\
+
+\section{Tests of independence in contingency tables with fixed marginal totals}
+
+If the sample is chosen such that the row sum and/or column sum is fixed across all rows and/or columns, the procedure used in the above section is largely unchanged. Defining the sample incidence of each pair of characteristics $ \widehat{e}_{ij} $, and then a test statistic, \\
+
+\begin{align}
+	\widehat{e}_{ij} &= n\widehat{p}_i \widehat{q}_j = \frac{N_i M_j}{n} \\
+	%
+	T &= \sum_{i} \sum_{j} \frac{(N_{ij} - \widehat{e}_{ij})^2}{\widehat{e}_{ij}}
+\end{align}\\
+
+Here, $ N_i $ and $ M_j $ are the row-sums and column-sums respectively. The rest of the test is also unchanged with the use of a $ \chi^2 $ RV with $ (r-1)(s-1) $ DOF used to calculate the critical regions.\\
+
+
+An extension of the above procedure can be used to test the hypothesis that $ m $ populations with each member taking on one of $ n $ possible values, all have the same discrete population distribution.\\
+
+\begin{table}[H]
+	\renewcommand{\arraystretch}{2}
+	\centering
+	\begin{tabular}{@{}rrrrrr|l@{}}
+		\toprule
+		Value 	& \multicolumn{5}{c}{Population}	& Row Sum\\ 
+		\midrule
+		{} & $ 1 $	& $ 2 $	& \dots & $ j $ & $ n $ & {} \\
+		\midrule
+		$ 1 $ & $ N_{11} $ & $ N_{12} $ & \dots &  $ N_{1j} $ & $ N_{1n} $ & $ M_{1} $ \\
+		$ 2 $ & $ N_{21} $ & $ N_{22} $ & \dots &  $ N_{2j} $ & $ N_{2n} $ & $ M_{2} $ \\
+		$ \vdots $ & $ \vdots $ & $ \vdots $ & $ \ddots $ &  $ \vdots $ & $ \vdots $ & $ \vdots $ \\
+		$ i $ & $ N_{i1} $ & $ N_{i2} $ & \dots &  $ N_{ij} $ & $ N_{in} $ & $ M_{i} $ \\
+		$ m $ & $ N_{m1} $ & $ N_{m2} $ & \dots &  $ N_{mj} $ & $ N_{mn} $ & $ M_{m} $ \\
+		\midrule
+		Column Sum & $ N_1 $ & $ N_2 $ & \dots &  $ N_j $ & $ N_n $ & {} \\ 
+		\bottomrule
+	\end{tabular}
+	
+	\bigskip
+\end{table}
+
+The hypothesis above now reduces to the absence of a row effect in the table of observations. $ H_0 : p_{1j}  = p_{2j} = \dots  = p_{mj}$\\
+
+\section{Kolmogorov-Smirnov goodness of fit test for continuous data}
+
+Given a set of samples $ \{Y_i\} $ from an underlying population distribution, the hypothesis testing whether this distribution is some continuous CDF given by $ F $ can be performed using the discretization procedure from the previous section.\\
+
+Let the range $ (-\infty, \infty) $ be broken up into $ k $ parts. Now, the observations can belong to one of these $ k $ categories as\\
+
+\begin{align}
+	Y^d_j &= i & \text{if}\ Y_j &\in (y_{i-1}, y_i) \\
+	%
+	P\{Y_j^d = i\} &= F(y_i) - F(y_{i-1}) & \forall \ i &\in \{1,\dots,k\}
+\end{align}\\
+
+This creates a model that is amenable to the $ \chi^2 $ goodness-of-fit test outlined in the above sections.\\
+
+Consider the alternative approach which involves estimating the CDF as an empirical distribution function $ F_e $,\\
+
+\begin{align}
+	F_e(x) &= \frac{\text{number of}\ i : Y_i \leq x}{n}
+\end{align}\\
+
+Here, $ F_e (x) $ is the proportion of observations that are less than or equal to $ x $. Since $ F_e (x) $ is an estimator of $ F(x) $ when $ H_0 $ is true, the \textit{Kolmogorov-Smirnov} test statistic is \\
+
+\begin{align}
+	D \equiv \max_{x}\  \Big|F_e (x) - F(x)\Big|
+\end{align}\\
+
+$ F_e (x) $ is a step-like function with step size $ 1/n $ and jumps at each of the data points $ \{Y_j\} $ after they have been rearranged into ascending order as $ \{Y_{(j)}\} $.\\
+
+\begin{align}
+	F_e (x) = 
+	\begin{cases}
+		0 & \text{if}\ x \in (-\infty,\ Y_{(1)}) \\
+		%
+		1/n & \text{if}\ x \in (Y_{(1)},\ Y_{(2)}) \\
+		%
+		\dots \\
+		%
+		(n-1) / n & \text{if}\ x \in (Y_{(n-1)},\ Y_{(n)}) \\
+		%
+		1 & \text{if}\ x \in (Y_{(n)},\ \infty) \\
+	\end{cases}
+\end{align}\\
+
+Since $ F(x) $ itself is a monotonically increasing function, the expression $ |F_e (x) - F(x)| $ must have its maximum close to one of the points $ x = \{Y_{(j)}\} $. 
+
+\begin{align}
+	D = \max_j \left\{ \frac{j}{n} - F(y_{(j)}),\ F(y_{(j)}) - \frac{j-1}{n} \right\}
+\end{align}\\
+
+A p-value defined using this statistic does not depend on the choice of underlying distribution $ F $,\\
+
+\begin{align}
+	p = P_F (D \geq d) &= P_F \left\{ \max_x \Bigg| \frac{\#i : Y_i \leq x}{n}  - F(x)\Bigg| \geq d \right\}\\
+	%	
+	&= P \left\{ \max_x \Bigg| \frac{\#i : U_i \leq F(x)}{n}  - F(x)\Bigg| \geq d \right\}
+\end{align}\\
+
+The above uses the fact that if $ Y $ has a continuous CDF $ F $, then $ F(Y) $ is a standard uniform RV. This enables the use of independent standard uniform RVs $ \{U_i\} $ to ease the Monte-Carlo simulation of the p-value.\\
+
+The Monte-Carlo procedure involves defning $ y = F(x) $ for the hypothesized CDF $ F $ and then performing many repeats of checking whether the following inequality holds,\\
+
+\begin{align}
+	\text{MC iteration } & \text{is}\ \max_{0 \leq y \leq 1} \Bigg| \frac{\#i : U_i \leq y}{n}  - y\Bigg| \geq d \\
+	%
+	\max_{y} \Bigg| \frac{\#i : U_i \leq y}{n}  - y\Bigg| &= \max_{j} \Bigg| \frac{j}{n} - U_{(j)},\ U_{(j)} - \frac{j-1}{n} \Bigg|
+\end{align}
+

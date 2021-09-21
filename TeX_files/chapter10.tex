@@ -2,9 +2,385 @@
 
 
 \begin{flushright}
-	\textit{``Ch10 Quote Here."} \\
+	\textit{``What do you mean `Its a method used to compare mean values'?"} \\
 \end{flushright}
 
 \section{Introduction}
 
+Consider the problem of testing whether alternative approaches to solving a problem are equivalent. A simple null hypothesis is to ask if the average benefit of each problem-solving approach is the same. \\
+	
+A standard procedure to test this would be to randomly divide a population into many subgroups, each subjected to a different solution. The null hypothesis, under the assumption that the response of each individual tested has a variance independent of the solution itself, is simply the subgroup-means being equal.\\
 
+\section{Overview of the procedure}
+
+Consider a set of $ m $ populations from which samples of size $ n $ are drawn. Proving the equality of the means of these populations, which only depend on one parameter, namely the population the sample was from, is called a \textit{one-way} analysis of variance. \\
+
+This can also be extended to the more general case of the $ m $ different samples not being of equal size. \\
+
+The more complex case of the variance of each variable depending on two factors, the population index as well as the sample index, can be visually represented as a two-dimensional array with row and column indices both determining the variance. This is called the \textit{two-way} analysis of variance problem. \\
+
+The above problem assumes no interaction between the two factors affecting the mean of the variable. Removing this assumption makes for a significantly more complicated problem, with possible non-linear interactions among the factors affecting the mean.\\
+
+For the rest of this chapter, a general procedure can be outlined as follows,\\
+
+\begin{itemize}
+	\item Assume samples are drawn from a normal population with unknown (but common) variance $ \sigma^2 $
+	\item Find a valid estimator of $ \sigma^2 $, which is true regardless of the specific null hypothesis being true.
+	\item Fina another estimator of $ \sigma^2 $ which is true only when $ H_0 $ holds.
+	\item Design a test that rejects $ H_0 $ when the second estimator is sufficiently larger than the first (since it tends to always be larger). 
+\end{itemize}
+
+
+Consider a set of $ N $ independent normal RVs $ \{X_i\} $ with possibly different means but a common unknown variance. 
+
+\begin{align}
+	\frac{X_i - \mu_i}{\sigma} &\sim Z_i \nonumber \\
+	%
+	\sum\limits_{i = 1}^{N} \frac{(X_i - \mu_i)^2}{\sigma^2} &\sim \chi^2_{N} \nonumber \\
+\end{align}\\
+
+If each $ \mu_i  = \mathbb{E}[X_i]$ can be estimated using a linear combination of $ k $ parameters, then the resulting estimate of the means $ \{\widehat{\mu_i}\} $, can be substituted into the above expression to make a $ \chi^2 $ distribution with $ (N-k) $ DOF.\\
+
+\section{One-way ANOVA}
+
+Consider a set of $ m $ samples, each of size $ n $ (\textit{balanced samples}). The members of each sample are independent normal RVs and a hypothesis testing the equality of their means, \\
+
+\begin{align}
+	X_{ij} &\sim \mathcal{N}(\mu_i, \sigma^2) \qquad i = 1,\dots,m \qquad j = 1,\dots,n \\
+	%
+	H_0 &: \mu_1 = \mu_2 = \dots = \mu_m \qquad \text{vs} \qquad H_1 : \text{not all means are equal}
+\end{align}\\
+
+Using the set of sample means $ \{X_{i\bullet}\} $ of the $ n $ populations as the estimators for $ \{\mu_i\} $, \\
+
+\begin{align}
+	\sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n} \frac{(X_{ij} - \mathbb{E}[X_{ij}])^2}{\sigma^2} &\sim \chi^2_{nm} \\
+	%
+	\sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n} \frac{(X_{ij} - X_{i\bullet})^2}{\sigma^2} &\sim \chi^2_{nm - m} 
+\end{align}\\
+
+Defining the \textit{within-samples sum of squares} ($ SS_W $) as 
+
+\begin{align}
+	SS_W &= \sum_{i} \sum_{j} (X_{ij} - X_{i\bullet})^2 \\
+	%
+	\sum_{i} \sum_{j} \frac{SS_W}{\sigma^2} &\sim \chi^2_{nm-m} \\
+	%
+	\mathbb{E}\left[\frac{SS_W}{\sigma^2}\right] &= nm - m \\
+	%
+	\sigma^2 &= \frac{SS_W}{nm-m}
+\end{align}\\
+
+The above estimator of $ \sigma^2 $ is free of any assumptions about the $ H_0 $. Next, under the assumption that $ H_0 $ holds, and thus the set of population means $ \{X_{i\bullet}\} $ are all normal RVs with common mean $ \mu $ and common variance $ \sigma^2 / n $, \\
+
+\begin{align}
+	n\ \sum\limits_{i = 1}^{m} \frac{(X_{i\bullet} - \mu)^2}{\sigma^2} &\sim \chi^2_{m} \\
+	%
+	X_{\bullet \bullet} &= \frac{\sum_{i} \sum_{j} X_{ij}}{nm} = \frac{\sum_{i} X_{i\bullet}}{m} \\
+\end{align}\\
+
+Since the above mean of all variables $ X_{\bullet \bullet} $ is an estimator of the common mean $ \mu $ which requires only $ 1 $ parameter to calculate, the \textit{between-samples sum of squares} ($ SS_b $) can be used to simplify the above expression,\\
+
+\begin{align}
+	SS_b &= n\ \sum\limits_{i = 1}^{m} (X_{i\bullet} - X_{\bullet\bullet})^2 \\
+	%
+	\frac{SS_b}{\sigma^2} &\sim \chi^2_{m-1} \nonumber \\
+	%
+	\frac{SS_b}{(m-1)} &= \sigma^2
+\end{align}\\
+
+Since the conditional estimator of $ \sigma^2 $ tends to be larger and these two estimators are independent when $ H_0 $ holds, the ratio of these two $ \chi^2 $ RVs to define an f-RV, the hypothesis test can be formulated as,\\
+
+\begin{align}
+	\frac{SS_b}{SS_W}\ \frac{(nm-m)}{(m-1)} &\sim F_{m-1, nm-m} \nonumber \\
+	%
+	H_0 : \text{all means are equal} \qquad &\text{vs.} \qquad H_1 : \text{not all means are equal} \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & \frac{SS_b}{SS_W}\ \frac{(nm-m)}{(m-1)} > F_{\alpha, m-1, nm-m}  \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise}
+\end{align}\\
+
+A computational identity relating the two terms $ SS_b $ and $ SS_W $ is as follows,\\
+
+\begin{align}
+	\sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n} X^2_{ij} &= nm\ X^2_{\bullet \bullet} + SS_b + SS_W
+\end{align} \\
+
+A proof of the relation between the two estimates of $ \sigma^2 $, uses the following variable transformation, \\
+
+\begin{align}
+	\mathbb{E}\left[\frac{SS_b}{(m-1)}\right] &\geq \sigma^2 \qquad \text{equality only if $H_0$ holds} \\
+	%
+	Y_i &= X_{i\bullet} -\mu_i + \mu_{\bullet} \nonumber \\
+	%
+	\mathbb{E}\left[\frac{\sum_{i} (X_{i\bullet} - X_{\bullet\bullet})^2}{(m-1)}\right] &= \frac{\sigma^2}{n} + \sum_{i} \frac{(\mu_i - \mu_{\bullet})^2}{(m-1)}
+\end{align}\\
+
+\textit{Multiple comparisons of sample means} : When the null hypothesis above is rejected, a measure of how the different sample means are related is the T-method. This gives a confidence interval for the difference between all possible pairs $ \mu_i - \mu_j $. 
+
+\begin{align}
+	\mu_i - \mu_j &\in X_{i\bullet} - X_{j\bullet} \pm W \\
+	%
+	\forall \ i\neq j &\qquad \text{with probability $ 1-\alpha $} \nonumber \\
+	%
+	W &= \frac{1}{\sqrt{n}} \ q(m, nm-m, \alpha)\ \sqrt{\frac{SS_W}{(nm-m)}}
+\end{align}\\
+
+Here, the studentized range distribution $ q $ has pre-calculated CDF tables. Further information in article - \textit{Tukey's range test}.\\
+
+\textit{Unequal sample sizes (unbalanced)} : Since the assumption of sample sizes all being equal to $ n $ is no longer valid, it is replaced with sample sizes $ \{n_1, n_2, \dots, n_m\} $ for each of the $ m $ samples.\\
+
+For convenience, define $ N = \sum_i n_i $.\\
+
+\begin{align}
+	\sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n_i} \frac{(X_{ij} - \mu_i)^2}{\sigma^2} &\sim \chi^2_{N} \\
+	%
+	\sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n_i} \frac{(X_{ij} - X_{i\bullet})^2}{\sigma^2} &\sim \chi^2_{N - m} \\
+\end{align}\\
+
+Once again, defining $ SS_W $ and simplifying yields an unbiased estimator of $ \sigma^2 $ not dependent on $ H_0 $.\\
+
+\begin{align}
+	SS_W &= \sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n_i} (X_{ij} - X_{i\bullet})^2 \\
+	%
+	\frac{SS_W}{N-m} &= \sigma^2
+\end{align}\\
+
+Next, under the assumption that $ H_0 $ holds, and the means are equal to a common value $ \mu $.\\
+
+\begin{align}
+	\mathbb{E}[X_{i\bullet}] &= \mu & \mathrm{Var}(X_{i\bullet}) &= \frac{\sigma^2}{n_i} \nonumber \\
+	%
+	\sum\limits_{i = 1}^{m} \frac{(X_{i\bullet} - \mu)^2}{\sigma^2 / n_i} &\sim \chi^2_{m} & \sum\limits_{i = 1}^{m} \frac{(X_{i\bullet} - X_{\bullet\bullet})^2}{\sigma^2 / n_i} &\sim \chi^2_{m-1} \\
+	%
+	SS_b &= \sum\limits_{i = 1}^{m} n_i\ (X_{i\bullet} - X_{\bullet\bullet})^2
+\end{align}\\
+
+When $ H_0 $ is true, both the estimators of $ \sigma^2 $ are unbiased and independent. This enables the construction of a level $ \alpha $ hypothesis test\\
+
+\begin{align}
+	\frac{SS_b}{SS_W}\ \frac{(N-m)}{(m-1)} &\sim F_{m-1, N-m} \nonumber \\
+	%
+	H_0 : \text{all means are equal} \qquad &\text{vs.} \qquad H_1 : \text{not all means are equal} \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & \frac{SS_b}{SS_W}\ \frac{(N-m)}{(m-1)} > F_{\alpha, m-1, N-m}  \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise}
+\end{align}\\
+
+Balanced samples are more robust to violations of the assumption of equal variances of the different populations and thus preferred over unbalanced samples.\\
+
+\section{Two-factor ANOVA}
+
+Consider the more complex where each data value in the data-set is affected by two factors, with ($ m, n $) \textit{levels} respectively. The dataset can be arranged into a two-dimensional array along these two indices.\\
+
+\begin{align}
+	\begin{bmatrix}
+		X_{11} & X_{12} & X_{13} & \dots & X_{1n} \\
+		X_{21} & X_{22} & X_{23} & \dots & X_{2n} \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		X_{i1} & X_{i2} & X_{i3} & \dots & X_{in} \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		X_{m1} & X_{m2} & X_{m3} & \dots & X_{mn} \\
+	\end{bmatrix}
+\end{align}\\
+
+By convention the factors are called the \textit{row-factor} and \textit{column-factor} respectively. The mean value of a data point depends additively on both its row and column index.\\
+
+Let $ \mu_{ij} = \mathbb{E}[X_{ij}] $, where $ i \in \{1, \dots, m\} $ and $ j \in \{1, \dots, n\} $.\\
+
+\begin{align}
+	\mu_{ij} &= a_i + b_j & \mu = \mu_{\bullet\bullet} &= \sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n} \frac{\mu_{ij}}{nm} \\
+	%
+	\mu_{\bullet j} &= a_{\bullet} + b_j & \mu_{i \bullet} &= a_{i} + b_{\bullet} \\
+	%
+	\alpha_i &= a_i - a_{\bullet} & \beta_j &= b_j - b_{\bullet}
+\end{align}\\
+
+The \textit{grand mean} is defined as the mean of all terms $ \mu \coloneqq \mu_{\bullet \bullet} $, and the terms $ \alpha_i, \beta_j $ are the row and column \textit{deviations} from the grand mean.\\
+
+The model can now be rewritten as\\
+
+\begin{align}
+	\mu_{ij} = \mathbb{E}[X_{ij}] &= \mu + \alpha_i + \beta_j \\
+	%
+	\sum_{i} \alpha_i &= \sum_{j} \beta_j = 0 
+\end{align}\\
+
+Using the row-average, column-average and overall-average of the data points, $ X_{i\bullet},\ X_{\bullet j},\ X_{\bullet \bullet} $ to calculate the estimators of $ \alpha_i, \beta_j, \mu $ respectively,\\
+
+\begin{align}
+	\mathbb{E}[X_{i\bullet}] &= \mu + \alpha_i & \mathbb{E}[X_{\bullet j}] &= \mu + \beta_j \\
+	%
+	\mathbb{E}[X_{i\bullet} - X_{\bullet \bullet}] &= \alpha_i & \mathbb{E}[X_{\bullet j} - X_{\bullet \bullet}] &=  \beta_j 
+\end{align}\\
+
+This leads to the following unbiased estimators of the model parameters.
+
+\begin{align}
+	\widehat{\mu} &= X_{\bullet \bullet} \nonumber \\
+	%
+	\widehat{\alpha_i} &= X_{i\bullet} - X_{\bullet \bullet} \nonumber \\
+	%
+	\widehat{\beta_j} &= X_{\bullet j} - X_{\bullet \bullet}
+\end{align}\\
+
+\section{Two-factor ANOVA : Hypothesis testing} 
+
+The most common hypothesis to be tested is the absence of any effect due to the row-factors or the column-factors. \\
+
+\begin{align}
+	H_0 : \text{all $ \alpha_i $ are zero} \qquad \text{vs} \qquad H_1 : \text{not all $ \alpha_i $ are zero} \nonumber \\
+	H_0 : \text{all $ \beta_j $ are zero} \qquad \text{vs} \qquad H_1 : \text{not all $ \beta_j $ are zero} \nonumber
+\end{align}\\
+
+Using the usual ANOVA procedure of comparing two different estimators of the variance, \\
+
+\begin{align}
+	\sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n} \frac{(X_{ij} - \mathbb{E}[X_{ij}])^2}{\sigma^2} &\sim \chi^2_{mn} \nonumber \\
+	%
+	\sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n} \frac{(X_{ij} - \widehat{\mu} - \widehat{\alpha_i} - \widehat{\beta_j})^2}{\sigma^2} &= \sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n} \frac{(X_{ij} + X_{\bullet \bullet} - X_{i \bullet} - X_{\bullet j})^2}{\sigma^2}
+\end{align}\\
+
+The number of parameters required to estimate the above 3 parameters is $ 1 + (m-1) + (n-1) = (m+n-1)$. This leaves a $ \chi^2 $ RV with $ mn - (m+n-1) = (m-1)(n-1) $ DOF. Using the definiton of the \textit{error sum of squares},\\
+
+\begin{align}
+	SS_e &=	\sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n} (X_{ij} - X_{\bullet \bullet} - X_{i \bullet} - X_{\bullet j})^2\\
+	%
+	\frac{SS_e}{(m-1)(n-1)} &= \sigma^2
+\end{align}\\
+
+To find the $ H_0 $ conditioned estimator of $ \sigma^2 $, first consider the case where all of the row-factors are zero.
+
+\begin{align}
+	\mathbb{E}[X_{i\bullet}] &= \mu + \alpha_i = \mu & \mathrm{Var}(X_{i\bullet}) &= \frac{\sigma^2}{n} \nonumber \\
+	%
+	\text{if $ H_0 $ is true, } && n\sum\limits_{i = 1}^{m} \frac{(X_{i\bullet}  - \mu)^2}{\sigma^2} &\sim \chi^2_{m} \\
+	%
+	n\sum\limits_{i = 1}^{m} \frac{(X_{i\bullet}  - X_{\bullet \bullet})^2}{\sigma^2} &\sim \chi^2_{m-1}
+\end{align}\\
+
+Defining the \textit{row sum of squares} and analogously the \textit{column sum of squares}, \\
+
+\begin{align}
+	SS_r &= n\sum\limits_{i = 1}^{m} (X_{i\bullet}  - X_{\bullet \bullet})^2 & SS_c &= m\sum\limits_{j = 1}^{n} (X_{\bullet i}  - X_{\bullet \bullet})^2 
+\end{align}\\
+
+Using the above definitions, a second estimator for $ \sigma^2 $ conditioned on $ H_0 $ being true is,\\
+
+\begin{align}
+	\frac{SS_r}{(m-1)} &= \sigma^2 & \frac{SS_r}{SS_e}\ \frac{(m-1)(n-1)}{(m-1)} &\sim F_{m-1, (m-1) (n-1)}
+\end{align}\\
+
+The hypothesis test can now be constructed using this F-RV as follows,\\
+
+\begin{align}
+	H_0 : \text{all row-factors are zero} \qquad &\text{vs.} \qquad H_1 : \text{not all row-factors are zero} \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & \frac{SS_r}{SS_e}\ \frac{(m-1)(n-1)}{(m-1)} > F_{\alpha, m-1, (m-1) (n-1)} \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise}
+\end{align}\\
+
+\section{Two-way ANOVA with interaction} 
+
+Extending the model in the previous section to allow the possibility of some interaction between the row and column factors governing a particular data-point, \\
+
+\begin{align}
+	\mu_{ij} &= \mathbb{E}[X_{ij}] & \mu_{ij} &= \mu + \alpha_i + \beta_j + \gamma_{ij} \\
+	%
+	\mu &= \mu_{\bullet \bullet} & \gamma_{ij} &= \mu_{ij} - \mu_{i\bullet} - \mu_{\bullet j} + \mu_{\bullet \bullet} \\
+	%
+	\alpha_i &= \mu_{i\bullet} - \mu_{\bullet \bullet} & \beta_j &= \mu_{\bullet j} - \mu_{\bullet \bullet} \\
+	%
+	\sum\limits_{i = 1}^{m} \gamma_{ij} &= 0 & \sum\limits_{j = 1}^{n} \gamma_{ij} &= 0
+\end{align}\\
+
+In addition, the usual constraints on the set of $ \{\alpha_i\} $ and $ \{\beta_j\} $ summing to zero still apply. In this extended mode, the term $ \gamma_{ij} $ is called the \textit{interaction of row i and column j}. It measures the difference between the mean of $ X_{ij} $ and the three terms indicating the grand mean, row effect and column effect.\\
+
+For mathematical reasons, it is no longer sufficient to have just one observation for a given row and column index. Assume there are a set of $ l $ such observations corresponding to every possible pair of $ \{i, j\} $. Since each data point $ X_{ijk} $ is still a normal RV with common unknown variance $ \sigma^2 $,\\
+
+\begin{align}
+	X_{ijk} &\sim \mathcal{N}(\mu + \alpha_i + \beta_j + \gamma_{ij},\ \sigma^2) & k &\in \{1, \dots, l\} \\
+	%
+	i &\in \{1, \dots, m\} & j &\in \{1, \dots n\} \nonumber 
+\end{align}\\
+
+To find the estimators for the three sets of parameters defined above, use,\\
+
+\begin{align}
+	\mathbb{E}[X_{ij\bullet}] &= \mu_{ij} & \mathbb{E}[X_{\bullet \bullet \bullet}] &= \mu \\
+	%
+	\mathbb{E}[X_{i\bullet \bullet}] &= \mu + \alpha_i & \mathbb{E}[X_{\bullet j \bullet}] &= \mu + \beta_j
+\end{align}\\
+
+Using the fact that substituting the parameters above with their unbiased estimators will lead to a reduction in DOF of the $ \chi^2 $ RV,\\
+
+\begin{align}
+	\widehat{\mu} &= X_{\bullet \bullet \bullet} \nonumber \\
+	%
+	\widehat{\alpha_i} &= X_{i\bullet \bullet} - X_{\bullet \bullet \bullet} \nonumber \\
+	%
+	\widehat{\beta_j} &= X_{\bullet j \bullet} - X_{\bullet \bullet \bullet} \nonumber \\
+	%
+	\widehat{\gamma_{ij}} &= X_{ij\bullet} - X_{i\bullet \bullet} - X_{\bullet j \bullet} + X_{\bullet \bullet \bullet} 
+\end{align}\\
+
+For hypothesis tests asking whether one of the three sets of parameters are all zeros, arrange $ \chi^2 $RVs as follows,\\
+
+\begin{align}
+	\sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n} \sum\limits_{k = 1}^{l}\frac{(X_{ijk} - \mathbb{E}[X_{ijk}])^2}{\sigma^2} &\sim \chi^2_{mnl} \nonumber \\
+	%
+	\sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n} \sum\limits_{k = 1}^{l} \frac{(X_{ij} - \widehat{\mu} - \widehat{\alpha_i} - \widehat{\beta_j} - \widehat{\gamma_{ij}})^2}{\sigma^2} &\sim \chi^2_{mnl - mn}
+\end{align}\\
+
+The number of parameters needed to estimate $ \widehat{\mu},\ \widehat{\alpha_i},\ \widehat{\beta_j},\  \widehat{\gamma_{ij}} $ are $ 1,\ (m-1),\ (n-1),\ (m-1)(n-1) $ respectively. This means that the loss in DOF is $ mn $.
+
+Now, defining the \textit{error sum of squares} $ SS_e $ as\\
+
+\begin{align}
+	SS_e &= \sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n} \sum\limits_{k = 1}^{l} (X_{ijk} - X_{ij\bullet})^2 \\
+	%
+	\frac{SS_e}{(mnl  - mn)} &= \sigma^2
+\end{align}\\
+
+Having found the true estimator of the variance, now consider the estimator conditioned on the null hypothesis that there are no interaction terms. Now, each of the variables $ X_{ij\bullet} $ is averaged over $ l $ data points, and thus\\
+
+\begin{align}
+	H_0^{\textit{int}} : \gamma_{ij} &= 0 & \forall\ &i,j \nonumber \\
+	%
+	\mathbb{E}[X_{ij\bullet}] &= \mu + \alpha_i + \beta_j & \mathrm{Var}(X_{ij\bullet}) &= \frac{\sigma^2}{l} \\
+	%
+	\sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n} \frac{(X_{ij\bullet} - \mu - \alpha_i - \beta_j)^2}{\sigma^2 / l} &\sim \chi^2_{mn}
+\end{align} \\
+
+From an earlier section, replacing the parameters above with their estimators involes an $ m+n-1 $ loss in DOF. Defining the \textit{non-interaction sum of squares} ($ SS_{int} $) \\
+
+\begin{align}
+	SS_{int} &= \sum\limits_{i = 1}^{m} \sum\limits_{j = 1}^{n}\ l\ (X_{ij\bullet} - X_{i\bullet \bullet} - X_{\bullet j \bullet} + X_{\bullet \bullet \bullet})^2 \\
+	%
+	\frac{SS_{int}}{(n-1)(m-1)} &= \sigma^2 \qquad \text{if $ H_0^{int} $ holds}
+\end{align} \\
+
+Using the two estimators of $ \sigma^2 $ above, an F-RV can be created to test the null hypothesis at significance level $ a $ as follows,\\
+
+\begin{align}
+	H_0^{int} : \text{all $ \gamma{ij} $ are zero} \qquad &\text{vs.} \qquad H_1^{int} \nonumber \\
+	%
+	\text{reject $ H_0 $ if } \qquad & \frac{SS_{int}}{SS_e}\ \frac{(mnl - mn)}{(n-1)(m-1)} > F_{a,(m-1)(n-1), mnl-mn} \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise}
+\end{align}\\
+
+Similar hypothesis tests for row-factors or column-factors being all zero, involve the \textit{row sum of squares} and \textit{column sum of squares} respectively. For example the null hypothesis $ H_0^r : \text{all $ \alpha_i $ are zero} $ can be tested using\\
+
+\begin{align}
+	SS_r &= \sum\limits_{i = 1}^{m} \ nl\ (X_{i\bullet \bullet} - X_{\bullet \bullet \bullet})^2 \\
+	%
+	\frac{SS_{r}}{SS_e}\ \frac{(mnl - mn)}{(m-1)} &\sim F_{m-1, mnl-mn} 
+\end{align}\\
+
+An analogous expression can be written for the null hypothesis $ H_0^c : \text{all $ \beta_j $ are zero} $.\\
+
+Note that the procedure in the later sections is a straightforward increase in complexity from the same procedure in earlier sections which was outlined in the introduction as the general ANOVA approach.
