@@ -1,0 +1,522 @@
+\chapter{Nonparameteric hypothesis tests}
+
+\begin{enumerate}
+	
+	\item Performing the sign test on the single data set for $ H_0 : m = 0 $\\
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Sign Test}} \\
+			\midrule
+			Observations ($n$)         &        18 \\
+			Test statistic ($\nu$)     &        13 \\
+			$p$ value \%               &      9.63 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	\item Performing the sign test on the paired data set for $ H_0 : m = 0 $. Since exactly half of the data points are below the median, p value is larger than 100\%.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Sign Test}} \\
+			\midrule
+			Observations ($n$)         &         8 \\
+			Test statistic ($\nu$)     &         4 \\
+			$p$ value \%               &    127.34 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	\item Performing the sign test on the pre-made parameters for $ H_0 : m = 128 $\\
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Sign Test}} \\
+			\midrule
+			Observations ($n$)         &       100 \\
+			Test statistic ($\nu$)     &        40 \\
+			$p$ value \%               &      5.69 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+	\qquad
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Sign Test}} \\
+			\midrule
+			Observations ($n$)         &       100 \\
+			Test statistic ($\nu$)     &        30 \\
+			$p$ value \%               &      0.01 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  rejected \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	\bigskip
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Sign Test}} \\
+			\midrule
+			Observations ($n$)         &       100 \\
+			Test statistic ($\nu$)     &        20 \\
+			$p$ value \%               &      0.00 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  rejected \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	\item Performing the lower one-sided sign test on the pre-made parameters for $ H_0 : m \geq 110 $\\
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Sign Test}} \\
+			\midrule
+			Observations ($n$)         &       200 \\
+			Test statistic ($\nu$)     &       120 \\
+			$p$ value \%               &      0.28 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  rejected \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	\item Performing the sign test on the single data set for $ H_0 : m = 124.4 $\\
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Sign Test}} \\
+			\midrule
+			Observations ($n$)         &        14 \\
+			Test statistic ($\nu$)     &         7 \\
+			$p$ value \%               &     60.47 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	\item Performing the sign test and signed rank test on the paired data set for $ H_0 : m = 0 $ \\
+	
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Sign Test}} \\
+			\midrule
+			Observations ($n$)         &         8 \\
+			Test statistic ($\nu$)     &         2 \\
+			$p$ value \%               &     28.91 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+		\qquad
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Wilcoxon Signed Rank Test}} \\
+			\midrule
+			Observations ($n$)         &         8 \\
+			Test statistic             &         4 \\
+			$p$ value \%               &      5.47 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	\bigskip
+	
+	\item Repeating Problem 1 and 2 using the signed rank test,
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Wilcoxon Signed Rank Test}} \\
+			\midrule
+			Observations ($n$)         &         9 \\
+			Test statistic             &        12 \\
+			$p$ value \%               &     25.00 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+	\qquad
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Wilcoxon Signed Rank Test}} \\
+			\midrule
+			Observations ($n$)         &         8 \\
+			Test statistic             &        15 \\
+			$p$ value \%               &     74.22 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	\item Performing the sign test and signed rank test on the paired data set for $ H_0 : m = 0 $ \\
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Sign Test}} \\
+			\midrule
+			Observations ($n$)         &        12 \\
+			Test statistic ($\nu$)     &         3 \\
+			$p$ value \%               &     14.60 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+		\qquad
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Wilcoxon Signed Rank Test}} \\
+			\midrule
+			Observations ($n$)         &        12 \\
+			Test statistic             &        12 \\
+			$p$ value \%               &      3.42 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  rejected \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	\bigskip
+	
+	
+	\item Performing the sign test and signed rank test on the paired data set for $ H_0 : m = 0 $,
+	there is a significant effect of painting and the engineer's claim is upheld.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Sign Test}} \\
+			\midrule
+			Observations ($n$)         &        10 \\
+			Test statistic ($\nu$)     &         1 \\
+			$p$ value \%               &      2.15 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  rejected \\
+			\bottomrule
+		\end{tabular}
+		\qquad
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Wilcoxon Signed Rank Test}} \\
+			\midrule
+			Observations ($n$)         &        10 \\
+			Test statistic             &         1 \\
+			$p$ value \%               &      0.39 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  rejected \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	\bigskip
+	
+	\item Performing the sign test and signed rank test on the paired data set for $ H_0 : m = 0 $,
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Sign Test}} \\
+			\midrule
+			Observations ($n$)         &        10 \\
+			Test statistic ($\nu$)     &         8 \\
+			$p$ value \%               &     10.94 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+		\qquad
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Wilcoxon Signed Rank Test}} \\
+			\midrule
+			Observations ($n$)         &        10 \\
+			Test statistic             &         5 \\
+			$p$ value \%               &      1.95 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  rejected \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	\bigskip
+	
+	\item One sided signed rank test.
+	
+	\begin{align}
+		H_0 : m &= m_0 \qquad \text{vs} \qquad H_1 : m > m_0 \nonumber \\
+		%
+		\{|Y_i\} &= \{|X_i - m_0|\} \qquad \text{arranged in increasing order} \nonumber \\
+		%
+		p \text{-value} &= P_{H_0} \{TS \leq t\} = P_n (t)
+	\end{align}
+
+	Here, the recursively calculated CDF is being used as shorthand $ P_n (t) $.
+	
+	\item Performing the sign test and signed rank test on the paired data set for $ H_0 : m = 0 $,
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Sign Test}} \\
+			\midrule
+			Observations ($n$)         &         6 \\
+			Test statistic ($\nu$)     &         2 \\
+			$p$ value \%               &     68.75 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+		\qquad
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Wilcoxon Signed Rank Test}} \\
+			\midrule
+			Observations ($n$)         &         6 \\
+			Test statistic             &         5 \\
+			$p$ value \%               &     31.25 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	\bigskip
+	
+	\item Performing the Wilcoxon rank sum test on the 2 population data set for $ H_0 : m = 0 $,
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Wilcoxon Rank Sum Test}} \\
+			\midrule
+			Observations ($n$)         &         8 \\
+			Comparisons ($m$)          &         7 \\
+			Test statistic             &        66 \\
+			$p$ value \%               &     86.65 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	\item 
+	\begin{enumerate}
+		\item  Using the normal approximation\\
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{@{}lr@{}}
+				\toprule
+				\multicolumn{2}{c}{\texttt{Wilcoxon Rank Sum Test}} \\
+				\midrule
+				Observations ($n$)         &         8 \\
+				Comparisons ($m$)          &         7 \\
+				Test statistic             &        66 \\
+				$p$ value \%               &     86.65 \\
+				$p$ value approx \%        &     81.70 \\
+				Significance ($\alpha$) \% &      5.00 \\
+				null hypothesis ($H_0$)    &  accepted \\
+				\bottomrule
+			\end{tabular}
+			
+		\end{table}
+		\bigskip
+		
+		\item How to do Monte-Carlo simulations for the approximate p-value in the Wilcoxon rank-sum test.
+	\end{enumerate}
+
+	\item Performing the Wilcoxon rank sum test on the 2 population data set for $ H_0 : m = 0 $,
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Wilcoxon Rank Sum Test}} \\
+			\midrule
+			Observations ($n$)         &         8 \\
+			Comparisons ($m$)          &         8 \\
+			Test statistic             &        80 \\
+			$p$ value \%               &     23.45 \\
+			$p$ value approx \%        &     20.76 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	\item Performing the Wilcoxon rank sum test on the 2 population data set for $ H_0 : m = 0 $,
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Wilcoxon Rank Sum Test}} \\
+			\midrule
+			Observations ($n$)         &         5 \\
+			Comparisons ($m$)          &         5 \\
+			Test statistic             &        38 \\
+			$p$ value \%               &      3.17 \\
+			$p$ value approx \%        &      2.83 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  rejected \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	\item Performing the Wilcoxon rank sum test on the 2 population data set for $ H_0 : m = 0 $,
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Wilcoxon Rank Sum Test}} \\
+			\midrule
+			Observations ($n$)         &        23 \\
+			Comparisons ($m$)          &         9 \\
+			Test statistic             &       369 \\
+			$p$ value \%               &  skipped (tedious) \\
+			$p$ value approx \%        &     65.99 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	\item Performing the Kruskal-Wallis test on the 3 population data set,
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Wilcoxon Rank Sum Test}} \\
+			\midrule
+			Observations ($N$)         &        30 \\
+			Populations ($k$)          &         3 \\
+			Test statistic             &    110.25 \\
+			$p$ value \%               &      0.00 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  rejected \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	\item Performing the runs test for randomness,
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Runs test for randomness}} \\
+			\midrule
+			Observations ($N$)         &        50 \\
+			Runs ($k$)                 &        11 \\
+			Failures ($m$)             &        11 \\
+			Successes ($n$)            &        39 \\
+			$p$ value \%               &      0.90 \\
+			$p$ value approx \%        &      0.26 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  rejected \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	\item Performing the runs test for randomness,
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Runs test for randomness}} \\
+			\midrule
+			Observations ($N$)         &        25 \\
+			Runs ($k$)                 &        10 \\
+			Failures ($m$)             &        12 \\
+			Successes ($n$)            &        13 \\
+			$p$ value \%               &     22.52 \\
+			$p$ value approx \%        &     15.44 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  accepted \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+	
+	
+	\item No, since the binarizing is no longer a random sequence of zeros and ones. For example, consider a larger value than the sample maximum value. This binarizes all sample data to zero and renders the runs test meaningless.
+	
+	
+	\item Performing the runs test for randomness,
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+			\toprule
+			\multicolumn{2}{c}{\texttt{Runs test for randomness}} \\
+			\midrule
+			Observations ($N$)         &        50 \\
+			Runs ($k$)                 &        36 \\
+			Failures ($m$)             &        32 \\
+			Successes ($n$)            &        18 \\
+			$p$ value \%               &      0.01 \\
+			$p$ value approx \%        &      0.02 \\
+			Significance ($\alpha$) \% &      5.00 \\
+			null hypothesis ($H_0$)    &  rejected \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+	\bigskip
+\end{enumerate}
+

@@ -1,15 +1,15 @@
 \chapter{Elements of Probability}
 
 \begin{enumerate}
-	\item With replacement, there are 9 elements in the sample space, since the first and second marble can be any of the 3 colors. $ S = \{ x_i, x_j \} $, where $ i, j = \{ r, b, g \} $. 9 possible permutations. \\
+	\item With replacement, there are 9 elements in the sample space, since the first and second marble can be any of the 3 colors. $ S = \{ x_i, x_j \} $, where $ i, j = \{ r, b, g \} $. 9 possible permutations.
 	
 	Without replacement, the sample space is $ S = \{ x_i, x_j \} $, where $ j \neq i $.
 	
 	\begin{align}
 		\text{permutations without replacement} =  \binom{3}{1} \ \binom{2}{1} \ = \ 6
-	\end{align} \\
+	\end{align}
 	
-	\item Three coin tosses result in $ 2^3  = 8$ possible permutations. The subset of the sample space corresponding to more heads than tails is $ \{ hht, hth, thh, hhh \} $. \\
+	\item Three coin tosses result in $ 2^3  = 8$ possible permutations. The subset of the sample space corresponding to more heads than tails is $ \{ hht, hth, thh, hhh \} $.
 	
 	\item 	
 		\begin{align}
@@ -28,7 +28,7 @@
 	
 	
 	\item \begin{enumerate}
-		\item First die lands on 1 and sum of dice is odd. $ EF  = \{ (1,2), (1,4), (1,6) \}$. \\
+		\item First die lands on 1 and sum of dice is odd. $ EF  = \{ (1,2), (1,4), (1,6) \}$.
 		
 		\item First die lands on 1 or sum of dice is odd. $ E \cup F = \{ (1, n) $ and the other 15 possibilities are $ (3, \text{even}), (5, \text{even}), (2, \text{odd}), (4, \text{odd}), (6, \text{odd}) \} $ \\
 		
@@ -37,15 +37,15 @@
 		\item Sum of dice is odd and first die does not land on 1. 15 elements.
 		\begin{align}
 			E F^\complement = \{ (2, \text{odd}), (4, \text{odd}) , (6, \text{odd}), (3, \text{even}), (5, \text{even})\} 
-		\end{align} \\
+		\end{align}
 		
 		\item $ EFG = \{ (1, 4) \} = FG $
 	\end{enumerate} 
 	
 	\item \begin{enumerate}
-		\item $ 2^4 = 16 $ possibilities. \\
+		\item $ 2^4 = 16 $ possibilities.
 		
-		\item System works = $ \{ (1,1,0,0), (1,1,0,1), (1,1,1,0), (1,1,1,1)\} $ and the other branch is \\
+		\item System works = $ \{ (1,1,0,0), (1,1,0,1), (1,1,1,0), (1,1,1,1)\} $ and the other branch is
 		$ \{ (0,0,1,1), (1,0,1,1), (0,1,1,1) \} $ \\
 		
 		\item 4 permutations of component 2 and 4 gives 4 outcomes.
@@ -91,49 +91,49 @@
 	
 	\item \begin{enumerate}
 		
-		\item If $ x \in E $ and $ x \in F $, then $ x \in E \ \forall\  x $. Thus, $ EF \subset E $. \\
-		If $ x \in E $, then $ x \in E $ or $ x \in F $ is true $ \forall \ x $. Thus $ E \subset (E \cup F) $. \\
+		\item If $ x \in E $ and $ x \in F $, then $ x \in E \ \forall\  x $. Thus, $ EF \subset E $.
+		If $ x \in E $, then $ x \in E $ or $ x \in F $ is true $ \forall \ x $. Thus $ E \subset (E \cup F) $.
 		
-		\item If $ x \in E $, then $ x \in F \ \forall \ x$. \\
+		\item If $ x \in E $, then $ x \in F \ \forall \ x$.
 		If  $ y \in F^\complement $, then $ y \in E^\complement $ is true $ \forall \ y $, using $ E \subset F $. Thus, $ F^\complement \subset E^\complement $ \\
 		
-		\item If $ x \in (E \cup F) \ \forall\ x$, then $ x \in E $ or $ x \in F $ is true $ \forall \ x $.\\
-		$ x \in (F \cup E) \ \forall\ x$. This proves the commutative law for unions. \\
+		\item If $ x \in (E \cup F) \ \forall\ x$, then $ x \in E $ or $ x \in F $ is true $ \forall \ x $.
+		$ x \in (F \cup E) \ \forall\ x$. This proves the commutative law for unions.
 		
-		If $ x \in (E F) \ \forall\ x$, then $ x \in E $ and $ x \in F $ is true $ \forall \ x $.\\
-		$ x \in (F  E) \ \forall\ x$. This proves the commutative law for intersections. \\
+		If $ x \in (E F) \ \forall\ x$, then $ x \in E $ and $ x \in F $ is true $ \forall \ x $.
+		$ x \in (F  E) \ \forall\ x$. This proves the commutative law for intersections.
 		
 		\item If $ x \in E $ or $ x \in F $ or $ x \in G $ is true $ \forall \ x $, then \\
 		$ x \in (E \cup F) \cup G \quad \forall \ x$ as well as $ x \in E(\cup (F \cup G) \quad \forall \ x$.
-		This proves the associative law for unions. \\
+		This proves the associative law for unions.
 		
 		If $ x \in E $ and $ x \in F $ and $ x \in G $ is true $ \forall \ x $, then \\
 		$ x \in (E F) \cap G \quad \forall \ x$ as well as $ x \in E \cap (F G) \quad \forall \ x$.
-		This proves the associative law for intersections. \\
+		This proves the associative law for intersections.
 		
 		\item $ FE \cup FE^\complement $ can be simplified using the above laws into \\
 		$ F (E \cup E^\complement) = F S = F$ \\
 		
-		\item $ F = F (E \cup E^\complement) $, using this in the left hand side, \\
+		\item $ F = F (E \cup E^\complement) $, using this in the left hand side,
 		$ E \cup FE \cup FE^\complement = E \cup F E^\complement$ \\
 		
-		\item If $ x \in (E \cup F)^\complement $, then $ x \notin E $ and $ x \notin F  \quad \forall \ x$. \\
+		\item If $ x \in (E \cup F)^\complement $, then $ x \notin E $ and $ x \notin F  \quad \forall \ x$.
 		Now, $ x \in E^\complement $ and $ x \in F^\complement  \quad \forall \ x$. Thus, $ x \in E^\complement F^\complement \quad \forall \ x $ \\
-		This means that $ (E \cup F)^\complement \subset E^\complement F^\complement $. \\
+		This means that $ (E \cup F)^\complement \subset E^\complement F^\complement $.
 		
-		If $ y \in E^\complement F^\complement $, then $ y \notin E $ and $ y \notin F \quad \forall \ y$. \\
-		Then, $ y \notin (E \cup F) $ and therefore, $ y \in (E \cup F)^\complement \quad \forall \ y$. \\
-		This means that $  E^\complement F^\complement \subset (E \cup F)^\complement $. \\
+		If $ y \in E^\complement F^\complement $, then $ y \notin E $ and $ y \notin F \quad \forall \ y$.
+		Then, $ y \notin (E \cup F) $ and therefore, $ y \in (E \cup F)^\complement \quad \forall \ y$.
+		This means that $  E^\complement F^\complement \subset (E \cup F)^\complement $.
 		
-		If $ z \in (EF)^\complement $, then $ z \notin EF \quad \forall \ z$. \\
-		Then, $ z \in E^\complement$ or $ z \in F^\complement $ and therefore, $ z \in E^\complement \cup F^\complement \quad \forall \ z$. \\
-		This means that $  (EF)^\complement \subset E^\complement \cup F^\complement $. \\
+		If $ z \in (EF)^\complement $, then $ z \notin EF \quad \forall \ z$.
+		Then, $ z \in E^\complement$ or $ z \in F^\complement $ and therefore, $ z \in E^\complement \cup F^\complement \quad \forall \ z$.
+		This means that $  (EF)^\complement \subset E^\complement \cup F^\complement $.
 		
-		If $ w \in E^\complement \cup F^\complement $, then $ w \notin E $ or $ w \notin F \quad \forall \ w$. \\
-		Then, $ w \notin EF $ and therefore, $ w \in (EF)^\complement  \quad \forall \ w$. \\
-		This means that $ E^\complement \cup F^\complement \subset (EF)^\complement$. \\
+		If $ w \in E^\complement \cup F^\complement $, then $ w \notin E $ or $ w \notin F \quad \forall \ w$.
+		Then, $ w \notin EF $ and therefore, $ w \in (EF)^\complement  \quad \forall \ w$.
+		This means that $ E^\complement \cup F^\complement \subset (EF)^\complement$.
 		
-		Using the fact that two sets which are subsets of each other are identical, De-Morgan's laws are proved. \\
+		Using the fact that two sets which are subsets of each other are identical, De-Morgan's laws are proved.
 		
 	\end{enumerate}
 	
@@ -155,9 +155,9 @@
 		\end{align}
 	\\
 	
-	\item $ F = FE \cup F E^\complement $ where $ FE \cap F E^\complement = \varnothing $. \\
-	Given $ E \subset F $, $ FE = E $ follows. Now, $ F = E \cup F E^\complement $. \\
-	This proves $ P(F) \geq P(E) $. \\
+	\item $ F = FE \cup F E^\complement $ where $ FE \cap F E^\complement = \varnothing $.
+	Given $ E \subset F $, $ FE = E $ follows. Now, $ F = E \cup F E^\complement $.
+	This proves $ P(F) \geq P(E) $.
 	
 	\item Boole's inequality for two events : 
 	
@@ -167,7 +167,7 @@
 			& \leq P(E_1) + P(E_2)
 		\end{align}
 		
-		Extending to more than two events, \\
+		Extending to more than two events,
 		
 		\begin{align}
 			P \left( \bigcup_{i = 1}^{n} E_i \right) &= \sum\limits_{i = 1}^{n} P(E_i) \ - \ P(\text{area counted more than once}) \\
@@ -207,7 +207,7 @@
 				P(E F^\complement) &= P(E) + 1 - P(F) - 1 +  P(F) - P(EF) \\
 				%
 				P(E F^\complement) &= P(E) - P(EF)
-			\end{align} \\
+			\end{align}
 			\item 
 			\begin{align}
 				P(E^\complement F^\complement) &= P(E^\complement) + P(F^\complement) - P(E^\complement \cup F^\complement) \\
@@ -215,12 +215,12 @@
 				&= 1 - P(E) + 1 - P(F) - P((EF)^\complement) \\
 				%
 				&= 1 - P(E) - P(F) + P(EF)
-			\end{align} \\
+			\end{align}
 			
 		 
 	\end{enumerate} 
 	
-	\item Exactly one of the events $ E, F $ must occur. \\
+	\item Exactly one of the events $ E, F $ must occur.
 	$ P(\text{exactly one event}) = P(E \cup F) - P(EF) $. This simplifies using above formulae, into \\
 	$ P(E) + P(F) - P(EF) - P(EF) = P(E) + P(F) - 2P(EF)$ \\
 	
@@ -241,7 +241,7 @@
 	\item Choosing $ r $ items from a set of $ n $, leaves $ n-r $ items behind. Which of these two sets is the 'chosen' set is a matter of perspective. Flipping the convention proves the relation above.
 	\begin{align}
 		\binom{n}{r} = \frac{n!}{r!\ (n-r)!} = \frac{n!}{(n-r)!\ r!} = \binom{n}{n-r}
-	\end{align}\\
+	\end{align}
 	
 	\item 	
 		\begin{align}
@@ -255,7 +255,7 @@
 		\end{align}
 	 \\
 	
-	The above relation has on the right side two terms corresponding to all combinations that do contain the item of interest and then the rest that do not.\\
+	The above relation has on the right side two terms corresponding to all combinations that do contain the item of interest and then the rest that do not.
 	
 	\item Using the principle of equally likely outcomes, 
 	\begin{enumerate}
@@ -266,11 +266,11 @@
 	
 	\item More than two people can have the same birthday.
 	
-	\item Let the elements be the cards arranged in increasing order. \\
+	\item Let the elements be the cards arranged in increasing order.
 	$ S = \{ abc, acb, bac, bca, cab, cba \} $. Card $ c $ needs to not be the smallest. This happens with probability 2/3.
 	
 	\item \begin{enumerate}
-		\item 	$ P(A) = 0.6 $, $ P(B|A^\complement) = 0.1 $. \\
+		\item 	$ P(A) = 0.6 $, $ P(B|A^\complement) = 0.1 $.
 		\begin{align}
 			P(A \cup B) &= P(A) + P(B|A^\complement) = 0.6 + (1 - 0.6) \times 0.1 = 0.64
 		\end{align}
@@ -280,12 +280,12 @@
 	
 	\item Working in units of 1000 dollars, $ \mu = 130 $, and $ \sigma = 20 $. 
 	\begin{enumerate}
-		\item The empirical rule gives $ P(|X - \mu| \leq 2 \sigma) =  0.95$. However the distribution may not be near enough to a normal distribution with such a small sample size. Using the Chebyshev inequality with $ k = 2 $, gives a probability of at least 75 \%. \\
+		\item The empirical rule gives $ P(|X - \mu| \leq 2 \sigma) =  0.95$. However the distribution may not be near enough to a normal distribution with such a small sample size. Using the Chebyshev inequality with $ k = 2 $, gives a probability of at least 75 \%.
 		
-		\item Using empirical rule, $ P(X > \mu + \sigma) = 0.16 $. However the Chebyshev inequality gives a maximum limit of 25 \%.\\
+		\item Using empirical rule, $ P(X > \mu + \sigma) = 0.16 $. However the Chebyshev inequality gives a maximum limit of 25 \%.
 	\end{enumerate} 
 	
-	\item Consider the sample space $S = \{ R_1 R_2, R_2 R_1, R_3 B_3, B_1 B_2, B_2 B_1 \} $. Of all the elements whose first component is red, 2 out of 3 have second component also red. \\
+	\item Consider the sample space $S = \{ R_1 R_2, R_2 R_1, R_3 B_3, B_1 B_2, B_2 B_1 \} $. Of all the elements whose first component is red, 2 out of 3 have second component also red.
 	
 		\begin{align}
 			P(RR\ |\ \text{front red}) =& \frac{P(RR \ \cap \  \text{front red})}{P(\text{front red})} \\
@@ -296,7 +296,7 @@
 		\end{align}
 	 \\
 	
-	\item $ P(gg) = 1/2 $, as the second child's gender is independent of the first child. \\
+	\item $ P(gg) = 1/2 $, as the second child's gender is independent of the first child.
 	
 	\item $ P(CS) = 0.05 $, $ P(F) = 0.52 $, $ P(F \cap CS) = 0.02 $ \\
 	
@@ -312,17 +312,17 @@
 			\item $ P(H < 50) $ is the fraction of all husbands earning less than 50000.
 			\begin{align}
 				P(H < 50) = \frac{212+36}{212+36+198+54} = \frac{248}{500} = 0.496
-			\end{align}\\
+			\end{align}
 			
 			\item Sample space is all couples with $ H > 50 $.
 			\begin{align}
 				P(W > 50\ |\ H > 50) = \frac{P(W > 50 \cap H > 50)}{P(H > 50)} = \frac{54}{252}
-			\end{align}\\
+			\end{align}
 			
 			\item Sample space is all couples with $ H < 50 $.
 			\begin{align}
 				P(W > 50\ |\ H < 50) = \frac{P(W > 50 \cap H < 50)}{P(H < 50)} = \frac{36}{248}
-			\end{align}\\
+			\end{align}
 		
 	\end{enumerate} 
 	
@@ -342,32 +342,32 @@
 		
 	
 	
-	\item The sample space is $ S = {B<Y<R} $ where all three variables are sides of three difference dice.\\
+	\item The sample space is $ S = {B<Y<R} $ where all three variables are sides of three difference dice.
 	
 		\begin{enumerate}
 			
-			\item All numbers are distinct. Choose one number first then one of the 5 remaining and lastly one of the 4 remaining.\\
+			\item All numbers are distinct. Choose one number first then one of the 5 remaining and lastly one of the 4 remaining.
 			\begin{align}
 				\frac{\Mycomb[6]{1} \Mycomb[5]{1} \Mycomb[4]{1}}{6^3} = 5/9
-			\end{align}\\
+			\end{align}
 			
-			\item 6 possible permutations of the 3 colors. So $ P = 1/6 $. \\
+			\item 6 possible permutations of the 3 colors. So $ P = 1/6 $.
 			
-			\item Both parts above need to happen. \\
+			\item Both parts above need to happen.
 			\begin{align}
 				P(\text{all numbers distinct}) \times P(B<Y<R) = \frac{5}{9} \times \frac{1}{6} = \frac{5}{54}
-			\end{align}\\
+			\end{align}
 			
-			\item Each element of the vector has 6 possible outcomes. So $ n = 6^3 = 216 $. \\
+			\item Each element of the vector has 6 possible outcomes. So $ n = 6^3 = 216 $.
 			
-			\item For $ B = 1 $, we are constrained by $ Y > 1 $ and further by $ R > Y $. Using the same logic as above, Y and R need to be distinct and $ Y < R $. This is $ 20 / 2  = 10$ possibilities. \\
+			\item For $ B = 1 $, we are constrained by $ Y > 1 $ and further by $ R > Y $. Using the same logic as above, Y and R need to be distinct and $ Y < R $. This is $ 20 / 2  = 10$ possibilities.
 			
 			Similar counting for higher values of $ B $ give the number of permutations to be $ (5 \times 4) + (4 \times 3) +
-			(3 \times 2) + (2 \times 1)  = 20 + 12 +6 + 2 = 40 $ without regard to ordering between Y and R. \\
+			(3 \times 2) + (2 \times 1)  = 20 + 12 +6 + 2 = 40 $ without regard to ordering between Y and R.
 			
-			An additional factor of $ 1/2 $ is needed to ensure $ Y < R $. This leaves 20 permutations. \\
+			An additional factor of $ 1/2 $ is needed to ensure $ Y < R $. This leaves 20 permutations.
 			
-			\item Using the new method, the probability is $ P(B < Y <R) =  20 / 216 = 5 / 54$. \\
+			\item Using the new method, the probability is $ P(B < Y <R) =  20 / 216 = 5 / 54$.
 		\end{enumerate}
 	
 	
@@ -380,7 +380,7 @@
 				&= 0.15 \times 0.9 + 0.8 \times 0.1 = 0.215 \\
 				%
 				P(D^\complement) &= 1 - P(D) = 0.785
-			\end{align} \\
+			\end{align}
 		
 		
 		\item 
@@ -390,13 +390,13 @@
 				&= \frac{P(D\ |\ W^\complement) P(W^\complement)}{P(D)} \\
 				%
 				&= \frac{0.8 \times 0.1}{0.215} = \frac{80}{215} = \frac{16}{43}
-			\end{align} \\
+			\end{align}
 		
 		
 	\end{enumerate}
 	
 	\item \begin{enumerate}
-		\item Let the colors be $ R, B $ with subscripts indicating sequences of selection. \\
+		\item Let the colors be $ R, B $ with subscripts indicating sequences of selection.
 		
 		
 			\begin{align}
@@ -409,10 +409,10 @@
 				P(R_1 R_2) 	&= ( 1 * 0.25 ) + (0 * 0.25) + (0.25 * 0.5) = 3/8 \\
 				%
 				P(\text{two red}\ |\ R_1 R_2) &= \frac{1/4}{3/8} = 2/3
-			\end{align} \\
+			\end{align}
 		
 		
-		\item third ball chosen will be red. \\
+		\item third ball chosen will be red.
 		
 			\begin{align}
 				P(R_3\ |\ R_1 R_2) &= \frac{P(R_1 R_2 R_3)}{P(R_1 R_2)} \\
@@ -424,7 +424,7 @@
 				P(R_1 R_2 R_3) 	&= ( 1 * 0.25 ) + (0 * 0.25) + (1/8 * 0.5) = 5/16 \\
 				%
 				P(R_3\ |\ R_1 R_2) &= \frac{5/16}{3/8} = 5/6
-			\end{align} \\
+			\end{align}
 		
 	\end{enumerate}
 	
@@ -436,27 +436,27 @@
 			&= \frac{P(V_R \ |\ D) P(D)}{P(V_R \ |\ D) P(D) + P(V_R \ |\ R) P(R)} \\
 			%
 			&= \frac{50/400 \times 0.4}{50/400 \times 0.4 + 540/600 \times 0.6} = \frac{5}{59}
-		\end{align}\\
+		\end{align}
 	
 	
 	\item \begin{enumerate}
-		\item Given at least one ball is gold, find probability that both balls are gold. \\
+		\item Given at least one ball is gold, find probability that both balls are gold.
 		\begin{align}
 			P(G_1 G_2 \ |\ \text{at least one gold}) = \frac{\{ G_1 G_2 \}}{\{ G_1 G_2,\ B_1 G_2,\ G_1 B_2 \}} = \frac{1}{3}
-		\end{align} \\
+		\end{align}
 		
-		\item Both balls will be gold given one is confirmed gold. Using the fact that ball colors are mutually independent,\\
+		\item Both balls will be gold given one is confirmed gold. Using the fact that ball colors are mutually independent,
 		\begin{align}
 			P(\text{two gold}\ |\ G_1) = \frac{\{ G_1 G_2 \}}{\{ G_1 B_2 ,\ G_1 G_2\}} = \frac{1}{2}
-		\end{align} \\
+		\end{align}
 	\end{enumerate}
 	
-	\item Let cabinets be $ A, B $ and subscripts be drawer indices. $ B_2 $ is the only gold coin. The other drawer of the same cabinet is the second drawer to be opened. \\
+	\item Let cabinets be $ A, B $ and subscripts be drawer indices. $ B_2 $ is the only gold coin. The other drawer of the same cabinet is the second drawer to be opened.
 	\begin{align}
 		P(\text{both silver}\ | \text{one silver}) &= \frac{\{ A_1 A_2,\ A_2 A_1 \}}{\{ A_1 A_2,\ A_2 A_1,\ B_1 B_2 \}} = \frac{2}{3}
-	\end{align}\\
+	\end{align}
 	
-	\item $ H, D = $ Healthy, Diseased. $ T =  $ test positive. \\
+	\item $ H, D = $ Healthy, Diseased. $ T =  $ test positive.
 	$ P(T\ |\ H) = 0.135 $, $ P(T\ |\ D) = 0.268 $, $ P(D) = 0.7 $\\
 	
 	\begin{enumerate}
@@ -464,21 +464,21 @@
 			P(D\ |\ T) &= \frac{P(DT)}{P(T)} = \frac{P(T\ |\ D) \ P(D)}{P(T)} \\
 			%
 			&= \frac{0.268 \times 0.7}{0.268 \times 0.7 + 0.135 \times 0.3} = 0.822
-		\end{align}\\
+		\end{align}
 		
 		\item \begin{align}
 			P(D\ |\ T^\complement) &= \frac{P(DT^\complement)}{P(T^\complement)} = \frac{P(T^\complement\ |\ D) \ P(D)}{P(T^\complement)} \\
 			%
 			&= \frac{0.732 \times 0.7}{0.732 \times 0.7 + 0.865 \times 0.3} = 0.664
-		\end{align} \\
+		\end{align}
 	\end{enumerate}
 	
-	Using the new value of $ P(D) = 0.3 $, the results are \\
+	Using the new value of $ P(D) = 0.3 $, the results are
 	$ P(D\ |\ T) =  0.459$, $ P(D\ |\ T^\complement) = 0.266$\\
 	
-	\item Let $ X, G, A, B $ denote accident, good, average and bad respectively. \\
+	\item Let $ X, G, A, B $ denote accident, good, average and bad respectively.
 	$ P(X\ |\ G) = 0.05 $, $ P(X\ |\ A) = 0.15 $, $ P(X\ |\ B) = 0.3 $ \\
-	$ P(G) = 0.2 $, $ P(A) = 0.5 $, $ P(B) = 0.3 $.\\
+	$ P(G) = 0.2 $, $ P(A) = 0.5 $, $ P(B) = 0.3 $.
 	
 		\begin{align}
 			P(X) &= P(X\ |\ G) P(G) + P(X\ |\ A) P(A) + P(X\ |\ B) P(B) \\
@@ -492,7 +492,7 @@
 			&= 0.230 \\
 			%
 			P(A\ |\ X^\complement) &= \frac{P(A X^\complement)}{P(X^\complement)} = 0.515
-		\end{align} \\
+		\end{align}
 	
 	
 	\item \begin{enumerate}
@@ -503,11 +503,11 @@
 				P(S = 7 \ |\ X_1 = 4) = \frac{P(S = 7 \ \cap\ X_1 = 4)}{P(X_1 = 4)} = \frac{1}{6} \\
 				%
 				P(S = 7) = \frac{\{ (1,6), (6,1), (2,5), (5,2), (3,4), (4,3) \}}{\text{all 36 outcomes}} = \frac{1}{6}
-			\end{align} \\
+			\end{align}
 			
 			\item \begin{align}
 				P(S = 7 \ |\ X_2 = 3) = \frac{P(S = 7 \ \cap\ X_2 = 3)}{P(X_2 = 3)} = \frac{1}{6}
-			\end{align} \\
+			\end{align}
 		
 	\end{enumerate}
 	
@@ -575,20 +575,20 @@
 	\end{enumerate}
 	
 	\item \begin{enumerate}
-		\item First three flips are the same. 2 ways of choosing first flip. only 1 way of choosing second and third flip. Last two flips can by anything. \\
-		This gives $ n = 2! \times 1 \times 1 \times 2 \times 2  = 8$ and $ P = 8/32 = 1/4 $. \\
+		\item First three flips are the same. 2 ways of choosing first flip. only 1 way of choosing second and third flip. Last two flips can by anything.
+		This gives $ n = 2! \times 1 \times 1 \times 2 \times 2  = 8$ and $ P = 8/32 = 1/4 $.
 		
-		\item Using same method as above to obtain number of possibilities with last three flips same, gives only two double-counted events which is all-heads and all-tails. \\
-		$ n = 8 + 8 - (hhhhh) - (ttttt)  = 14$ and $ P = 14/32 = 7/16 $.\\
+		\item Using same method as above to obtain number of possibilities with last three flips same, gives only two double-counted events which is all-heads and all-tails.
+		$ n = 8 + 8 - (hhhhh) - (ttttt)  = 14$ and $ P = 14/32 = 7/16 $.
 		
-		\item fixing the last 3 flips to be $ \{ (htt) \} $ and looking at the first 2 flips gives \\
+		\item fixing the last 3 flips to be $ \{ (htt) \} $ and looking at the first 2 flips gives
 		$ \left\{ (hhhtt), (thhtt), (hthtt) \right\} $ \\\\
-		fixing the first 3 flips to be $ \{ (hht) \} $ and looking at the last 2 flips gives \\
-		$ \left\{ (hhttt), (hhtth), (hhtht) \right\} $. \\
+		fixing the first 3 flips to be $ \{ (hht) \} $ and looking at the last 2 flips gives
+		$ \left\{ (hhttt), (hhtth), (hhtht) \right\} $.
 		$ P = 6/32 $\\
 	\end{enumerate}
 	
-	\item $ 1 - P( \text{never 1}\  \cup\  \text{never 2}) $ is the required probability. \\
+	\item $ 1 - P( \text{never 1}\  \cup\  \text{never 2}) $ is the required probability.
 	$ P(\text{never 1}) = 0.5^n $, $ P(\text{never 2}) = 0.8^n $, $P(\text{neither 1 nor 2 ever} = 0.3^n)$ \\
 	$ P = 1 - (0.5^n + 0.8^n - 0.3^n) $\\
 	
@@ -600,7 +600,7 @@
 			P(Y_1\ |\ Y) &= \frac{P(Y\ |\ Y_1) P(Y_1)}{P(Y)} \\
 			%
 			&= \frac{1/2}{1 - 0.5^n}
-		\end{align} \\
+		\end{align}
 	
 	
 	\item 	Using a table to represent the genetics of the parents, 
@@ -617,7 +617,7 @@
 		\end{tabular}
 	\end{table}
 	
-	This table is converted for phenotypes into, $ F, M, N, T $ = father, mother , neither, two parents.\\
+	This table is converted for phenotypes into, $ F, M, N, T $ = father, mother , neither, two parents.
 	
 	\begin{table}[H]
 		\centering
@@ -640,7 +640,7 @@
 			\text{neither parent} &=  1 - (9 / 128 + 9 / 128 - 0/128) = 110/128
 		\end{align}
 	\\
-	This table is converted for genotypes into, $ F, M, N, T $ = father, mother , neither, two parents.\\
+	This table is converted for genotypes into, $ F, M, N, T $ = father, mother , neither, two parents.
 	
 	\begin{table}[H]
 		\centering
@@ -672,14 +672,14 @@
 			& = \frac{P(A^\complement\ |\ C) P(C)}{P(A^\complement\ |\ C) P(C) +P(A^\complement\ |\ B) P(B)}  = \frac{1/2 \times 1/3}{1/3 \times 1 + 1/2 \times 1/3} = \frac{1}{3}\\
 			%
 			P(C) &= \frac{1}{3} \quad \text{and} \quad P(C\ |\ A^\complement) = \frac{1}{3}
-		\end{align}\\
+		\end{align}
 	
 	
-	\item Brown eyed parents requires at least one $ B $ gene and no more than one $ b $ gene in each parent. For at least one blue-eyed child, the only parental genes possible are $ (Bb, Bb) $.\\
-	Every child independently can have brown eyes with probability 1/4.\\
+	\item Brown eyed parents requires at least one $ B $ gene and no more than one $ b $ gene in each parent. For at least one blue-eyed child, the only parental genes possible are $ (Bb, Bb) $.
+	Every child independently can have brown eyes with probability 1/4.
 	
 	\item \begin{enumerate}
-		\item Let $ P_A $ be the probability that team A is leading. Counting possibilities gives. \\
+		\item Let $ P_A $ be the probability that team A is leading. Counting possibilities gives.
 		Here, $ q = 1-p $. 
 		\begin{align}
 			P_A = p^3 / (p^3 + q^3)
@@ -699,13 +699,13 @@
 		
 	\end{enumerate}
 	
-	`	\item Let the cards be in decreasing order $ A, B, C $. Let subscripts denote the sequence.\\
+	`	\item Let the cards be in decreasing order $ A, B, C $. Let subscripts denote the sequence.
 	\begin{enumerate}
 		\item \begin{align}
 			P(A_1) = \frac{2!}{3!} = \frac{1}{3}
 		\end{align}
 		
-		\item First card rejected. Then second card accepted iff it is larger than first card.\\
+		\item First card rejected. Then second card accepted iff it is larger than first card.
 		
 			\begin{align}
 				P(\text{accept largest card}) = \frac{\{(CAB), (BAC), (BCA)\}}{\text{all combinations}} = \frac{3}{6}
@@ -720,7 +720,7 @@
 		
 		\item $ P(ABC) = P(A) P(B) P(C) = 0.024 $\\
 		
-		\item $ P(ABC) = 0 $ as they are mutually exclusive.\\
+		\item $ P(ABC) = 0 $ as they are mutually exclusive.
 		
 	\end{enumerate}
 	
@@ -732,7 +732,7 @@
 		&= \frac{P(T\ |\ C)P(C)}{P(T\ |\ C)P(C) + P(T\ |\ C^\complement)P(C^\complement)} \\
 		%
 		&= \frac{0.9 \times 0.02}{0.9 \times 0.02 + 0.1 \times 0.98} = \frac{18}{116}
-	\end{align} \\
+	\end{align}
 	
 	\item $ P(C) = 0.12 $, $ P(R) = 0.033 $, $ P(R\ |\ C) = 0.063 $
 	
@@ -742,14 +742,14 @@
 		&= \frac{P(R\ |\ C)P(C)}{P(R\ |\ C)P(C) + P(R\ |\ C^\complement)P(C^\complement)} \\
 		%
 		&= \frac{0.063 \times 0.12}{0.033} = 0.229
-	\end{align} \\ 
+	\end{align} 
 	
 	
 	\item $ P(A) = 0.6 $, $ P(B\ |\ A^\complement) = 0.1 $
 	
 	\begin{align}
 		P(A \cup B) &= P(A) + P(B\ |\ A^\complement) = 0.7
-	\end{align} \\ 
+	\end{align} 
 	
 	\item C is not the smallest of the three cards with $ P = 2/3 $
 	

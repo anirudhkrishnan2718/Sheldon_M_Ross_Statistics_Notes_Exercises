@@ -10,8 +10,8 @@
 				&= \exp \left[ \sum\limits_{i=1}^{n} (\theta - x_i) \right] = \exp \left[n\theta - \sum x_i\right] \nonumber \\
 				%
 				\log (f) &= n\theta - \sum x_i		
-			\end{align} \\
-		This is maximised when $ \theta $ is maximised, but $ \theta \leq x_i\ \forall i \in \{1,\dots, n\} $.\\
+			\end{align}
+		This is maximised when $ \theta $ is maximised, but $ \theta \leq x_i\ \forall i \in \{1,\dots, n\} $.
 		Thus, $ \widehat{\theta} = \min(\{x_i\}) $ \\
 	\end{subequations}
 	
@@ -28,7 +28,7 @@
 	
 	$ \sum |x_i - \theta| $ is total absolute error. This is minimized by $ \widehat{\theta} = \mathrm{median}(x_1, \dots, x_n)$\\
 	
-	\item $ \mu $ is known, find MLE of $ \sigma^2 $. To find joint PDF and thus likelihood function, \\
+	\item $ \mu $ is known, find MLE of $ \sigma^2 $. To find joint PDF and thus likelihood function,
 	
 	\begin{subequations}
 	\begin{align}
@@ -43,9 +43,9 @@
 		\widehat{\sigma}^2 &= \frac{\sum (x_i - \mu)^2}{n} \\
 		%
 		\mathbb{E}\left[\widehat{\sigma^2}\right] &= 1/n \sum \mathbb{E}[(x_i - \mu)^2] = \sigma^2
-	\end{align}\\
+	\end{align}
 	\end{subequations}
-	\item Pareto density function with parameters $ (a, \lambda) $. Constraint on $ a $ is that $ a \leq \min({x_i}) $. \\
+	\item Pareto density function with parameters $ (a, \lambda) $. Constraint on $ a $ is that $ a \leq \min({x_i}) $.
 	Let $ y = \prod\limits_{i=1}^{n} x_i $
 	
 	\begin{subequations}
@@ -59,10 +59,10 @@
 		\frac{\mathrm{d}}{\mathrm{d} \lambda}\ (\log f) &= \frac{n}{\lambda} + n \log (a) - \log (y) \nonumber \\
 		%
 		\widehat{\lambda} &= \frac{n}{\log (y) - n \log (a)}
-	\end{align}\\
+	\end{align}
 	\end{subequations}
 
-	\item Given the three sets of RVs, with means $ \mu_1, \mu_2, (\mu_1 + \mu_2) $, and common variance $ \sigma^2 $. \\
+	\item Given the three sets of RVs, with means $ \mu_1, \mu_2, (\mu_1 + \mu_2) $, and common variance $ \sigma^2 $.
 	
 	\begin{subequations}
 	\begin{align}
@@ -83,10 +83,10 @@
 		\overline{Y} + \overline{W} &= (\widehat{\mu_1} + 2\widehat{\mu_2}) \nonumber \\
 		%
 		\widehat{\mu_1} = \frac{2\overline{X} - \overline{Y} + \overline{W}}{3} \qquad &\text{and} \qquad \widehat{\mu_2} = \frac{-\overline{X} + 2\overline{Y} + \overline{W}}{3}
-	\end{align} \\
+	\end{align}
 	\end{subequations}
 	
-	\item The sample mean and variance of $ Y = \log(X) $ is calculated as $ \overline{Y} = 3.7319,\ S_Y^2 = 0.0508 $. \\
+	\item The sample mean and variance of $ Y = \log(X) $ is calculated as $ \overline{Y} = 3.7319,\ S_Y^2 = 0.0508 $.
 	
 	\begin{subequations}
 	\begin{align}
@@ -95,42 +95,42 @@
 		P \left\{ \frac{Y - \overline{Y}}{S_Y} \geq z_{0.01}\right\} &= 0.01 \nonumber \\
 		%
 		Y &\geq 9.8 \qquad \to \qquad X \geq 18041.35	
-	\end{align}\\
+	\end{align}
 	\end{subequations}
 
 	Thus, a 100-year flood has a discharge of $ 18041 $.
 	
-	\item $ X $ is a log-normal RV. Let $ Y = \log X $. The moment generating function leads to mean and variance.\\
+	\item $ X $ is a log-normal RV. Let $ Y = \log X $. The moment generating function leads to mean and variance.
 	\begin{subequations}
 	\begin{enumerate}
-		\item Using the MGF of $ Y $, \\
+		\item Using the MGF of $ Y $,
 		\begin{align}
 			\phi_Y(t) &= \exp \left( \mu t  + \frac{\sigma^2 t^2}{2}\right) \nonumber \\
 			%
 			\mathbb{E}[e^{Yt}] &= \mathbb{E}[X^t] \nonumber \\
 			%
 			\mathbb{E}[X] &= \exp \left(\mu + \frac{\sigma^2}{2}\right)
-		\end{align} \\
+		\end{align}
 	
-		\item To find variance, set $ t = 2 $, \\
+		\item To find variance, set $ t = 2 $,
 		\begin{align}
 			\mathbb{E}[X^2] &= \exp \left(2\mu + 2\sigma^2\right) \nonumber \\
 			%
 			\mathrm{Var}(X) &= \exp \left(2\mu + 2\sigma^2\right) - \exp \left(2\mu + \sigma^2\right)
-		\end{align} \\
+		\end{align}
 	
-		\item Calculating mean travel time using the above formulae, \\
-		find $\mu =  \overline{Y} = 45.4 $ and $ \sigma^2 = S_Y^2 = 131.82 $.\\
+		\item Calculating mean travel time using the above formulae,
+		find $\mu =  \overline{Y} = 45.4 $ and $ \sigma^2 = S_Y^2 = 131.82 $.
 		
 		\begin{align}
 			\mathbb{E}[X] &= \exp \left(\mu + 0.5\sigma^2\right) = 45.56
-		\end{align} \\
+		\end{align}
 		
 	\end{enumerate}
 	\end{subequations}
 
-	\item The sample mean and variance of $ Y = X + \mathcal{N} (0, 0.1^2) $ is calculated as \\
-	 $ \overline{Y} = 3.1502,\ S_Y = 0.0092 $. \\
+	\item The sample mean and variance of $ Y = X + \mathcal{N} (0, 0.1^2) $ is calculated as
+	 $ \overline{Y} = 3.1502,\ S_Y = 0.0092 $.
 	
 	\begin{subequations}
 		\begin{align}
@@ -143,11 +143,11 @@
 			\text{99\% confidence interval is } X &\in \left(\overline{Y} \pm\frac{\sigma\ z_{0.005}}{\sqrt{n}}\right) \nonumber \\
 			%
 			&= 3.1502 \pm 0.11519 = [3.0350, 3.2654]
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
-	\item The sample mean and variance of $ Y \sim \mathcal{N} (\mu, 0.08^2) $ is calculated as \\
-	$ \overline{Y} = 11.48$. \\
+	\item The sample mean and variance of $ Y \sim \mathcal{N} (\mu, 0.08^2) $ is calculated as
+	$ \overline{Y} = 11.48$.
 	
 	\begin{subequations}
 		\begin{align}
@@ -162,36 +162,36 @@
 			\text{95\% lower confidence interval is } X &\leq \overline{Y} + \frac{\sigma\ z_{0.05}}{\sqrt{n}} \nonumber \\
 			%
 			&= 3.1502 + 0.04161 = (-\infty, 11.5216]
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
-	\item The sample mean and variance of $ Y \sim \mathcal{N} (\mu, 11.3^2) $ is given as \\
-	$ \overline{Y} = 74.6, n = 81$. \\
+	\item The sample mean and variance of $ Y \sim \mathcal{N} (\mu, 11.3^2) $ is given as
+	$ \overline{Y} = 74.6, n = 81$.
 	
 	\begin{subequations}
 		\begin{align}
 			\text{95\% confidence interval is } \mu &\in \left(\overline{Y} \pm \frac{\sigma\ z_{0.025}}{\sqrt{n}}\right) \nonumber \\
 			%
 			&= 74.6 \pm 2.0652 = [72.5348, 76.6652] 
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item $ \overline{X_n} $ is a the mean of the first $ n $ samples. $ \sigma^2 = 1 $ \\
 	\begin{subequations}
 		\begin{enumerate}
-			\item Find the distribution of $ X_{n+1} - \overline{X}_n $, \\
+			\item Find the distribution of $ X_{n+1} - \overline{X}_n $,
 			\begin{align}
 				\overline{X_n} &\sim \mathcal{N}(\mu, \sigma^2/n) \nonumber \\
 				%
 				X_{n+1} &\sim \mathcal{N}(\mu, \sigma^2) \nonumber \\
 				%
 				X_{n+1} - \overline{X}_n &\sim \mathcal{N}(0,1 + 1/n)
-			\end{align} \\
+			\end{align}
 			
-			\item $ \overline{X_n} = 4 $, \\
+			\item $ \overline{X_n} = 4 $,
 			\begin{align}
 				\text{90\% confidence interval is } X_{n+1} &\in \left(\overline{X_n} \pm \sqrt{1 + 1/n}\ z_{0.05}\right)
-			\end{align} \\
+			\end{align}
 			
 		\end{enumerate}
 	\end{subequations}
@@ -207,50 +207,50 @@
 			\mu &< \overline{X} + \frac{z_\alpha\ \sigma}{\sqrt{n}} \nonumber \\
 			%
 			\mu &\in \left(-\infty\ ,\ \overline{X} + \frac{z_\alpha\ \sigma}{\sqrt{n}}\right]
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
-	\item The sample mean $ \mu $ is unknown and variance is known to be $ \sigma = 0.2 $. The 99\% two-sided confidence interval is \\
-	$ \overline{Y} = 1.2, n = 20$. \\
+	\item The sample mean $ \mu $ is unknown and variance is known to be $ \sigma = 0.2 $. The 99\% two-sided confidence interval is
+	$ \overline{Y} = 1.2, n = 20$.
 	\begin{subequations}
 		\begin{align}
 			\mu &\in \left(\overline{Y} \pm \frac{\sigma\ z_{0.005}}{\sqrt{n}}\right) \nonumber \\
 			%
 			&= 1.2 \pm 0.1152 = [1.0848, 1.3152] 
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
-	\item Using problem 13 data but with $ \sigma $ unknown and $ S^2 = 0.04 $. For a 99\% confidence interval, use $ \alpha = 0.01 $, $ \overline{Y} = 1.2, n = 20$. \\
+	\item Using problem 13 data but with $ \sigma $ unknown and $ S^2 = 0.04 $. For a 99\% confidence interval, use $ \alpha = 0.01 $, $ \overline{Y} = 1.2, n = 20$.
 	\begin{subequations}
 		\begin{align}
 			\mu &\in \left[ \overline{Y} - \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}}, \ \overline{Y} + \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}} \right] \nonumber \\
 			%
 			\mu &\in 1.2 \pm 0.1279 = [1.0720, 1.3279]
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
-	\item Using problem 14 data to find one-sided 99\% confidence interval. \\
+	\item Using problem 14 data to find one-sided 99\% confidence interval.
 	\begin{subequations}
 		\begin{align}
 			\mu &\in \left(-\infty\ , \ \overline{Y} + \frac{(t_{\alpha, n-1})\ s}{\sqrt{n}} \right] \nonumber \\
 			%
 			c &= 1.2 + 0.1136 = 1.31357
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
-	\item First perform a sub-sampling with $ m = 30$ and use it to find the required sample size $ n $. Normal RV with both mean and variance unknown. \\
+	\item First perform a sub-sampling with $ m = 30$ and use it to find the required sample size $ n $. Normal RV with both mean and variance unknown.
 	\begin{subequations}
 		\begin{enumerate}
 			\item Using $ m = 30 $, this subsample has variance $ S^2_m $. The interval width will then be\\
 			\begin{align}
 				b = 2t_{\alpha/2, m-1}\ \frac{S_m}{\sqrt{m}}
-			\end{align} \\
+			\end{align}
 			
-			\item For large $ n $, this can be approximated to a standard normal RV $ Z $. \\
+			\item For large $ n $, this can be approximated to a standard normal RV $ Z $.
 			\begin{align}
 				A = 2z_{\alpha/2}\ \frac{S_m}{\sqrt{n}}
-			\end{align} \\
-	Solving for $ n $ gives the size of the full sample. \\
+			\end{align}
+	Solving for $ n $ gives the size of the full sample.
 		\end{enumerate}
 	\end{subequations}
 
@@ -262,7 +262,7 @@
 			\mu &\in 333.9958 \pm 2.9379 = [331.0579, 336.9338] \qquad \text{95\% confidence} \nonumber \\
 			%
 			\mu &\in 333.9958 \pm 3.9870 = [330.0088, 337.9828] \qquad \text{99\% confidence} 
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item $ \sigma $ unknown and $ S = 10.2127 $, $ \overline{Y} = 133.22, n = 18$. Using a t-distribution with $ 17 $ DOF, which yields slightly larger intervals than a standard normal RV\\
@@ -275,7 +275,7 @@
 			\mu &\in \left(-\infty\ ,\  137.5312\right] \qquad \text{lower 95\% confidence} \nonumber \\
 			%
 			\mu &\in \left[128.9133\ ,\ \infty\right) \qquad \text{upper 95\% confidence}
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item $ \sigma $ unknown and $ S = 22 $, $ \overline{Y} = 222, n = 9$. Using a t-distribution with $ 8 $ DOF, which yields slightly larger intervals than a standard normal RV\\
@@ -284,7 +284,7 @@
 			\mu &\in \left[ \overline{Y} - \frac{(t_{\alpha, n-1})\ s}{\sqrt{n}}, \infty \right) \nonumber \\
 			%
 			\mu &\in \left[208.363\ ,\ \infty\right) \qquad \text{upper 95\% confidence}
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item $ \sigma $ unknown and $ S = 800 $, $ \overline{Y} = 2200, n = 18$. Using a t-distribution with $ 15 $ DOF, which yields slightly larger intervals than a standard normal RV\\
@@ -293,7 +293,7 @@
 			\mu &\in \left[ \overline{Y} - \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}}, \ \overline{Y} + \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}} \right] \nonumber \\
 			%
 			\mu &\in 333.9958 \pm 350.61 = [1849.3899, 2550.6101] \qquad \text{90\% confidence}
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item $ \sigma $ unknown and $ S = 16 $, $ \overline{Y} = 320, n = 100$. Using a t-distribution with $ 99 $ DOF, which yields slightly larger intervals than a standard normal RV\\
@@ -302,7 +302,7 @@
 			\mu &\in \left[ \overline{Y} - \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}}, \ \overline{Y} + \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}} \right] \nonumber \\
 			%
 			\mu &\in 320 \pm 3.1747 = [316.8252, 323.1747] \qquad \text{95\% confidence}
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
 	\item $ \sigma $ unknown and $ S = 15.4 $, $ \overline{Y} = 330.2, n = 20$. Using a t-distribution with $ 19 $ DOF, which yields slightly larger intervals than a standard normal RV\\
@@ -313,7 +313,7 @@
 			\mu &\in 330.2 \pm 7.2074 = [322.9926, 337.4074] \qquad \text{95\% confidence} \nonumber \\
 			%
 			\mu &\in 330.2 \pm 9.8517 = [320.3482, 340.0517] \qquad \text{99\% confidence}
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item $ \sigma $ unknown and $ S = 840 $, $ \overline{Y} = 1220, n = 300$. Using a t-distribution with $ 299 $ DOF, which yields slightly larger intervals than a standard normal RV\\
@@ -322,10 +322,10 @@
 			\mu &\in \left[ \overline{Y} - \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}}, \ \overline{Y} + \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}} \right] \nonumber \\
 			%
 			\mu &\in 1220 \pm 95.4395 = [1124.5605, 1315.4395] \qquad \text{95\% confidence} 
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
-	\item from Problem 23,\\
+	\item from Problem 23,
 	\begin{subequations}
 		\begin{align}
 			\mu &\in \left(-\infty\ ,\  \overline{Y} - \frac{(t_{\alpha, n-1})\ s}{\sqrt{n}} \right] \nonumber \\
@@ -333,7 +333,7 @@
 			\mu &\in \left(-\infty\ ,\ 1282.2896  \right] \qquad \text{upper 90\% confidence} \nonumber \\
 			%
 			v &= 1282.2896
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
 	\item confidence interval for $ \mu $ when $ \sigma^2 $ is unknown. Using the sample mean and sample variance $ \overline{X}, S^2 $, and the observations for these statistics $ \overline{x}, s^2 $\\
@@ -344,7 +344,7 @@
 			P \left\{ \frac{\overline{X} - \mu}{S/\sqrt{n}} > -t_{\alpha, n-1}\right\} &= 1 - \alpha \nonumber \\
 			%
 			\mu \in \left( -\infty\ ,\ \overline{x} + \frac{t_{\alpha, n-1}\ s}{\sqrt{n}} \right]
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
 	\item $ \sigma $ unknown and $ S = 104.3435 $, $ \overline{Y} = 2062.75, n = 20$. Using a t-distribution with $ 19 $ DOF, which yields slightly larger intervals than a standard normal RV\\
@@ -357,7 +357,7 @@
 			\mu &\in 2062.75 \pm 66.7511 = [1995.9989, 2129.5011] \qquad \text{99\% confidence} \nonumber \\
 			%
 			v &= 2022.41
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item $ \sigma $ unknown and $ S = 8.6879 $, $ \overline{Y} = 98.67, n = 20$. Using a t-distribution with $ 19 $ DOF, which yields slightly larger intervals than a standard normal RV\\
@@ -366,7 +366,7 @@
 			\mu &\in \left[ \overline{Y} - \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}}, \ \overline{Y} + \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}} \right] \nonumber \\
 			%
 			\mu &\in 98.67 \pm 4.0660 = [94.6039, 102.7360] \qquad \text{95\% confidence} 
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item $ \sigma $ unknown and $ S = 0.02944 $, $ \overline{Y} = 0.55, n = 10$. Using a t-distribution with $ 9 $ DOF, which yields slightly larger intervals than a standard normal RV\\
@@ -375,16 +375,16 @@
 			\mu &\in \left[ \overline{Y} - \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}}, \ \overline{Y} + \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}} \right] \nonumber \\
 			%
 			\mu &\in 0.55 \pm 0.02106 = [0.52894, 0.57106] \qquad \text{95\% confidence} 
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item \begin{subequations}
 		To find the PMF of $ N $, look at the CDF of $ N $ first. $ \mathbb{E}[U_i] = 1/2, \mathrm{Var}(U_i) = 1/12 $\\
-	Consider $ S_n = U_1 + \dots + U_n $ and some. This is the $ n $ dimensional simplex problem.\\
+	Consider $ S_n = U_1 + \dots + U_n $ and some. This is the $ n $ dimensional simplex problem.
 	
 	When finding the area of the $ n $-simplex, 
 	
-	Begin by proving the recursion formula for the volume of an $ n $ dimensional simplex. Let $ {X_i} $ be such that uniform RV $ X_i \in [0, 1] $ and the constraint $ \sum x_i  \leq 1$. \\
+	Begin by proving the recursion formula for the volume of an $ n $ dimensional simplex. Let $ {X_i} $ be such that uniform RV $ X_i \in [0, 1] $ and the constraint $ \sum x_i  \leq 1$.
 	
 			Using analytical methods to find the exact asymptotic value of $ \mathbb{E}[X] $
 			\begin{align}
@@ -395,7 +395,7 @@
 				P\{S_3 \leq 1\} = A_3 &= \int\limits_{0}^{1} (1-z)^2\ A_2\ \mathrm{d}z = \frac{A_2}{3} = \frac{1}{6}\\
 				%
 				P\{S_n \leq 1\} = A_n &= \int_{0}^{1} (1-x_n)^{n-1}\ A_{n-1}\ \mathrm{d}x_n = \frac{A_{n-1}}{n}		
-			\end{align}\\
+			\end{align}
 		
 			The above factor of $ (1-x_n)^{n-1} $ arises as a result of all of the other $ n-1 $ dimensions being scaled down by a factor of $ 1-x_n $ when $ x_n > 0 $. From recursion, $ A_n = 1/n!$\\
 			
@@ -409,7 +409,7 @@
 			\end{align}
 			
 		
-			Thus, the expected value of $ X $ converges to the natural logarithm $ e $.\\
+			Thus, the expected value of $ X $ converges to the natural logarithm $ e $.
 		
 			Using a Monte-Carlo simulation with $ n = k^2 \ \forall\ k \in [4, 99]$ \\
 			
@@ -432,7 +432,7 @@
 			\mu &\in \left[ \overline{Y} - \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}}, \ \overline{Y} + \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}} \right] \nonumber \\
 			%
 			\mu &\in 11.5666 \pm 1.4861 = [10.0805, 13.0528] \qquad \text{95\% confidence} 
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
 	\item $ \sigma $ unknown and $ S = 9400 $, $ \overline{Y} = 90450, n = 16$. Using a t-distribution with $ 15 $ DOF, which yields slightly larger intervals than a standard normal RV\\
@@ -441,10 +441,10 @@
 			\mu &\in \left[ \overline{Y} - \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}}, \ \overline{Y} + \frac{(t_{\alpha/2, n-1})\ s}{\sqrt{n}} \right] \nonumber \\
 			%
 			\mu &\in 90450 \pm 5008.9064 = [85441.0936, 95458.9064] \qquad \text{95\% confidence} 
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
-	\item Find the mean squared error of the predictor $ \overline{X} $, \\
+	\item Find the mean squared error of the predictor $ \overline{X} $,
 	\begin{subequations}
 		\begin{align}
 			\overline{X_n} &\sim \mathcal{N}(\mu, \sigma^2/n) \nonumber \\
@@ -454,7 +454,7 @@
 			Y = X_{n+1} - \overline{X_n} &\sim \mathcal{N}(0, \sigma^2\ (1+1/n))\nonumber \\
 			%
 			\mathbb{E}[Y^2] &= \mathrm{Var}(Y) + \left(\mathbb{E}[Y]\right)^2 = \sigma^2\ \left(1+\frac{1}{n}\right)
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item $ \sigma $ unknown and $ S = 0.3775 $, $ \overline{Y} = 4.725, n = 4$. Using a t-distribution with $ 3 $ DOF, which yields slightly larger intervals than a standard normal RV\\
@@ -465,10 +465,10 @@
 			\mu &\in \left[ \overline{Y} - (t_{\alpha/2, n-1})\ s \sqrt{1 + 1/n}, \ \overline{Y} + (t_{\alpha/2, n-1})\ s \sqrt{1 + 1/n} \right] \nonumber \\
 			%
 			\mu &\in 4.725 \pm 1.3431 = [3.3818, 6.0681] \qquad \text{95\% confidence} 
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
-	\item  $ \sigma $ unknown and $ S = 2.12 $, $ \overline{Y} = 2.5, n = 30$. Using a t-distribution with $ 29 $ DOF, which yields slightly larger intervals than a standard normal RV,\\
+	\item  $ \sigma $ unknown and $ S = 2.12 $, $ \overline{Y} = 2.5, n = 30$. Using a t-distribution with $ 29 $ DOF, which yields slightly larger intervals than a standard normal RV,
 	\begin{subequations}
 		\begin{align}
 			\mu &\in \left(-\infty\ ,\  \overline{Y} - \frac{(t_{\alpha, n-1})\ s}{\sqrt{n}} \right] \nonumber \\
@@ -476,10 +476,10 @@
 			\mu &\in \left(-\infty\ ,\ 3.0076  \right] \qquad \text{upper 90\% confidence} \nonumber \\
 			%
 			v &= 3.0076
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
-	\item  Verifying the one-sided confidence intervals for $ \sigma^2 $ when the mean is unknown,\\
+	\item  Verifying the one-sided confidence intervals for $ \sigma^2 $ when the mean is unknown,
 	\begin{subequations}
 		\begin{align}
 			\frac{(n-1)S^2}{\sigma^2} &\sim \chi^2_{n-1} \nonumber \\
@@ -491,10 +491,10 @@
 			P \left\{ \frac{(n-1)S^2}{\sigma^2} \geq \chi^2_{1 - \alpha, n-1} \right\} &= 1 - \alpha \nonumber \\
 			%
 			\sigma^2 &\in \left(0\ ,\ \frac{(n-1)S^2}{\chi^2_{1-\alpha, n-1}} \right]
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
-	\item  $ \sigma $ unknown and $ S^2 = 32.2333 $, $ \overline{Y} = 144.3, n = 10$. Using a t-distribution with $ 9 $ DOF, which yields slightly larger intervals than a standard normal RV,\\
+	\item  $ \sigma $ unknown and $ S^2 = 32.2333 $, $ \overline{Y} = 144.3, n = 10$. Using a t-distribution with $ 9 $ DOF, which yields slightly larger intervals than a standard normal RV,
 	\begin{subequations}
 		\begin{align}
 			\sigma^2 &\in \left[\frac{(n-1)S^2}{\chi^2_{\alpha/2, n-1}} ,\  \frac{(n-1)S^2}{\chi^2_{1 -\alpha/2, n-1}} \right] \nonumber \\
@@ -502,16 +502,16 @@
 			\sigma^2 &\in \left[ 12.2979, 167.2111 \right] \qquad \text{95\% confidence} \nonumber \\
 			%
 			v &= 69.6 \qquad \text{using upper 90\% confidence}
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
-	\item  $ \sigma $ unknown and $ S^2 = 0.00313 $, $ \overline{Y} = 6.7236, n = 36$. Using a chi-squared distribution with $ 35 $ DOF, which yields slightly larger intervals than a standard normal RV,\\
+	\item  $ \sigma $ unknown and $ S^2 = 0.00313 $, $ \overline{Y} = 6.7236, n = 36$. Using a chi-squared distribution with $ 35 $ DOF, which yields slightly larger intervals than a standard normal RV,
 	\begin{subequations}
 		\begin{align}
 			\sigma^2 &\in \left[\frac{(n-1)S^2}{\chi^2_{\alpha/2, n-1}} ,\  \frac{(n-1)S^2}{\chi^2_{1 -\alpha/2, n-1}} \right] \nonumber \\
 			%
 			\sigma^2 &\in \left[ 0.00206, 0.00532 \right] \qquad \text{95\% confidence} 
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item  $ \sigma $ unknown but equal. Using $ S_1^2 = 2.5\ ,\ S_2^2 = 7\ , n = 5\ , m = 3 $\\
@@ -520,20 +520,20 @@
 			S_P^2 &= \frac{(n-1)\ S_1^2 + (m-1)\ S_2^2}{(n+m-2)} \nonumber \\
 			%
 			&= 4
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item  $ \mu = 3.180 $ but unknown $ \sigma $. Using the sample variance, $ S = 0.008 \approx \sigma $\\
-	Using a chi-squared distribution with $ 7 $ DOF, which yields slightly larger intervals than a standard normal RV,\\
+	Using a chi-squared distribution with $ 7 $ DOF, which yields slightly larger intervals than a standard normal RV,
 	
 	\begin{subequations}
 		\begin{align}
 			\sigma &\in [0.0057, 0.0145]
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item  $ \mu $ is known. Using the sample variance, $ S = 0.008 \approx \sigma $\\
-	Using a chi-squared distribution with $ 7 $ DOF, which yields slightly larger intervals than a standard normal RV,\\
+	Using a chi-squared distribution with $ 7 $ DOF, which yields slightly larger intervals than a standard normal RV,
 	
 	\begin{subequations}
 		\begin{align}
@@ -544,15 +544,15 @@
 			\text{estimator } \widehat{S^2} &= \ddfrac{\sum (X_i - \mu)^2}{n} \\
 			%
 			\frac{(n-1)S^2}{\sigma^2} \to \frac{n\widehat{S^2}}{\sigma^2} &\implies \chi^2_{n-1} \to \chi^2_{n}
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
-	Now, $ n \widehat{S^2} /\sigma^2 $ is a chi-squared distribution with $ n $ DOF. One extra DOF from knowledge of the population mean, acts like one extra observation.\\
+	Now, $ n \widehat{S^2} /\sigma^2 $ is a chi-squared distribution with $ n $ DOF. One extra DOF from knowledge of the population mean, acts like one extra observation.
 	
 	What burning time?\\
 	
-	\item  $ \sigma $ unknown but equal and $ \overline{X} - \overline{Y} = 227.7 $, pooled estimator of variance $ S_P = 266.6, n = m = 10$. \\
-	Using a t distribution with $ 18 $ DOF, which yields slightly larger intervals than a standard normal RV,\\
+	\item  $ \sigma $ unknown but equal and $ \overline{X} - \overline{Y} = 227.7 $, pooled estimator of variance $ S_P = 266.6, n = m = 10$.
+	Using a t distribution with $ 18 $ DOF, which yields slightly larger intervals than a standard normal RV,
 	\begin{subequations}
 		\begin{align}
 			\mu_1 - \mu_2 &\in \left[ \overline{x} - \overline{y} - t_{\alpha / 2, n+m-2}\ s_p\ \sqrt{\frac{1}{n} + \frac{1}{m}}\ ,\ \overline{x} - \overline{y} + t_{\alpha / 2, n+m-2}\ s_p\ \sqrt{\frac{1}{n} + \frac{1}{m}} \right]  \nonumber \\
@@ -562,40 +562,40 @@
 			\mu_1 - \mu_2 &\in  [20.9549, \infty) \qquad \text{upper 95\% confidence} \nonumber \\
 			%
 			\mu_1 - \mu_2 &\in  (-\infty, 434.4451] \qquad \text{lower 95\% confidence} \nonumber 
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
-	\item  $ \sigma $ unknown but equal and $ \overline{X} - \overline{Y} = -10 $, pooled estimator of variance $ S_P = , n = 36, m = 64$. \\
-	Using a t distribution with $ 18 $ DOF, which yields slightly larger intervals than a standard normal RV,\\
+	\item  $ \sigma $ unknown but equal and $ \overline{X} - \overline{Y} = -10 $, pooled estimator of variance $ S_P = , n = 36, m = 64$.
+	Using a t distribution with $ 18 $ DOF, which yields slightly larger intervals than a standard normal RV,
 	\begin{subequations}
 		\begin{align}
 			\mu_1 - \mu_2 &\in \left[ \overline{x} - \overline{y} - t_{\alpha / 2, n+m-2}\ s_p\ \sqrt{\frac{1}{n} + \frac{1}{m}}\ ,\ \overline{x} - \overline{y} + t_{\alpha / 2, n+m-2}\ s_p\ \sqrt{\frac{1}{n} + \frac{1}{m}} \right]  \nonumber \\
 			%			
 			\mu_1 - \mu_2 &\in -10 \pm 1.179 = [-11.179, -8.821] \qquad \text{99\% confidence}  
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
 	\item  $ \sigma_1 = 4, \sigma_2 = 5 $ are known  $ \overline{X} - \overline{Y} = -10 $, pooled estimator of variance is no longer used. $n = 36, m = 64$ \\
-	Using a standard normal distribution since population variances are known,\\
+	Using a standard normal distribution since population variances are known,
 	\begin{subequations}
 		\begin{align}
 			\mu_1 - \mu_2 &\in \left[ \overline{x} - \overline{y} - z_{\alpha / 2} \sqrt{\frac{\sigma_1^2}{n} + \frac{\sigma_2^2}{m}}\ ,\ \overline{x} - \overline{y} + z_{\alpha / 2} \sqrt{\frac{\sigma_1^2}{n} + \frac{\sigma_2^2}{m}} \right]   \nonumber \\
 			%			
 			\mu_1 - \mu_2 &\in -10 \pm 1.12 = [-11.12, -8.88] \qquad \text{99\% confidence}  
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 
-	\item  $ \sigma $ unknown but equal and $ \overline{X} - \overline{Y} = -16.5 $, pooled estimator of variance $ S_P = 45.411, n = m = 10$. \\
+	\item  $ \sigma $ unknown but equal and $ \overline{X} - \overline{Y} = -16.5 $, pooled estimator of variance $ S_P = 45.411, n = m = 10$.
 	
-	Using a t distribution with $ 18 $ DOF, which yields slightly larger intervals than a standard normal RV,\\
+	Using a t distribution with $ 18 $ DOF, which yields slightly larger intervals than a standard normal RV,
 	\begin{subequations}
 		\begin{align}		
 			\mu_1 - \mu_2 &\in -16.5 \pm 58.4569 = [-74.9569, 41.9569] \qquad \text{99\% confidence}
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
-	\item  $ \sigma_1^2, \sigma_2^2 $ unknown and $ \mu_1, \mu_2 $ known. $ \{X_i\}, \{Y_j\} $ are two sets of independent normal RV samples drawn from these two distributions. \\
+	\item  $ \sigma_1^2, \sigma_2^2 $ unknown and $ \mu_1, \mu_2 $ known. $ \{X_i\}, \{Y_j\} $ are two sets of independent normal RV samples drawn from these two distributions.
 	
 	\begin{subequations}
 		\begin{align}		
@@ -608,12 +608,12 @@
 			\frac{\sigma_1^2}{\sigma_2^2}\ \frac{\widehat{S_2^2}}{\widehat{S_1^2}} &= \ddfrac{\chi_m^2/m}{\chi_n^2/n} \sim F_{m, n} \\
 			%
 			\frac{\sigma_1^2}{\sigma_2^2} &\in \left[ \frac{\widehat{S_1^2}}{\widehat{S_2^2}}\ F_{1 - \alpha/2, m, n}\ ,\ \frac{\widehat{S_1^2}}{\widehat{S_2^2}}\ F_{\alpha/2, m, n} \right]
-		\end{align}\\
+		\end{align}
 	
-	The above F-distribution has parameters $ (m, n) $ instead of $ (m-1, n-1) $ as a result of the mean values being known. Refer problem 40 above for the explanation.\\
+	The above F-distribution has parameters $ (m, n) $ instead of $ (m-1, n-1) $ as a result of the mean values being known. Refer problem 40 above for the explanation.
 	\end{subequations}
 
-	\item  $ \sigma_1^2, \sigma_2^2 $ unknown and $ \mu_1, \mu_2 $ also unknown. $ \{X_i\}, \{Y_j\} $ are two sets of independent normal RV samples drawn from these two distributions. \\
+	\item  $ \sigma_1^2, \sigma_2^2 $ unknown and $ \mu_1, \mu_2 $ also unknown. $ \{X_i\}, \{Y_j\} $ are two sets of independent normal RV samples drawn from these two distributions.
 	
 	\begin{subequations}
 		\begin{align}		
@@ -622,7 +622,7 @@
 			\frac{\sigma_1^2}{\sigma_2^2}\ \frac{S_2^2}{S_1^2} &= \ddfrac{\chi_{m-1}^2/(m-1)}{\chi_{n-1}^2/(n-1)} \sim F_{m-1, n-1} \\
 			%
 			\frac{\sigma_1^2}{\sigma_2^2} &\in \left[0.02867, 0.58046\right] \qquad \text{95\% confidence}
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
 	\item Bernoulli RV using given data to estimate $ \widehat{p} $, and use it to find a confidence interval for $ p $ \\
@@ -633,12 +633,12 @@
 				p &\in \left[ \widehat{p} - z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}\ ,\ \widehat{p} + z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}  \right] \nonumber \\
 				%
 				p &\in 0.3958 \pm 0.0231 = [0.3728, 0.4189] \qquad \text{95\% confidence}
-			\end{align} \\
+			\end{align}
 			
 			\item $ \widehat{p}  = 0.3897$ \\
 			\begin{align}
 				p &\in 0.3897 \pm 0.03729 = [0.3523, 0.4269] \qquad \text{95\% confidence}
-			\end{align} \\
+			\end{align}
 		\end{enumerate}
 	\end{subequations}
 
@@ -650,12 +650,12 @@
 				p &\in \left[ \widehat{p} - z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}\ ,\ \widehat{p} + z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}  \right] \nonumber \\
 				%
 				p &\in 0.17 \pm 0.01783 = [0.1522, 0.1878] \qquad \text{95\% confidence}
-			\end{align} \\
+			\end{align}
 			
 			\item $ \widehat{p}  = 0.1067$ \\
 			\begin{align}
 				p &\in 0.1067 \pm 0.01466 = [0.092, 0.1213] \qquad \text{90\% confidence}
-			\end{align} \\
+			\end{align}
 		\end{enumerate}
 	\end{subequations}
 
@@ -667,12 +667,12 @@
 				p &\in \left[ \widehat{p} - z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}\ ,\ \widehat{p} + z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}  \right] \nonumber \\
 				%
 				p &\in 0.5106 \pm 0.00822 = [0.5024, 0.5188] \qquad \text{90\% confidence}
-			\end{align} \\
+			\end{align}
 			
 			\item $ \widehat{p}  = 0.5106$ \\
 			\begin{align}
 				p &\in 0.5106 \pm 0.0098 = [0.5008, 0.5204] \qquad \text{95\% confidence}
-			\end{align} \\
+			\end{align}
 		\end{enumerate}
 	\end{subequations}
 
@@ -687,14 +687,14 @@
 			n &= \frac{z_{0.05}^2\ \widehat{p}\ (1-\widehat{p})}{(0.02)^2} \qquad \text{rounded up to integer} \nonumber \\
 			%
 			n &\geq 4147 \qquad \text{to guarantee interval size}
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
-	\item No, since the intervals for the respective candidates $ [49, 57]\% $ and $ [43, 51]\% $ have some overlap.\\
+	\item No, since the intervals for the respective candidates $ [49, 57]\% $ and $ [43, 51]\% $ have some overlap.
 	
-	\item Same as Problem 50, $ n \geq 4147 $ to be $ 90\% $ confident that the result is within $ 2\% $ of the true value. \\
+	\item Same as Problem 50, $ n \geq 4147 $ to be $ 90\% $ confident that the result is within $ 2\% $ of the true value.
 	
-	\item $ \widehat{p}  = 79/140, n = 140$. To find the maximum error of the estimate, \\
+	\item $ \widehat{p}  = 79/140, n = 140$. To find the maximum error of the estimate,
 	\begin{subequations}
 		\begin{align}
 			\text{Error } &= z_{0.01/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}} \nonumber \\
@@ -703,7 +703,7 @@
 		\end{align}
 	\end{subequations}
 
-	\item $ \widehat{p}  = 0.17, n = 100$. Assume each item is independently defective with the same probability, \\
+	\item $ \widehat{p}  = 0.17, n = 100$. Assume each item is independently defective with the same probability,
 	\begin{subequations}
 		\begin{align}
 			p &\in \left[ \widehat{p} - z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}\ ,\ \widehat{p} + z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}  \right] \nonumber \\
@@ -711,19 +711,19 @@
 			p &\in 0.17 \pm 0.0736 = [0.0964, 0.2436] \qquad \text{95\% confidence} \\
 			%
 			p &\in \left[0.0826\ ,\ \infty \right) \qquad \text{upper 99\% confidence} 
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
-	\item $ \widehat{p}  = 0.67, n = 100$. Assume each person is independently likely to die in 5 years with the same probability, \\
+	\item $ \widehat{p}  = 0.67, n = 100$. Assume each person is independently likely to die in 5 years with the same probability,
 	\begin{subequations}
 		\begin{align}
 			\text{Error } &= z_{0.05/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}} \leq 0.02 \nonumber \\
 			%
 			n &\geq 2401 \to \text{additional samples required}\ =\ 2301
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
-	\item $ n $ independent Bernoulli RVs with parameter $ p $. \\
+	\item $ n $ independent Bernoulli RVs with parameter $ p $.
 	
 	\begin{subequations}
 		\begin{align}
@@ -732,19 +732,19 @@
 			p &\in \left( -\infty\ ,\ \widehat{p} + z_{\alpha}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}  \right] \qquad \text{lower confidence}\\
 			%
 			p &\in \left[ \widehat{p} - z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}\ ,\ \infty  \right) \qquad \text{upper confidence}
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
-	\item $ \widehat{\theta}  = 36, n = 10$. Each battery's lifetime is an exponential RV with mean $ \theta $, \\
+	\item $ \widehat{\theta}  = 36, n = 10$. Each battery's lifetime is an exponential RV with mean $ \theta $,
 	\begin{subequations}
 		\begin{align}
 			\theta &\in \left[\ddfrac{2 \sum X_i}{\chi^2_{\alpha/2, 2n}}\ ,\ \ddfrac{2 \sum X_i}{\chi^2_{1 - \alpha/2, 2n}}\right] \nonumber \\
 			%
 			\theta &\in [21.07, 75.07]
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 	
-	\item $ \widehat{\theta}  = 36, n = 10$. Each battery's lifetime is an exponential RV with mean $ \theta $, \\
+	\item $ \widehat{\theta}  = 36, n = 10$. Each battery's lifetime is an exponential RV with mean $ \theta $,
 	\begin{subequations}
 		\begin{align}
 			\theta &\in \left(-\infty\ ,\ \ddfrac{2 \sum X_i}{\chi^2_{1 - \alpha, 2n}}\right] \nonumber \\
@@ -754,18 +754,18 @@
 			\theta &\in \left[\ddfrac{2 \sum X_i}{\chi^2_{\alpha, 2n}}\ ,\ \infty \right) \nonumber \\
 			%
 			\theta &\in [22.92, \infty)
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
-	\item Unknown mean value $ \theta $ of an exponential RV from which $ n $ samples are drawn, find the unbiased estimator with the minimal mean squared error. Since the estimator is unbiased, this is equal to its variance. \\
+	\item Unknown mean value $ \theta $ of an exponential RV from which $ n $ samples are drawn, find the unbiased estimator with the minimal mean squared error. Since the estimator is unbiased, this is equal to its variance.
 	Since $ X_i \ \forall\ i \in \{1, n\}$ are unbiased estimators themselves, with $ \mathbb{E}[X_i] = \theta $ and $ \mathrm{Var}(X_i) = \sigma^2 $ 
 	\begin{subequations}
 		\begin{align}
 			d(\theta) &= \sum \lambda_i\ X_i \qquad \text{such that} \qquad \sum \lambda_i = 1 \\
 			%
 			\widehat{\lambda_i} &= \ddfrac{1/\sigma^2_i}{\sum 1/\sigma_i^2} 
-		\end{align}\\
-	is the choice of $ \lambda $ that minimizes mean squared error. This reduces to $ \lambda_i = 1/n $ when all of the estimators have the same variance.\\
+		\end{align}
+	is the choice of $ \lambda $ that minimizes mean squared error. This reduces to $ \lambda_i = 1/n $ when all of the estimators have the same variance.
 	\end{subequations}
 	
 	\item Since $ X_i \ \forall\ i \in \{1, n\}$ are unbiased estimators themselves, with $ \mathbb{E}[X_i] = \theta $ and $ \mathrm{Var}(X_i) = \sigma^2 $ \\
@@ -778,21 +778,21 @@
 			\lambda_1 = \ddfrac{1/\mathrm{Var}(S_x^2)}{1/\mathrm{Var}(S_x^2) + 1/\mathrm{Var}(S_y^2)} &= \frac{n-1}{n+m-2} \\
 			%
 			\lambda_2 = \ddfrac{1/\mathrm{Var}(S_y^2)}{1/\mathrm{Var}(S_x^2) + 1/\mathrm{Var}(S_y^2)} &= \frac{m-1}{n+m-2}
-		\end{align}\\
-		This proves the pooled estimator results stated above.\\
+		\end{align}
+		This proves the pooled estimator results stated above.
 	\end{subequations}
 
-	\item  $ \mathbb{E}[d_1] = \theta, \mathrm{Var}(d_1) = 6 $ while $ \mathbb{E}[d_2] = 2 + \theta, \mathrm{Var}(d_2) = 2 $. Comparing the mean squared errors of these estimators,\\
+	\item  $ \mathbb{E}[d_1] = \theta, \mathrm{Var}(d_1) = 6 $ while $ \mathbb{E}[d_2] = 2 + \theta, \mathrm{Var}(d_2) = 2 $. Comparing the mean squared errors of these estimators,
 	\begin{subequations}
 		\begin{align}
 			r(d_i, \theta) &= \mathrm{Var}(d_i) + b_\theta^2 (d_i) \nonumber \\
 			%
 			r(d_1, \theta) &= 6 + 0^2 = 6 \qquad \text{while} \qquad r(d_2, \theta) = 2 + 2^2 = 6
-		\end{align}\\
-		Both estimators have the same mean squared error, but only one of them is unbiased. They are equally good. \\
+		\end{align}
+		Both estimators have the same mean squared error, but only one of them is unbiased. They are equally good.
 	\end{subequations}
 	
-	\item Accidents $ Y $ is a Poisson RV with unknown $ \lambda $. A prior for $ \lambda $ is assumed and the Bayes estimator is then found. \\
+	\item Accidents $ Y $ is a Poisson RV with unknown $ \lambda $. A prior for $ \lambda $ is assumed and the Bayes estimator is then found.
 	\begin{subequations}
 		\begin{align}
 			p(\lambda) &= e^{-\lambda} \qquad \forall\ \lambda > 0 \nonumber \\
@@ -808,7 +808,7 @@
 			f(\lambda\ |\ x) &= \frac{a\ e^{-a\lambda}\ (a\lambda)^{b}}{\Gamma(b+1)} \sim \Gamma(b+1, a) \\
 			%
 			\mathbb{E}[f(\lambda\ |\ x)] &= (b+1/a) = 84/11 = 7.64
-		\end{align}\\
+		\end{align}
 	
 	The MLE of the mean of a Poisson distribution is simply the population mean which is $ 8.3 $.
 	\end{subequations}
@@ -829,10 +829,10 @@
 			f(\lambda\ |\ x) &= \frac{\lambda z\ e^{-\lambda z}\ (\lambda z)^{n+2}}{\Gamma(n+3)} \sim \Gamma(n+3, z) \\
 			%
 			\mathbb{E}[f(\lambda\ |\ x)] &= (23/93) = 0.2473
-		\end{align}\\
+		\end{align}
 	\end{subequations}
 
-	\item $ Y $ is a Bernoulli RV with unknown $ p $. A prior for $ \lambda $ is assumed and the Bayes estimator is then found. Let $ r $ be defective out of 10 chosen.\\
+	\item $ Y $ is a Bernoulli RV with unknown $ p $. A prior for $ \lambda $ is assumed and the Bayes estimator is then found. Let $ r $ be defective out of 10 chosen.
 	\begin{subequations}
 		\begin{align}
 			p(\lambda) &= 1\qquad \forall\ \lambda \in [0, 1] \nonumber \\
@@ -847,8 +847,8 @@
 			%
 			f(\lambda\ |\ x) &= \frac{11!\ p^r\ (1-p)^{10-r}}{r!\ (10-r)!}
 			%
-		\end{align}\\
-	Integration is not possible analytically. So, numerical integration will yield the value of the estimator for different $ r $ values. \\
+		\end{align}
+	Integration is not possible analytically. So, numerical integration will yield the value of the estimator for different $ r $ values.
 	\end{subequations}
 
 	\item Using the given values of $ \sigma_0 = 3, \mu = 200, \sigma = 2, \overline{X} = 182, n = 20 $

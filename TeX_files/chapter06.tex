@@ -2,32 +2,32 @@
 
 
 \begin{flushright}
-	\textit{``Just find a way to jam it into the Central Limit Theorem"} \\
+	\textit{``Just find a way to jam it into the Central Limit Theorem"}
 \end{flushright}
 
-Most real world populations are intractably large and the statistics of the entire population are impossible to arrive at using brute-force computation. The use of a well-drawn sample to estimate the statistics of the underlying population is the most-used workaround to this problem.\\
+Most real world populations are intractably large and the statistics of the entire population are impossible to arrive at using brute-force computation. The use of a well-drawn sample to estimate the statistics of the underlying population is the most-used workaround to this problem.
 
-\textbf{Random sample} : A set of random variables which are independent and have a common distribution $ F $. When $ F $ is only specified up to some parameters that are not known, it is possible to estimate these parameters using the statistics of the random sample.\\
+\textbf{Random sample} : A set of random variables which are independent and have a common distribution $ F $. When $ F $ is only specified up to some parameters that are not known, it is possible to estimate these parameters using the statistics of the random sample.
 
-Depending on whether any information about the form of $ F $ is known, this is called either a  \textit{parametric} inference problem, or a \textit{non-parametric} inference problem. An example of the latter is knowing only whether $ F $ is continuous or discrete and nothing further.\\
+Depending on whether any information about the form of $ F $ is known, this is called either a  \textit{parametric} inference problem, or a \textit{non-parametric} inference problem. An example of the latter is knowing only whether $ F $ is continuous or discrete and nothing further.
 
-\textbf{Statistic} : A RV which is determined by the random sample instead of the underlying population. The two most interesting statistics are the sample mean and the sample variance.\\
+\textbf{Statistic} : A RV which is determined by the random sample instead of the underlying population. The two most interesting statistics are the sample mean and the sample variance.
 
-\textbf{Sample mean} : Consider a population with mean $ \mu $ and variance $ \sigma $, without any information about the specific probability distribution. In contrast to the population mean and variance, the \textit{sample mean} of a random sample $ \left\{X_i\right\} $ is defined as\\
+\textbf{Sample mean} : Consider a population with mean $ \mu $ and variance $ \sigma $, without any information about the specific probability distribution. In contrast to the population mean and variance, the \textit{sample mean} of a random sample $ \left\{X_i\right\} $ is defined as
 
 \begin{align}
 	\overline{X} &= \frac{X_1 + X_2 + \dots + X_n}{n}
-\end{align}\\
+\end{align}
 
-$ \overline{X} $ is also an RV, whose expected value and variance are\\
+$ \overline{X} $ is also an RV, whose expected value and variance are
 
 \begin{align}
 	\mathbb{E}[\overline{X}] &= \frac{1}{n}\ \left(\mathbb{E}[X_1] + \dots + \mathbb{E}[X_n]\right) = \mu \\
 	%
 	\mathrm{Var}(\overline{X}) &= \frac{1}{n^2}\ \left[\mathrm{Var}(X_1) + \dots + \mathrm{Var}(X_n)\right] = \frac{\sigma^2}{n}
-\end{align}\\
+\end{align}
 
-The sample mean from an underlying standard normal population for different values of sample size, is itself a normal RV with spread decreasing as $ n $ increases.\\
+The sample mean from an underlying standard normal population for different values of sample size, is itself a normal RV with spread decreasing as $ n $ increases.
 
 \begin{figure}[H]
 	\centering
@@ -42,15 +42,15 @@ The sample mean from an underlying standard normal population for different valu
 	\end{tikzpicture}
 \end{figure}
 
-\textbf{Central Limit Theorem} : Let $ \left\{X_i\right\} $ be independent identically distributed RV having the same mean $ \mu $ and variance $ \sigma^2 $. \\
+\textbf{Central Limit Theorem} : Let $ \left\{X_i\right\} $ be independent identically distributed RV having the same mean $ \mu $ and variance $ \sigma^2 $.
 
-In the limit of large $ n $, the distribution of $ \sum X_i $ is approximately normal with mean $ n\mu $ and variance $ n\sigma^2 $, regardless of the probability distribution of the individual $ X_i $ \\
+In the limit of large $ n $, the distribution of $ \sum X_i $ is approximately normal with mean $ n\mu $ and variance $ n\sigma^2 $, regardless of the probability distribution of the individual $ X_i $ 
 
 \begin{align}
 	\frac{X_1 + X_2 + \dots + X_n - n\mu}{\sqrt{n}\ \sigma} &\sim Z
-\end{align}\\
+\end{align}
 
-Consider the specific case of a binomial RV with parameters $ (n, p) $. This is decomposed into a set of $ n $ binary indicator RVs. Then for large $ n $,\\
+Consider the specific case of a binomial RV with parameters $ (n, p) $. This is decomposed into a set of $ n $ binary indicator RVs. Then for large $ n $,
 
 \begin{align}
 	X &= X_1 + X_2 + \dots + X_n \nonumber \\
@@ -83,9 +83,9 @@ Consider the specific case of a binomial RV with parameters $ (n, p) $. This is 
 	\end{tikzpicture}
 \end{figure} 
 
-While the Poisson approximation to a Binomial RV is good for large $ n $ and small $ p $, this normal approximation is only good for large values of $ \sqrt{np(1-p)} $, with this value by convention being $ \geq 10 $. \\
+While the Poisson approximation to a Binomial RV is good for large $ n $ and small $ p $, this normal approximation is only good for large values of $ \sqrt{np(1-p)} $, with this value by convention being $ \geq 10 $.
 
-The sample mean also obeys the central limit theorem for large values of sample size $ n $ to give, \\
+The sample mean also obeys the central limit theorem for large values of sample size $ n $ to give,
 
 \begin{align}
 	\frac{\overline{X} - \mu}{\sigma / \sqrt{n}} &\sim Z
@@ -119,21 +119,21 @@ By convention, a sample size of at least $ 30 $ is needed to ensure that the sam
 	\end{tikzpicture}
 \end{figure} 
 
-\textbf{Sample variance} : Using the prior definition of the variance $ S^2 $, a sample drawn from an underlying distribution with parameters $ \mu, \sigma $ and sample mean $ \overline{X} $ has the sample variance $ S^2 $ defined as,\\
+\textbf{Sample variance} : Using the prior definition of the variance $ S^2 $, a sample drawn from an underlying distribution with parameters $ \mu, \sigma $ and sample mean $ \overline{X} $ has the sample variance $ S^2 $ defined as,
 
 \begin{align}
 	S^2 &= \ddfrac{\sum\limits_{i=1}^{n}(X_i - \overline{X})^2}{n-1}
-\end{align}\\
+\end{align}
 
-The expected value of the sample variance is found using, \\
+The expected value of the sample variance is found using,
 
 \begin{align}
 	\sum\limits_{i=1}^{n}(x_i - \overline{x})^2 &= \sum\limits_{i=1}^{n}(x_i^2) - n\overline{x}^2 \nonumber \\
 	%
 	\mathbb{E}[X^2] &= \mathrm{Var}(X) + (\mathbb{E}[X])^2 \nonumber 
-\end{align}\\
+\end{align}
 
-The derivation of $ \mathbb{E}[S^2] $, using the above relations is as follows,\\
+The derivation of $ \mathbb{E}[S^2] $, using the above relations is as follows,
 
 \begin{align}
 	(n-1)\mathbb{E}[S^2] &= \mathbb{E}\left[\sum\limits_{i=1}^{n}X_i^2\right] - n\mathbb{E}[\overline{X}^2] \nonumber \\
@@ -143,41 +143,41 @@ The derivation of $ \mathbb{E}[S^2] $, using the above relations is as follows,\
 	&= n\sigma^2 + n\mu^2 - n(\sigma^2/n) - n\mu^2 \nonumber \\
 	%
 	\mathbb{E}[S^2] &= \sigma^2
-\end{align} \\
+\end{align}
 
-\textbf{Sampling from a normal population} : For the specific case of samples drawn from an underlying population which is normally distributed $ X_i \sim \mathcal{N}(\mu, \sigma^2) $, the distribution of the sample mean and sample variance is of particular interest for real-world applications.\\
+\textbf{Sampling from a normal population} : For the specific case of samples drawn from an underlying population which is normally distributed $ X_i \sim \mathcal{N}(\mu, \sigma^2) $, the distribution of the sample mean and sample variance is of particular interest for real-world applications.
 
-The sample mean $ \overline{X} $ is itself a normal RV, with mean $ \mu $ and variance $ \sigma^2 / n $ \\
+The sample mean $ \overline{X} $ is itself a normal RV, with mean $ \mu $ and variance $ \sigma^2 / n $ 
 
-The sample variance is independent from the sample mean exclusively when the underlying population is a normal RV, with \\
+The sample variance is independent from the sample mean exclusively when the underlying population is a normal RV, with
 
 \begin{align}
 	\frac{(n-1)}{\sigma^2}\ S^2 &\sim \chi^2_{n-1}
-\end{align}\\
+\end{align}
 
-As a corollary to the above, a t-distribution with $ (n-1) $ DOF, can be observed from the following combination of the sample mean and sample variance, \\
+As a corollary to the above, a t-distribution with $ (n-1) $ DOF, can be observed from the following combination of the sample mean and sample variance,
 
 \begin{align}
 	\frac{\overline{X}- \mu}{\sigma / \sqrt{n}}\ \sqrt{\frac{\sigma^2}{S^2}} &\sim \frac{Z}{\sqrt{\chi^2_{n-1} / (n-1)}} \nonumber \\
 	%
 	\frac{\sqrt{n}\ (\overline{X}- \mu)}{S} &\sim t_{n-1}
-\end{align}\\
+\end{align}
 
-\textbf{Sampling from finite population} : Consider a population of size $ N $, which has a proportion $ p $ of its elements possessing a certain property of interest. A random sample of size $ n $ picked from this population would be equally likely to be any of the possible binomial combinations.\\
+\textbf{Sampling from finite population} : Consider a population of size $ N $, which has a proportion $ p $ of its elements possessing a certain property of interest. A random sample of size $ n $ picked from this population would be equally likely to be any of the possible binomial combinations.
 
-The most common method of successively generating a random sample is to simply select one of the remaining members of the population at random at each step until the desired sample size is reached. \\
+The most common method of successively generating a random sample is to simply select one of the remaining members of the population at random at each step until the desired sample size is reached.
 
-A set of binary indicator RVs $ \left\{X_i\right\} $ which indicate whether the $ i^{th} $ member of the sample possesses the property of interest would then sum up to $ X = \sum X_i $. Note that these $ X_i $ are not independent. Independence of the $ X_i $ is a valid assumption only for $ N \ggg n $\\
+A set of binary indicator RVs $ \left\{X_i\right\} $ which indicate whether the $ i^{th} $ member of the sample possesses the property of interest would then sum up to $ X = \sum X_i $. Note that these $ X_i $ are not independent. Independence of the $ X_i $ is a valid assumption only for $ N \ggg n $
 
 \begin{align}
 	P\left\{X_i = 1\right\} &= p \qquad \text{and} \qquad P\left\{X_i = 0\right\} = (1-p)
-\end{align}\\
+\end{align}
 
-The sample mean $ \overline{X} $ is the proportion of the sample that has the property of interest. In the limit of large $ N $, $ X $ becomes a binomial RV with parameters $ (n, p) $.\\
+The sample mean $ \overline{X} $ is the proportion of the sample that has the property of interest. In the limit of large $ N $, $ X $ becomes a binomial RV with parameters $ (n, p) $.
 
-When the sample is not a very small fraction of the population, $ X $ is a hyper-geometric random variable with parameters $ (Np, N(1-p), n) $\\
+When the sample is not a very small fraction of the population, $ X $ is a hyper-geometric random variable with parameters $ (Np, N(1-p), n) $
 
-Proceeding with the $ N \ggg n $ approximation, $ X $ reduces to a binomial RV. \\
+Proceeding with the $ N \ggg n $ approximation, $ X $ reduces to a binomial RV.
 
 \begin{align}
 	\mathbb{E}[\overline{X}] &= p \\

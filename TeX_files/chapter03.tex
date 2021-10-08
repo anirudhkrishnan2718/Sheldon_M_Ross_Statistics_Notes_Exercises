@@ -2,30 +2,30 @@
 
 
 \begin{flushright}
-	\textit{``You have to look at it from a Bayesian perspective."} \\
+	\textit{``You have to look at it from a Bayesian perspective."} 
 \end{flushright}
 
-\textbf{Interpretations of Probability} : A probability can be understood as either an inference based on many observations of similar events in the past, or as a quantitative estimate of the experimenter's belief in a hypothesis. \\
+\textbf{Interpretations of Probability} : A probability can be understood as either an inference based on many observations of similar events in the past, or as a quantitative estimate of the experimenter's belief in a hypothesis.
 
-\textit{Frequentist} : Repeating the same experiment many times and observing the set of all outcomes enables one to assign a probability to a future outcome of that experiment as a property attached to the outcome itself. This probability is independent of the observer and is an inherent feature of the outcome and the underlying experiment. \\
+\textit{Frequentist} : Repeating the same experiment many times and observing the set of all outcomes enables one to assign a probability to a future outcome of that experiment as a property attached to the outcome itself. This probability is independent of the observer and is an inherent feature of the outcome and the underlying experiment.
 
-\textit{Subjective / Bayesian} : This is a number indicating a person's belief in the outcome and is inherently subjective. Common in philosophy and economic theory. \\
+\textit{Subjective / Bayesian} : This is a number indicating a person's belief in the outcome and is inherently subjective. Common in philosophy and economic theory.
 
-\textbf{Sample Space} : set of all possible outcomes of an experiment (denoted by $ S $). An \textit{event} is a subset of the sample space containing one or more elements. It is commonly used to denote the outcome of an experiment.  \\
+\textbf{Sample Space} : set of all possible outcomes of an experiment (denoted by $ S $). An \textit{event} is a subset of the sample space containing one or more elements. It is commonly used to denote the outcome of an experiment.
 
-The union of two events ($ E \cup F $) as well as their intersection ($ E \cap F $) are defined using the usual set theory norms. An intersection of two events with no common elements is the null event $ \varnothing $ (same notation as null set). \\
+The union of two events ($ E \cup F $) as well as their intersection ($ E \cap F $) are defined using the usual set theory norms. An intersection of two events with no common elements is the null event $ \varnothing $ (same notation as null set).
 
-If $ E \cap F = \varnothing $, the events E and F are called \textit{mutually exclusive}. \\
+If $ E \cap F = \varnothing $, the events E and F are called \textit{mutually exclusive}.
 
-From set theory, the complement of an event is the set of all elements in the sample space not contained in the event. $ E^{\complement}  = S - E$, making an event mutually exclusive with its complement. It follows that $ S^{\complement} = \varnothing $. \\
+From set theory, the complement of an event is the set of all elements in the sample space not contained in the event. $ E^{\complement}  = S - E$, making an event mutually exclusive with its complement. It follows that $ S^{\complement} = \varnothing $.
 
-If one event contains all of the elements of another, then they are related by a subset-superset relationship. This is denoted by $ E \subset F $ or by $ F \supset E $. When two events are subsets of each other, they are considered identical or equal events. \\
+If one event contains all of the elements of another, then they are related by a subset-superset relationship. This is denoted by $ E \subset F $ or by $ F \supset E $. When two events are subsets of each other, they are considered identical or equal events.
 
 \begin{align}
 	\text{If} \qquad E \subset F \qquad \text{and} \qquad F \subset E \qquad \text{then, } \qquad E = F
 \end{align}
 
-Boolean algebra may be invoked to define the set operations on more than two events, as an extension of the above. The basic associative law, commutative law and distributive law of sets applies here to events trivially. \\
+Boolean algebra may be invoked to define the set operations on more than two events, as an extension of the above. The basic associative law, commutative law and distributive law of sets applies here to events trivially.
 
 \textit{De-Morgan's Law} is a useful relation between the complements of unions or intersections of sets. 
 
@@ -35,9 +35,9 @@ Boolean algebra may be invoked to define the set operations on more than two eve
 	(E \cap F)^{\complement} &= E^\complement \cup F^\complement 
 \end{align}
 
-The above relations can be verified using \textit{Venn Diagrams}, which are the easiest way to graphically represent set algebra. \\
+The above relations can be verified using \textit{Venn Diagrams}, which are the easiest way to graphically represent set algebra.
 
-\textbf{Axioms of Probability} : For any experiment repeatedly conducted under identical conditions, the probability of an event will approach a fixed number asymptotically. This is the empirical probability ($ P $) of that event. \\
+\textbf{Axioms of Probability} : For any experiment repeatedly conducted under identical conditions, the probability of an event will approach a fixed number asymptotically. This is the empirical probability ($ P $) of that event.
 
 \begin{align}
 	0 \leq P(E) \leq 1 \\
@@ -98,7 +98,7 @@ The probability of $ E \cup F $ is not the naive sum of the two individual proba
 	P(E) = \frac{\text{number of element in E}}{\text{number of total elements}}
 \end{align}
 
-\textbf{Basic principles of counting} : For $ k $ repetitions of an experiment each with outcomes $ \{ n_1, n_2, ...., n_k \} $ respeectively, the total number of outcomes of the set of $ k $ repetitions is $ \left( \prod n_i  \right)$ \\
+\textbf{Basic principles of counting} : For $ k $ repetitions of an experiment each with outcomes $ \{ n_1, n_2, ...., n_k \} $ respeectively, the total number of outcomes of the set of $ k $ repetitions is $ \left( \prod n_i  \right)$ 
 
 \textit{Permutation} : The number of ways of selecting $ k $ out of $ n $ elements with sequence being relevant.
 
@@ -132,21 +132,21 @@ Rearranging the above definition provides a convenient way to calculate the prob
 	P(A) &= P(A|B)\ P(B) + P(A|B^\complement)\ P(B^\complement)\\
 	%
 	P(A) &= P(B) \ P(A|B) + (1 - P(B))\ P(A|B^\complement)
-\end{align} \\
+\end{align}
 
-Note that $ P(A) $ above becomes a linear interpolation between the two edges $ P(A|B) $ and $ P(A|B^\complement) $ with the sliding parameter being $ P(B) $. This is a useful perspective for many real-world problems.\\
+Note that $ P(A) $ above becomes a linear interpolation between the two edges $ P(A|B) $ and $ P(A|B^\complement) $ with the sliding parameter being $ P(B) $. This is a useful perspective for many real-world problems.
 
-An important pillar of Bayesian probability is the notion of updating a prior probability estimate after incorporating new (usually incomplete) information about the outcome. \\
+An important pillar of Bayesian probability is the notion of updating a prior probability estimate after incorporating new (usually incomplete) information about the outcome.
 
-The generalization of the conditional probability formula to more than two events is called Bayes' theorem. Let the set of mutually exclusive events $ \{ B_i \} $ be such that exactly one of them must occur. \\
+The generalization of the conditional probability formula to more than two events is called Bayes' theorem. Let the set of mutually exclusive events $ \{ B_i \} $ be such that exactly one of them must occur.
 
 \begin{align}
 	\bigcup_{i = 1}^{n} B_i &= S \qquad \text{and} \qquad B_i \cap B_j = \varnothing \quad \forall \quad i \neq j \\
 	%
 	P(B_k|A) &= \frac{P(A \cap B_k)}{P(A)} = \frac{P(A | B_k) \ P(B_k)}{\sum_{i}P(A | B_i) \ P(B_i)}
-\end{align} \\
+\end{align}
 
-The historical use of this formula was to update the probabilities of various hypotheses $ {B_i} $ after an experiment provides additional evidence $ A $.\\
+The historical use of this formula was to update the probabilities of various hypotheses $ {B_i} $ after an experiment provides additional evidence $ A $.
 
 \textbf{Independent events} : Two events are independent if the occurrence of one event does not affect the occurrence of the other event. 
 
@@ -154,7 +154,7 @@ The historical use of this formula was to update the probabilities of various hy
 	P(A \cap B) &= P(A) \ P(B) \\
 	%
 	P(A|B) &= \frac{P(A \cap B)}{P(B)} = P(A)
-\end{align} \\
+\end{align}
 
 If $ A $ and $ B $ are independent events, then so are $ A $ and $ B^\complement $. The above result extends to more than two events if any possible subset of the events is also independent. 
 

@@ -1,28 +1,28 @@
 \chapter{Random Variables and Expectation}
 
 \begin{enumerate}
-	\item $ \left\{X = 1 \right\}$ requires a woman in first place. This involves selecting one of five women to fill first place and then arranging the rest of the 9 people. Alternatively, consider the fact that half of all possible arrangements will have a woman in first place.\\
+	\item $ \left\{X = 1 \right\}$ requires a woman in first place. This involves selecting one of five women to fill first place and then arranging the rest of the 9 people. Alternatively, consider the fact that half of all possible arrangements will have a woman in first place.
 	\begin{align}
 		P \left\{X = 1 \right\} &= \frac{\Mycomb[5]{1} \times \Mycomb[9]{5} \ 5! \times 4!}{\Mycomb[10]{5} \ 5! \times 5!} = \frac{\Mycomb[9]{4}}{\Mycomb[10]{5}} = \frac{1}{2} \nonumber \\
 		%
 		P \left\{X = 2 \right\} &= \frac{\Mycomb[5]{1} \times \Mycomb[5]{1} \times \Mycomb[8]{4}\ 4! \times 4!}{\Mycomb[10]{5} \ 5! \times 5!} = \frac{\Mycomb[8]{4}}{\Mycomb[10]{5}} = \frac{25}{90} \nonumber \\
 		%
 		P \left\{X = 3 \right\} &= \frac{\Mycomb[5]{2}\ 2! \times \Mycomb[5]{1} \times \Mycomb[7]{4}\ 4! \times 3!}{\Mycomb[10]{5} \ 5! \times 5!} = \frac{\Mycomb[7]{4}}{\Mycomb[10]{5}} = \frac{100}{720}
-	\end{align}\\
+	\end{align}
 	
 	Clearly, the trend indicates that \\
-	$ P \left\{X = 4 \right\}  = \Mycomb[6]{4} / \Mycomb[10]{5} = 15/252$, \\
-	$ P \left\{X = 5 \right\}  = \Mycomb[5]{4} / \Mycomb[10]{5} = 5/252$, \\
-	$ P \left\{X = 6 \right\}  = \Mycomb[4]{4} / \Mycomb[10]{5} = 1/252$. This is the greatest possible value that $ X $ can take, as there are only five men. \\
+	$ P \left\{X = 4 \right\}  = \Mycomb[6]{4} / \Mycomb[10]{5} = 15/252$,
+	$ P \left\{X = 5 \right\}  = \Mycomb[5]{4} / \Mycomb[10]{5} = 5/252$,
+	$ P \left\{X = 6 \right\}  = \Mycomb[4]{4} / \Mycomb[10]{5} = 1/252$. This is the greatest possible value that $ X $ can take, as there are only five men.
 	
-	\item The extreme cases are $ n $ heads and $ n $ tails. So , \\
-	$ X \in \left\{-n, -(n-2), \dots, \dots, (n-2), n \right\} $. This set contains $ 0 $ if $ n $ is even. This assumes that the difference is not an absolute value. \\
+	\item The extreme cases are $ n $ heads and $ n $ tails. So ,
+	$ X \in \left\{-n, -(n-2), \dots, \dots, (n-2), n \right\} $. This set contains $ 0 $ if $ n $ is even. This assumes that the difference is not an absolute value.
 	
 	\item \begin{align}
 		P \left\{X = 3 \right\} &= P \left\{X = -3 \right\} = \frac{1}{2^3} = \frac{1}{8} \nonumber \\
 		%
 		P \left\{X = 1 \right\} &= P \left\{X = -1 \right\} = \frac{3}{2^3} = \frac{3}{8}
-	\end{align}\\
+	\end{align}
 	
 	\item \begin{enumerate}
 		
@@ -56,11 +56,11 @@
 		
 		\item $ P \left\{ 2 < X \leq 4 \right\} = F(4) - F(2) = 1/12 $ \\
 		
-		\item $ P \left\{ X < 3 \right\} = F(4) - F(2) = 11/12 $ when asymptotically approaching $ x = 3 $ from the left. \\
+		\item $ P \left\{ X < 3 \right\} = F(4) - F(2) = 11/12 $ when asymptotically approaching $ x = 3 $ from the left.
 		
 		\item  \begin{align}
 			P \left\{ X = 1 \right\} = F(1) - \lim\limits_{x \to 1^-} F(x) = \frac{2}{3} - \frac{1}{2} = \frac{1}{6} \nonumber
-		\end{align}\\
+		\end{align}
 		
 	\end{enumerate}
 	
@@ -73,11 +73,11 @@
 				\int\limits_{0}^{1} c x^3\ \mathrm{d}x &= 1 \nonumber\\
 				%
 				\frac{c}{4}\ (x^4) \Big|_0^1 &= 1 \qquad \to \qquad c = 4
-			\end{align} \\
+			\end{align}
 			
 			\item \begin{align}
 				P \left\{0.4 < X < 0.8 \right\} = \int\limits_{0.4}^{0.8} 4 x^3\ \mathrm{d}x = 0.384
-			\end{align}\\
+			\end{align}
 		\end{enumerate}
 	
 	
@@ -98,7 +98,7 @@
 			P \left\{X < 100 \right\} &= \int\limits_{0}^{100}\ 0.01\ \exp(-0.01x)\ \mathrm{d}x \nonumber \\
 			%
 			&= \exp(-0.01x)\ \Big|_{100}^{0} = 0.6321
-		\end{align}\\
+		\end{align}
 	
 	
 	\item Let E be the event that a radio set fails within 150 hours. $ E = \left\{ X < 150 \right\} $ \\
@@ -111,7 +111,7 @@
 			&= \frac{100}{x}\ \Big|_{150}^{100} = \frac{1}{3} \\
 			%
 			P(\text{exactly 3 fail}) &= \Mycomb[5]{2} \ (P(E))^2 (1 - P(E))^3 = \frac{10 \times 8}{243} = 0.33
-		\end{align}\\
+		\end{align}
 	
 	
 	\item normalization constraint demands \\
@@ -126,7 +126,7 @@
 			P \left\{X > 2 \right\} &= \int\limits_{2}^{\infty}\ 2\ \exp(-2x)\ \mathrm{d}x \nonumber \\
 			%
 			&= \exp(-2x)\ \Big|_{\infty}^{2} = 0.0183
-		\end{align}\\
+		\end{align}
 	
 	
 	\item joint PMF of $ N_1, N_2 $, given 3 out of 5 are defective. $ N_1 \in \left\{1, 2, 3\right\} $ and $ N_2 \in \left\{ 1, 2, 3 \right\} $. Using the notation $ P(N_1, N_2) $\\
@@ -143,7 +143,7 @@
 		P(2, 2) = \frac{\Mycomb[1]{1}}{\Mycomb[5]{3}} = \frac{1}{10} \nonumber \\
 		%
 		P(3, 1) = \frac{\Mycomb[1]{1}}{\Mycomb[5]{3}} = \frac{1}{10} \nonumber \\
-	\end{align} \\
+	\end{align}
 	
 	\item 
 	\begin{enumerate}
@@ -160,9 +160,9 @@
 				\int\limits_{0}^{2} \frac{3y + 4}{14}\ \mathrm{d}y &= P(S) \nonumber \\
 				%
 				\frac{3y^2 + 8y}{28} \Big|_0^2 &= P(S) = 1
-			\end{align}\\
+			\end{align}
 			
-			\item to find the marginal PDF of $ X $, \\
+			\item to find the marginal PDF of $ X $,
 			\begin{align}
 				f_X (x) &= \int\limits_{0}^{2} f(x, y)\ \mathrm{d}y \nonumber \\
 				%
@@ -181,12 +181,12 @@
 				&= \int\limits_{0}^{1} \frac{4 - 4y^3 + 3y - 3y^3}{14} \ \mathrm{d}y  \nonumber \\
 				%
 				&= \frac{1}{14} \left( 4y + \frac{3y^2}{2} - \frac{7y^4}{4} \right)\Big|_0^1 \ \mathrm{d}y  = \frac{15}{56}
-			\end{align}\\
+			\end{align}
 			
 		
 	\end{enumerate}
 	
-	\item to find the CDF, find the probability that none of the RVs are larger than $ M $. Given the RVs are independent, \\
+	\item to find the CDF, find the probability that none of the RVs are larger than $ M $. Given the RVs are independent,
 	
 	
 		\begin{align}
@@ -197,7 +197,7 @@
 			F_M (x) &= \prod_{i = 1}^{n} x = x^n \qquad \text{for} \qquad x \in \left[0, 1\right] \\
 			%
 			f_M (x) & = \frac{\mathrm{d}}{\mathrm{d} x} F(x) = nx^{n-1} \qquad x \in \left[0, 1\right]
-		\end{align}\\
+		\end{align}
 	
 	
 	\item 
@@ -209,7 +209,7 @@
 				&= x e^{-x} \int\limits_{0}^{\infty} e^{-y}\ \mathrm{d}y \nonumber \\
 				%
 				&= x e^{-x} \left(e^{-y}\Big|_\infty^0\right) = x e^{-x}
-			\end{align}\\
+			\end{align}
 			
 			\item To compute the marginal PDF of $ y $, 
 			\begin{align}
@@ -218,9 +218,9 @@
 				&= e^{-y} \int\limits_{0}^{\infty} x\ e^{-x}\ \mathrm{d}x \nonumber \\
 				%
 				&= e^{-y} \left(xe^{-x}\Big|_\infty^0 + \int\limits_{0}^{\infty} e^{-x} \ \mathrm{d}x\right) = e^{-y}
-			\end{align}\\
+			\end{align}
 			
-			\item $ f_X (x) \times f_Y (y)  = x e^{-(x + y)}$, which is equal to the joint PDF. Hence, $ X, Y $ are independent. \\
+			\item $ f_X (x) \times f_Y (y)  = x e^{-(x + y)}$, which is equal to the joint PDF. Hence, $ X, Y $ are independent.
 		\end{enumerate}
 	
 	
@@ -233,7 +233,7 @@
 				&= x e^{-x} \int\limits_{0}^{\infty} e^{-y}\ \mathrm{d}y \nonumber \\
 				%
 				&= x e^{-x} \left(e^{-y}\Big|_\infty^0\right) = x e^{-x}
-			\end{align}\\
+			\end{align}
 			
 			\item To compute the marginal PDF of $ y $, 
 			\begin{align}
@@ -244,9 +244,9 @@
 				f_X (x) &= \int\limits_{x}^{1} f(x, y)\ \mathrm{d}y \nonumber \\
 				%
 				&= \int\limits_{x}^{1} 2\ \mathrm{d}y  = 2(1 - x)  \qquad x \in (0, 1)
-			\end{align}\\
+			\end{align}
 			
-			\item $ f_X (x) \times f_Y (y)  = 4y(1-x)$, which is not equal to the joint PDF. Hence, $ X, Y $ are not independent. \\
+			\item $ f_X (x) \times f_Y (y)  = 4y(1-x)$, which is not equal to the joint PDF. Hence, $ X, Y $ are not independent.
 		\end{enumerate}
 	
 	
@@ -260,20 +260,20 @@
 			f_Y (y) &= \int\limits_{-\infty}^{\infty} f(x, y)\ \mathrm{d}x \nonumber \\
 			%
 			&= h(y) \int\limits_{-\infty}^{\infty} k(x)\ \mathrm{d}x
-		\end{align}\\
+		\end{align}
 		
-		To check whether $ X, Y $ are independent, \\
+		To check whether $ X, Y $ are independent,
 		\begin{align}
 			f_X (x) \times f_Y (y) &= h(y) \ k(x) \ \int\limits_{-\infty}^{\infty} k(x)\ \mathrm{d}x \ \int\limits_{-\infty}^{\infty} h(y)\ \mathrm{d}y \nonumber \\
 			%
 			&= h(y) \ k(x)\ \int\limits_{-\infty}^{\infty} \int\limits_{-\infty}^{\infty} h(y) k(x) \ \mathrm{d}x \ \mathrm{d}y  \nonumber \\
 			%
 			&= k(x)\ h(y) = f(x, y)
-		\end{align} \\
-		Hence, $ X, Y $ are independent. In the relation above, the integral of $ f(x, y) $ over the full domains of $ X, Y $ was 1 from the normalization condition. \\
+		\end{align}
+		Hence, $ X, Y $ are independent. In the relation above, the integral of $ f(x, y) $ over the full domains of $ X, Y $ was 1 from the normalization condition.
 	
 	
-	\item The previous problems do obey the factoring rule. \\
+	\item The previous problems do obey the factoring rule.
 	
 	\item 
 		\begin{enumerate}
@@ -293,7 +293,7 @@
 		\end{enumerate}
 	
 	
-	\item To find the PDF, first find the CDF and then differentiate it. Note that the integral over current is split into two parts, one with constraint on resistance and other without. \\
+	\item To find the PDF, first find the CDF and then differentiate it. Note that the integral over current is split into two parts, one with constraint on resistance and other without.
 	
 		\begin{align}
 			P \left\{ W \leq a \right\} &= F_W (a) \nonumber \\
@@ -309,7 +309,7 @@
 			&= - 6a^2 - 8a^{3/2} + 15a \\
 			%
 			f_W (a) &= \frac{\mathrm{d}}{\mathrm{d} a} F_W (a) = -12a - 12a^{1/2} + 15
-		\end{align} \\
+		\end{align}
 	
 	
 	\item to determine $ P \left\{B\ |\ G = 2\right\} $. Also, define $ T = G+B $ \\
@@ -330,10 +330,10 @@
 			P \left\{B = 0\ |\ G = 2\right\} &= \frac{P \left\{B = 0, G = 2\right\}}{P \left\{G = 2\right\}} = \frac{1/4 \times 0.35}{1/8} = \frac{7}{10} \\
 			%
 			P \left\{B = 1\ |\ G = 2\right\} &= \frac{P \left\{B = 1, G = 2\right\}}{P \left\{G = 2\right\}} = \frac{1/8 \times 0.3}{1/8} = \frac{3}{10}
-		\end{align} \\
+		\end{align}
 	
 	
-	\item to find the conditional PDF, \\
+	\item to find the conditional PDF,
 	
 		\begin{enumerate}
 			\item From problem 10 \\
@@ -347,14 +347,14 @@
 				&= \frac{4 + 3y}{14} \\
 				%
 				f_{X|Y}(x\ |\ y) &= \frac{12x^2 + 6xy}{3y + 4} \qquad x \in \left(0, 1\right)
-			\end{align} \\
+			\end{align}
 			
 			\item From problem 13 \\
 			\begin{align}
 				f_{X|Y}(x\ |\ y) &= P \left\{ X = x\ |\ Y = y \right\} = \frac{f(x, y)}{f_Y(y)}\nonumber\\
 				%			
 				f_{X|Y}(x\ |\ y) &= \frac{2}{2(1-x)} = \frac{1}{1-x} \qquad x \in \left(0, 1\right)
-			\end{align} \\
+			\end{align}
 		\end{enumerate}
 	
 	
@@ -368,7 +368,7 @@
 				f(x,y) &= f_X (x) \times f_Y (y) \quad \leftrightarrow \quad \text{X, Y are independent}  \nonumber\\
 				%
 				f_{X|Y}(x\ |\ y) &= f_X (x) \quad \leftrightarrow \quad \text{X, Y are independent}
-			\end{align} \\
+			\end{align}
 			
 			\item Exactly same steps as the above
 		\end{enumerate}
@@ -381,7 +381,7 @@
 		&= 1 \times \frac{1}{2} + 2 \times \frac{25}{90} + 3 \times \frac{100}{720} + 4 \times \frac{15}{252} + 5 \times \frac{5}{252} + 6 \times \frac{1}{252} \nonumber \\
 		%
 		&= 1.8333
-	\end{align} \\
+	\end{align}
 	
 	\item Using data from Problem 3,
 	\begin{align}
@@ -390,7 +390,7 @@
 		&= (-1) \times \frac{3}{8} + 1 \times \frac{3}{8} + (-3) \times \frac{1}{8} + 3 \times \frac{1}{8} \nonumber \\
 		%
 		&= 0 \qquad \text{intuitive from the symmetry}
-	\end{align} \\
+	\end{align}
 	
 	\item Let the score be random variable $ X $ and the actual belief probability be $ a $,
 	
@@ -404,7 +404,7 @@
 			\mathbb{E}'[X] &= \frac{\mathrm{d}}{\mathrm{d} p} \mathbb{E}[X] = -2p + 2a \\
 			%
 			p &= a \quad \text{setting} \quad 	\mathbb{E}'[X] = 0
-		\end{align} \\
+		\end{align}
 	
 	
 	\item Let the profit be $ X $ and the policy cost be $ Y $\\
@@ -416,10 +416,10 @@
 			&= (Y - A) \times p + (Y - 0)(1-p) = 0.1\ A\\
 			%
 			Y &= (p + 0.1)\ A 
-		\end{align} \\
+		\end{align}
 	
 	
-	\item Let the buses be $ A, B, C, D $ and the student, driver RVs be $ X, Y $. \\
+	\item Let the buses be $ A, B, C, D $ and the student, driver RVs be $ X, Y $.
 	
 		\begin{enumerate}
 			
@@ -432,7 +432,7 @@
 				&= 40 \times \frac{40}{148} + 33 \times \frac{33}{148} + 25 \times \frac{25}{148} + 50 \times \frac{50}{148}\\
 				%
 				&= 39.28
-			\end{align} \\
+			\end{align}
 			
 			\item \begin{align}
 				\mathbb{E}[Y] &= \sum\limits_{i} y_i\ P \left\{ Y = y_i \right\} \nonumber \\
@@ -440,7 +440,7 @@
 				&= 40 \times \frac{1}{4} + 33 \times \frac{1}{4} + 25 \times \frac{1}{4} + 50 \times \frac{1}{4}\\
 				%
 				&= 37
-			\end{align} \\
+			\end{align}
 			
 		\end{enumerate}
 	
@@ -462,7 +462,7 @@
 			\mathbb{E}'[X] &= \frac{\mathrm{d}}{\mathrm{d} p} \mathbb{E}[X] = 2p - 1 \\
 			%
 			p &= 1/2 \quad \text{setting} \quad 	\mathbb{E}'[X] = 0			
-		\end{align} \\
+		\end{align}
 	
 	
 	\item 
@@ -480,7 +480,7 @@
 			3a + b &= 3 \\
 			%
 			a &= \frac{3}{5} \quad \text{and} \quad b = \frac{6}{5} 
-		\end{align} \\
+		\end{align}
 	
 	
 	\item Using integration by parts twice,
@@ -497,10 +497,10 @@
 			&= -a x^2\ \exp(-ax) - 2x\ \exp(-ax)  -  2/a \ \exp(-ax)  \Big|_0^\infty \nonumber \\
 			%
 			&= 2/a 
-		\end{align} \\
+		\end{align}
 	
 	
-	\item RVs are independent with same PDF, \\
+	\item RVs are independent with same PDF,
 	
 		\begin{enumerate}
 			\item Finding the CDF of the maximum $ Y $, and then its PDF\\
@@ -512,7 +512,7 @@
 				f_Y (y) &= \frac{\mathrm{d}}{\mathrm{d} y} F_Y (y) = n\ y^{n-1} \\
 				%
 				\mathbb{E}[Y] &= \int\limits_{0}^{1} y\ f(y)\ \mathrm{d}y = \frac{n}{n+1} \\
-			\end{align} \\
+			\end{align}
 			
 			\item Finding the CDF of the minimum $ Z $, and then its PDF\\
 			\begin{align}
@@ -527,16 +527,16 @@
 				&= \int\limits_{0}^{1} nz\ (1 - z)^{n-1}\ \mathrm{d}z = \int\limits_{0}^{1} n(1 - u)\ (u)^{n-1}\ \mathrm{d}u \nonumber \\
 				%
 				&= \left(u^n\ - \frac{n u^{n+1}}{n+1}\right)  \Big|_0^1 = \frac{1}{n+1}
-			\end{align}\\
+			\end{align}
 			
 		\end{enumerate}
 	
 	
-	\item Two alternate approaches used assuming $ n \geq 1 $, \\
+	\item Two alternate approaches used assuming $ n \geq 1 $,
 	
 		\begin{enumerate}
 			
-			\item Finding the PDF for $ Y = X^n $ and then the expected value,\\
+			\item Finding the PDF for $ Y = X^n $ and then the expected value,
 			
 			\begin{align}
 				F_Y (y) &= P \left\{x^n \leq y\right\} = P \left\{x \leq y^{1/n}\right\} = y^{1/n} \\
@@ -544,11 +544,11 @@
 				f_Y (y)&= \frac{\mathrm{d}}{\mathrm{d} y} F_Y (y) = \frac{y^{1/n}}{ny} \\
 				%
 				\mathbb{E}[Y] &= \int\limits_{0}^{1} y\ f_Y (y)\ \mathrm{d}y = \frac{y^{1 + 1/n}}{n + 1} \Big|_0^1 = \frac{1}{n+1}
-			\end{align} \\
-			\item Finding the expected value directly,\\
+			\end{align}
+			\item Finding the expected value directly,
 			\begin{align}
 				\mathbb{E}[X^n] &= \int\limits_{0}^{1} x^n\ f(x)\ \mathrm{d}x = \frac{x^{n+1}}{n+1} \Big|_0^1 = \frac{1}{n+1}
-			\end{align} \\
+			\end{align}
 			
 		\end{enumerate}
 	
@@ -563,7 +563,7 @@
 			&= 20x + 10 x^{3/2} \ \Big|_0^2 \nonumber \\
 			%
 			&= 20\sqrt{2} + 40 = 68.28
-		\end{align} \\
+		\end{align}
 	
 	
 	\item $ \mathbb{E}[X] = 2 $, $ \mathbb{E}[X^2] = 8 $ \\
@@ -576,7 +576,7 @@
 				&= \mathbb{E}[4] + 16\mathbb{E}[X] + 16 \mathbb{E}[X^2] \nonumber \\
 				%
 				&= 164
-			\end{align} \\
+			\end{align}
 			
 			\item \begin{align}
 				\mathbb{E}[X^2 + (X + 1)^2] &= \mathbb{E}[1 + 2X + 2X^2] \nonumber \\
@@ -584,12 +584,12 @@
 				&= \mathbb{E}[1] + 2 \mathbb{E}[X] + 2 \mathbb{E}[X^2] \nonumber \\
 				%
 				&= 21
-			\end{align} \\
+			\end{align}
 			
 		\end{enumerate}
 	
 	
-	\item 17 white and 23 black balls, with $ X $ measuring number of white balls chosen out of a total 10. \\
+	\item 17 white and 23 black balls, with $ X $ measuring number of white balls chosen out of a total 10.
 	
 		\begin{enumerate}
 			
@@ -604,7 +604,7 @@
 				&= 10\ \sum\limits_{k = 1}^{10} \frac{k}{10} \ \frac{\Mycomb[17]{k}\ \Mycomb[23]{10-k}}{\Mycomb[40]{10}} \nonumber \\
 				%
 				&= 4.25
-			\end{align} \\
+			\end{align}
 			
 			\item Indicator variables looking at whether a white ball is chosen
 			\begin{align}
@@ -617,12 +617,12 @@
 				&= 17\ \sum\limits_{k = 1}^{10} \frac{k}{17} \ \frac{\Mycomb[17]{k}\ \Mycomb[23]{10-k}}{\Mycomb[40]{10}} \nonumber \\
 				%
 				&= 4.25
-			\end{align} \\
+			\end{align}
 			
 		\end{enumerate}
 	
 	
-	\item Using the PDF, find the parameter value which gives a CDF value of $ 1/2 $. \\
+	\item Using the PDF, find the parameter value which gives a CDF value of $ 1/2 $.
 	
 		\begin{enumerate}
 			
@@ -636,7 +636,7 @@
 				F(m) &= 0.5 = 1 - e^{-m} \nonumber \\
 				%
 				m &= \ln (2)
-			\end{align} \\
+			\end{align}
 			
 			\item 	\begin{align}
 				F(a) &= \int\limits_{0}^{a} f(x)\ \mathrm{d}x \nonumber \\
@@ -648,13 +648,13 @@
 				F(m) &= 0.5 = 1 - a \nonumber \\
 				%
 				m &= 0.5
-			\end{align} \\
+			\end{align}
 			
 		\end{enumerate}
 	
 	
 	
-	\item Using the CDF and PDF given, find the value minimizing $ \mathbb{E}[\left|X - c\right|] $, by setting its derivative to zero. \\
+	\item Using the CDF and PDF given, find the value minimizing $ \mathbb{E}[\left|X - c\right|] $, by setting its derivative to zero.
 	
 		\begin{align}
 			\mathbb{E}[\left|X - c\right|] &= \int\limits_{-\infty}^{c} (c - x)\ f(x)\ \mathrm{d}x + \int\limits_{c}^{\infty} (x - c)\ f(x)\ \mathrm{d}x \nonumber \\
@@ -668,10 +668,10 @@
 			&= -1 + 2F(c) \nonumber \\
 			%
 			\text{minimizing}\ &\to\ F(c) = 0.5
-		\end{align} \\
+		\end{align}
 	
 	
-	\item Defining the percentile as $ F(m_p) = p $. \\
+	\item Defining the percentile as $ F(m_p) = p $.
 	
 		\begin{align}
 			F(m_p) &= \int\limits_{0}^{m_p} f(x)\ \mathrm{d}x \nonumber \\
@@ -683,10 +683,10 @@
 			p &= 1 - \exp(-2\ m_p) \nonumber \\
 			%
 			m_p &= - \frac{\ln(1 - p)}{2}
-		\end{align} \\
+		\end{align}
 	
 	
-	\item Using the indicator variable for a couple remaining intact $ X_i $, only if both members survive, \\
+	\item Using the indicator variable for a couple remaining intact $ X_i $, only if both members survive,
 	
 		\begin{align}
 			\mathbb{E}[X] &= \sum\limits_{i = 1}^{100} \mathbb{E}[X_i] \nonumber \\
@@ -696,7 +696,7 @@
 			&= 100\ \frac{\Mycomb[198]{50}}{\Mycomb[200]{50}} \nonumber \\
 			%
 			&= 56.15
-		\end{align} \\
+		\end{align}
 	
 	
 	\item $ n $ independent trials, each success with probability $ p $, with indicator variables $ X_i $ \\
@@ -715,10 +715,10 @@
 			\mathrm{Var}(X) &= \sum\limits_{i = 1}^{n} \mathrm{Var}(X_i) \qquad \text{only if independent} \nonumber \\
 			%
 			&= np\ (1-p)
-		\end{align} \\
+		\end{align}
 	
 	
-	\item $X = \left\{1, 2, 3, 4\right\} $ equally probable. \\
+	\item $X = \left\{1, 2, 3, 4\right\} $ equally probable.
 	
 		\begin{enumerate}
 			
@@ -728,7 +728,7 @@
 				&= \frac{1}{4} \times 1 + \frac{1}{4} \times 2 + \frac{1}{4} \times 3 + \frac{1}{4} \times 4 \nonumber \\
 				%
 				&= 2.5   \\
-			\end{align} \\
+			\end{align}
 			
 			\item 	\begin{align}
 				\mathbb{E}[X^2] &= \frac{1}{4} \times 1^2 + \frac{1}{4} \times 2^2 + \frac{1}{4} \times 3^2 + \frac{1}{4} \times 4^2 \nonumber \\
@@ -738,7 +738,7 @@
 				\mathrm{Var}(X) &= \mathbb{E}[X^2] - (\mathbb{E}[X])^2 \nonumber \\
 				%
 				&= 7.5 - 2.5^2 = 1.25
-			\end{align} \\
+			\end{align}
 			
 		\end{enumerate}
 	
@@ -758,7 +758,7 @@
 				\mathbb{E}[X^2] &= 1^2 \times p_1 + 2^2 \times p_2 + 3^2 \times p_3 \nonumber \\
 				%
 				&= p_1 + 4 p_2 + 9 p_3 \nonumber \\
-			\end{align} \\
+			\end{align}
 			
 			\item Extremizing the variance involves first substituting $ p_2, p_3 $ in favour of $ p_1 $,
 			\begin{align}
@@ -773,10 +773,10 @@
 				p_2 &= 1 - 2p_1 \qquad \text{and} \qquad p_3 = p_1 \\
 				%
 				\mathrm{Var}(X) &= 2p_1
-			\end{align} \\
+			\end{align}
 			
-			maximizing $ \mathrm{Var}(X) $, involves maximizing $ p_1 $ and vice versa, \\
-			maximum variance is 1, minimum is 0. \\
+			maximizing $ \mathrm{Var}(X) $, involves maximizing $ p_1 $ and vice versa,
+			maximum variance is 1, minimum is 0.
 			
 		\end{enumerate}
 	
@@ -797,7 +797,7 @@
 			\mathrm{Var}(X) &= \sum\limits_{i = 1}^{3} \mathrm{Var}(X_i) \qquad \text{only if independent} \nonumber \\
 			%
 			&= 3/4
-		\end{align} \\
+		\end{align}
 	
 	
 	\item placeholder solve q 42 \\
@@ -825,7 +825,7 @@
 				\mathrm{Var}(X) &= \mathbb{E}[X^2]- (\mathbb{E}[X])^2 \nonumber \\
 				%
 				&= 974/12 - 81 = 1/6 \\
-			\end{align} \\
+			\end{align}
 			
 			\item $ C(w) = w/15 + 0.35 $, $ S = 2 $, weight limit $ L = 8.25 $. Let profit be $ Y $\\
 			\begin{align}
@@ -848,7 +848,7 @@
 				&+ \int\limits_{9}^{10} (1.65-w/15)(10-w)\ \mathrm{d}w \\
 				% 
 				&= 0.9875 
-			\end{align} \\
+			\end{align}
 		\end{enumerate}
 	
 	
@@ -867,7 +867,7 @@
 				&= 1.5 - 1.5x^2 \\
 				%
 				f_Y (y) &= 1.5 - 1.5y^2
-			\end{align} \\
+			\end{align}
 			
 			\item \begin{align}
 				\mathbb{E}[X] &= \int\limits_{0}^{1} x\ f_X (x)\ \mathrm{d}x \nonumber \\
@@ -885,7 +885,7 @@
 				\mathrm{Var}(X) &= \mathbb{E}[X^2]- (\mathbb{E}[X])^2 \nonumber \\
 				%
 				&= 19/64
-			\end{align} \\
+			\end{align}
 		\end{enumerate}
 	
 	
@@ -929,7 +929,7 @@
 				&= 47/16 \\
 				%
 				\mathrm{Cov}(X_1, X_2) &= 1/8 
-			\end{align} \\
+			\end{align}
 		\end{enumerate}
 	
 	
@@ -947,7 +947,7 @@
 			&= \int\limits_{0}^{1}  0.5x^4 - 1.5x^2 + x \ \mathrm{d}x \nonumber = 0.1 \\
 			%
 			\mathrm{Corr}(X, Y) &= \frac{\mathrm{Cov}(X, Y)}{s_x s_y} = \frac{0.1 - 9/64}{19/64} = -\frac{13}{95}
-		\end{align} \\
+		\end{align}
 	
 	
 	\item 
@@ -959,18 +959,18 @@
 			&= a \left(\mathbb{E}[XY] - \mathbb{E}[X] \ \mathbb{E}[Y]\right) \nonumber \\
 			%
 			&= a \mathrm{Cov}(X, Y)
-		\end{align} \\
+		\end{align}
 	
 	
-	\item Consider for some $ n $, two random variables $ X_n $ and $ \sum_{1}^{n-1} X_k$. Starting with $ n = 2 $. \\
+	\item Consider for some $ n $, two random variables $ X_n $ and $ \sum_{1}^{n-1} X_k$. Starting with $ n = 2 $.
 	
 	\begin{align}
 		\mathrm{Cov}\left(\sum\limits_{i = 1}^{2}X_i, Y\right) &= \sum\limits_{i = 1}^{2} \mathrm{Cov}(X_i, Y) 
-	\end{align} \\
+	\end{align}
 	
-	By increasing $ n $ iteratively, the proof by induction is straightforward to set up. \\
+	By increasing $ n $ iteratively, the proof by induction is straightforward to set up.
 	
-	\item Once, the two inequalities are proved separately, they combine to prove the $ [-1, 1] $ range for the correlation.\\
+	\item Once, the two inequalities are proved separately, they combine to prove the $ [-1, 1] $ range for the correlation.
 	
 		\begin{enumerate}
 			
@@ -982,7 +982,7 @@
 				&\geq - \frac{\mathrm{Var}(Y)}{\sigma_y^2} - \frac{\mathrm{Var}(X)}{\sigma_x^2} \\
 				%
 				\mathrm{Corr}(X, Y) &\geq - 1 
-			\end{align} \\
+			\end{align}
 			
 			\item \begin{align}
 				\mathrm{Var}\left(\frac{X}{\sigma_x} - \frac{Y}{\sigma_y}\right) &=\mathrm{Var}\left(\frac{X}{\sigma_x}\right) +  \mathrm{Var}\left(\frac{Y}{\sigma_y}\right) - 2\ \mathrm{Cov}\left(\frac{X}{\sigma_x}, \frac{Y}{\sigma_y}\right)  \nonumber \\
@@ -992,11 +992,11 @@
 				&\leq  \frac{\mathrm{Var}(Y)}{\sigma_y^2} + \frac{\mathrm{Var}(X)}{\sigma_x^2} \\
 				%
 				\mathrm{Corr}(X, Y) &\leq  1 
-			\end{align} \\
+			\end{align}
 		\end{enumerate}
 	
 	
-	\item Consider the indicator variables $ \left\{X_i\right\}, \left\{Y_i\right\}, \left\{Z_i\right\} $ be binary indicators of the $ i^{th} $ trial. $ X_i Y_i  = 0$ since the same trial cannot have two different outcomes.\\
+	\item Consider the indicator variables $ \left\{X_i\right\}, \left\{Y_i\right\}, \left\{Z_i\right\} $ be binary indicators of the $ i^{th} $ trial. $ X_i Y_i  = 0$ since the same trial cannot have two different outcomes.
 	
 		\begin{align}
 			N_1 = \sum\limits_{i = 1}^{n} X_i \qquad &\text{and} \qquad N_2 = \sum\limits_{j = 1}^{n} Y_j\qquad   \nonumber \\
@@ -1012,10 +1012,10 @@
 			&= 0 - p_1 p_2 \\
 			%
 			\text{Thus, } \mathrm{Cov}(N_1, N_2) &= - n p_1 p_2
-		\end{align} \\
+		\end{align}
 	
 	
-	\item Consider the indicator variables $ \left\{X_i\right\}, \left\{Y_i\right\}, \left\{Z_i\right\} $ be binary indicators of the $ i^{th} $ trial. $ X_i Y_i  = 0$ since the same trial cannot have two different outcomes.\\
+	\item Consider the indicator variables $ \left\{X_i\right\}, \left\{Y_i\right\}, \left\{Z_i\right\} $ be binary indicators of the $ i^{th} $ trial. $ X_i Y_i  = 0$ since the same trial cannot have two different outcomes.
 	
 		\begin{align}
 			\mathrm{Var}(X_1) &= \mathbb{E}[X_1^2]- (\mathbb{E}[X_1])^2 = 20 - 2^2 = 16 \nonumber \\
@@ -1033,19 +1033,19 @@
 			\mathbb{E}[X_1, X_3] &= 0.2 \times 0.3 \times 400 = 24 \nonumber \\
 			%
 			\mathrm{Var}(X) &= 16 + 64 + 336 + (32 - 32) + (192 - 192) + (24 - 24) = 416
-		\end{align} \\
+		\end{align}
 	
 	
-	\item $ X_1,\ X_2 $ have the same PDF, but are not necessarily independent.\\
+	\item $ X_1,\ X_2 $ have the same PDF, but are not necessarily independent.
 	
 		\begin{align}
 			\mathrm{Cov}(X_1 + X_2, X_1 - X_2) &= \mathrm{Var}(X_1) - \mathrm{Var}(X_2) \nonumber \\
 			%
 			&= 0 \qquad \text{since same PDF implies same variance}
-		\end{align} \\
+		\end{align}
 	
 	
-	\item First find moment generating function and then mean and variance.\\
+	\item First find moment generating function and then mean and variance.
 	
 		\begin{align}
 			\phi (t) &= \mathbb{E}[e^{tX}] \nonumber \\
@@ -1061,10 +1061,10 @@
 			\phi''(t = 0) &= \left(-e^{-x}\ (x^2 + 2x + 2) \right)\Big|_0^{\infty} = 2  \\
 			%
 			\mathrm{Var}(X) &= \phi''(0) - \left(\phi'(0)\right)^2 = 2 - 1^2 = 1
-		\end{align} \\
+		\end{align}
 	
 	
-	\item Uses Taylor series expansion for the exponential function.\\
+	\item Uses Taylor series expansion for the exponential function.
 	
 		\begin{align}
 			\phi (t) &= \mathbb{E}[e^{tX}] \nonumber \\
@@ -1074,10 +1074,10 @@
 			&= \frac{1}{1!} + \frac{t}{2!} + \frac{t^2}{3!} + \dots \\
 			%
 			\mathbb{E}[X^n] &= \phi^{(n)} (t = 0) = \frac{n!}{(n+1)!} = \frac{1}{n+1} \\
-		\end{align} \\
+		\end{align}
 	
 	
-	\item Using Chebyshev's inequality, with $ n = \sigma $.\\
+	\item Using Chebyshev's inequality, with $ n = \sigma $.
 	
 		\begin{align}
 			P\left\{\left| X - \mu \right| \geq n\sigma \right\} &\leq \frac{1}{n^2} \nonumber \\
@@ -1085,24 +1085,24 @@
 			& \leq 1/20 \nonumber \\
 			%
 			P\left\{\left| X - 20 \right| \leq 20 \right\} &\geq 19/20
-		\end{align} \\
+		\end{align}
 	
 	
-	\item Mean = 75. Score is a non-negative RV. \\
+	\item Mean = 75. Score is a non-negative RV.
 	
 		\begin{enumerate}
 			
 			\item Using Markov's inequality\\
 			\begin{align}
 				P \left\{X \geq 85 \right\} \leq \frac{75}{85} \\
-			\end{align} \\
+			\end{align}
 			
 			\item Markov's inequality with $ n = 10/\sqrt{25} = 2 $\\
 			\begin{align}
 				P\left\{\left| X - \mu \right| \geq 2 \sigma \right\} &\leq \frac{1}{4} \nonumber \\
 				%
 				P\left\{\left| X - 75 \right| \leq 5 \sigma \right\} & \geq \frac{3}{4}
-			\end{align} \\
+			\end{align}
 			
 			\item Markov's inequality on the class average $ \bar{X} $ \\
 			\begin{align}
@@ -1111,11 +1111,11 @@
 				& \leq \frac{1}{25}\ \frac{\mathrm{Var}(X_1)}{n} \\
 				%
 				1 - 0.9 &= 1/n \to n = 10
-			\end{align} \\
+			\end{align}
 		\end{enumerate}
 	
 	
-	\item $ a, b > 0 $. Change of variable from $ Y $ to $ X $ gives the required relation.\\
+	\item $ a, b > 0 $. Change of variable from $ Y $ to $ X $ gives the required relation.
 	
 		\begin{align}
 			P \left\{X \leq x\right\} &= P \left\{ Y \leq \frac{x - a}{b}\right\} \nonumber \\
@@ -1127,7 +1127,7 @@
 			\mathbb{E}[X] &= b\ \mathbb{E}[Y] + a \\
 			%
 			\mathrm{Var}(X) &= b^2\ \mathrm{Var}(Y)
-		\end{align} \\
+		\end{align}
 	
 	
 	

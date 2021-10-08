@@ -2,12 +2,12 @@
 
 
 \begin{flushright}
-	\textit{``Are you sure you've gotten rid of any multicollinearity in the inputs?"} \\
+	\textit{``Are you sure you've gotten rid of any multicollinearity in the inputs?"}
 \end{flushright}
 
 \section{Introduction}
 
-The problem of determining the relationship between a set of inputs $ \{x_i\} $ and the resulting output $ Y $ is a frequent problem in engineering. This is further complicated by the lack of prior knowledge about the nature of this dependence.\\
+The problem of determining the relationship between a set of inputs $ \{x_i\} $ and the resulting output $ Y $ is a frequent problem in engineering. This is further complicated by the lack of prior knowledge about the nature of this dependence.
 
 A simplistic model of response depending on a set of inputs uses a linear combination of these inputs along with some noise $ e $, which is assumed to have zero mean.
 
@@ -15,83 +15,83 @@ A simplistic model of response depending on a set of inputs uses a linear combin
 	Y &= \beta_0 + \beta_1 x_1 + \dots + \beta_r x_r + e\\
 	%
 	\mathbb{E}[Y|\textbf{x}] &= \beta_0 + \beta_1 x_1 + \dots + \beta_r x_r	
-\end{align}\\
+\end{align}
 
-The set of inputs $ \{x_i\} $ are called \textit{independent variables} and the response $ Y $ which is some function of the inputs is called the \textit{dependent variable}.\\
+The set of inputs $ \{x_i\} $ are called \textit{independent variables} and the response $ Y $ which is some function of the inputs is called the \textit{dependent variable}.
 
-The set of coefficients $ \{\beta_i\} $ are called the \textit{regression coefficients}, and are to be determined based on an observed data-set. The special case of $ r = 1 $ is called a \textit{simple} regression, while $ r > 1 $ is the much more complicated \textit{multiple} regression problem.\\
+The set of coefficients $ \{\beta_i\} $ are called the \textit{regression coefficients}, and are to be determined based on an observed data-set. The special case of $ r = 1 $ is called a \textit{simple} regression, while $ r > 1 $ is the much more complicated \textit{multiple} regression problem.
 
 \begin{align}
 	Y = \alpha + \beta x + e
-\end{align}\\
+\end{align}
 
-The choice of a simple linear regression model is appropriate when the data appears to follow a straight line relationship subject to random error when visualized as a scatter plot.\\
+The choice of a simple linear regression model is appropriate when the data appears to follow a straight line relationship subject to random error when visualized as a scatter plot.
 
 \section{Least squares estimators of regression parameters}
 
-In a simple regression problem, let the estimators of $ \alpha, \beta $ be $ A, B $. For a given set of inputs $ \{x_i\} $ and responses $ \{Y_i\} $, the estimated response is \\
+In a simple regression problem, let the estimators of $ \alpha, \beta $ be $ A, B $. For a given set of inputs $ \{x_i\} $ and responses $ \{Y_i\} $, the estimated response is
 
 \begin{align}
 	\widehat{Y_i} &= A + Bx_i
-\end{align}\\
+\end{align}
 
-Using an expression for the squared difference between the observed and estimated responses, it is possible to find an estimator that minimizes the sum of these squares.\\
+Using an expression for the squared difference between the observed and estimated responses, it is possible to find an estimator that minimizes the sum of these squares.
 
 \begin{align}
 	SS = \sum\limits_{i = 1}^{n} (Y_i - \widehat{Y_i})^2 = \sum\limits_{i = 1}^{n} (Y_i - A - Bx_i)^2
-\end{align}\\
+\end{align}
 
-The usual method of setting partial derivatives to zero in order to find the minimum, yields a system of 2 linear equations in $ A, B $ called the \textit{normal equations} \\
+The usual method of setting partial derivatives to zero in order to find the minimum, yields a system of 2 linear equations in $ A, B $ called the \textit{normal equations}
 
 \begin{align}
 	\sum Y_i & = A\ n +B \sum x_i\\
 	%
 	\sum x_i Y_i & = A \sum x_i +B \sum x_i^2
-\end{align}\\
+\end{align}
 
-Using the shorthand notation $ \overline{Y},\ \overline{x} $ for their sample means, and solving for the least squares estimators gives the estimated regression line as $ y = A + Bx $, where \\
+Using the shorthand notation $ \overline{Y},\ \overline{x} $ for their sample means, and solving for the least squares estimators gives the estimated regression line as $ y = A + Bx $, where 
 
 \begin{align}
 	A &= \overline{Y} - B \overline{x} & B &= \frac{\sum (x_i - \overline{x}) Y_i}{\sum x_i^2  - n\overline{x}^2 }
-\end{align}\\
+\end{align}
 
 \section{Distribution of the estimators}
 
-In order to determine the distribution of the estimators $ A, B $, an additional assumption about the random errors $ e $ is used. For some value $ \sigma^2 $ which is a constant independent of the input, \\
+In order to determine the distribution of the estimators $ A, B $, an additional assumption about the random errors $ e $ is used. For some value $ \sigma^2 $ which is a constant independent of the input,
 
 \begin{align}
 	e &\sim \mathcal{N}(0,\ \sigma^2) & Y_i &\sim \mathcal{N}(\alpha + \beta x_i,\ \sigma^2)
-\end{align}\\
+\end{align}
 
-From the above expression for the estimator $ B $, it is some linear combination of normal RVs $ \{Y_i\} $. Substituting $ B $ into $ A $ shows that $ A $ is also a normal RV,\\
+From the above expression for the estimator $ B $, it is some linear combination of normal RVs $ \{Y_i\} $. Substituting $ B $ into $ A $ shows that $ A $ is also a normal RV,
 
 \begin{align}
 	\mathbb{E}[B] &= \beta & \mathrm{Var}(B) &= \frac{\sigma^2}{\sum x_i^2  - n\overline{x}^2} \\
 	%		
 	\mathbb{E}[A] &= \alpha & \mathrm{Var}(A) &= \frac{\sigma^2}{\sum x_i^2  - n\overline{x}^2}\ \frac{\sum x_i^2}{n}
-\end{align}\\
+\end{align}
 
-From the above expectation values, $ A, B $ are both unbiased estimators of $ \alpha, \beta $.\\
+From the above expectation values, $ A, B $ are both unbiased estimators of $ \alpha, \beta $.
 
-\textit{Residuals} : The difference between each observed value and its estimate is called the residual. To determine the variance of the error, the sum of squares of these residuals can be rearranged into a known RV.\\
+\textit{Residuals} : The difference between each observed value and its estimate is called the residual. To determine the variance of the error, the sum of squares of these residuals can be rearranged into a known RV.
 
 \begin{align}
 	r_i &= Y_i - \widehat{Y_i} = Y_i - A - B x_i \\
 	%
 	SS_R &= \sum r_i^2 = \sum (Y_i - A - B x_i)^2
-\end{align}\\
+\end{align}
 
-Rearranging the $ SS_R $ into a chi-square distribution gives an unbiased estimator of $ \sigma^2 $\\
+Rearranging the $ SS_R $ into a chi-square distribution gives an unbiased estimator of $ \sigma^2 $
 
 \begin{align}
 	\frac{SS_R}{\sigma^2} &\sim \chi^2_{n-2} & \mathbb{E}\left[ \frac{SS_R}{n-2} \right] &= \sigma^2
-\end{align}\\
+\end{align}
 
-Similar to the sample mean and sample variance from a normal population being independent, the variance of the noise $ \sigma^2 $ is independent of the estimators $ A, B $.\\
+Similar to the sample mean and sample variance from a normal population being independent, the variance of the noise $ \sigma^2 $ is independent of the estimators $ A, B $.
 
-The MLE of $ \alpha, \beta $ also happen to be the least squares estimators $ A, B $.\\
+The MLE of $ \alpha, \beta $ also happen to be the least squares estimators $ A, B $.
 
-\textit{Shorthand notation for sums of squares} : For convenience, some shorthand expressions for the sums of squares are listed here.\\
+\textit{Shorthand notation for sums of squares} : For convenience, some shorthand expressions for the sums of squares are listed here.
 
 \begin{align}
 	S_{xY} &= \sum (x_i - \overline{x})\ (Y_i - \overline{Y}) = \sum x_i Y_i - n \overline{x} \overline{Y} \\
@@ -99,9 +99,9 @@ The MLE of $ \alpha, \beta $ also happen to be the least squares estimators $ A,
 	S_{xx} &= \sum (x_i - \overline{x})^2 = \sum x_i^2 - n\overline{x}^2 \\
 	%
 	S_{YY} &= \sum (Y_i - \overline{Y})^2 = \sum Y_i^2 - n\overline{Y}^2
-\end{align}\\
+\end{align}
 
-Using the above shorthand, the estimators $ A, B $ can be described as \\
+Using the above shorthand, the estimators $ A, B $ can be described as
 
 \begin{align}
 	B &= \frac{S_{xY}}{S_{xx}} &&\sim \mathcal{N}\left( \beta,\ \frac{\sigma^2}{S_{xx}} \right) \\
@@ -109,25 +109,25 @@ Using the above shorthand, the estimators $ A, B $ can be described as \\
 	A &= \overline{Y} - B\overline{x} &&\sim  \mathcal{N}\left( \alpha,\ \frac{\sigma^2}{S_{xx}}\ \frac{\sum x_i^2}{n} \right) \\
 	%
 	SS_R &= \frac{S_{xx}\ S_{YY} - S_{xY}^2}{S_{xx}}
-\end{align} \\
+\end{align}
 
-The above relation for the $ SS_R $ can only be established using brute-force computations, so a theoretical justification is not outlined here.\\
+The above relation for the $ SS_R $ can only be established using brute-force computations, so a theoretical justification is not outlined here.
 
 \section{Statistical Inferences about regression parameters}
 
-The problem of constructing hypothesis tests is straightforward given the transformation into known RVs outlined above. \\
+The problem of constructing hypothesis tests is straightforward given the transformation into known RVs outlined above.
 
-\textit{Inferences on $ \beta $} : A hypothesis that the average response is independent of the input requires rearranging the estimator $ B $ into a t-RV and then defining the hypothesis test as\\
-\\
+\textit{Inferences on $ \beta $} : A hypothesis that the average response is independent of the input requires rearranging the estimator $ B $ into a t-RV and then defining the hypothesis test as
+
 \begin{align}
 	\frac{B - \beta}{\sigma/\sqrt{S_{xx}}} \sim Z \qquad &\text{and} \qquad \frac{SS_R}{\sigma^2} \sim \chi^2_{n-2} \nonumber \\
 	%
 	\sqrt{\frac{(n-2) S_{xx}}{SS_R}}\ (B - \beta) &\sim t_{n-2} \\
 	%
 	Y &= \alpha + \beta x + e \nonumber
-\end{align}\\
+\end{align}
 
-Define a hypothesis test of significance level $ \gamma $ as \\
+Define a hypothesis test of significance level $ \gamma $ as
 
 \begin{align}
 	H_0 : \beta = 0 \qquad &\text{vs.} \qquad H_1 : \beta \neq 0 \nonumber \\
@@ -135,15 +135,15 @@ Define a hypothesis test of significance level $ \gamma $ as \\
 	\text{reject $ H_0 $ if } \qquad & \sqrt{\frac{(n-2) S_{xx}}{SS_R}}\ |B| > t_{\gamma/2, n-2} \nonumber \\
 	%
 	\text{accept $ H_0 $  } \qquad & \text{otherwise}
-\end{align} \\
+\end{align}
 
-The corresponding $ 100(1-\gamma)\% $ confidence interval for $ \beta $ is give by \\
+The corresponding $ 100(1-\gamma)\% $ confidence interval for $ \beta $ is given by
 
 \begin{align}
 	\beta \in \left[B \pm \sqrt{{\frac{SS_R}{(n-2) S_{xx}}}}\ t_{\gamma/2, n-2}  \right]
-\end{align}\\
+\end{align}
 
-\textit{Regression to the mean} : A linear simple regression with the parameter $ \beta \in [0, 1] $, displays the following property,\\
+\textit{Regression to the mean} : A linear simple regression with the parameter $ \beta \in [0, 1] $, displays the following property,
 
 \begin{align}
 	\mathbb{E}[Y] &= \alpha + \beta x \qquad \nonumber \\
@@ -151,23 +151,23 @@ The corresponding $ 100(1-\gamma)\% $ confidence interval for $ \beta $ is give 
 	\mathbb{E}[Y] &< x \qquad \forall\ x > \frac{\alpha}{1 - \beta} \nonumber \\
 	%
 	\mathbb{E}[Y] &> x \qquad \text{otherwise}
-\end{align} \\
+\end{align}
 
-This trend is very common in real-world datasets and was first observed in the comparison of height at a given age between successive generations of a family. Even though the variables are positively correlated, $ \beta \in [0, 1] $ causes the extreme values to regress towards the $ y = x $ line.\\
+This trend is very common in real-world datasets and was first observed in the comparison of height at a given age between successive generations of a family. Even though the variables are positively correlated, $ \beta \in [0, 1] $ causes the extreme values to regress towards the $ y = x $ line.
 
-A test of the hypothesis $ \beta \geq 1 $ can be rejected in such real-world datasets as confirmation of regression to the mean.\\
+A test of the hypothesis $ \beta \geq 1 $ can be rejected in such real-world datasets as confirmation of regression to the mean.
 
-\textit{Regression fallacy} : The false attribution to some outside influence on the observed phenomenon of regression to the mean, when it might be happening simply because of chance.\\
+\textit{Regression fallacy} : The false attribution to some outside influence on the observed phenomenon of regression to the mean, when it might be happening simply because of chance.
 
-\textit{Inferences on $ \alpha $} : Similar to the previous results for $ B $, the confidence interval for $ \alpha $ is given by,\\
+\textit{Inferences on $ \alpha $} : Similar to the previous results for $ B $, the confidence interval for $ \alpha $ is given by,
 
 \begin{align}
 	\sqrt{\frac{n(n-2) S_{xx}}{SS_R\ \sum x_i^2}}\ (A - \alpha) &\sim t_{n-2} \\
 	%
 	\alpha &\in \left[ A \pm  \sqrt{\frac{SS_R\ \sum x_i^2}{n(n-2) S_{xx}}}\ t_{\gamma/2, n-2} \right] 
-\end{align}\\
+\end{align}
 
-Similar to the hypothesis tests on $ \beta $, the tests on $ \alpha $ are constructed as follows.\\ 
+Similar to the hypothesis tests on $ \beta $, the tests on $ \alpha $ are constructed as follows. 
 
 \begin{align}
 	H_0 : \alpha = 0 \qquad &\text{vs.} \qquad H_1 : \alpha \neq 0 \nonumber \\
@@ -175,11 +175,11 @@ Similar to the hypothesis tests on $ \beta $, the tests on $ \alpha $ are constr
 	\text{reject $ H_0 $ if } \qquad & \sqrt{\frac{n(n-2) S_{xx}}{SS_R\ \sum x_i^2}}\ |A| > t_{\gamma/2, n-2} \nonumber \\
 	%
 	\text{accept $ H_0 $  } \qquad & \text{otherwise}
-\end{align}\\
+\end{align}
 
-\textit{Inferences on the mean response} : A point estimator for $ Y(x_0) $ in a simple linear regression model is clearly $ \widehat{Y} = A + Bx_0$. This is additionally an unbiased estimator since $ \mathbb{E}[A] = \alpha,\ \mathbb{E}[B] = \beta $.\\
+\textit{Inferences on the mean response} : A point estimator for $ Y(x_0) $ in a simple linear regression model is clearly $ \widehat{Y} = A + Bx_0$. This is additionally an unbiased estimator since $ \mathbb{E}[A] = \alpha,\ \mathbb{E}[B] = \beta $.
 
-Since $ A, B $ are themselves normal RVs with pre-calculated mean and variance, \\
+Since $ A, B $ are themselves normal RVs with pre-calculated mean and variance,
 
 \begin{align}
 	\mathbb{E}[A + B x_0] &= \alpha + \beta x_0 \\
@@ -187,72 +187,72 @@ Since $ A, B $ are themselves normal RVs with pre-calculated mean and variance, 
 	\mathrm{Var}(A + B x_0) &= \sigma^2\ \left[\frac{1}{n} + \frac{(\overline{x} - x_0)^2}{S_{xx}}\right] \\
 	%
 	A + B x_0 &\sim N\left( \alpha + \beta x_0,\ \sigma^2 \left[\frac{1}{n} + \frac{(\overline{x} - x_0)^2}{S_{xx}} \right]\right)
-\end{align}\\
+\end{align}
 
-Using the fact that the mean response is independent of the random error, which can be rearranged to form a chi-square RV, a t-RV can be formulated and then used to define a confidence interval.\\
+Using the fact that the mean response is independent of the random error, which can be rearranged to form a chi-square RV, a t-RV can be formulated and then used to define a confidence interval.
 
 \begin{align}
 	\alpha + \beta x_0 &\in A + B x_0 \pm t_{\gamma/2, n-2}\ \sqrt{\left(\frac{SS_R}{n-2}\right)\ \left( \frac{1}{n} + \frac{(x_0  - \overline{x})^2}{S_{xx}}\right)}
-\end{align}\\
+\end{align}
 
-Note that the lack of direct knowledge about $ \sigma^2 $, forced the use of a t-RV instead of the naive choice of a normal-RV when defining the confidence interval.\\
+Note that the lack of direct knowledge about $ \sigma^2 $, forced the use of a t-RV instead of the naive choice of a normal-RV when defining the confidence interval.
 
-\textit{Prediction interval of a future response} : Unlike the mean response, a point estimate of the response to a new input $ x_0 $ is defined as $ Y(x_0)  = \alpha + \beta x_0 + e$. A point prediction of $ Y(x_0) $ is simply $ A + B x_0 $, since $ A, B $ are the unbiased point estimators of $ \alpha, \beta $ respectively.\\
+\textit{Prediction interval of a future response} : Unlike the mean response, a point estimate of the response to a new input $ x_0 $ is defined as $ Y(x_0)  = \alpha + \beta x_0 + e$. A point prediction of $ Y(x_0) $ is simply $ A + B x_0 $, since $ A, B $ are the unbiased point estimators of $ \alpha, \beta $ respectively.
 
-Given that the mean, median and mode of a normal RV are all equal, the question of choosing one over the other does not arise here. Using the fact that both the next response $ Y $ and the predicted value $ A + B x_0 $ are normal RVs, gives\\
+Given that the mean, median and mode of a normal RV are all equal, the question of choosing one over the other does not arise here. Using the fact that both the next response $ Y $ and the predicted value $ A + B x_0 $ are normal RVs, gives
 
 \begin{align}
 	Y - A - B x_0 &\sim N\left( 0,\ \sigma^2 \left[1 + \frac{1}{n} + \frac{(\overline{x} - x_0)^2}{S_{xx}} \right]\right)
-\end{align}\\
+\end{align}
 
-Once again rearranging the $ Y - A - B x_0 $ and the known chi-square RV $ SS_R / \sigma^2 $ into a t-RV gives the confidence interval for the prediction as \\
+Once again rearranging the $ Y - A - B x_0 $ and the known chi-square RV $ SS_R / \sigma^2 $ into a t-RV gives the confidence interval for the prediction as
 
 \begin{align}
 	Y &\in A + B x_0 \pm t_{\gamma/2, n-2}\ \sqrt{\left(\frac{SS_R}{n-2}\right)\ \left( 1 + \frac{1}{n} + \frac{(x_0  - \overline{x})^2}{S_{xx}}\right)}
-\end{align}\\
+\end{align}
 
-Note that the results of a linear simple regression cannot be used to make predictions about the response to an input very different from the data used initially to perform the regression.\\
+Note that the results of a linear simple regression cannot be used to make predictions about the response to an input very different from the data used initially to perform the regression.
 
 \section{Coefficient of Determination and Sample correlation coefficient}
 
-The variation in successive values of the response $ \{Y_i\} $ can result from the variation in the corresponding inputs $ \{x_i\} $ as well as the variance of the random noise $ e $ which can cause even the same input to produce different responses.\\
+The variation in successive values of the response $ \{Y_i\} $ can result from the variation in the corresponding inputs $ \{x_i\} $ as well as the variance of the random noise $ e $ which can cause even the same input to produce different responses.
 
 The coefficient of determination $ R^2 $ is defined as the proportion of the variation that is explained by the change in input values.
 
 \begin{align}
 	R^2 &= \frac{S_{YY} - SS_R}{S_{YY}}
-\end{align}\\
+\end{align}
 
-$ R^2 \in [0, 1] $ with values close to $ 1 $ implying that the variation in response is almost fully explained by the change in input. A large value of $ R $ indicates that the linear regression is a good fit.\\
+$ R^2 \in [0, 1] $ with values close to $ 1 $ implying that the variation in response is almost fully explained by the change in input. A large value of $ R $ indicates that the linear regression is a good fit.
 
 
-\textit{Relation to sample correlation coefficient} : $ r $ has been defined previously as \\
+\textit{Relation to sample correlation coefficient} : $ r $ has been defined previously as
 
 \begin{align}
 	r^2 &= \frac{S^2_{xY}}{S_{xx}\ S_{YY}} = \frac{S_{xx} \ S_{YY} - SS_R \ S_{xx}}{S_{xx}\ S_{YY}} = R^2 \\
 	%
 	|r| &= \sqrt{R}
-\end{align}\\
+\end{align}
 
-While $ r \in [-1, 1] $ denotes the correspondence between increase in values of one variable and another, its square represents the extent to which a simple linear regression can explain the set of two data points.\\
+While $ r \in [-1, 1] $ denotes the correspondence between increase in values of one variable and another, its square represents the extent to which a simple linear regression can explain the set of two data points.
 
 \section{Analysis of residuals:assessing the model}
 
-Even thought visual inspection of the scatter plot is a good method to determine how appropriate the choice of linear simple regression model is, any further doubts can be taken care of using the residuals $ Y_i - (A + B x_i) $.\\
+Even thought visual inspection of the scatter plot is a good method to determine how appropriate the choice of linear simple regression model is, any further doubts can be taken care of using the residuals $ Y_i - (A + B x_i) $.
 
-\textit{Standardized residuals} are obtained by transforming the residuals into standard normal RVs as follows,\\
+\textit{Standardized residuals} are obtained by transforming the residuals into standard normal RVs as follows,
 
 \begin{align}
 	Z &\sim \frac{Y_i - (A + B x_i)}{\sqrt{SS_R / (n-2)}} \qquad \forall\ i\in \{1,\dots, n\}
-\end{align}\\
+\end{align}
 
-Any observable pattern in a plot of the residuals that indicates deviation from $ Z $ is immediate evidence against choosing a simple linear regression model.\\
+Any observable pattern in a plot of the residuals that indicates deviation from $ Z $ is immediate evidence against choosing a simple linear regression model.
 
 \section{Transforming to linearity}
 
-In cases where the response is not a linear function of the input, it is useful to transform the relation using logarithms, exponentiation or other tools into a linear equation. This extends the power of the linear regression method to systems governed by non-linear relations.\\
+In cases where the response is not a linear function of the input, it is useful to transform the relation using logarithms, exponentiation or other tools into a linear equation. This extends the power of the linear regression method to systems governed by non-linear relations.
 
-For example, consider an exponential decay relationship between the number of items $ N $ and time $ t $,\\
+For example, consider an exponential decay relationship between the number of items $ N $ and time $ t $,
 
 \begin{align}
 	N(t) &= u\ \exp(-vt) \nonumber \\
@@ -262,17 +262,17 @@ For example, consider an exponential decay relationship between the number of it
 	\text{substituting }Y &= \log(N) \qquad \alpha = \log(u) \qquad \beta = -v \qquad x = \log(t) \nonumber \\
 	%
 	Y &= \alpha + \beta x + e \nonumber
-\end{align}\\
+\end{align}
 
 \section{Weighted Least Squares}
 
-When the assumption that the variance in the response is a constant independent of the input is no longer reasonable, the above procedure has to be modified to incorporate a weighting term in the variance,\\
+When the assumption that the variance in the response is a constant independent of the input is no longer reasonable, the above procedure has to be modified to incorporate a weighting term in the variance,
 
 \begin{align}
 	\mathrm{Var}(Y_i) = \frac{\sigma^2}{w_i}
-\end{align}\\
+\end{align}
 
-The estimators $ A,B$ must now minimize the sum of squares with these weights $ \{w_i\} $. This is once again solved by setting the partial derivatives to zero and obtaining the \textit{normal equations}. \\
+The estimators $ A,B$ must now minimize the sum of squares with these weights $ \{w_i\} $. This is once again solved by setting the partial derivatives to zero and obtaining the \textit{normal equations}.
 
 \begin{align}
 	SS_w &= \frac{1}{\sigma^2}\ \sum\limits_{i = 1}^{n} w_i\ (Y_i - A - Bx_i)^2 \\
@@ -280,35 +280,35 @@ The estimators $ A,B$ must now minimize the sum of squares with these weights $ 
 	\sum w_i Y_i & = A\ \sum w_i +B \sum w_i x_i\\
 	%
 	\sum w_i x_i Y_i & = A \sum w_i x_i +B \sum w_i x_i^2
-\end{align}\\
+\end{align}
 
-The least squares estimator, even if unbiased, need not be the best estimator of the mean of a normal RV.\\
+The least squares estimator, even if unbiased, need not be the best estimator of the mean of a normal RV.
 
-For a sample from a normal RV, the weighted least squares estimators of $ \alpha, \beta $ happen to also be the MLE. Alternatively, consider the transformation to the error $ e $, which removes its dependence on the input.\\
+For a sample from a normal RV, the weighted least squares estimators of $ \alpha, \beta $ happen to also be the MLE. Alternatively, consider the transformation to the error $ e $, which removes its dependence on the input.
 
 \begin{align}
 	Y &= \alpha + \beta x + e \nonumber \\
 	%
 	Y \sqrt{w} &= \alpha \sqrt{w} + \beta x \sqrt{w} + e \sqrt{w}\nonumber \\
-\end{align}\\
+\end{align}
 
-The new error term $ e \sqrt{w} $ is now independent of the input. It has mean $ 0 $ and constant variance. Now, the least squares estimators of $ \alpha, \beta $ would be the ones that minimize\\
+The new error term $ e \sqrt{w} $ is now independent of the input. It has mean $ 0 $ and constant variance. Now, the least squares estimators of $ \alpha, \beta $ would be the ones that minimize
 
 \begin{align}
 	\text{minimize } &\sum\limits_{i = 1}^{n} (Y_i \sqrt{w_i} - \alpha \sqrt{w_i} - \beta x_i \sqrt{w_i})^2 \nonumber \\
 	%
 	\text{minimize } &\sum\limits_{i = 1}^{n} w_i\ (Y_i - \alpha - \beta x_i )^2 \nonumber
-\end{align}\\
+\end{align}
 
-The weighted least squares method has the added advantage of giving greater emphasis to data points with the lower variance (and thus greater $ w_i $).\\
+The weighted least squares method has the added advantage of giving greater emphasis to data points with the lower variance (and thus greater $ w_i $).
 
-For the special case when $ Y $ is a Poisson RV, a common transformation is to model $ \sqrt{Y} $ as a linear simple regression, with the added approximation that $ \mathrm{Var}(\sqrt{Y}) \approx 0.25 $ regardless of the parameter $ \lambda $.\\
+For the special case when $ Y $ is a Poisson RV, a common transformation is to model $ \sqrt{Y} $ as a linear simple regression, with the added approximation that $ \mathrm{Var}(\sqrt{Y}) \approx 0.25 $ regardless of the parameter $ \lambda $.
 
 \section{Polynomial Regression}
 
-The extension of the linear regression model to include terms corresponding to higher powers of the single input is straightforward, despite the heavy use of matrix operations.\\
+The extension of the linear regression model to include terms corresponding to higher powers of the single input is straightforward, despite the heavy use of matrix operations.
 
-Polynomial regression follows the same outline as simple regression with the minimization of $ SS_R $ leading to a set of \textit{normal equations}.\\
+Polynomial regression follows the same outline as simple regression with the minimization of $ SS_R $ leading to a set of \textit{normal equations}.
 
 For convenience, define $ \sum_1^n (x_i)^{j} = K_j$ and for the RHS, $ \sum_i^n (x_i)^j\ Y_i = M_j $
  
@@ -336,15 +336,15 @@ For convenience, define $ \sum_1^n (x_i)^{j} = K_j$ and for the RHS, $ \sum_i^n 
 		\vdots \\
 		M_r
 	\end{bmatrix}
-\end{align}\\
+\end{align}
 
-Since the sets $ \{K_i\},\ \{M_i\} $ are both fixed for a given dataset, the above system of linear equations is uniquely solved using matrix inversion. The value of $ r $ chosen should be as small as possible in order to avoid overfitting. This choice is usually made through visual inspection of the scatter diagram.\\
+Since the sets $ \{K_i\},\ \{M_i\} $ are both fixed for a given dataset, the above system of linear equations is uniquely solved using matrix inversion. The value of $ r $ chosen should be as small as possible in order to avoid overfitting. This choice is usually made through visual inspection of the scatter diagram.
 
-An unnecessarily large choice of degree $ r $ makes the regression model significantly worse at predicting the response to inputs far from the set of data points used to calculate it. In real-world problems, this also leads to incorrect inferences about the underlying physical mechanisms.\\
+An unnecessarily large choice of degree $ r $ makes the regression model significantly worse at predicting the response to inputs far from the set of data points used to calculate it. In real-world problems, this also leads to incorrect inferences about the underlying physical mechanisms.
 
 \section{Multiple Linear Regression}
 
-Most real-world systems of interest are not governed by a single input. This requires generalizing the simple linear regression problem to deal with multiple inputs $ \{x_i\} $.\\
+Most real-world systems of interest are not governed by a single input. This requires generalizing the simple linear regression problem to deal with multiple inputs $ \{x_i\} $.
 
 \begin{align}
 	Y &= \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k + e \\
@@ -352,16 +352,16 @@ Most real-world systems of interest are not governed by a single input. This req
 	e &\sim \mathcal{N}(0, \sigma^2) \nonumber \\
 	%
 	\mathbb{E}[Y_i] &= \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_k x_{ik} \nonumber
-\end{align}\\
+\end{align}
 
-Once again, minimizing the $ SS_R $ by setting the derivative to zero yields a system of normal equations.\\
+Once again, minimizing the $ SS_R $ by setting the derivative to zero yields a system of normal equations.
 
 \begin{align}
 	\text{minimizing }\sum\limits_{i = 1}^n (Y - B_0 - B_1 x_{i1} - B_2 x_{i2} - \dots - B_k x_{ik})^2 \nonumber \\
 	%
-\end{align}\\
+\end{align}
 
-Defining the matrices for shorthand notation as follows,\\
+Defining the matrices for shorthand notation as follows,
 
 \begin{align}
 	\textbf{e} = 
@@ -404,19 +404,19 @@ Defining the matrices for shorthand notation as follows,\\
 		\vdots & \vdots & \vdots & \ddots & \vdots \\
 		1 & x_{n1} & x_{n2} & \dots & x_{nk}\\
 	\end{bmatrix} 
-\end{align}\\
+\end{align}
 
-The regression model and thus the normal equations can now be written as \\
+The regression model and thus the normal equations can now be written as
 
 \begin{align}
 	\textbf{Y} &= \textbf{X} \boldsymbol{\beta} + \textbf{e} \\
 	%	
 	\textbf{X}^\intercal \textbf{X} \textbf{B} &= \textbf{X}^\intercal \textbf{Y} 
-\end{align}\\
+\end{align}
 
-Since the existence of the inverse $ (\textbf{X}^\intercal \textbf{X})^{-1}  $ is not an issue in most real world datasets, simple matrix operations can be used to obtain the estimator matrix $ \textbf{B} $.\\
+Since the existence of the inverse $ (\textbf{X}^\intercal \textbf{X})^{-1}  $ is not an issue in most real world datasets, simple matrix operations can be used to obtain the estimator matrix $ \textbf{B} $.
 
-The set of least squares estimators $ \textbf{B} $ also happen to be unbiased estimators of $ \boldsymbol{\beta} $. The variance of these estimators requires further analysis of the matrix $ \textbf{C} = (\textbf{X}^\intercal \textbf{X})^{-1}\  \textbf{X}^\intercal$\\
+The set of least squares estimators $ \textbf{B} $ also happen to be unbiased estimators of $ \boldsymbol{\beta} $. The variance of these estimators requires further analysis of the matrix $ \textbf{C} = (\textbf{X}^\intercal \textbf{X})^{-1}\  \textbf{X}^\intercal$
 
 \begin{align}
 	\textbf{B} &= \textbf{C}\textbf{Y} \nonumber \\
@@ -426,11 +426,11 @@ The set of least squares estimators $ \textbf{B} $ also happen to be unbiased es
 	\mathrm{Cov}(B_{i-1}, B_{j-1}) &= \sigma^2\ (\textbf{C} \textbf{C}^\intercal)_{ij} \\
 	%	
 	\mathrm{Cov}(\textbf{B}) &= \sigma^2\ (\textbf{X}^\intercal \textbf{X})^{-1} 
-\end{align}\\
+\end{align}
 
-Since $ \mathrm{Cov}(B_i, B_i) = \mathrm{Var}(B_i) $, the diagonal elements of the matrix of covariances $ \mathrm{Cov}(\textbf{B}) $, give the variances of the least squares estimators (scaled by $ \sigma^2 $).\\
+Since $ \mathrm{Cov}(B_i, B_i) = \mathrm{Var}(B_i) $, the diagonal elements of the matrix of covariances $ \mathrm{Cov}(\textbf{B}) $, give the variances of the least squares estimators (scaled by $ \sigma^2 $).
 
-The value of $ \sigma^2 $ can be estimated by rearranging the sum of squares of residuals $ SS_R $ into a chi-squared RV.\\
+The value of $ \sigma^2 $ can be estimated by rearranging the sum of squares of residuals $ SS_R $ into a chi-squared RV.
 
 \begin{align}
 	SS_R &= \sum\limits_{i = 1}^{n} (Y - B_0 - B_1 x_{i1} - B_2 x_{i2} - \dots - B_k x_{ik})^2 \nonumber \\
@@ -438,11 +438,11 @@ The value of $ \sigma^2 $ can be estimated by rearranging the sum of squares of 
 	\frac{SS_R}{\sigma^2} &\sim \chi^2_{n-(k+1)} \\
 	%
 	\mathbb{E}\left[\frac{SS_R}{n- (k+1)}\right] &= \sigma^2
-\end{align}\\
+\end{align}
 
-The above expression is an unbiased estimator of $ \sigma^2 $ and is also independent of the set of estimators $ \textbf{B} $.\\
+The above expression is an unbiased estimator of $ \sigma^2 $ and is also independent of the set of estimators $ \textbf{B} $.
 
-Defining the residual as $ r_i $ along with the column matrix of the set of residuals $ \textbf{r} $ yields a useful computational formula for $ SS_R $ \\
+Defining the residual as $ r_i $ along with the column matrix of the set of residuals $ \textbf{r} $ yields a useful computational formula for $ SS_R $ 
 
 \begin{align}
 	\textbf{r} &= \textbf{Y} - \textbf{X} \textbf{B} \\
@@ -450,60 +450,60 @@ Defining the residual as $ r_i $ along with the column matrix of the set of resi
 	SS_R &= \textbf{r}^\intercal \textbf{r} \\
 	%
 	&= \textbf{Y}^\intercal \textbf{Y} - \textbf{B}^\intercal \textbf{X}^\intercal \textbf{Y}
-\end{align}\\
+\end{align}
 
-\textit{Coefficient of multiple determination} : The quantity $ R^2$ is defined as follows. It measures the decrease in the sum of squares of residuals $ SS_r $ when using a multiple regression model.\\
+\textit{Coefficient of multiple determination} : The quantity $ R^2$ is defined as follows. It measures the decrease in the sum of squares of residuals $ SS_r $ when using a multiple regression model.
 
 \begin{align}
 	R^2 &= 1 - \frac{SS_R}{\sum (Y_i - \overline{Y})^2}\\
 	%
 	Y = \beta_0 + \beta_1 x_1 + \dots + \beta_n x_n + e \qquad &\text{vs} \qquad Y = \beta_0 + e
-\end{align}\\
+\end{align}
 
-\textit{Predicting future responses} : A point estimate of the mean response is simply \\
+\textit{Predicting future responses} : A point estimate of the mean response is simply 
 
 \begin{align}
 	\mathbb{E}[Y|\textbf{x}] &= \beta_0 + \beta_1 x_1 + \dots + \beta_k x_k \nonumber \\
 	%
 	\widehat{\mathbb{E}[Y|\textbf{x}]} &= \sum\limits_{i = 0}^{k} B_i x_i
-\end{align}\\
+\end{align}
 
-Here the first term is special because $ x_o \equiv 1 $. In order to find an interval estimate, consider the distribution of the above point estimator, which is a linear combination of normal RVs $ \{Y_i\} $.\\
+Here the first term is special because $ x_o \equiv 1 $. In order to find an interval estimate, consider the distribution of the above point estimator, which is a linear combination of normal RVs $ \{Y_i\} $.
 
 \begin{align}
 	\mathbb{E}\left[\sum\limits_{i = 0}^{k} B_i x_i\right] = \sum\limits_{i = 0}^{k} \beta_i x_i \\
 	%
 	\mathrm{Var}\left(\sum\limits_{i = 0}^{k} B_i x_i\right) = \textbf{x}^\intercal \ (\textbf{X}^\intercal \textbf{X})^{-1}\ \textbf{x}\ \sigma^2 \\
-\end{align}\\
+\end{align}
 
-Here, \textbf{x} is the column matrix composed of the set of input variables $ \{x_0, \dots, x_k\} $. Additionally, replacing $ \sigma $ with its estimator $ \sqrt{SS_R / (n-k-1)} $, yields a t-RV with $ n-k-1 $ DOF.\\
+Here, \textbf{x} is the column matrix composed of the set of input variables $ \{x_0, \dots, x_k\} $. Additionally, replacing $ \sigma $ with its estimator $ \sqrt{SS_R / (n-k-1)} $, yields a t-RV with $ n-k-1 $ DOF.
 
 \begin{align}
 	\ddfrac{\sum\limits_{i = 0}^{k} B_i x_i - \sum\limits_{i = 0}^{k} \beta_i x_i}{\sqrt{\textbf{x}^\intercal \ (\textbf{X}^\intercal \textbf{X})^{-1}\ \textbf{x}\ \left(\frac{SS_R}{n-k-1}\right)}} &\sim t_{n-k-1}
-\end{align}\\
+\end{align}
 
-The above distribution can be used to construct confidence intervals for $ \mathbb{E}[Y|\textbf{x}] $.\\
+The above distribution can be used to construct confidence intervals for $ \mathbb{E}[Y|\textbf{x}] $.
 
-As opposed to predicting the mean value of the response, when the experiment is to be performed only once in order to generate a single data point, it is more relevant to predict the response $ Y(\textbf{x}) $ itself.\\
+As opposed to predicting the mean value of the response, when the experiment is to be performed only once in order to generate a single data point, it is more relevant to predict the response $ Y(\textbf{x}) $ itself.
 
 \begin{align}
 	Y(\textbf{x}) &= \sum\limits_{i = 0}^{k} \beta_i x_i + e \qquad \text{where} \qquad x_0 \equiv 1
-\end{align}\\
+\end{align}
 
-The point estimator is clearly just $ \sum B_i x_i $ based on the previous $ n $ data points. Since $ \sum B_i x_i $ are thus independent of $ Y(\textbf{x}) $, \\
+The point estimator is clearly just $ \sum B_i x_i $ based on the previous $ n $ data points. Since $ \sum B_i x_i $ are thus independent of $ Y(\textbf{x}) $,
 
 
 \begin{align}
 	\mathrm{Var}\left[ Y(\textbf{x}) - \sum\limits_{i = 0}^{k} B_i x_i \right] = \sigma^2 + \textbf{x}^\intercal \ (\textbf{X}^\intercal \textbf{X})^{-1}\ \textbf{x}\ \sigma^2 \\
 	%
 	\ddfrac{Y(\textbf{x}) - \sum\limits_{i = 0}^{k} B_i x_i}{\sqrt{\left(1 + \textbf{x}^\intercal \ (\textbf{X}^\intercal \textbf{X})^{-1}\ \textbf{x}\right)\ \left(\frac{SS_R}{n-k-1}\right)}} &\sim t_{n-k-1}
-\end{align}\\
+\end{align}
 
-\textit{Dummy variables for categorical data} : A binary categorical variable can be represented as a dummy variable in the regression that takes values of $ \{0, 1\} $ depending on the data point belonging to the category or not. This is only necessary when the dataset is too small to be fragmented into multiple datasets each analyzed separately.\\
+\textit{Dummy variables for categorical data} : A binary categorical variable can be represented as a dummy variable in the regression that takes values of $ \{0, 1\} $ depending on the data point belonging to the category or not. This is only necessary when the dataset is too small to be fragmented into multiple datasets each analyzed separately.
 
-For large enough datasets, it is better to avoid the use of dummy variables and simply perform many separate regression analyses on the different data-subsets.\\
+For large enough datasets, it is better to avoid the use of dummy variables and simply perform many separate regression analyses on the different data-subsets.
 
-\textit{Logistic regression models for binary response data} : Consider an experiment which only gives a binary response, with the probability of success $ p(x) $ governed by the distribution. Additionally define the odds of success $ o(x) $ as the ratio of the win to loss probabilities.\\
+\textit{Logistic regression models for binary response data} : Consider an experiment which only gives a binary response, with the probability of success $ p(x) $ governed by the distribution. Additionally define the odds of success $ o(x) $ as the ratio of the win to loss probabilities.
 
 \begin{align}
 	p(x) &= \frac{\exp(a + bx)}{1 + \exp(a + bx)}  \\
@@ -511,7 +511,7 @@ For large enough datasets, it is better to avoid the use of dummy variables and 
 	o(x) &= \frac{p(x)}{1 - p(x)} = \exp(a + bx) \\
 	%
 	\log(o(x)) &= a + bx
-\end{align}\\
+\end{align}
 
 From the plot below, the asymptotic values of this function at $ -\infty, \infty $ are $ 0, 1 $ depending on the sign of $ b $.
 
@@ -533,12 +533,12 @@ From the plot below, the asymptotic values of this function at $ -\infty, \infty
 \end{figure}
 
 
-In order to find the maximum likelihood estimators, consider the joint PDF of a set of binary responses $ \{Y_1, \dots, Y_k\} $,\\
+In order to find the maximum likelihood estimators, consider the joint PDF of a set of binary responses $ \{Y_1, \dots, Y_k\} $,
 
 \begin{align}
 	\log(P\{Y_i = y_i;\ i = 1,\dots,k\}) &= \sum\limits_{i = 1}^{k} y_i (a + bx_i) - \sum\limits_{i = 1}^{k} \log(1 + \exp(a +b x_i))
-\end{align}\\
+\end{align}
 
-Even though an analytical minimization of the above expression is not possible, there are several iterative computational approaches possible.\\
+Even though an analytical minimization of the above expression is not possible, there are several iterative computational approaches possible.
 
 

@@ -1,0 +1,7 @@
+Sky Color, Observations, Rain
+Red, 61, 26
+Mainly red, 194, 52
+Yellow, 159, 81
+Mainly yellow, 188, 86
+Red and yellow ,194, 52
+Gray, 302, 167

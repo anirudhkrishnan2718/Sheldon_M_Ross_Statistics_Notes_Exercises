@@ -1,0 +1,50 @@
+\chapter{Life Testing}
+
+
+\begin{flushright}
+	\textit{``Ch14 Quote here."} \\
+\end{flushright}
+
+\section{Introduction}
+
+The general problem being considered here is a population of independent items having some common underlying distribution of lifetimes, which is known but for a single parameter.
+
+The concept of a hazard rate is used in engineering to analyze this problem and the most common choice of \textit{a-priori} distribution assumed is an exponential RV.
+
+\section{Hazard rate functions}
+
+Consider a positive RV $ X $ with some CDF $ (F) $ and PDF $ (f) $. The \textit{failure rate} (also called \textit{hazard rate}) function of $ F $ is now defined as
+
+\begin{align}
+	\lambda(t) &= \frac{f(t)}{1 - F(t)}
+\end{align}
+
+$ \lambda(t) $ represents the conditional probability that an item of age $ t $ will fail imminently.
+
+\begin{align}
+	P \{ X \in (t,\ t +\mathrm{d}t)\ |\ X > t \} &\approx \frac{f(t)}{1 - F(t)}\ \mathrm{d}t
+\end{align}
+
+For an underlying exponential distribution, which is memoryless, $ \lambda(t) = \lambda $ constant equal to its rate. The rate function is uniquely able to determine an the underlying CDF for a positive continuous RV.
+
+\begin{align}
+	\lambda(s) &= \frac{\mathrm{d}\ F(s)}{\mathrm{d}s}\ \frac{1}{1 - F(s)} = \frac{\mathrm{d}}{\mathrm{d}s}\ -\log \left[ 1 - F(s) \right] [1ex] \\[1ex]
+	%
+	1 - F(t) &= \exp\left[ -\int\limits_{0}^{t}\ \lambda(s)\ \mathrm{d}s \right]
+\end{align}
+
+A special case of $ \lambda(t) = bt $ is called the \textit{Rayleigh} density function. A linear relationship between death rates between two conditions leads to a power law relationship between the probability of both conditions surviving to the same age.
+
+\begin{align}
+	\lambda_y &= n\lambda_x \nonumber \nonumber\\
+	%
+	\implies P\{ Y > b\ |\ Y > a \} &= P\{ X > b\ |\ X > a \}^{n} 
+\end{align}
+
+Where $ b > a $ are some ages and $ X, Y $ are two categories being compared.
+
+\section{Exponential distributions in life testing}
+
+\textit{Stopping at the $ r^{\text{th}} $ failure} : Consider a population of $ n $ items which are all IID using an exponential distribution with unknown mean $ \theta $. A problem of great interest is to attempt to estimate $ \theta $ using observations about the time taken for $ r $ out of $ n $ simultaneously initialized items to fail.
+
+The observed data takes the form of an ascending ordered set of failure times $ \{ x_1,\ \dots,\ x_r \} $ along with a set of indices for the failing items $\{ i_1\ \dots \ i_r \}$. If the lifetime of component $i_j$ is denoted by $X_{i_{j}}$, 

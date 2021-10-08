@@ -1,0 +1,220 @@
+\chapter{Nonparameteric hypothesis tests}
+
+
+\begin{flushright}
+	\textit{``You can only use that test to identify a change in scale, not location."} 
+\end{flushright}
+
+\section{Introduction}
+
+Hypothesis tests based on no specific assumptions about the form of an underlying probability distribution are called \textit{nonparametric}. In many real-world problems, there is no information whatsoever available about the CDF.
+
+These methods are generally less useful than the relevant parametric test if partial or complete information about the underlying CDF is available.
+
+\section{Sign test}
+
+Consider a test aimed at identifying the median $ m $ of a data-set has a specified value $ m_0 $. The dataset $ \{X_1, \dots, X_n\} $ has $ n $ values. The null hypothesis can be stated as
+
+\begin{align}
+	H_0 &: m = m_0 \qquad \text{where} \qquad F(m) = 0.5 \\
+	%
+	H_1 &: m \neq m_0 \nonumber
+\end{align}
+
+Since the independent samples $ \{X_i\} $ are each less than the median with the sample probability, an indicator set of RVs $ \{I_i\} $ are simply independent Bernoulli RVs with parameter $ P = F(m_0) $.
+
+Summing the indicator RVs, reduces the $ H_0 $ to testing whether this binomial RV $ \sum I_i $ has a parameter $ 1/2 $. For some observed value $ \nu $ of the sum of indicator RVs, 
+
+\begin{align}
+	H_0 &: \sum\limits_{i = 1}^{n} I_i \sim \texttt{Binom(n, 1/2)} \\
+	%
+	H_1 &: \sum\limits_{i = 1}^{n} I_i \nsim \texttt{Binom(n, 1/2)} \nonumber \\
+	%
+	p\text{ value} &= 
+	\begin{cases}
+		2 \times P\{\texttt{Binom}(n, 1/2) \leq \nu\} & \text{if}\ \nu \leq n/2 \\
+		%
+		2 \times P\{\texttt{Binom}(n, 1/2) \leq n - \nu\} & \text{if}\ \nu \geq n/2 \\
+	\end{cases}
+\end{align}
+
+This test is called the \textit{sign} test because the sign of each individual $ (X_i - m_0) $ affects the magnitude of $ \nu $.
+
+The sign test can also be used in place of the paired t-test to test the hypothesis that the two sets of data points $ \{X_i\}, \{Y_i\} $ have the same underlying median. This is accomplished by performing the sign test on the set of differences $ \{Z_i\} = \{Y_i - X_i\} $.
+
+The corresponding one-sided median hypothesis testing involves switching to the one-sided tests for the same binomial RV $ \nu $.
+
+\section{Signed rank test}
+
+The sign test does not take consider whether one of the two sets of values on either side of $ m_0 $ is farther away than the other. Thus, for some continuous distribution $ F $, a hypothesis testing whether $ F $ is symmetric about $ m_0 $ is,
+
+\begin{align}
+	H_0 : P\{X < m_0 - a\} = P\{X > m_0 + a\} \qquad \forall\ a > 0
+\end{align}
+
+Define a new set of variables using the absolute distance from the median $ m_0 $. This set is sorted into ascending order and then an indicator set $ \{I_j\} $ is defined as
+
+\begin{align}
+	\{Y_i\} &= \{|X_i - m_0|\} \qquad \text{in ascending order} \\
+	%
+	I_j &= 
+	\begin{cases}
+		1 & \text{if}\quad X_j < m_0\\
+		%
+		0 & \text{otherwise} \\
+	\end{cases}
+\end{align}
+
+The test statistic for the signed rank test also has a weighting factor equal to the rank of each data point.
+
+\begin{align}
+	TS &= \sum\limits_{j = 1}^{n}\ j\ I_j \\
+	%
+	\mathbb{E}[TS] &= \sum\limits_{j = 1}^{n}\ j\ \mathbb{E}[I_j] = \sum_j j/2 = \frac{n(n+1)}{4} \\
+	%
+	\mathrm{Var}(TS) &= \sum\limits_{j = 1}^{n}\ j^2\ \mathrm{Var}(I_j) = \sum_j j^2 / 4 = \frac{n(n+1)(n+2)}{24}
+\end{align}
+
+When $ H_0 $ is true, the set $ \{X_j - m_0\} $ is symmetric about 0 and thus, the indicator variables $ \{I_j\} $ are equally likely to be 0 or 1. This enables the use of a Bernoulli hypothesis test to find the p-value.
+
+\begin{align}
+	p \text{ value} &= 2 \times P_{H_0} \left\{TS \leq \min\left(t,\ \frac{n(n+1)}{2} - t\right)\right\} \\
+	%
+	\text{using } P_{H_0} \left\{TS \geq t\right\} &= P_{H_0} \left\{TS \leq \frac{n(n+1)}{2} - t\right\}
+\end{align}
+
+Here, $ t $ is the observed value of the test statistic for the given data. The procedure for calculating the distribution of $ TS $ is itself intractable for all but the smallest data sets. A recursive relation however enables exact calculation for larger sample sizes.
+
+The above procedure is called the \textit{Wilcoxon signed rank test}.
+
+\begin{align}
+	P_k (i) &= \frac{1}{2}\ P_{k-1} (i-k) + \frac{1}{2}\ P_{k-1} (i) \\
+	%
+	P_k (i) &= P_{H_0} \{TS \leq i\} \qquad \text{for sample size $ k $}
+\end{align}
+
+\section{Two-sample problem - ranked sum test}
+
+The problem of determining if two datasets are statistically identical can be described using the null hypothesis,
+
+\begin{align}
+	H_0 : F = G \qquad \text{vs} \qquad H_1 : F \neq G
+\end{align}
+
+Here, let $ F, G $ be the underlying continuous probability distributions from which samples $ \{X_i\}, \{Y_j\} $ are drawn, each with size $ n, m $.
+
+A test to verify this null hypothesis - called the \textit{Wilcoxon rank sum test}, involves first a ranking and ordering of all the $ (n+m) $ data points. The fact that $ F, G $ are continuous guarantees no ties.
+
+The test statistic of interest here is the sum of all of the ranks of elements from the first dataset.
+
+\begin{align}
+	TS &= \sum\limits_{i = 1}^{n} R_i \\
+	%
+	R_i &= \mathrm{Rank} (X_i) \qquad \text{among the $ (n+m) $ elements.} 
+\end{align}
+
+Using the fact that a discrete probability distribution has $ P\{T \geq t\} = 1 - P\{T \leq t-1\} $, a critical region for the hypothesis test is defined as
+
+\begin{align}
+	\text{reject $ H_0 $ if } \qquad & P_{H_0}\{T \leq t\} \leq \frac{\alpha}{2} \qquad \text{or} \qquad P_{H_0}\{T \leq t - 1\} \leq 1 - \frac{\alpha}{2}  \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise} \\
+	%
+	p \text{ value} &= 2 \times \min(P(n,m,t),\ 1 - P(n,m,t-1))
+\end{align}
+
+Let $ P(N, M, K) $ denote $ P\{T \leq K\} $ under $ H_0 $ with sample sizes $ (N, M) $. This can also be calculated using recursion as follows,
+
+\begin{align}
+	P(1, 0, K ) &= \begin{cases}
+		0 & K \leq 0 \\
+		1 & K > 0
+	\end{cases}
+	&
+	P(0, 1, K ) &= \begin{cases}
+		0 & K < 0 \\
+		1 & K \geq 0
+	\end{cases}	\\
+	%
+	P(N, M, K) &= \frac{N}{N+M}\ P(N-1, M, K-N-M) \nonumber \\
+	%
+	&+ \frac{M}{N+M}\ P(N, M-1, K) 
+\end{align}
+
+For sample sizes $ m,n $ both greater than 12, a normal approximation for the test statistic's distribution is given by,
+
+\begin{align}
+	\mathbb{E}[TS] &= \mu_T = \frac{n(n+m+1)}{2} \\
+	%
+	\mathrm{Var}(TS) &= \sigma^2_T = \frac{nm (n + m + 1)}{12} \\
+	%
+	TS &\sim \mathcal{N}(\mu_T, \sigma^2_T)
+\end{align}
+
+\textit{Equality of multiple probability distributions} : Extending the above problem to testing the equality of more than two probability distributions, has the null hypothesis,
+
+\begin{align}
+	H_0 &: F_1 = F_2 = \dots = F_k \nonumber \\
+	%
+	H_1 &: \text{not all of the $ F_i $ are equal }
+\end{align}
+
+
+Let each of the $ k $ populations have sample size $ n_i $ with the total number of data points $ N = \sum n_i $. A test statistic similar to the goodness-of-fit test can then be constructed.
+
+Once again, pooling together all of the $ N $ values and ranking them yields the sum of ranks $ R_i $ for the members of the $ i^{\text{th}} $ population.
+
+Defining $ \overline{r} $ as the expected value of the rank of an individual data point,
+
+\begin{align}
+	\mathbb{E}[R_i] &= \sum\limits_{j = 1}^{n_i} \mathbb{E}[X_{ij}] = n_i\ \overline{r} \\
+	%
+	T &= \sum\limits_{i=1}^{k} \frac{(R_i - n_i \overline{r})^2}{n_i \overline{r}} = \sum\limits_{i=1}^{k} \frac{R_i^2}{n_i \overline{r}} - N \overline{r} \\
+	%
+	\text{refined } T &= \sum\limits_{i=1}^{k} \frac{R_i^2}{n_i}
+\end{align}
+
+The refinement above is to remove all of the terms dependent only on $ N $. A $ \chi^2 $ RV can be constructed in the special case of no ties among the $ N $ data points,
+
+\begin{align}
+	\frac{12}{N(N+1)} \ T - 3(N+1) \sim \chi^2_{k-1}
+\end{align}
+
+The test in the above form is called the \textit{Kruskal-Wallis test}.
+
+\section{Runs test for non-randomness}
+
+A hypothesis test asking whether all of the data sampled from a population does in fact have the same underlying probability distribution uses the \textit{runs} test.
+
+For the simple case where all of the data can be binarized (categorized into a 0 or 1). A consecutive sequence of (one or more) zeros or ones is now defined as a run.
+
+Let $ R $ denote the number of runs in a dataset of size $ N $, where $ (m, n) $ are the numbers of zeros and ones respectively. Now, $ n+m = N $ and the dataset $ \{X_1, \dots, X_N\} $ is equally likely to be one of the possible permutations.
+
+Using combinatorics, the probability under $ H_0 $ that the observed number of runs is equal to some integer $ k $ is
+
+\begin{align}
+	P_{H_0}(R = k) &= \ddfrac{\text{number of permutations resulting in $ k $ runs}}{\binom{n+m}{n}} \\[1ex]
+	%
+	P_{H_0}(R = 2k) &= \ddfrac{2\ \binom{m-1}{k-1}\ \binom{n-1}{k-1}}{\binom{n+m}{n}} \\[1ex]
+	%
+	P_{H_0}(R = 2k + 1) &= \ddfrac{\binom{m-1}{k-1}\ \binom{n-1}{k} + \binom{m-1}{k}\ \binom{n-1}{k-1}}{\binom{n+m}{n}}
+\end{align}
+
+An exact $ p $ value can only be computed for small $ N $.
+
+\begin{align}
+	p \text{ value} &= 2 \times \min(P_{H_0}\{R \geq r\},\ \{R \leq r\})
+\end{align}
+
+The runs test can also be used on data that can be binarized by assuming a median value and checking whether each data point is above or below this median value.
+
+In the limit of large $ m $ and $ n $, when $ H_0 $ holds, the number of runs $ R $ is approximately normal with 
+
+\begin{align}
+	\mu &= \frac{2mn}{N} + 1 & \sigma^2 &= \frac{2mn\ (2mn - N)}{N^2\ (N-1)}
+\end{align}
+
+The normal test can now be used to approximate the exact runs test above to make computations much faster.
+
+
+

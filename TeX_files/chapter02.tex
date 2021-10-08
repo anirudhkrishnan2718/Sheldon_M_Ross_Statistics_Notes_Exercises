@@ -2,31 +2,31 @@
 
 
 \begin{flushright}
-	\textit{``I will skim through these topics since you've already covered them in school."} \\
+	\textit{``I will skim through these topics since you've already covered them in school."} 
 \end{flushright}
 
-\textbf{Descriptive Statistics} : learn how to summarize and concisely represent a dataset. Explore the features of a probability distribution after it is generated from a dataset. \\
+\textbf{Descriptive Statistics} : learn how to summarize and concisely represent a dataset. Explore the features of a probability distribution after it is generated from a dataset.
 
-\textbf{Frequency table} : represents a catergorical dataset with a small number of categories using a table listing the categories and the number of corresponding occurrences. Most commpnly visualized as a bar graph. \\
+\textbf{Frequency table} : represents a catergorical dataset with a small number of categories using a table listing the categories and the number of corresponding occurrences. Most commpnly visualized as a bar graph.
 
-\textit{Frequency Polygon} is a bar graph with invisible bars and the data points themselves connected using straight line segments.\\
+\textit{Frequency Polygon} is a bar graph with invisible bars and the data points themselves connected using straight line segments.
 
-\textit{Relative frequency} : Commonly seen as a percentage pie-chart. \\ 
+\textit{Relative frequency} : Commonly seen as a percentage pie-chart. 
 	\begin{align}
 	x_{i} = \frac{\text{current frequency}}{\text{sum of all frequencies}} = \dfrac{f_{i}}{ \sum_{i} f_{i}} 
 	\end{align}
 
-\textbf{Grouped frequencies} : A frequency table can have categories that are intervals instead of discrete categories. Visualized using histograms and related plots. Histograms are bar plots with the categories being \textit{class intervals}, which use the left-end inclusive convention $[a, b)$. How many class intervals to choose is a delicate balance between not revealing trends in the data (too few CI) vs. not enough frequency for each entry (too many CI). \\
+\textbf{Grouped frequencies} : A frequency table can have categories that are intervals instead of discrete categories. Visualized using histograms and related plots. Histograms are bar plots with the categories being \textit{class intervals}, which use the left-end inclusive convention $[a, b)$. How many class intervals to choose is a delicate balance between not revealing trends in the data (too few CI) vs. not enough frequency for each entry (too many CI).
 
-\textbf{Ogive} : A histogram using cumulative instead of absolute frequency for each datapoint. Useful to know the fraction of all entries that are smaller than some threshold. \\
+\textbf{Ogive} : A histogram using cumulative instead of absolute frequency for each datapoint. Useful to know the fraction of all entries that are smaller than some threshold.
 
-\textbf{Stem and Leaf plot} : Every data point is grouped into categories (stems) based on some common factor, such as the higher digits with entries within each group (leaves) representing the lower digits. Ex : group numbers using common tens digit and use ones digit as leaf entries. \\
+\textbf{Stem and Leaf plot} : Every data point is grouped into categories (stems) based on some common factor, such as the higher digits with entries within each group (leaves) representing the lower digits. Ex : group numbers using common tens digit and use ones digit as leaf entries.
 
-\textbf{Summary statistics} : Operating on the data to obtain summary measures in an attempt to understand the dataset, especially when it is very large. \\
+\textbf{Summary statistics} : Operating on the data to obtain summary measures in an attempt to understand the dataset, especially when it is very large.
 
 \textit{Mean} : the arithmetic average of a dataset.
 \begin{align}
-	\bar{x} = \frac{\text{sum of entries}}{\text{number of entries}} = \dfrac{1}{n} \sum\limits_{i = 1}^{n} x_{i} \\
+	\bar{x} = \frac{\text{sum of entries}}{\text{number of entries}} = \dfrac{1}{n} \sum\limits_{i = 1}^{n} x_{i} 
 \end{align}
 
 If $ y = ax + b $ for some constants $ a $ and $ b $, then the variable transformation implies 
@@ -38,34 +38,34 @@ For a frequency table of data with categories $ \{v_k\} $ each having frequency 
 
 \begin{align}
 	\bar{x} = \frac{f_{1}}{n} v_{1} + \frac{f_{2}}{n} v_{2} + \frac{f_{3}}{n} v_{3} + ... = \frac{1}{n} \sum\limits_{i = 1}^{n} f_{i}v_{i}
-\end{align} \\
+\end{align}
 
-\textit{Median} : When a data set is arranged in ascending order, the middle value (for an odd number of entries) or the average of the two middle values (for an even number of entries) is called the median. This is a special case of percentile (50th percentile with half of all entries greater and the other half lesser than itself). \\
+\textit{Median} : When a data set is arranged in ascending order, the middle value (for an odd number of entries) or the average of the two middle values (for an even number of entries) is called the median. This is a special case of percentile (50th percentile with half of all entries greater and the other half lesser than itself).
 
-\textit{Mode} : The entry occurring with the highest frequency. If many such entries exist they are jointly called modal values.\\
+\textit{Mode} : The entry occurring with the highest frequency. If many such entries exist they are jointly called modal values.
 
 \textit{Variance} : Tries to indicate how far spread the data points are by comparing their distance from the sample mean. The denominator is $ (n - 1) $ because of convention.
 
 \begin{align}
 	s^2 = \frac{1}{(n-1)}\sum\limits_{i = 1}^{n}(x_{i} - \bar{x})^2
-\end{align}\\
+\end{align}
 
 A useful identity to calculate variance using the definition of the mean
 
 \begin{align}
 	\sum\limits_{i = 1}^{n}(x_{i} - \bar{x})^2 = \sum\limits_{i = 1}^{n} x_{i}^2 - n \bar{x}^2
-\end{align} \\
+\end{align}
 
 If $ y = ax + b $ for some constants $ a $ and $ b $, then $ \bar{y} = a + b \bar{x} $ and the variance is transformed using
 \begin{align}
 	s_{y}^{2} = b^{2} s_{x}^{2}
-\end{align} \\
+\end{align}
 
-\textit{Standard Deviation} : square root of the variance, measured in the same units as the data points themselves. \\
+\textit{Standard Deviation} : square root of the variance, measured in the same units as the data points themselves.
 
-\textit{Percentiles} : $ p $ fraction of the data set being smaller and $ (1 - p) $ fraction being greater than a data point makes it the $ 100 \times p $ percentile. $ p = 0.5 $ reproduces the definition of the sample median. Quartiles correspond to $ p = $ 0.25, 0.5 and 0.75. If multiple data points satisfy such a condition, their average is declared the percentile value. \\
+\textit{Percentiles} : $ p $ fraction of the data set being smaller and $ (1 - p) $ fraction being greater than a data point makes it the $ 100 \times p $ percentile. $ p = 0.5 $ reproduces the definition of the sample median. Quartiles correspond to $ p = $ 0.25, 0.5 and 0.75. If multiple data points satisfy such a condition, their average is declared the percentile value.
 
- A box plot is used to visualize the three quartiles by first drawing a line segment from the smallest to the largest data points, and overlaying a box stretching from the first to third quartile and finally overlaying a marker for the median. \\
+ A box plot is used to visualize the three quartiles by first drawing a line segment from the smallest to the largest data points, and overlaying a box stretching from the first to third quartile and finally overlaying a marker for the median.
 
 \begin{figure}
 	\centering
@@ -90,50 +90,50 @@ If $ y = ax + b $ for some constants $ a $ and $ b $, then $ \bar{y} = a + b \ba
 	\caption{Sample box plot, with outliers shown as scatters. The upper and lower whiskers show the data range, and the box shows the interquartile range.}
 \end{figure}
 
-\textbf{Chebyshev's inequality} : An inequality that measures the fraction of all data points that are a certain distance away from the sample mean. Given a dataset $ \{x_k\} $ with sample mean $ \bar{x} $ and standard deviation $ s $, the inequality gives a lower limit for the fraction of all data that is within $ [ \bar{x} - ks, \bar{x} + ks ] $ for $ k \geq 1$ and $ s > 0 $. \\
+\textbf{Chebyshev's inequality} : An inequality that measures the fraction of all data points that are a certain distance away from the sample mean. Given a dataset $ \{x_k\} $ with sample mean $ \bar{x} $ and standard deviation $ s $, the inequality gives a lower limit for the fraction of all data that is within $ [ \bar{x} - ks, \bar{x} + ks ] $ for $ k \geq 1$ and $ s > 0 $.
 
 \begin{align}
 	\frac{|S_{k}|}{n} \ \geq \ 1 - \frac{1}{k^{2}} 
-\end{align}\\
+\end{align}
 
-For example, with $k = 2$, at least 75 \% of the data is within 2 standard deviations of the mean. The inequality is universal and this fraction may be much larger for tightly grouped datasets.\\
+For example, with $k = 2$, at least 75 \% of the data is within 2 standard deviations of the mean. The inequality is universal and this fraction may be much larger for tightly grouped datasets.
 
 \textit{One-sided Chebyshev's inequality} : A stronger result can be used to find the fraction of data lying outside the interval  $ [ \bar{x} - ks, \bar{x} + ks ] $ with the above constraints on $ k, s $.
 
 \begin{align}
 	\frac{|N_{k}|}{n} \ \leq \ \frac{1}{1 + k^{2}} 
-\end{align}\\
+\end{align}
 
-\textbf{Normally distributed datasets} : Most real-life datasets happen to be normally distributed. This is one of the most studied and extensively analysed probability distributions as a result. A normal distribution has approximately equal mean and median, and is not skewed left or right of its center.\\
+\textbf{Normally distributed datasets} : Most real-life datasets happen to be normally distributed. This is one of the most studied and extensively analysed probability distributions as a result. A normal distribution has approximately equal mean and median, and is not skewed left or right of its center.
 
-For data obeying an approximately normal distribution, the fraction of all data points that lie within $ 1,\ 2 $ or $ 3 $ standard deviations from the mean is equal to 68\%, 95\%, and 99.7\% respectively. \\
+For data obeying an approximately normal distribution, the fraction of all data points that lie within $ 1,\ 2 $ or $ 3 $ standard deviations from the mean is equal to 68\%, 95\%, and 99.7\% respectively.
 
-Data sampled from a population that consists of subgroups that are not necessarily normally distributed ends up also not being normally distributed. Such data may be \textit{bimodal}, or \textit{multi-modal}, corresponding to two or more normal distributions being superposed to form a summed distribution. \\
+Data sampled from a population that consists of subgroups that are not necessarily normally distributed ends up also not being normally distributed. Such data may be \textit{bimodal}, or \textit{multi-modal}, corresponding to two or more normal distributions being superposed to form a summed distribution.
 
-\textbf{Correlation coefficient} : Two or higher dimensional datasets can be represented by an ordered set of data points $ \{x_i, y_i, ...\} $. The relationship between the individual dimensions is understood through the correlation $ r $. Commonly visualized using scatter plots. \\
+\textbf{Correlation coefficient} : Two or higher dimensional datasets can be represented by an ordered set of data points $ \{x_i, y_i, ...\} $. The relationship between the individual dimensions is understood through the correlation $ r $. Commonly visualized using scatter plots.
 
 Let a two dimensional data set have $ n $ data points $ \{x_i, y_i\} $. The mean and standard deviation for each dimension are $ \bar{x},\ \bar{y},\ s_x,\ s_y $ respectively. The sample correlation coefficient is defined as 
 
 \begin{align}
 	r \ =\ \frac{\sum\limits_{i = 1}^{n} (x_i - \bar{x}) (y_i - \bar{y})}{(n - 1) s_x s_y}
-\end{align} \\
+\end{align}
 
 Some useful properties of $ r $ : 
 \begin{align}
 	-1 \leq r \leq 1
-\end{align}\\
+\end{align}
  
-The extreme values are reached when the dimensions $ x $ and $ y $ are related by a straight-line equation $ y = a + bx $ depending on the sign of $ b $. \\
+The extreme values are reached when the dimensions $ x $ and $ y $ are related by a straight-line equation $ y = a + bx $ depending on the sign of $ b $.
 
-The value of $ r $ does not depend on the scale of the dimensions $ x $ or $ y $. This means that transforming $ \{x_i , y_i\} $ to $ \{a + b x_i , c + d y_i\} $ with $ bd > 0 $ will not change $ r $. This is equivalent to displacing or stretching the scatter plot along either of the axes. \\
+The value of $ r $ does not depend on the scale of the dimensions $ x $ or $ y $. This means that transforming $ \{x_i , y_i\} $ to $ \{a + b x_i , c + d y_i\} $ with $ bd > 0 $ will not change $ r $. This is equivalent to displacing or stretching the scatter plot along either of the axes.
 
-The magnitude and sign or $ r $ respectively show the strength and the direction (positive or negative) of the correlation between the dimensions $ x $ and $ y $. Correlation does not imply causation. An underlying hidden variable is usually the cause for an observed correlation in all but the simplest of systems. \\
+The magnitude and sign or $ r $ respectively show the strength and the direction (positive or negative) of the correlation between the dimensions $ x $ and $ y $. Correlation does not imply causation. An underlying hidden variable is usually the cause for an observed correlation in all but the simplest of systems.
 
-\textbf{Lorenz Curve} : This curve is meant to compare the contribution of the sum of the bottom $ j $ terms of a series to the sum of all terms of the series. Consider an ascending-sorted series of n entries $ \{x_i\} $. Using $ L(0) = 0 $ as a convention,  \\
+\textbf{Lorenz Curve} : This curve is meant to compare the contribution of the sum of the bottom $ j $ terms of a series to the sum of all terms of the series. Consider an ascending-sorted series of n entries $ \{x_i\} $. Using $ L(0) = 0 $ as a convention,  
 
 \begin{align}
 	L(j/n) = \frac{\text{sum of first $ j $ terms}}{\text{sum of all terms}}
-\end{align} \\
+\end{align}
 
 \textbf{Gini Index} : Using the effect on the sample mean upon adding an additional large entry to a dataset, 
 

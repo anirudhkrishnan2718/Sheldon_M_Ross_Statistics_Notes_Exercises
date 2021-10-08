@@ -1,5 +1,6 @@
 \documentclass[letterpaper,12pt]{report}
 \usepackage[utf8]{inputenc}
+\usepackage{lmodern}
 \usepackage{graphicx}
 \usepackage{fullpage}
 \usepackage[autostyle, english = american]{csquotes}
@@ -8,6 +9,7 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[hidelinks]{hyperref}
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{booktabs}
 \usepackage{caption}
@@ -34,14 +36,13 @@
 \newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
 \pagenumbering{gobble}
 
-\includeonly{./TeX_files/chapter11.tex, ./TeX_files/chapter10.tex}
-
-
+\includeonly{./TeX_files/chapter14.tex}
+\setlength{\parskip}{12pt}
 
 \begin{document}
 
 \author{Anirudh Krishnan}
-\title{Introduction to Probability and Statistics \\ for Engineers and Scientists \\ \textit{\textcolor{blue}{Sheldon M Ross}} \\ Notes and Exercises}
+\title{Introduction to Probability and Statistics \\ for Engineers and Scientists \\ \textit{\textcolor{blue}{Sheldon M Ross}} \\ Notes}
 \date{\today}
 
 \maketitle
@@ -58,6 +59,9 @@
 \include{./TeX_files/chapter09}
 \include{./TeX_files/chapter10}
 \include{./TeX_files/chapter11}
+\include{./TeX_files/chapter12}
+\include{./TeX_files/chapter13}
+\include{./TeX_files/chapter14}
 % bibliography, glossary and index would go here.
 
 \end{document}

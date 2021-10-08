@@ -2,30 +2,30 @@
 
 
 \begin{flushright}
-	\textit{``Ch4 quote here"} \\
+	\textit{``Ch4 quote here"} 
 \end{flushright}
 
-\textbf{Random Variables} : Some result of an experiment that the experimenter is interested in observing. This may not necessarily be the full details of the experiment. Ex : number of heads observed when tossing 10 coins, without worrying about the outcomes of the individual coin-tosses themselves. \\
+\textbf{Random Variables} : Some result of an experiment that the experimenter is interested in observing. This may not necessarily be the full details of the experiment. Ex : number of heads observed when tossing 10 coins, without worrying about the outcomes of the individual coin-tosses themselves.
 
-Conventionally denoted by uppercase letters. A random variable can either be discrete or continuous. It is constrained by the same normalization condition as any other set of events making up a sample space. For the simple case of an integer valued random variable which ranges from $ \left[1, n\right] $\\
+Conventionally denoted by uppercase letters. A random variable can either be discrete or continuous. It is constrained by the same normalization condition as any other set of events making up a sample space. For the simple case of an integer valued random variable which ranges from $ \left[1, n\right] $
 
 \begin{align}
 	P(S) = P \left( \bigcup_{i = 1}^{n}\left\{X = i\right\} \right) = \sum_{1}^{n} P \left\{X = i\right\} = 1
-\end{align} \\
+\end{align}
 
-\textit{Indicator random variable} : acts a Boolean flag indicating whether or not an event happens. Usually takes on two discrete values, 0 or 1. \\
+\textit{Indicator random variable} : acts a Boolean flag indicating whether or not an event happens. Usually takes on two discrete values, 0 or 1.
 
-\textbf{Cumulative distribution function} : For a continuous random variable, it is possible to define a function that measures the probability that this random variable $ (X) $ is lesser than or equal to some real value $ (x) $.\\
+\textbf{Cumulative distribution function} : For a continuous random variable, it is possible to define a function that measures the probability that this random variable $ (X) $ is lesser than or equal to some real value $ (x) $.
 
 \begin{align}
 	F(x) = P \left\{ X \leq x \right\}
-\end{align} \\
+\end{align}
 
 Shorthand notation $ F ~ X $ is used to denote the fact that $ F $ is the distribution function for the random variable $ X $. Using the monotonically increasing nature of $ F $, for some real numbers $ b \geq a $
 
 \begin{align}
 	P \left\{ a < X \leq b \right\} = F(b) - F(a)
-\end{align} \\
+\end{align}
 
 \textbf{Probability Mass function} : For a discrete random variable, this attempts to assign a probability to each of the distinct possible outcomes. There is an implicit assumption that the discrete values are mutually exclusive outcomes. Let the random variable $ X $ take on one of the possible values $ \left\{x_i\right\} $
 
@@ -35,12 +35,12 @@ Shorthand notation $ F ~ X $ is used to denote the fact that $ F $ is the distri
 	p(x) &\geq 0 \quad \forall \quad x \in \left\{x_i\right\} \\
 	%
 	p(x) &= 0 \quad \text{otherwise}
-\end{align} \\
+\end{align}
 
 The equivalent normalization condition for the probability mass distribution is : 
 \begin{align}
 	\sum\limits_{i = 1} p(x_i) = 1
-\end{align} \\
+\end{align}
 
 \textit{Discrete cumulative distribution function} : The equivalent of the above CDF for the special case of discrete random variables is : 
 
@@ -48,44 +48,44 @@ The equivalent normalization condition for the probability mass distribution is 
 	F(a) = \sum\limits_{x \leq a} p(x_i)
 \end{align}
 
-Notice that a discrete probability mass function looks like a bar plot while the corresponding CDF looks like a step function with the vertical step size being $ p(x_i) $ at every $ x = x_i $. \\
+Notice that a discrete probability mass function looks like a bar plot while the corresponding CDF looks like a step function with the vertical step size being $ p(x_i) $ at every $ x = x_i $.
 
 \textbf{Probability density function} : The analog of the PMF for a continuous random variable, using the fact that integration is the generalized version of summation. Consider a continuous random variable $ X $, and a set of real numbers $ B $.
 
 \begin{align}
 	P \left\{X \in B \right\} = \int\limits_{x \in B} f(x) \ \mathrm{d}x
-\end{align}\\
+\end{align}
 
 The normalization condition on a PDF is that the area under the PDF curve over the entire real line sums to $ 1 $. : 
 
 \begin{align}
 	P \left\{X \in \left(-\infty , \infty \right) \right\} = \int\limits_{-\infty}^{\infty} f(x) \ \mathrm{d}x = 1
-\end{align} \\
+\end{align}
 
-Even though the probability that a continuous random variable will assume a particular discrete value is zero, it does have a finite probability of assuming a value in a finite-sized continuous set. \\
+Even though the probability that a continuous random variable will assume a particular discrete value is zero, it does have a finite probability of assuming a value in a finite-sized continuous set.
 
 \begin{align}
 	P \left\{X = a \right\} &= 0 \\
 	%
 	P \left\{ a \leq X \leq b \right\} &= \int\limits_{a}^{b} f(x) \ \mathrm{d}x
-\end{align}\\
+\end{align}
 
-The above relation can be used to infer that the probability of a random variable $ X $ having a value in an interval of size $ \epsilon $ around $ a $ is given by $ \epsilon f(a) $, assuming $ \epsilon $ is sufficiently small.  \\
+The above relation can be used to infer that the probability of a random variable $ X $ having a value in an interval of size $ \epsilon $ around $ a $ is given by $ \epsilon f(a) $, assuming $ \epsilon $ is sufficiently small. 
 
-For a random variable $ X $, a PDF (denoted $ f $) leads to a CDF (denoted $ F $) using the above integration. \\
+For a random variable $ X $, a PDF (denoted $ f $) leads to a CDF (denoted $ F $) using the above integration.
 \begin{align}
 	F(a) &= P \left\{ X \in \left( -\infty, a \right]  \right\} = \int\limits_{-\infty}^{a} f(x) \ \mathrm{d}x \\
 	%
 	f(a) &= \frac{\mathrm{d}}{\mathrm{d}a} F(a)
-\end{align} \\
+\end{align}
 
-\textbf{Jointly distributed RVs} : Extending the above definitions to more than one dimension in order to observe the relationship between two or more random variables, gives the joint CDF\\
+\textbf{Jointly distributed RVs} : Extending the above definitions to more than one dimension in order to observe the relationship between two or more random variables, gives the joint CDF
 
 \begin{align}
 	F(x, y) = P \left\{ X \leq a, Y \leq b \right\}
-\end{align} \\
+\end{align}
 
-Notice that dimensional reduction of this joint CDF, in order to isolate the CDF of just one of the random variables is achieved by integrating over all possible values of the other variables. \\
+Notice that dimensional reduction of this joint CDF, in order to isolate the CDF of just one of the random variables is achieved by integrating over all possible values of the other variables.
 
 \begin{align}
 	F_X (x) &= P \left\{ X \leq x \right\} \nonumber \\
@@ -93,15 +93,15 @@ Notice that dimensional reduction of this joint CDF, in order to isolate the CDF
 	&= P \left\{ X \leq x, Y < \infty \right\} \nonumber \\
 	%
 	&= F(x, \infty)
-\end{align} \\
+\end{align}
 
-The joint PMF for two discrete variables $ X, Y $ each taking on values in the sets $ \left\{ x_i \right\}, \left\{ y_j \right\} $ is given by \\
+The joint PMF for two discrete variables $ X, Y $ each taking on values in the sets $ \left\{ x_i \right\}, \left\{ y_j \right\} $ is given by
 
 \begin{align}
 	p(x_i, y_j) = P \left\{ X = x_i, Y = y_j \right\}
-\end{align}\\
+\end{align}
 
-Isolating the PMF of one of the variables simply involves summing over the probabilities of all possible values of the other variables. This is called the \textit{marginal PMF} of one of the many variables. A joint PMF can always be used to find the individual PMFs, but not vice versa.\\
+Isolating the PMF of one of the variables simply involves summing over the probabilities of all possible values of the other variables. This is called the \textit{marginal PMF} of one of the many variables. A joint PMF can always be used to find the individual PMFs, but not vice versa.
 
 \begin{align}
 	P \left\{ X = x_i \right\} &= P \left( \bigcup_{j} \left\{ X = x_i, Y = y_j \right\} \right)  \nonumber\\
@@ -109,9 +109,9 @@ Isolating the PMF of one of the variables simply involves summing over the proba
 	&= \sum\limits_{j} P \left\{ X = x_i, Y = y_j \right\} \nonumber\\
 	%
 	&= \sum\limits_{j} P \left\{x_i,y_j \right\}
-\end{align} \\
+\end{align}
 
-\textit{Jointly continuous RVs} : Extending the definitions of a CDF and PDF to more than one dimension enables the definition of a joint probability. \\
+\textit{Jointly continuous RVs} : Extending the definitions of a CDF and PDF to more than one dimension enables the definition of a joint probability.
 
 Consider two continuous RVs $ X, Y $ whose domains are the real sets $ A, B $ respectively. The two-dimensional real set $ C = \left\{ (x,y) \ :\ x \in A, y \in B  \right\} $ consists of ordered pairs of real numbers.
 
@@ -119,9 +119,9 @@ Consider two continuous RVs $ X, Y $ whose domains are the real sets $ A, B $ re
 	P \left\{ (X, Y) \in C \right\} &= \iint\limits_{(x, y) \in C} f(x,y)\ \mathrm{d}x \  \mathrm{d}y \\
 	%
 	P \left\{ X \in A, Y \in B \right\} &= \int\limits_{B} \int\limits_{A} f(x,y)\ \mathrm{d}x \  \mathrm{d}y
-\end{align} \\
+\end{align}
 
-The CDF of two jointly distributed continuous RVs using the prior one-dimensional case is\\
+The CDF of two jointly distributed continuous RVs using the prior one-dimensional case is
 
 \begin{align}
 	F(a, b) &= P \left\{ X \in \left( -\infty, a \right],  Y \in \left( -\infty, b \right] \right\} \nonumber \\
@@ -129,11 +129,11 @@ The CDF of two jointly distributed continuous RVs using the prior one-dimensiona
 	&= \int\limits_{-\infty}^{a} \int\limits_{-\infty}^{b} f(x,y)\ \mathrm{d}x \  \mathrm{d}y \\
 	%
 	f(a, b) &= \frac{\partial^2}{\partial a\  \partial b} F(a, b)
-\end{align} \\
+\end{align}
 
-Integrating over an infinitesimal 2-D space, $ ( f(a, b)\ \mathrm{d}a \ \mathrm{d}b )$ is a representation of how likely the random vector $ (X, Y) $ is to be located in a $ \mathrm{d}a \ \mathrm{d}b $ vicinity of the point $ (a, b) $. \\
+Integrating over an infinitesimal 2-D space, $ ( f(a, b)\ \mathrm{d}a \ \mathrm{d}b )$ is a representation of how likely the random vector $ (X, Y) $ is to be located in a $ \mathrm{d}a \ \mathrm{d}b $ vicinity of the point $ (a, b) $.
 
-The marginal PDF of one of the two jointly distributed continuous variables is found by integrating over all possible values of the other variable.\\
+The marginal PDF of one of the two jointly distributed continuous variables is found by integrating over all possible values of the other variable.
 
 \begin{align}
 	P \left\{ X \in A \right\} &= P \left\{ X \in A, Y \in \left( -\infty, \infty \right) \right\} \nonumber \\
@@ -141,7 +141,7 @@ The marginal PDF of one of the two jointly distributed continuous variables is f
 	&= \int\limits_{A} \int\limits_{-\infty}^{\infty} f(x,y)\ \mathrm{d}y \  \mathrm{d}x \nonumber \\
 	%
 	&= \int\limits_{A} f_X (x)\ \mathrm{d}x
-\end{align} \\
+\end{align}
 
 The above simplification uses the marginal PDF 
 
@@ -149,7 +149,7 @@ The above simplification uses the marginal PDF
 	f_X (x) = \int\limits_{-\infty}^{\infty} f(x,y)\ \mathrm{d}y \\
 	%
 	f_Y (y) = \int\limits_{-\infty}^{\infty} f(x,y)\ \mathrm{d}x
-\end{align} \\
+\end{align}
 
 \textbf{Independent Random Variables} : If for any two sets of real numbers $ A, B$, and events $ E_A, F_B $ defined by $ \left\{ X \in A \right\},  \left\{ Y \in B \right\}$,
 
@@ -157,9 +157,9 @@ The above simplification uses the marginal PDF
 	P \left\{ X \in A, Y \in B \right\} &= P \left\{ X \in A \right\} \ P \left\{ Y \in B \right\} \\
 	%
 	P(E_A F_B) &= P(E_A)\ P(F_B) \nonumber
-\end{align} \\
+\end{align}
 
-then, the RVs $ X, Y$ are independent.\\
+then, the RVs $ X, Y$ are independent.
 
 A similar condition holds for the joint CDF $ F(a, b) $ of two independent RVs $ X, Y $
 
@@ -167,21 +167,21 @@ A similar condition holds for the joint CDF $ F(a, b) $ of two independent RVs $
 	P \left\{ X \leq a, Y \leq b \right\} &= P \left\{ X \leq a \right\} \ P \left\{ Y \leq b \right\}  \nonumber \\
 	%
 	F(a, b) &= F_X(a)\ F_Y(b) \qquad \forall \qquad a, b
-\end{align} \\
+\end{align}
 
 The condition for independence states that knowing the value of one RV does not change the distribution of another.The joint PMF of two independent discrete RVs also follows a similar constraint.
 
 \begin{align}
 	p(x, y) &= p_X(x)\ p_Y(y) \qquad \forall \qquad x, y
-\end{align} \\
+\end{align}
 
 For continuous independent RVs, the correspoding constraint on their joint PDF is
 
 \begin{align}
 	f(x, y) &= f_X(x)\ f_Y(y) \qquad \forall \qquad x, y
-\end{align} \\
+\end{align}
 
-For the generalized case of $ n $ independent RVs, the entire set of RVs is independent only if all possible subsets of these RVs are also independent. \\
+For the generalized case of $ n $ independent RVs, the entire set of RVs is independent only if all possible subsets of these RVs are also independent.
 
 \textbf{Conditional distributions} : Using the definition of conditional probability of two events, the conditional PMF for two RVs $ X, Y $ is defined as 
 
@@ -191,33 +191,33 @@ For the generalized case of $ n $ independent RVs, the entire set of RVs is inde
 	&= \frac{P \left\{ X = x, Y = y \right\}}{P \left\{ Y = y \right\}} \nonumber\\
 	%
 	&= \frac{p(x, y)}{p_Y(y)}
-\end{align} \\
+\end{align}
 
-The conditional PDF of two continuous RVs $ X, Y $ indicates the probability that $ X $ is in the vicinity of $ x $, given that $ Y $ is in the vicinity of $ y $. \\
+The conditional PDF of two continuous RVs $ X, Y $ indicates the probability that $ X $ is in the vicinity of $ x $, given that $ Y $ is in the vicinity of $ y $.
 
 \begin{align}
 	f_{X|Y}(x\ |\ y) &= \frac{f(x, y)}{f_Y(y)} \\
 	%
 	P(X \in A\ |\ Y = y) &= \int\limits_{A} f_{X|Y}(x\ |\ y) \ \mathrm{d} x
-\end{align}\\
+\end{align}
 
-\textbf{Expected value} : The expectation of a random variable $ X $, is simply the average value of that random variable weighted by the probabilities of each possible value. $ \mathbb{E}[X] $ need not be a value that $ X $ can actually take. It has the same units of measurement as $ X $ itself.\\
+\textbf{Expected value} : The expectation of a random variable $ X $, is simply the average value of that random variable weighted by the probabilities of each possible value. $ \mathbb{E}[X] $ need not be a value that $ X $ can actually take. It has the same units of measurement as $ X $ itself.
 
 \begin{align}
 	\mathbb{E}[X] = \sum\limits_{i} x_i\ P \left\{ X = x_i \right\} 
-\end{align}\\
+\end{align}
 
 If $ I $ is an indicator RV for the event $ A $, then 
 
 \begin{align}
 	\mathbb{E}[I] = 1 \times P(A) + 0 \times P(A^\complement) = P(A)
-\end{align}\\
+\end{align}
 
-\textit{Entropy} : A system of measuring the expected amount of information conveyed by a RV which can take on of $ n $ different values. This is measured in bits. \\
+\textit{Entropy} : A system of measuring the expected amount of information conveyed by a RV which can take on of $ n $ different values. This is measured in bits.
 
 \begin{align}
 	H(X) = -\sum\limits_{i = 1}^{n} p_i \ \log_{2}(p_i)
-\end{align} \\
+\end{align}
 
 Here, the information conveyed by each possible value of the RV is summed using the probabilities as weights.
 
@@ -225,17 +225,17 @@ Here, the information conveyed by each possible value of the RV is summed using 
 	I\left\{X = x_i\right\} &= -\log_{2}(p_i) \\
 	%
 	H(X) &= \sum\limits_{i = 1}^{n} p_i \ I\left\{X = x_i\right\}
-\end{align}\\
+\end{align}
 
 The expectation value of a continuous RV (analogous to the definition of the center of mass of a continuous object) is
 
 \begin{align}
 	\mathbb{E}[X] = \int_{-\infty}^{\infty} x\ f(x)\ \mathrm{d}x
-\end{align} \\
+\end{align}
 
-\textbf{Properties of expected value} : With a known PDF for a random variable $ X $, there are two approaches to finding the expected value of some function of $ X $. \\
+\textbf{Properties of expected value} : With a known PDF for a random variable $ X $, there are two approaches to finding the expected value of some function of $ X $.
 
-$ \mathbb{E}[G(X)] = \mathbb{E}[Y] $ uses the substitution $ Y = G(X) $ to find the values taken by this new RV $ Y $ and then apply the weighted sum method. \\
+$ \mathbb{E}[G(X)] = \mathbb{E}[Y] $ uses the substitution $ Y = G(X) $ to find the values taken by this new RV $ Y $ and then apply the weighted sum method.
 
 For the less trivial case of a continuous RV $ X $, an existing PDF $ f_X (x) $ can be used to find the CDF $ F_Y(a) $ and then differentiated to produce the new PDF $ f_Y(a) $. The integral formula for $ \mathbb{E}[Y] $ is then easily applied. A more straightforward method is as follows, 
 
@@ -245,15 +245,15 @@ For the less trivial case of a continuous RV $ X $, an existing PDF $ f_X (x) $ 
 	\mathbb{E}[g(X)] &= \int\limits_{x} g(x)\ f(x)\ \mathrm{d}x  \qquad \text{for continuous RV} \\
 	%
 	\mathbb{E}[aX + b] &= a \mathbb{E}[X] + b \nonumber
-\end{align}\\
+\end{align}
 
-\textbf{Moments} : The expectation value generalized to higher powers is defined as the moment. The special case of $ n = 1 $ is merely the expected value. \\
+\textbf{Moments} : The expectation value generalized to higher powers is defined as the moment. The special case of $ n = 1 $ is merely the expected value.
 
 \begin{align}
 	\mathbb{E}[X^n] &= \sum_{x} x^n\ p(x) \qquad \text{for discrete RV} \\
 	%
 	\mathbb{E}[X^n] &= \int_{-\infty}^{\infty} x^n\ f(x)\ \mathrm{d}x \qquad \text{for continuous RV}
-\end{align} \\
+\end{align}
 
 Generalizing to more than two RVs $ X, Y $ along with a function $ g(x,y) $ of two variables,
 
@@ -263,29 +263,29 @@ Generalizing to more than two RVs $ X, Y $ along with a function $ g(x,y) $ of t
 	\mathbb{E}[g(X, Y)] &= \int\limits_{-\infty}^{\infty} \int\limits_{-\infty}^{\infty} g(x, y)\ f(x, y)\ \mathrm{d}x \ \mathrm{d}y  \qquad \text{for continuous RV} \\
 	%
 	\mathbb{E}[X + Y] &= \mathbb{E}[X] + \mathbb{E}[Y] \nonumber
-\end{align} \\
+\end{align}
 
-\textit{Mean value as an RV predictor} : Let the RV $ X $ with mean $ \mu $ be predicted to have a value $ c $ by an experimenter. From the point of view of minimizing the average squared error, the best prediction of the RV outcome is its mean.\\
+\textit{Mean value as an RV predictor} : Let the RV $ X $ with mean $ \mu $ be predicted to have a value $ c $ by an experimenter. From the point of view of minimizing the average squared error, the best prediction of the RV outcome is its mean.
 
 \begin{align}
 	\mathbb{E}[(X - c)^2] &= \mathbb{E}[(X - \mu)^2] + (\mu - c)^2 \nonumber \\
 	%
 	&\geq \mathbb{E}[(X - \mu)^2] 
-\end{align} \\
+\end{align}
 
-\textbf{Variance} : The conventional measure of the spread in the values of a random variable, denoted by $ \mathrm{Var}(X) $. This is used alongside the expected value $ \mathbb{E}[X] $ to summarize the RV. \\
+\textbf{Variance} : The conventional measure of the spread in the values of a random variable, denoted by $ \mathrm{Var}(X) $. This is used alongside the expected value $ \mathbb{E}[X] $ to summarize the RV.
 
 \begin{align}
 	\mathrm{Var}(X) &= \mathbb{E}[(X - \mu)^2] \\
 	%
 	\mathrm{Var}(X) &= \mathbb{E}[X^2] - (\mathbb{E}[X])^2
-\end{align} \\
+\end{align}
 
 For an indicator RV $ I $, which is a binary $ \left\{0, 1\right\} $ switch indicating the occurrence of event $ A $, the variance is 
 
 \begin{align}
 	\mathrm{Var}(I) &= P(A) [1 - P(A)]
-\end{align} \\
+\end{align}
 
 The variance transforms using the following relation upon change of RV, 
 \begin{align}
@@ -294,20 +294,20 @@ The variance transforms using the following relation upon change of RV,
 	\mathrm{Var}(b) &= 0 \\
 	%
 	\mathrm{Var}(X + b) &= \mathrm{Var}(X)
-\end{align} \\
+\end{align}
 
 \textit{Standard Deviation} : defined as the square root of the variance, measured in the same units as the underlying RV. 
 \begin{align}
 	s_X = \sqrt{\mathrm{Var}(X)}
-\end{align} \\
+\end{align}
 
-\textbf{Covariance} : $ \mathrm{Var}(X + Y) \neq \mathrm{Var}(X) + \mathrm{Var}(Y) $ except for the special case of $ X, Y $ being independent RVs. Consider the two RVs $ X, Y $ with means $ \mu_x , \mu_y$ respectively. \\
+\textbf{Covariance} : $ \mathrm{Var}(X + Y) \neq \mathrm{Var}(X) + \mathrm{Var}(Y) $ except for the special case of $ X, Y $ being independent RVs. Consider the two RVs $ X, Y $ with means $ \mu_x , \mu_y$ respectively.
 
 \begin{align}
 	\mathrm{Cov}(X, Y) &= \mathbb{E}[(X - \mu_x)(Y - \mu_y)] \\
 	%
 	\mathrm{Cov}(X, Y) &= \mathbb{E}[XY] - \mathbb{E}[X] \ \mathbb{E}[Y]
-\end{align} \\
+\end{align}
 
 Covariance has the following useful properties, 
 
@@ -319,18 +319,18 @@ Covariance has the following useful properties,
 	\mathrm{Cov}(aX, Y) &= a \ \mathrm{Cov}(X, Y) \\
 	%
 	\mathrm{Cov}(X_1 + X_2, Y) &= \mathrm{Cov}(X_1, Y) + \mathrm{Cov}(X_2, Y)
-\end{align} \\
+\end{align}
 
 Generalizing the above relation to two sets of RVs $ \left\{X_i\right\}, \left\{Y_j\right\} $ gives the following relation, 
 \begin{align}
 	\mathrm{Cov} \left( \sum\limits_{i}X_i , \sum\limits_{j}Y_j \right) = \sum\limits_{i} \sum\limits_{j} \mathrm{Cov} (X_i, Y_j)
-\end{align} \\
+\end{align}
 
-Replacing the $ \left\{Y_j\right\} $ set of RVs with another copy of the first set $  \left\{X_i\right\} $ in the above relation, gives a formula for the variance of the sum of RVs. \\
+Replacing the $ \left\{Y_j\right\} $ set of RVs with another copy of the first set $  \left\{X_i\right\} $ in the above relation, gives a formula for the variance of the sum of RVs.
 
 \begin{align}
 	\mathrm{Var} \left( \sum\limits_{i}X_i \right) = \sum\limits_{i} \mathrm{Var}(X_i) + \sum\limits_{i} \sum\limits_{j \neq i} \mathrm{Cov} (X_i, X_j)
-\end{align} \\
+\end{align}
 
 For the special case of independent RVs $ X, Y $, and thus for a set of independent RVs $ \left\{X_i\right\} $
 
@@ -338,21 +338,21 @@ For the special case of independent RVs $ X, Y $, and thus for a set of independ
 	\mathrm{Cov}(X, Y) &= 0 \\
 	%
 	\mathrm{Var} \left( \sum\limits_{i}X_i \right) &= \sum\limits_{i}\mathrm{Var}(X_i) 
-\end{align} \\
+\end{align}
 
-\textbf{Correlation} : Normalizing the covariance of two RVs by the product of their standard deviations results in a quantity $ \mathrm{Corr}(X, Y) $ which lies in the range $ \left[-1, 1\right] $. A positive correlation shows that an increase in $ X $ tends to be accompanied by an increase in $ Y $ and vice versa. \\
+\textbf{Correlation} : Normalizing the covariance of two RVs by the product of their standard deviations results in a quantity $ \mathrm{Corr}(X, Y) $ which lies in the range $ \left[-1, 1\right] $. A positive correlation shows that an increase in $ X $ tends to be accompanied by an increase in $ Y $ and vice versa.
 
 \begin{align}
 	\mathrm{Corr}(X, Y) = \frac{\mathrm{Cov}(X, Y)}{s_x s_y}
-\end{align} \\
+\end{align}
 
 Consider two indicator RVs $ X, Y $ for two underlying events $ A, B $. Now, the correlation measures the increase in probability of occurrence of $ A $ given the occurrence of $ B $. 
 
 \begin{align}
 	\mathrm{Corr}(X, Y) &> 0  \qquad \Leftrightarrow \qquad P \left\{ Y = 1\ |\ X = 1 \right\} > P \left\{ Y = 1 \right\}
-\end{align} \\
+\end{align}
 
-\textbf{Moment generating functions} : A function which gives all of the moments of a RV $ X $, upon repeated differentiation. This is defined for all values of the parameter $ t $.\\
+\textbf{Moment generating functions} : A function which gives all of the moments of a RV $ X $, upon repeated differentiation. This is defined for all values of the parameter $ t $.
 
 \begin{align}
 	\phi(t) &= \mathbb{E}[e^{tX}] \\
@@ -360,7 +360,7 @@ Consider two indicator RVs $ X, Y $ for two underlying events $ A, B $. Now, the
 	\phi(t) &= \sum_{x} e^{tx} \ p(x) \qquad \text{for discrete RV} \\
 	%
 	\phi(t) &= \int_{-\infty}^{\infty} e^{tx}\ f(x)\ \mathrm{d}x \qquad \text{for continuous RV} 
-\end{align} \\
+\end{align}
 
 Some useful properties of the function $ \phi(t) $ when evaluated at $ t = 0 $,
 
@@ -370,38 +370,38 @@ Some useful properties of the function $ \phi(t) $ when evaluated at $ t = 0 $,
 	\phi'(0) &= \mathbb{E}[X] \qquad \text{is the mean} \\
 	%
 	\phi''(0) - \left(\phi'(0)\right)^2 &= \mathrm{Var}(X) \qquad \text{is the variance}
-\end{align} \\
+\end{align}
 
 The moment generating function corresponds one-to-one with the distribution function of a given RV. Also, for the special case of two independent RVs $ X, Y $
 
 \begin{align}
 	\phi_{X + Y}(t) = 	\phi_{X}(t)\ \phi_{X}(t)
-\end{align} \\
+\end{align}
 
-\textbf{Markov's inequality} : For a random variable $ X $, that only takes non-negative values, and some $ a > 0 $,\\
+\textbf{Markov's inequality} : For a random variable $ X $, that only takes non-negative values, and some $ a > 0 $,
 \begin{align}
 	P\left\{ X \geq a \right\} \leq \frac{\mathbb{E}[X]}{a}
-\end{align} \\
+\end{align}
 
-\textbf{Chebyshev's inequality} : Using $ a = k^2 $ and the non-negative RV $\left| X - \mu \right|$,\\
+\textbf{Chebyshev's inequality} : Using $ a = k^2 $ and the non-negative RV $\left| X - \mu \right|$,
 \begin{align}
 	P\left\{( X - \mu)^2 \geq k^2 \right\} &\leq \frac{\mathbb{E}[(X - \mu)^2]}{k^2} \nonumber \\
 	%
 	P\left\{\left| X - \mu \right| \geq k\right\} &\leq \frac{\sigma^2}{k^2} \nonumber \\
 	%
 	P\left\{\left| X - \mu \right| \geq n\sigma \right\} &\leq \frac{1}{n^2}
-\end{align} \\
+\end{align}
 
-The above inequalities help derive bounds on probabilities when only the mean and/or variance of the distribution is known. \\
+The above inequalities help derive bounds on probabilities when only the mean and/or variance of the distribution is known.
 
-\textbf{Weak Law of large numbers} : Consider a set of independent, identically distributed random variables $ \left\{X_i\right\} $, each with the same mean. $ \mathbb{E}[X_i] = \mu $, and $ \epsilon > 0 $.\\
+\textbf{Weak Law of large numbers} : Consider a set of independent, identically distributed random variables $ \left\{X_i\right\} $, each with the same mean. $ \mathbb{E}[X_i] = \mu $, and $ \epsilon > 0 $.
 
 \begin{align}
 	P \left\{ \left| \frac{ X_1 + X_2 + \dots + X_n }{n} - \mu \right|\  >\ \epsilon \right\} \to 0 \qquad
 	\text{as } x \to \infty
-\end{align} \\
+\end{align}
 
-The mean of the first $ n $ experimental outcomes measuring the RV $ X $ is a distance $ \epsilon $ away from the true expected value $ \mu $. This distance approaches $ 0 $ as $ n $ approaches $ \infty $.\\
+The mean of the first $ n $ experimental outcomes measuring the RV $ X $ is a distance $ \epsilon $ away from the true expected value $ \mu $. This distance approaches $ 0 $ as $ n $ approaches $ \infty $.
 
 A restatement of the above uses the experiment of sampling a fixed distribution $ n $ times and measuring the distance between the sample mean and the true mean. As the number of samples increases, the sample mean approaches the true mean asymptotically.
 \newpage
