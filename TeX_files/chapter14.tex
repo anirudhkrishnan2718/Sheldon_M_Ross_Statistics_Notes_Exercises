@@ -28,7 +28,7 @@ $ \lambda(t) $ represents the conditional probability that an item of age $ t $ 
 For an underlying exponential distribution, which is memoryless, $ \lambda(t) = \lambda $ constant equal to its rate. The rate function is uniquely able to determine an the underlying CDF for a positive continuous RV.
 
 \begin{align}
-	\lambda(s) &= \frac{\mathrm{d}\ F(s)}{\mathrm{d}s}\ \frac{1}{1 - F(s)} = \frac{\mathrm{d}}{\mathrm{d}s}\ -\log \left[ 1 - F(s) \right] [1ex] \\[1ex]
+	\lambda(s) &= \frac{\mathrm{d}\ F(s)}{\mathrm{d}s}\ \frac{1}{1 - F(s)} = \frac{\mathrm{d}}{\mathrm{d}s}\ -\log \left[ 1 - F(s) \right] \\[1ex]
 	%
 	1 - F(t) &= \exp\left[ -\int\limits_{0}^{t}\ \lambda(s)\ \mathrm{d}s \right]
 \end{align}
@@ -47,4 +47,170 @@ Where $ b > a $ are some ages and $ X, Y $ are two categories being compared.
 
 \textit{Stopping at the $ r^{\text{th}} $ failure} : Consider a population of $ n $ items which are all IID using an exponential distribution with unknown mean $ \theta $. A problem of great interest is to attempt to estimate $ \theta $ using observations about the time taken for $ r $ out of $ n $ simultaneously initialized items to fail.
 
-The observed data takes the form of an ascending ordered set of failure times $ \{ x_1,\ \dots,\ x_r \} $ along with a set of indices for the failing items $\{ i_1\ \dots \ i_r \}$. If the lifetime of component $i_j$ is denoted by $X_{i_{j}}$, 
+The observed data takes the form of an ascending ordered set of failure times $ \{ x_1,\ \dots,\ x_r \} $ along with a set of indices for the failing items $\{ i_1\ \dots \ i_r \}$. If the lifetime of component $i_j$ is denoted by $X_{i_{j}}$, then the independence of components gives
+
+\begin{align}
+	f_{X_{i_j}} &= \frac{1}{\theta}\ \exp\left[ -x_j / \theta \right] \\
+	%
+	f_{X_{i_1} \dots X_{i_r}} &=  \prod\limits_{j=1}^{r} \frac{1}{\theta}\ \exp\left[ -x_j / \theta \right]
+\end{align}
+
+Additionally, the probability of the rest of the $(n-r)$ components having a lifetime larger than $x_r$ is
+
+\begin{align}
+	P\{ \text{rest of the components lasting longer} \} &= \left[ \exp(-x_r/\theta) \right]^{n-r}
+\end{align}
+
+Defining a likelihood function $\mathcal{L}$ as the product of the two expression above and finding an MLE $\widehat{\theta}$ of the unknown mean $\theta$ and defining $X_{(j)}$ as the time at which the $j^{\text{th}}$ failure occurs,
+
+\begin{align}
+	\widehat{\theta} &= \frac{1}{r}\ \left[\ \sum\limits_{j=1}^{r} X_{(j)} + (n-r)X_{(r)}\ \right] = \frac{\tau}{r}
+\end{align}
+
+$\tau$ is called the \textit{total time-on-test} statistic, because it represents the sum of lifetimes of all $r$ failing items as well as all $n-r$ surviving items.
+
+For an interval estimate of $\theta$, consider a set of RVs $\{Y_j\}$ which measure the additional time on test contributed by the time interval between the $(i-1)^{\text{th}}$ and $i^{\text{th}}$ failures
+
+\begin{align}
+	Y_j &= (n-j+1)\ (X_{(j)} - X_{(j-1)}) \\
+	%
+	\tau &= \sum\limits_{j=1}^{r} Y_j \\
+	%
+	Y_j &\sim \texttt{Expon}(1/\theta) \qquad \text{and} \qquad \tau \sim \texttt{Gamma}(r,\ 1/\theta)
+\end{align}
+
+Using the relation $ \texttt{Gamma}(n/2,\ 1/2) \equiv \chi^2_n$, the confidence interval for $\theta$ can be defined as
+
+\begin{align}
+	\frac{2\tau}{\theta} &\sim \chi^2_{2r} \\
+	%
+	\theta &\in \left( \frac{2\tau}{\chi^2_{\alpha/2,\ 2r}},\ \frac{2\tau}{\chi^2_{1 - \alpha/2,\ 2r}} \right)
+\end{align}
+
+The length of the test $X_{(r)}$ is itself the sum of many exponential functions, with
+
+\begin{align}
+	\mathbb{E}[X_{(r)}] &= \sum\limits_{j=1}^{r} \frac{\theta}{n-j+1} &&\approxeq  \theta \ \log \left[ \frac{n}{n-r+1} \right] \\
+	%
+	\mathrm{Var}(X_{(r)}) &= \sum\limits_{j=1}^{r} \left(\frac{\theta}{n-j+1}\right)^2 &&\approxeq \theta^2\ \left[ \frac{r-1}{n(n-r+1)} \right]
+\end{align}
+
+\textit{Sequential Testing} : If an infinite supply of IID items (each exponentially distributed with mean $\theta$) are put to test one by one instead of simultaneously, with the test ending at some fixed time \(T\).
+
+The observations at the end of such a test is a set of lifetimes \(\{x_j\}\) with \(j \in 1, \dots, r\) for the total number of items \(r\) that failed within time \(T\).
+
+In order for the total number of failed items to be exactly \(r\), the inequality
+
+\begin{align}
+	\sum\limits_{i=1}^r x_i < T < \sum\limits_{i=1}^r x_i + X_{r+1}
+\end{align}
+
+Once again defining a likelihood function \( \mathcal{L} \) and finding the MLE \(\widehat{\theta}\),
+
+\begin{align}
+	\mathcal{L}(r, x_1, \dots, x_r\ |\ \theta) &= \frac{1}{\theta^2}\ \exp[-T/\theta] \\[1ex]
+	%
+	\widehat{\theta} &= \frac{T}{r}
+\end{align}
+
+Once again, the interval estimate for \(\theta\) involves relating \texttt{Gamma} and \(\chi^2\) RVs
+
+\begin{align}
+	\frac{2T}{\theta} &\sim \chi^2_{2r} \\[1ex]
+	%
+	\theta &\in \left( \frac{2 T}{\chi^2_{\alpha/2,\ 2r}},\ \frac{2 T}{\chi^2_{1 - \alpha/2,\ 2r}} \right)
+\end{align}
+
+\textit{Simultaneous testing with fixed time stop}: Consider the earlier simultaneous test case except that the test stops either at a fixed time \(T\) or when all \(n\) items fail, whichever is sooner.
+
+If \(r\) out of the \(n\) items, indexed by the set \(\{i_j\}\) have failed by time \(T\), with respective fail times \(\{x_j\}\), then the likelihood of such a set of observations is
+
+\begin{align}
+	f(\{i_j\}, \{x_j\}) &= \frac{1}{\theta^r}\ \exp \left[ -\ \frac{\sum_{i=1}^r x_i}{\theta} -\ \frac{(n-r)T}{\theta} \right]
+\end{align}
+
+If \(R\) items fail by time \(T\), with the ordered set of failure times \(\{X_{(j)}\}\), the MLE of \(\theta\)is give by
+
+\begin{align}
+	\widehat{\theta} &= \frac{1}{R}\ \left(\ \sum_{i=1}^r X_{(i)} + (n-R)T \ \right) = \frac{\tau}{R}
+\end{align}
+
+Note the resemblance of the above expression to the result from the simultaneous testing method. Since \(\tau\) and \(R\) above are both random and dependent on each other, finding an interval estimate of \(\theta\) is too complex to pursue here.
+
+\textit{Bayesian approach} : For a set of IID items being tested with common unknown mean \((1/\lambda)\), the likelihood function is given by
+
+\begin{align}
+	f(\text{data}\ |\ \lambda) &= K \lambda^r e^{-\lambda t}
+\end{align}
+
+with \(t\) being the summed time on test of items that do and don't fail and \(r\) the number of failing items.
+
+Assuming a prior distribution \(g(\lambda)\) and applying Bayes' theorem,
+
+\begin{align}
+	f(\lambda\ |\ \text{data}) &= \ddfrac{f(\text{data}\ |\ \lambda) \ g(\lambda)}{\int f(\text{data}\ |\ \lambda) \ g(\lambda)\ \mathrm{d} \lambda} \\[1ex]
+	%
+	g(\lambda) \sim \texttt{Gamma}(b, a) &\implies f(\lambda\ |\ \text{data}) \sim \texttt{Gamma}(b + R, a + \tau)
+\end{align}
+
+The Bayes estimator of \(\lambda\) for the special case of a gamma-RV as prior distribution is simply
+
+\begin{align}
+	\mathbb{E}[\lambda\ |\ \text{data}] &= \frac{b+R}{a+\tau}
+\end{align}
+
+\section{Two-sample problem}
+
+Consider two sets of items produced using different processes, whose lifetimes are exponentially distributed with mean \(\theta_1,\ \theta_2\) respectively. Let samples of size \((n, m)\) be used to test lifetimes resulting in the set of observations \( \{X_i\},\ \{Y_j\} \).
+
+Testing the hypothesis \(\theta_1 = \theta_2\), involves the sample mean lifetimes \(\overline{X}, \overline{Y}\), and the relation between exponential and gamma RVs
+
+\begin{align}
+	\overline{X} &\sim \texttt{Gamma}(n, 1/\theta_1) \nonumber \\
+	%
+	\frac{2}{\theta_1}\ \overline{X} &\sim \chi^2_{2n}
+\end{align}
+
+Rearranging the \(\chi^2\)-RVs into an F-RV yields the test statistic for the above hypothesis tests along with a p-value and rejection criterion
+
+\begin{align}
+	H_0 : \theta_1 = \theta_2 \qquad &\text{vs} \qquad H_1 : \theta_1 \neq \theta_2 \\[1ex]
+	%
+	F_{n,m} &\sim \frac{2\overline{X}/\theta_1}{2n}\ \frac{2m}{2\overline{Y}/\theta_2} \\[1ex]
+	%
+	\text{reject $ H_0 $ if } \qquad & P_{H_0}\{F \leq \nu\} \leq \frac{\alpha}{2} \qquad \text{or} \qquad P_{H_0}\{F \geq \nu\} \leq \frac{\alpha}{2}  \nonumber \\
+	%
+	\text{accept $ H_0 $} \qquad & \text{otherwise} \\
+	%
+	p \text{ value} &= 2 \times \min(P\{F \leq \nu\}, 1 - P\{F \leq \nu\})
+\end{align}
+
+\section{Weibull distribution in life testing}
+
+Moving away from the simplistic constant value of hazard rate function, a commonly encountered real-world functional form for \(\lambda(t)\) is
+
+\begin{align}
+	\lambda(t) &= \alpha \beta \ t^{\beta - 1} \qquad \qquad \alpha, \beta, t > 0 \\
+	%
+	F(t) &= 1 - \exp \left[ -\alpha t^{\beta} \right] \\
+	%
+	f(t) &= \alpha \beta t^{\beta - 1}\ \exp \left[ -\alpha t^\beta \right]
+\end{align}
+
+\textit{Parameter estimation by maximum likelihood} : Consider \(n\) IID Weibull RVs \(\{X_1, \dots, X_n\}\)  being used to estimate the parameters \(\alpha, \beta\) of the Weibull distribution. The MLE approach yields
+
+\begin{align}
+	\widehat{\alpha} &= \ddfrac{n}{\sum x_i^{\widehat{\beta}}} & n + \widehat{\beta}\ \log\left( \prod x_i \right) &= \ddfrac{n \widehat{\beta} \sum x_i^{\widehat{\beta}}\ \log x_i}{\sum x_i^{\widehat{\beta}}}
+\end{align}
+
+The MLE estimators are unfortunately not closed-form and need to be solved for numerically.
+
+\textit{Parameter estimation by least squares} : Given \(n\) IID Weibull RVs, and an ordered set of sample values \(X_{(i)}\),
+
+\begin{align}
+	F(x) &= 1 - \exp \left[ -\alpha x^{\beta} \right] \\
+	%
+	\log \log \left[ \frac{1}{1 - F(x)} \right] &= \beta \log x + \log \alpha
+\end{align}
+
+If the LHS above can be approximated using \(y_i\), then a linear regression problem can be set up to yield approximate values \(\widehat{\alpha},\ \widehat{\beta}\). Multiple methods of estimating \(y_i\) exist, with no real winner in terms of computation time or accuracy.

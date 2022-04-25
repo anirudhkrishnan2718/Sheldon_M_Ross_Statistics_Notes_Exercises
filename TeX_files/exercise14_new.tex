@@ -1,0 +1,334 @@
+\chapter{Life Testing}
+
+\begin{enumerate}
+
+	\item Weibull RV with parameters \(\alpha, \beta\)
+	\begin{align}
+		F(t) &= 1 - \exp \left[  -\alpha t^{\beta}  \right] \qquad \qquad t \geq 0 \nonumber \\[1ex]
+		%
+		\lambda(t) &= \ddfrac{f(t)}{1 - F(t)} = \ddfrac{\alpha \beta \ t^{\beta - 1} \exp \left[  -\alpha t^{\beta}  \right] }{ \exp \left[  -\alpha t^{\beta}  \right] } \nonumber\\[1ex]
+		%
+		&= \alpha \beta \ t^{\beta - 1}
+	\end{align}
+
+	\item Two RVs \(X, Y\) with respective failure rate functions \(\lambda_x (t), \lambda_y (t)\). Their minimum is \(Z\)
+	\begin{align}
+		Z &\equiv \min (X, Y) \nonumber \\
+		%
+		P\{Z > t\} &= P\{X > t\} \times P\{Y > t\} \\
+		%
+		\left[ 1 - F_z (t) \right] &= \left[ 1 - F_x (t) \right]\ \left[ 1 - F_y (t) \right] \nonumber \\
+		%
+		f_z (t) &= \frac{\mathrm{d}}{\mathrm{d}t}\ F_z (t) = f_x (t)\left[ 1 - F_y (t) \right] + f_y (t) \left[ 1 - F_x (t) \right] \\
+		%
+		\lambda_z (t) &= \lambda_x (t) + \lambda_y (t)
+	\end{align}
+
+	\item Given failure rate function \(\lambda (t)\),
+	\begin{align}
+		\lambda (t) &= 0.027 + 0.025 \ \left( \frac{t - 40}{10} \right)^4 \\
+		%
+		F(t) &= 1 - \exp \left[ -\int\limits_0^t \lambda(s) \ \mathrm{d}s \right]  \nonumber \\
+		%
+		&= 1 - \exp \left[\ -0.027 t - 0.05 \left( \frac{t - 40}{10} \right)^5 \ \right] \nonumber \\
+		%
+		P\{t \geq 50\ |\ t > 40\} &= \frac{1 - F(50)}{1 - F(40)} = 72.6\% \\
+		%
+		P\{t \geq 60\ |\ t > 40\} &= 11.7\% \\
+		%
+		P\{t \geq 70\ |\ t > 40\} &= 0.0002\% \\
+	\end{align}
+
+	\item Given \(\lambda (t) = t^3\)
+	\begin{align}
+		1 - F(2) &= \exp \left[ -\int\limits_0^2 \lambda(s) \ \mathrm{d}s \right] =  \exp \left[ \left( \frac{t^4}{4} \right) \Big|_2^0 \right] \nonumber \\
+		%
+		&= 1.83\% \\
+		%
+		F(1.4) - F(0.4) &= 99.36\% - 38.27\% = 61.09\% \\
+		%
+		\mathbb{E}[T] &= \int\limits_0^\infty \left[ 1 - F(t) \right]\ \mathrm{d}t = \frac{1}{4}\ (-0.25^{-0.25}) \Gamma(1/4) \nonumber\\
+		%
+		&= 1.28 \\
+		%
+		P \{t \geq 2 \ |\ t > 1\} &= 2.35\%
+	\end{align}
+
+	\item Failure rate is non-decreasing in \(t\), called IFR
+	\begin{align}
+		f(t) &= \lambda e^{-\lambda t} (\lambda t)^{\alpha - 1} \nonumber\\[1ex]
+		%
+		\lambda (t) &= \ddfrac{\lambda e^{-\lambda t} (\lambda t)^{\alpha - 1}}{\int\limits_t^{\infty} \lambda e^{-\lambda s} (\lambda s)^{\alpha - 1} \ \mathrm{d}s} \\[1ex]
+		%
+		&= \left[ \ \int\limits_t^{\infty} e^{-\lambda (s-t)} \ (s/t)^{\alpha - 1}\ \mathrm{d}s \ \right]^{-1} \\[1ex]
+		%
+		&= \left[ \ \int\limits_0^{\infty} e^{-\lambda v} \ (1 + v/t)^{\alpha - 1}\ \mathrm{d}v \ \right]^{-1}
+	\end{align}
+
+	The above integrand is decreasing in \(t\) if \(\alpha - 1 > 0\). This implies an IFR for \(\alpha > 1\). The first expression is a special case of \(\alpha = 2\) and is thus also IFR.
+
+	\item Uniform RV on \([a, b]\) is IFR
+	\begin{align}
+		f(t) &= \frac{1}{(b-a)} \qquad \forall \ x \in (a, b) \nonumber\\[1ex]
+		%
+		\lambda (t) &= \frac{1}{(b-t)}  \qquad \forall \ t \in (a, b) \\[1ex]
+	\end{align}
+
+	Clearly, since \(t < b\), the failure rate is increasing in \(t\)
+
+	\item Consider the bar chart to be composed of horizontal bars first \(\{h_j\}\) and then vertical bars \(\{v_k\}\)
+	\begin{align}
+		h_1 &= n \times \left[ X_{(1)} - X_{(0)} \right] \nonumber \\
+		%
+		h_r &= (n-r+1) \times \left[ X_{(r)} - X_{(r-1)} \right] \nonumber \\
+		%
+		\text{Area under curve} &= \sum_j\ h_j \\
+		%
+		v_1 &= X_{(1)} \nonumber \\
+		%
+		v_k &= X_{(r)} \qquad \forall \ k \geq r \nonumber \\
+		%
+		\text{Area under curve} &= \sum_k\ v_k \\
+	\end{align}
+
+	The area under the curve is thus equal to both \(\sum\limits_{j=1}^{r} X_{(j)} + (n-r)X_{(r)} \) and also to \(\tau\).
+
+	\item Performing the simultaneous start test and stopping at \(r\) failures,
+
+		\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+		\toprule
+		\multicolumn{2}{c}{\texttt{Stopping at \emph{r} failures}} \\
+		\midrule
+		Total items ($n$)            &       30 \\
+		Number failed ($r$)          &       10 \\
+		Total time on test ($\tau$)  &  1541.50 \\
+		MLE of mean ($\widehat{\theta}$) &   154.15 \\
+		Stop time ($T$)              &    62.20 \\
+		$p$ value \%                 &     0.00 \\
+		\bottomrule
+		\end{tabular}
+		\end{table}
+		\bigskip
+
+		Confidence interval of 0.95 \% for the mean lifetime is [90.23, 321.45]
+
+		Hypothesis test for $\theta_0$ = 7.5 is rejected
+
+		Lower confidence interval of 95 \% for the mean lifetime is \((-\infty, 284.13]\)
+		
+	\item Placeholder P9
+	
+	\item Performing the simultaneous start test and stopping at \(r\) failures,
+	
+		Hypothesis test for $\theta_0$ = 10 is accepted
+
+		\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+		\toprule
+		\multicolumn{2}{c}{\texttt{Stopping at \emph{r} failures}} \\
+		\midrule
+		Total items ($n$)            &     20 \\
+		Number failed ($r$)          &      8 \\
+		Total time on test ($\tau$)  &  44.31 \\
+		MLE of mean ($\widehat{\theta}$) &   5.54 \\
+		Stop time ($T$)              &   2.72 \\
+		$p$ value \%                 &  16.20 \\
+		\bottomrule
+		\end{tabular}
+		\end{table}
+		\bigskip
+
+	\item Using the exact formula for the mean and variance of the testing period \(T\)
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+		\toprule
+		\multicolumn{2}{c}{\texttt{Statistics of testing period}} \\
+		\midrule
+		Total items ($n$)             &     20 \\
+		Number failed ($r$)           &     10 \\
+		Mean lifetime ($\theta$)      &  10.00 \\
+		Test Period mean (exact)      &   6.69 \\
+		Test Period variance (exact)  &   4.64 \\
+		\bottomrule
+		\end{tabular}
+		\end{table}
+		\bigskip
+	
+	\item Using the approximate formula for the mean testing period
+	\begin{align}
+		\mathbb{E}[X_{(r)}] &\approxeq \log\left( \frac{n}{n-r+1} \right) \\[1ex]
+		%
+		3 &= \theta\ \log\left( \frac{n}{n - 9} \right) \nonumber \\[1ex]
+		%
+		9/n &= 1 - \exp(-3/20) \nonumber \\
+		%
+		n &= 64.6
+	\end{align}
+
+	A minimum of 65 items need to be tested simultaneously.
+	
+	\item Performing the sequential test,
+
+	Confidence interval of 95 \% for the mean lifetime is [12.13, 32.8]
+
+	Hypothesis test for $\theta_0$ = 20 is accepted
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{@{}lr@{}}
+	\toprule
+	\multicolumn{2}{c}{\texttt{Stopping at fixed time}} \\
+	\midrule
+	Number failed ($r$)          &      16 \\
+	Total time on test ($T$)     &  300.00 \\
+	MLE of mean ($\widehat{\theta}$) &   18.75 \\
+	$p$ value \%                 &   86.38 \\
+	\bottomrule
+	\end{tabular}
+
+	\end{table}
+	\bigskip
+	
+	\item Inter arrival times are IID exponential RVs. The resulting process is a Poisson RV
+	
+	Using the results from sequential testing with fixed stopping time \(T\)
+
+	\begin{align}
+		P\{N(x/2) \geq n\} &= P\{X_1 + \dots + X_n \leq x/2\}
+	\end{align}
+
+	The sum of the first \(n\) inter-arrival times have to be smaller than \(x/2\) for the Poisson process to yield an integer not smaller than \(n\) after time \(x/2\) elapses.
+
+	\begin{align}
+		\sum\limits_{j=1}^{n} X_j &\sim \texttt{Gamma}(n, 1/\theta) \nonumber \\[1ex]
+		%
+		&\sim \frac{\theta}{2}\ \chi^2_{2n} \nonumber \\[1ex]
+		%
+		P\{N(x/2) \geq n\} &= P\left\{ \frac{\theta}{2}\ \chi^2_{2n} \leq x/2 \right\}
+	\end{align}
+
+	Thus, the RHS can be rearranged to be the CDF of a \(\chi^2\) RV with \(2n\) DOF.
+	
+	\item First consider the case when time \(T\) elapses and the test stops before \(r\) failures. Let the number of failures be \(k < r\). The observations \(\{x_i\}\) indicate the failure times.
+	
+	The differences between successive elements of \(\{x_i\}\) are the lifetimes of each item.
+
+	\begin{align}
+		\mathcal{L}(x_1, \dots, x_r\ |\ \theta) &= \prod_{i=1}^{k} \frac{1}{\theta} \exp\left[ \frac{-(x_i - x_{i-1})}{\theta} \right] \times P\left\{ x_{k+1} > T  \right\} \\[1ex]
+		%
+		&= \frac{1}{\theta^k}\ \exp \left[ \frac{- (x_k - x_0)}{\theta} \right] \times \exp \left[ \displaystyle\frac{- (T - x_k)}{\theta} \right] \\[1ex]
+		%
+		&= \theta^{-k} \exp \left\{ \frac{-T}{\theta} \right\} \\[1ex]
+		%
+		\frac{\mathrm{d}}{\mathrm{d}\theta} \ \log (\mathcal{L}) &= 0 = \frac{-k}{\theta} + \frac{T}{\theta^2} \nonumber \\[1ex]
+		%
+		\widehat{\theta} &= T/k = \frac{\text{total duration of test}}{\text{number of failures}}
+	\end{align}
+
+	Next consider the case where the test stops because all \(r\) items have failed before time \(T\)
+
+	\begin{align}
+		\mathcal{L}(x_1, \dots, x_r\ |\ \theta) &= \prod_{i=1}^{r} \frac{1}{\theta} \exp\left[ \frac{-(x_i - x_{i-1})}{\theta} \right] \\[1ex]
+		%
+		&= \frac{1}{\theta^r}\ \exp \left[ \frac{- (x_r - x_0)}{\theta} \right] \\[1ex]
+		%
+		&= \theta^{-r} \exp \left\{ \frac{-x_r}{\theta} \right\} \\[1ex]
+		%
+		\frac{\mathrm{d}}{\mathrm{d}\theta} \ \log (\mathcal{L}) &= 0 = \frac{-r}{\theta} + \frac{x_r}{\theta^2} \nonumber \\[1ex]
+		%
+		\widehat{\theta} &= x_r/k = \frac{\text{total duration of test}}{\text{number of failures}}
+	\end{align}
+
+	In both cases the general formula does hold, as seen in the last step.
+	
+	\item Find MLE given likelihood function
+	
+	\begin{align}
+		\mathcal{L} &= \frac{K}{\theta^r}\ \exp \left[ \frac{-1}{\theta}\ \left( \sum\limits_{i=1}^r x_i + \sum\limits_{j = 1}^s y_j  \right) \right] \\[1ex]
+		%
+		&= \frac{K}{\theta^r}\ \exp \left[ \frac{-\tau}{\theta} \right] \\[1ex]
+		%
+		\frac{\mathrm{d}}{\mathrm{d}\theta} \ \log (\mathcal{L}) &= 0 = \frac{-r}{\theta} + \frac{\tau}{\theta^2} \nonumber \\[1ex]
+		%
+		\widehat{\theta} &= \frac{\tau}{r} = \frac{1}{r}\ \left( \sum\limits_{i=1}^r x_i + \sum\limits_{j = 1}^s y_j  \right)
+	\end{align}
+	
+	\item Performing the sequential test with panel size 5
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+		\toprule
+		\multicolumn{2}{c}{\texttt{Stopping at fixed time}}
+		 \\
+		\midrule
+		Number failed ($r$)          &       9 \\
+		Total time on test ($T$)     &  764.00 \\
+		MLE of mean ($\widehat{\theta}$) &   84.89 \\
+		\bottomrule
+		\end{tabular}
+		
+		\end{table}
+		\bigskip
+	
+	\item Using the general rule for the MLE of \(\theta\)
+	
+	\begin{align}
+		\widehat{\theta} &= \frac{\text{total time on test}}{\text{number of failures}} \\
+		%
+		&= \frac{702}{12} = 58.57 \nonumber
+	\end{align}
+
+	\item Data from Problem 17, Prior distribution is \texttt{Gamma}(1, 100)
+	
+	\begin{align}
+		g(\lambda) &= \texttt{Gamma}(a, b) \\[1ex]
+		%
+		\mathbb{E}[\lambda\ |\ \text{data}] &= \frac{b+R}{a+\tau} \nonumber\\[1ex]
+		%
+		&= \frac{100 + 9}{1 + 764} = 0.1425
+	\end{align}
+	
+	\item Data from Problem 18, Prior distribution is \texttt{Expon}(\(\lambda = 30\))
+	
+	\begin{align}
+		f(\lambda\ |\ \text{data}) &= \frac{\lambda^r e^{-\lambda t} g(\lambda)}{\int \lambda^r e^{-\lambda t} g(\lambda)\ \mathrm{d} \lambda} \nonumber \\[1ex]
+		%
+		&= \frac{\lambda^{r} e^{- (\lambda) t}}{\int  \lambda^{r} e^{- (\lambda) t}\ \mathrm{d} \lambda} \nonumber \\[1ex]
+		%
+		&= \frac{(t)^{r+1}\ \lambda^{r} e^{-\lambda t}}{(r)!} \nonumber \\[1ex]
+		%
+		&= \texttt{Gamma}(r+1, t) \\
+		%
+		\mathbb{E}[f(\lambda\ |\ \text{data})] &= \frac{r+1}{t} = 0.0185 \\[1ex]
+		%
+		\lambda_b &= 54.08
+	\end{align}
+
+	\item Performing the two sample test for equality of the exponential RV means, null hypothesis is accepted
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{@{}lr@{}}
+		\toprule
+		\multicolumn{2}{c}{\texttt{Two sample problem}}
+		 \\
+		\midrule
+		Sample A size ($n$)              &       7 \\
+		Sample B size ($m$)              &       7 \\
+		Mean Lifetime A ($\overline{X}$) &  123.17 \\
+		Mean Lifetime B ($\overline{Y}$) &   89.51 \\
+		Test Statistic (F Test)          &    1.38 \\
+		$p$ vlaue \%                     &    68.43 \\
+		\bottomrule
+		\end{tabular}
+		
+		\end{table}
+		\bigskip
+\end{enumerate}
+
